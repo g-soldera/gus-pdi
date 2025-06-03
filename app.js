@@ -154,6 +154,26 @@ document.addEventListener('DOMContentLoaded', function() {
     updateDaysRemaining();
 });
 
+
+function calculateDaysRemaining() {
+    const targetDate = new Date('2026-06-01'); 
+    const currentDate = new Date();
+    
+    const diffTime = targetDate.getTime() - currentDate.getTime();
+    const daysRemaining = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+    
+    return daysRemaining;
+}
+
+function updateDaysRemaining() {
+    const daysRemaining = calculateDaysRemaining();
+    const element = document.getElementById('timeline-days-remaining');
+    
+    if (element) {
+        element.textContent = daysRemaining;
+    }
+}
+
 // Event Listeners Setup
 function setupEventListeners() {
     // Skills card flip
@@ -484,23 +504,4 @@ function setLastUpdateDate() {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = new Date().toLocaleDateString('pt-BR', options);
     document.getElementById('last-update').textContent = formattedDate;
-}
-
-function calculateDaysRemaining() {
-    const targetDate = new Date('2026-06-01'); 
-    const currentDate = new Date();
-    
-    const diffTime = targetDate.getTime() - currentDate.getTime();
-    const daysRemaining = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
-    
-    return daysRemaining;
-}
-
-function updateDaysRemaining() {
-    const daysRemaining = calculateDaysRemaining();
-    const element = document.getElementById('timeline-days-remaining');
-    
-    if (element) {
-        element.textContent = daysRemaining;
-    }
 }
