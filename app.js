@@ -84,7 +84,7 @@ const userData = {
             title: "Plataforma Front-end do Time",
             description: "Primeira plataforma front-end desenvolvida no time",
             status: "em_desenvolvimento",
-            technologies: ["Javascript", "AWS", "Terraform", "Angular"]
+            technologies: ["HTML/CSS", "Javascript", "Sass", "AWS", "Terraform", "Angular"]
         },
         {
             title: "Desenvolvimento de tabelas spec e consultorias de democratização",
