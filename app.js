@@ -19,7 +19,7 @@ const userData = {
         {name: "AWS S3", level: 4, description: "Armazenamento de dados na nuvem"},
         {name: "Modelagem de Dados", level: 4, description: "Design e estruturação de modelos"},
         {name: "LLM e Agentes", level: 4, description: "Criação de soluções com IA"},
-        {name: "Documentação Técnica", level: 5, description: "Doc Advocate especializado"}
+        {name: "Documentação Técnica", level: 4, description: "Doc Advocate especializado"}
     ],
     soft_skills: [
         {name: "Liderança", level: 4, description: "Capacidade de guiar equipes"},
@@ -259,7 +259,7 @@ function updateProgressStats() {
     const overallProgress = Math.round(userData.milestones.reduce((sum, m) => sum + m.progress, 0) / totalMilestones);
     
     // Calculate days remaining
-    const targetDate = new Date('2026-06-03'); // 12 months from the current date
+    const targetDate = new Date('2026-06-03');
     const currentDate = new Date();
     const daysRemaining = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
     
