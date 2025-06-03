@@ -25,9 +25,9 @@ const userData = {
         {name: "Liderança", level: 4, description: "Capacidade de guiar equipes"},
         {name: "Apresentação", level: 4, description: "Comunicação para audiências"},
         {name: "Comunicação Verbal", level: 4, description: "Expressão oral clara"},
+        {name: "Gestão de Conflitos", level: 3, description: "Resolução de divergências"},
         {name: "Escuta Ativa", level: 2, description: "Área prioritária de desenvolvimento"},
-        {name: "Empatia na Comunicação", level: 2, description: "Considerar perspectiva dos outros"},
-        {name: "Gestão de Conflitos", level: 3, description: "Resolução de divergências"}
+        {name: "Empatia na Comunicação", level: 2, description: "Considerar perspectiva dos outros"}
     ],
     milestones: [
         {
