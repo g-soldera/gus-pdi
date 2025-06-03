@@ -122,6 +122,12 @@ const userData = {
             description: "Padrão de visual para dashboards de Cyber Defense",
             status: "concluido",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
+        },
+        {
+            title: "Observability360",
+            description: "Padrão de visual para dashboards de indicadores da comunidade",
+            status: "concluido",
+            technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         }
     ],
     learning_resources: [
