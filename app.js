@@ -40,6 +40,14 @@ const userData = {
         },
         {
             id: 2,
+            title: "Soft Skills",
+            description: "Melhorar escuta ativa e empatia",
+            deadline: "Setembro 2025",
+            status: "em_progresso",
+            progress: 30
+        },
+        {
+            id: 3,
             title: "Liderar Projetos de Impacto",
             description: "Liderar pelo menos 2 projetos significativos",
             deadline: "Dezembro 2025",
@@ -47,15 +55,15 @@ const userData = {
             progress: 25
         },
         {
-            id: 3,
+            id: 4,
             title: "Mentorar Colegas",
-            description: "Orientar membros júnior da equipe",
+            description: "Orientar membros da equipe/comunidade que queiram se aperfeiçoar na área",
             deadline: "Outubro 2025",
             status: "nao_iniciado",
             progress: 0
         },
         {
-            id: 4,
+            id: 5,
             title: "Workshops e Palestras",
             description: "Apresentar 3 workshops/palestras internas",
             deadline: "Novembro 2025",
@@ -63,21 +71,13 @@ const userData = {
             progress: 0
         },
         {
-            id: 5,
+            id: 6,
             title: "Decisões Estratégicas",
             description: "Participar ativamente de tomadas de decisão",
             deadline: "Dezembro 2025",
-            status: "em_progresso",
-            progress: 15
+            status: "nao_iniciado",
+            progress: 0
         },
-        {
-            id: 6,
-            title: "Soft Skills",
-            description: "Melhorar escuta ativa e empatia",
-            deadline: "Setembro 2025",
-            status: "em_progresso",
-            progress: 30
-        }
     ],
     portfolio: [
         {
@@ -96,15 +96,15 @@ const userData = {
             title: "Padronização de Dashboards",
             description: "Liderando padronização de design na comunidade cyber security",
             status: "em_progresso",
-            technologies: ["QuickSight", "Figma", "Design Systems"]
+            technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         }
     ],
     learning_resources: [
-        "Curso de Comunicação Não-Violenta",
         "Certificação Analytics Engineer",
         "Workshops de Liderança Técnica",
         "Mentoria com Senior Engineers",
-        "Livros sobre AHSD e Comunicação"
+        "Curso de Comunicação Não-Violenta",
+        "Livros sobre Comunicação"
     ]
 };
 
