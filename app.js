@@ -498,7 +498,7 @@ function calculateDaysRemaining() {
 
 function updateDaysRemaining() {
     const daysRemaining = calculateDaysRemaining();
-    const element = document.getElementById('days-remaining');
+    const element = document.getElementById('timeline-days-remaining');
     
     if (element) {
         element.textContent = daysRemaining;
