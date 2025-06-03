@@ -107,7 +107,7 @@ const userData = {
         },
         {
             title: "Padronização de Dashboards",
-            description: "Liderando padronização de design na comunidade cyber security",
+            description: "Apoiando times na modernização e liderando padronização de design na comunidade Cyber Security",
             status: "em_progresso",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         },
@@ -370,11 +370,13 @@ function renderPortfolio() {
         const statusText = getPortfolioStatusText(project.status);
         
         portfolioItem.innerHTML = `
+        <div>
             <div class="portfolio-header">
                 <h4 class="portfolio-title">${project.title}</h4>
                 <span class="portfolio-status ${statusClass}">${statusText}</span>
             </div>
             <p class="portfolio-description">${project.description}</p>
+        </div>
             <div class="portfolio-tech">
                 ${techTags}
             </div>
