@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDI - Gustavo Soldera</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header/Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__profile">
+                    <div class="profile-picture">
+                        <div class="profile-initial">GS</div>
+                    </div>
+                    <div class="hero__info">
+                        <h1 class="hero__name">Gustavo Soldera</h1>
+                        <p class="hero__current-role">Anl Eng TI (Junior) - Itaú Unibanco</p>
+                        <p class="hero__tagline">Transformando dados em insights, evoluindo para Engenheiro de Analytics Pleno</p>
+                    </div>
+                </div>
+                <div class="hero__timeline">
+                    <div class="timeline">
+                        <div class="timeline__item active">
+                            <div class="timeline__marker"></div>
+                            <div class="timeline__content">
+                                <h4>Junior</h4>
+                                <span>Atual</span>
+                            </div>
+                        </div>
+                        <div class="timeline__line"></div>
+                        <div class="timeline__item target">
+                            <div class="timeline__marker"></div>
+                            <div class="timeline__content">
+                                <h4>Pleno</h4>
+                                <span>Meta: 14 meses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Overview -->
+    <section class="progress-overview">
+        <div class="container">
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="overall-progress">42</div>
+                    <div class="stat-label">Progresso Geral</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="completed-milestones">2</div>
+                    <div class="stat-label">Marcos Completos</div>
+                    <div class="stat-unit">/6</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="days-remaining">215</div>
+                    <div class="stat-label">Dias Restantes</div>
+                    <div class="stat-unit">dias</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Competências Atuais</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h3>Hard Skills</h3>
+                    <div class="skills-list" id="hard-skills">
+                        <!-- Hard skills will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skills-list" id="soft-skills">
+                        <!-- Soft skills will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="milestones-section">
+        <div class="container">
+            <h2 class="section-title">Marcos para Analytics Pleno</h2>
+            <div class="milestones-grid" id="milestones-grid">
+                <!-- Milestones will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Portfolio & Projetos</h2>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Portfolio items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Resources -->
+    <section class="learning-section">
+        <div class="container">
+            <h2 class="section-title">Recursos de Aprendizado</h2>
+            <div class="learning-resources" id="learning-resources">
+                <!-- Learning resources will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Notes Section
+    <section class="notes-section">
+        <div class="container">
+            <h2 class="section-title">Reflexões e Atualizações</h2>
+            <div class="notes-container">
+                <textarea 
+                    id="notes-area" 
+                    class="form-control notes-textarea" 
+                    placeholder="Adicione suas reflexões sobre o desenvolvimento, aprendizados recentes, desafios enfrentados..."
+                    rows="6"
+                >Iniciando minha jornada para Analytics Pleno. Focando em melhorar minhas soft skills, especialmente escuta ativa. O projeto de front-end está sendo uma ótima oportunidade para demonstrar liderança técnica.</textarea>
+                <button class="btn btn--primary" onclick="saveNotes()">Salvar Reflexões</button>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <h4>Gustavo Soldera</h4>
+                    <p>Analytics Engineer em desenvolvimento</p>
+                    <p>Última atualização: <span id="last-update"></span></p>
+                </div>
+                <div class="footer__motivation">
+                    <blockquote>
+                        "O crescimento acontece quando saímos da nossa zona de conforto e abraçamos novos desafios com humildade e determinação."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Milestone Details -->
+    <div id="milestone-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 id="modal-title"></h3>
+                <button class="modal__close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p id="modal-description"></p>
+                <div class="modal__progress">
+                    <label>Progresso Atual:</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="modal-progress-fill"></div>
+                    </div>
+                    <span id="modal-progress-text"></span>
+                </div>
+                <div class="modal__actions">
+                    <button class="btn btn--secondary" onclick="updateProgress(-10)">-10%</button>
+                    <button class="btn btn--secondary" onclick="updateProgress(10)">+10%</button>
+                    <button class="btn btn--primary" onclick="markComplete()">Marcar Completo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
