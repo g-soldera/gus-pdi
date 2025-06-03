@@ -688,6 +688,13 @@ select.form-control {
     border: 3px solid var(--color-surface);
 }
 
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .profile-initial {
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
