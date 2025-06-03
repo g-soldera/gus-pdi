@@ -107,7 +107,7 @@ const userData = {
         },
         {
             title: "Padronização de Dashboards",
-            description: "Apoiando times na modernização e liderando padronização de design na comunidade Cyber Security",
+            description: "Apoiando times na modernização e liderando padronização de design de dashboards na comunidade Cyber Security",
             status: "em_progresso",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         },
