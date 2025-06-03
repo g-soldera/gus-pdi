@@ -8,61 +8,85 @@
 </head>
 <body>
     <!-- Header/Hero Section -->
-    <header class="hero">
+    <header class="hero-section">
         <div class="container">
-            <div class="hero__content">
-                <div class="hero__profile">
-                    <div class="profile-picture">
-                        <img src="assets/img/profile.jpg" alt="Gustavo Soldera" class="profile-img">
-                        <!-- <div class="profile-initial">GS</div> -->
-                    </div>
-                    <div class="hero__info">
-                        <h1 class="hero__name">Gustavo Soldera</h1>
-                        <p class="hero__current-role">Analista de Engenharia de TI (Junior) - Itaú Unibanco</p>
-                        <p class="hero__tagline">Transformando dados em insights, evoluindo para Engenheiro de Analytics Pleno</p>
-                    </div>
+            <div class="hero-content">
+                <div class="hero-avatar">
+                    <img src="assets/img/profile.jpg" alt="Gustavo Soldera" class="avatar-image">
+                    <!-- <div class="avatar-placeholder">GS</div> -->
                 </div>
-                <div class="hero__timeline">
-                    <div class="timeline">
-                        <div class="timeline__item active">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4>Junior</h4>
-                                <span>Atual</span>
-                            </div>
+                <div class="hero-info">
+                    <h1 class="hero-name">Gustavo Soldera</h1>
+                    <p class="hero-subtitle"><span>23 anos</span><span>•</span><span>Itaú Unibanco</span><span>•</span><span>Cyber Security</span></p>
+                    <div class="hero-roles">
+                        <div class="role-current">
+                            <span class="role-label">Atual:</span>
+                            <span class="role-text">Analista de Engenharia de TI (Junior)</span>
                         </div>
-                        <div class="timeline__line"></div>
-                        <div class="timeline__item target">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4>Pleno</h4>
-                                <span>Meta: 12 meses</span>
-                            </div>
+                        <div class="role-arrow">→</div>
+                        <div class="role-target">
+                            <span class="role-label">Meta:</span>
+                            <span class="role-text">Engenheiro de Analytics Pleno</span>
                         </div>
+                    </div>
+                    <div class="hero-timeline">
+                        <span class="timeline-text">Estimativa: 12 meses</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Progress Overview -->
-    <section class="progress-overview">
+    <!-- Statistics Section -->
+    <section class="stats-section">
         <div class="container">
-            <div class="progress-stats">
+            <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" id="overall-progress">42</div>
-                    <div class="stat-label">Progresso Geral</div>
-                    <div class="stat-unit">%</div>
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="overall-progress">0%</h3>
+                        <p class="stat-label">Progresso Geral</p>
+                    </div>
                 </div>
+                
                 <div class="stat-card">
-                    <div class="stat-number" id="completed-milestones">2</div>
-                    <div class="stat-label">Marcos Completos</div>
-                    <div class="stat-unit">/6</div>
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="completed-milestones">0/6</h3>
+                        <p class="stat-label">Marcos Completos</p>
+                    </div>
                 </div>
+                
+                <div class="stat-card stat-card--flippable" id="skills-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-card-front">
+                            <div class="stat-icon">💡</div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" id="total-skills">27</h3>
+                                <p class="stat-label">Skills</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-back">
+                            <div class="skills-breakdown">
+                                <div class="skill-type">
+                                    <h4 id="hard-skills-count">18</h4>
+                                    <p>Hard Skills</p>
+                                </div>
+                                <div class="skill-type">
+                                    <h4 id="soft-skills-count">9</h4>
+                                    <p>Soft Skills</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="stat-card">
-                    <div class="stat-number" id="days-remaining">215</div>
-                    <div class="stat-label">Dias Restantes</div>
-                    <div class="stat-unit">dias</div>
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="total-projects">3</h3>
+                        <p class="stat-label">Projetos</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,19 +95,15 @@
     <!-- Skills Section -->
     <section class="skills-section">
         <div class="container">
-            <h2 class="section-title">Competências Atuais</h2>
-            <div class="skills-grid">
-                <div class="skills-category">
-                    <h3>Hard Skills</h3>
-                    <div class="skills-list" id="hard-skills">
-                        <!-- Hard skills will be populated by JavaScript -->
-                    </div>
+            <h2 class="section-title">Competências e Habilidades</h2>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <h3 class="skills-column-title">Hard Skills</h3>
+                    <div class="skills-categories" id="hard-skills-categories"></div>
                 </div>
-                <div class="skills-category">
-                    <h3>Soft Skills</h3>
-                    <div class="skills-list" id="soft-skills">
-                        <!-- Soft skills will be populated by JavaScript -->
-                    </div>
+                <div class="skills-column">
+                    <h3 class="skills-column-title">Soft Skills</h3>
+                    <div class="skills-categories" id="soft-skills-categories"></div>
                 </div>
             </div>
         </div>
@@ -92,9 +112,16 @@
     <!-- Milestones Section -->
     <section class="milestones-section">
         <div class="container">
-            <h2 class="section-title">Marcos para Analytics Pleno</h2>
-            <div class="milestones-grid" id="milestones-grid">
-                <!-- Milestones will be populated by JavaScript -->
+            <div class="milestones-header">
+                <h2 class="section-title">Marcos de Desenvolvimento</h2>
+                <div class="view-switch">
+                    <button class="switch-btn active" data-view="timeline">Timeline</button>
+                    <button class="switch-btn" data-view="cards">Cards</button>
+                </div>
+            </div>
+            <div class="milestones-container">
+                <div class="milestones-timeline" id="milestones-timeline"></div>
+                <div class="milestones-grid hidden" id="milestones-grid"></div>
             </div>
         </div>
     </section>
@@ -102,77 +129,60 @@
     <!-- Portfolio Section -->
     <section class="portfolio-section">
         <div class="container">
-            <h2 class="section-title">Portfolio & Projetos</h2>
-            <div class="portfolio-grid" id="portfolio-grid">
-                <!-- Portfolio items will be populated by JavaScript -->
-            </div>
+            <h2 class="section-title">Portfolio de Projetos</h2>
+            <div class="portfolio-grid" id="portfolio-grid"></div>
         </div>
     </section>
 
-    <!-- Learning Resources -->
+    <!-- Learning Resources Section -->
     <section class="learning-section">
         <div class="container">
             <h2 class="section-title">Recursos de Aprendizado</h2>
-            <div class="learning-resources" id="learning-resources">
-                <!-- Learning resources will be populated by JavaScript -->
-            </div>
+            <div class="learning-grid" id="learning-resources"></div>
         </div>
     </section>
-
-    <!-- Notes Section
-    <section class="notes-section">
-        <div class="container">
-            <h2 class="section-title">Reflexões e Atualizações</h2>
-            <div class="notes-container">
-                <textarea 
-                    id="notes-area" 
-                    class="form-control notes-textarea" 
-                    placeholder="Adicione suas reflexões sobre o desenvolvimento, aprendizados recentes, desafios enfrentados..."
-                    rows="6"
-                >Iniciando minha jornada para Analytics Pleno. Focando em melhorar minhas soft skills, especialmente escuta ativa. O projeto de front-end está sendo uma ótima oportunidade para demonstrar liderança técnica.</textarea>
-                <button class="btn btn--primary" onclick="saveNotes()">Salvar Reflexões</button>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
-                    <h4>Gustavo Soldera</h4>
-                    <p>Analytics Engineer em desenvolvimento</p>
-                    <p>Última atualização: <span id="last-update"></span></p>
-                </div>
-                <div class="footer__motivation">
-                    <blockquote>
-                        "O crescimento acontece quando saímos da nossa zona de conforto e abraçamos novos desafios com humildade e determinação."
-                    </blockquote>
-                </div>
+            <div class="footer-content">
+                <p>Última atualização: <span id="last-update"></span></p>
+                <p>Plano de Desenvolvimento Individual - Gustavo Soldera</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal for Milestone Details -->
-    <div id="milestone-modal" class="modal">
-        <div class="modal__content">
-            <div class="modal__header">
+    <!-- Milestone Modal -->
+    <div class="modal" id="milestone-modal">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h3 id="modal-title"></h3>
-                <button class="modal__close" onclick="closeModal()">&times;</button>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
             </div>
-            <div class="modal__body">
-                <p id="modal-description"></p>
-                <div class="modal__progress">
-                    <label>Progresso Atual:</label>
+            <div class="modal-body">
+                <p class="modal-description" id="modal-description"></p>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Prazo:</span>
+                        <span class="detail-value" id="modal-deadline"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dias Restantes:</span>
+                        <span class="detail-value" id="modal-days-remaining"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" id="modal-status"></span>
+                    </div>
+                </div>
+                <div class="modal-progress">
+                    <div class="progress-label">
+                        <span>Progresso</span>
+                        <span id="modal-progress-text">0%</span>
+                    </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="modal-progress-fill"></div>
                     </div>
-                    <span id="modal-progress-text"></span>
-                </div>
-                <div class="modal__actions">
-                    <button class="btn btn--secondary" onclick="updateProgress(-10)">-10%</button>
-                    <button class="btn btn--secondary" onclick="updateProgress(10)">+10%</button>
-                    <button class="btn btn--primary" onclick="markComplete()">Marcar Completo</button>
                 </div>
             </div>
         </div>
