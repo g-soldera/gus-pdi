@@ -1330,103 +1330,137 @@ select.form-control {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-20);
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+  display: block;
 }
 
 .modal-content {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  width: 100%;
+  background-color: var(--color-surface);
+  margin: 15% auto;
+  padding: var(--space-24);
+  border: 1px solid var(--color-border);
+  width: 80%;
   max-width: 500px;
-  max-height: 90vh;
+  max-height: 70vh;
   overflow-y: auto;
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-24);
-  border-bottom: 1px solid var(--color-border);
+/* Estilizar a barra de rolagem */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
 }
 
-.modal-header h3 {
-  margin: 0;
-  color: var(--color-text);
+.modal-content::-webkit-scrollbar-track {
+  background: var(--color-secondary-light);
+  border-radius: 4px;
 }
 
-.modal-close {
-  background: none;
-  border: none;
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+.close {
+  color: var(--color-text-secondary);
+  float: right;
   font-size: var(--font-size-2xl);
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--color-text);
+  text-decoration: none;
   cursor: pointer;
-  color: var(--color-text-secondary);
-  padding: 0;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-base);
-  transition: all var(--duration-fast) var(--ease-standard);
 }
 
-.modal-close:hover {
-  background: var(--color-secondary);
+.resources-list {
+  margin-top: var(--space-16);
+}
+
+.resource-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  margin-bottom: var(--space-16);
+  box-shadow: var(--shadow-sm);
+}
+
+.resource-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-8);
+}
+
+.resource-name {
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--space-8) 0;
   color: var(--color-text);
 }
 
-.modal-body {
-  padding: var(--space-24);
-}
-
-.modal-description {
+.resource-description {
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-20);
-  line-height: 1.6;
+  margin: 0 0 var(--space-8) 0;
 }
 
-.modal-details {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
-  margin-bottom: var(--space-20);
-}
-
-.detail-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.detail-label {
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-}
-
-.detail-value {
-  color: var(--color-text-secondary);
-}
-
-.modal-progress {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.resource-status {
+  display: inline-block;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
 }
 
-.progress-label span:last-child {
+.resource-status.em_progresso {
+  background-color: var(--color-primary-light);
   color: var(--color-primary);
+}
+
+.resource-status.nao_iniciado {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary);
+}
+
+.resource-status.concluido {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+/* Estilos para os cards de categorias */
+.category-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  margin-bottom: var(--space-16);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-name {
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--space-8) 0;
+  color: var(--color-text);
+}
+
+.category-description {
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 /* Utility Classes */

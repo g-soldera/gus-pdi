@@ -131,11 +131,90 @@ const userData = {
         }
     ],
     learning_resources: [
-        "Certificação Analytics Engineer",
-        "Workshops de Liderança Técnica",
-        "Mentoria com Senior Engineers",
-        "Curso de Comunicação Não-Violenta",
-        "Livros sobre Comunicação"
+        {
+            id: 1,
+            name: "Livros sobre Comunicação",
+            resources: [
+                { name: "Comunicação Não-Violenta", description: "Um guia para melhorar a comunicação interpessoal.", status: "concluido", image: "assets/img/book1.jpg" },
+                { name: "Como Fazer Amigos e Influenciar Pessoas", description: "Clássico sobre habilidades sociais.", status: "em_progresso", image: "assets/img/book2.jpg" },
+                { name: "Crucial Conversations", description: "Técnicas para lidar com conversas difíceis.", status: "nao_iniciado", image: "assets/img/book3.jpg" }
+            ]
+        },
+        {
+            id: 2,
+            name: "Mentoria com Senior Engineers",
+            resources: [
+                { name: "João Silva", description: "Mentor em arquitetura de sistemas.", status: "em_progresso", image: "assets/img/mentor1.jpg" },
+                { name: "Maria Oliveira", description: "Mentora em desenvolvimento de software.", status: "nao_iniciado", image: "assets/img/mentor2.jpg" }
+            ]
+        },
+        {
+            id: 3,
+            name: "Certificação Analytics Engineer",
+            resources: [
+                { name: "Curso Preparatório", description: "Curso online para preparação da certificação.", status: "em_progresso", image: "assets/img/course1.jpg" }
+            ]
+        },
+        {
+            id: 4,
+            name: "Workshops de Liderança Técnica",
+            resources: [
+                { name: "Workshop Interno", description: "Workshop sobre liderança técnica e gestão de equipes.", status: "nao_iniciado", image: "assets/img/workshop1.jpg" }
+            ]
+        },
+        {
+            id: 5,
+            name: "Livros de Analytics",
+            resources: [
+                { name: "Data Science for Business", description: "Fundamentos de ciência de dados para negócios.", status: "concluido", image: "assets/img/book4.jpg" },
+                { name: "The Art of Data Science", description: "Um guia para análise de dados.", status: "em_progresso", image: "assets/img/book5.jpg" }
+            ]
+        },
+        {
+            id: 6,
+            name: "Curso de DevOps",
+            resources: [
+                { name: "DevOps Fundamentals", description: "Curso introdutório sobre práticas de DevOps.", status: "nao_iniciado", image: "assets/img/course2.jpg" }
+            ]
+        },
+        {
+            id: 7,
+            name: "Certificação de Cloud",
+            resources: [
+                { name: "AWS Certified Solutions Architect", description: "Preparação para a certificação AWS.", status: "em_progresso", image: "assets/img/certification1.jpg" }
+            ]
+        },
+        {
+            id: 8,
+            name: "Certificação de Cyber Security",
+            resources: [
+                { name: "CompTIA Security+", description: "Curso preparatório para a certificação CompTIA Security+.", status: "nao_iniciado", image: "assets/img/certification2.jpg" }
+            ]
+        },
+        {
+            id: 9,
+            name: "Livros de Engenharia de Dados",
+            resources: [
+                { name: "Designing Data-Intensive Applications", description: "Um guia para aplicações intensivas em dados.", status: "concluido", image: "assets/img/book6.jpg" },
+                { name: "Data Mesh", description: "Arquitetura de dados para empresas modernas.", status: "em_progresso", image: "assets/img/book7.jpg" }
+            ]
+        },
+        {
+            id: 10,
+            name: "Livros de Engenharia de Software",
+            resources: [
+                { name: "Clean Code", description: "Um manual de artesanato de software.", status: "concluido", image: "assets/img/book8.jpg" },
+                { name: "The Pragmatic Programmer", description: "Dicas e truques para programadores.", status: "em_progresso", image: "assets/img/book9.jpg" }
+            ]
+        },
+        {
+            id: 11,
+            name: "Livros de Arquitetura de Sistemas",
+            resources: [
+                { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/book10.jpg" },
+                { name: "Domain-Driven Design", description: "Tackling Complexity in the Heart of Software.", status: "em_progresso", image: "assets/img/book11.jpg" }
+            ]
+        }
     ]
 };
 
@@ -415,12 +494,17 @@ function renderPortfolio() {
 // Render Learning Resources
 function renderLearningResources() {
     const container = document.getElementById('learning-resources');
+    container.innerHTML = '';
     
-    userData.learning_resources.forEach(resource => {
-        const resourceCard = document.createElement('div');
-        resourceCard.className = 'resource-card';
-        resourceCard.textContent = resource;
-        container.appendChild(resourceCard);
+    userData.learning_resources.forEach(category => {
+        const categoryCard = document.createElement('div');
+        categoryCard.className = 'category-card';
+        categoryCard.innerHTML = `
+            <h4 class="category-name">${category.name}</h4>
+            <p class="category-description">Clique para ver os recursos disponíveis.</p>
+        `;
+        categoryCard.addEventListener('click', () => openCategoryModal(category));
+        container.appendChild(categoryCard);
     });
 }
 
@@ -576,3 +660,41 @@ function setLastUpdateDate() {
     const formattedDate = new Date().toLocaleDateString('pt-BR', options);
     document.getElementById('last-update').textContent = formattedDate;
 }
+
+// Função para abrir o modal de categoria
+function openCategoryModal(category) {
+    const modal = document.getElementById('category-modal');
+    document.getElementById('category-modal-title').textContent = category.name;
+    const resourcesList = document.getElementById('category-modal-resources');
+    resourcesList.innerHTML = '';
+    
+    category.resources.forEach(resource => {
+        const resourceItem = document.createElement('div');
+        resourceItem.className = 'resource-item';
+        resourceItem.innerHTML = `
+            <img src="${resource.image}" alt="${resource.name}" class="resource-image">
+            <h5 class="resource-name">${resource.name}</h5>
+            <p class="resource-description">${resource.description}</p>
+            <span class="resource-status ${resource.status}">${getStatusText(resource.status)}</span>
+        `;
+        resourcesList.appendChild(resourceItem);
+    });
+    
+    modal.classList.add('show');
+    modal.classList.remove('hidden');
+}
+
+// Função para fechar o modal de categoria
+function closeCategoryModal() {
+    const modal = document.getElementById('category-modal');
+    modal.classList.remove('show');
+    modal.classList.add('hidden');
+}
+
+// Fecha o modal ao clicar fora do conteúdo
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('category-modal');
+    if (event.target === modal) {
+        closeCategoryModal();
+    }
+});
