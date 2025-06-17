@@ -20,6 +20,7 @@
   --color-info: rgba(98, 108, 113, 1);
   --color-focus-ring: rgba(33, 128, 141, 0.4);
   --color-select-caret: rgba(19, 52, 59, 0.8);
+  --color-danger: rgba(220, 53, 69, 1);
 
   /* Common style patterns */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
@@ -34,6 +35,7 @@
   --color-error-rgb: 192, 21, 47;
   --color-warning-rgb: 168, 75, 47;
   --color-info-rgb: 98, 108, 113;
+  --color-danger-rgb: 220, 53, 69;
 
   /* Typography */
   --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
@@ -1623,4 +1625,296 @@ select.form-control {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para o modal dos marcos de desenvolvimento */
+#milestone-modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(19, 52, 59, 0.25);
+    align-items: center;
+    justify-content: center;
+}
+
+#milestone-modal.show {
+    display: flex;
+}
+
+#milestone-modal .modal-content {
+    background: var(--color-surface);
+    margin: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem 2.5rem;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    animation: fadeIn 0.2s;
+}
+
+#milestone-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+#milestone-modal .modal-header h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+}
+
+#milestone-modal .modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#milestone-modal .modal-close:hover {
+    color: var(--color-primary);
+}
+
+#milestone-modal .modal-body {
+    padding: 0;
+}
+
+#milestone-modal .modal-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+#milestone-modal .modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+#milestone-modal .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#milestone-modal .detail-label {
+    color: var(--color-text-secondary);
+}
+
+#milestone-modal .detail-value {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+#milestone-modal .modal-progress {
+    margin-top: 1.2rem;
+}
+
+#milestone-modal .progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#milestone-modal .progress-label span:first-child {
+    color: var(--color-text-secondary);
+}
+
+#milestone-modal .progress-label span:last-child {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+}
+
+#milestone-modal .progress-bar {
+    height: 8px;
+    background: var(--color-secondary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+#milestone-modal .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+    border-radius: var(--radius-sm);
+    transition: width var(--duration-normal) var(--ease-standard);
+}
+
+/* Category Modal Styles */
+#category-modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(19, 52, 59, 0.25);
+    align-items: center;
+    justify-content: center;
+}
+
+#category-modal.show {
+    display: flex;
+}
+
+#category-modal .modal-content {
+    background: var(--color-surface);
+    margin: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem 2.5rem;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    animation: fadeIn 0.2s;
+}
+
+#category-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+#category-modal .modal-header h2 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    color: var(--color-text);
+}
+
+#category-modal .close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-base);
+}
+
+#category-modal .close:hover {
+    color: var(--color-primary);
+}
+
+#category-modal .resources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#category-modal .resource-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+#category-modal .resource-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+#category-modal .resource-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--color-border);
+    transition: border-color 0.2s;
+    background-color: var(--color-secondary);
+}
+
+#category-modal .resource-item:hover .resource-image {
+    border-color: var(--color-primary);
+}
+
+#category-modal .resource-content {
+    flex: 1;
+    min-width: 0;
+}
+
+#category-modal .resource-name {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: 0 0 0.5rem 0;
+}
+
+#category-modal .resource-description {
+    color: var(--color-text-secondary);
+    margin: 0 0 0.8rem 0;
+    line-height: 1.5;
+}
+
+#category-modal .resource-status {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#category-modal .resource-status.concluido {
+    background: rgba(var(--color-success-rgb), 0.1);
+    color: var(--color-success);
+}
+
+#category-modal .resource-status.em_progresso {
+    background: rgba(var(--color-warning-rgb), 0.1);
+    color: var(--color-warning);
+}
+
+#category-modal .resource-status.nao_iniciado {
+    background: rgba(var(--color-info-rgb), 0.1);
+    color: var(--color-info);
+}
+
+#category-modal .resource-status.pausado {
+    background: rgba(var(--color-danger-rgb), 0.1);
+    color: var(--color-danger);
+}
+
+@media (max-width: 768px) {
+    #category-modal .modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    #category-modal .resource-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #category-modal .resource-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
 }

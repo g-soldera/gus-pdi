@@ -202,11 +202,13 @@
         </div>
     </div>
 
-    <!-- Adicionar a estrutura do modal para categorias de recursos de aprendizado -->
-    <div id="category-modal" class="modal hidden">
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeCategoryModal()">&times;</span>
-            <h2 id="category-modal-title"></h2>
+            <div class="modal-header">
+                <h2 id="category-modal-title"></h2>
+                <button class="close" onclick="closeCategoryModal()">&times;</button>
+            </div>
             <div id="category-modal-resources" class="resources-list"></div>
         </div>
     </div>

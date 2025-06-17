@@ -16,31 +16,31 @@ const userData = {
         {name: "HTML/CSS", level: 5, description: "Conhecimento básico para front-end", category: "Desenvolvimento"},
         {name: "JavaScript", level: 4, description: "Programação para web", category: "Desenvolvimento"},
         {name: "Angular", level: 3, description: "Framework front-end para aplicações web", category: "Desenvolvimento"},
-        {name: "Amazon QuickSight", level: 4, description: "Ferramenta de BI do banco", category: "Analytics & BI"},
+        {name: "Amazon QuickSight", level: 5, description: "Ferramenta de BI do banco", category: "Analytics & BI"},
         {name: "PySpark", level: 4, description: "Processamento de big data", category: "Analytics & BI"},
-        {name: "Modelagem de Dados", level: 4, description: "Design e estruturação de modelos", category: "Analytics & BI"},
-        {name: "AWS Glue", level: 4, description: "ETL e integração de dados", category: "Cloud & Data"},
+        {name: "Modelagem de Dados", level: 3, description: "Design e estruturação de modelos", category: "Analytics & BI"},
+        {name: "AWS Glue", level: 5, description: "ETL e integração de dados", category: "Cloud & Data"},
         {name: "AWS S3", level: 4, description: "Armazenamento de dados na nuvem", category: "Cloud & Data"},
         {name: "AWS Step Functions", level: 3, description: "Orquestração de workflows", category: "Cloud & Data"},
         {name: "Terraform", level: 4, description: "Infraestrutura como código", category: "Cloud & Data"},
-        {name: "Kafka/Mensageria", level: 3, description: "Streaming de dados em tempo real", category: "Cloud & Data"},
+        {name: "Kafka/Mensageria", level: 2, description: "Streaming de dados em tempo real", category: "Cloud & Data"},
         {name: "LLM e Agentes", level: 4, description: "Criação de soluções com IA", category: "IA & Inovação"},
         {name: "Kubernetes", level: 3, description: "Gerenciamento de containers", category: "DevOps"},
         {name: "Docker", level: 3, description: "Containerização de aplicações", category: "DevOps"},
         {name: "Figma", level: 4, description: "Ferramenta de design de interfaces", category: "Design & UX"},
         {name: "UX", level: 3, description: "Engenharia de usabilidade", category: "Design & UX"},
-        {name: "Documentação Técnica", level: 4, description: "Doc Advocate especializado", category: "Comunicação"}
+        {name: "Documentação Técnica", level: 5, description: "Doc Advocate", category: "Comunicação"}
     ],
     soft_skills: [
         {name: "Pensamento Crítico", level: 5, description: "Análise e resolução de problemas", category: "Cognitivas"},
         {name: "Liderança", level: 4, description: "Capacidade de guiar equipes", category: "Liderança"},
         {name: "Apresentação", level: 4, description: "Comunicação para audiências", category: "Comunicação"},
         {name: "Comunicação Verbal", level: 4, description: "Expressão oral clara", category: "Comunicação"},
-        {name: "Colaboração", level: 3, description: "Trabalho em equipe eficaz", category: "Relacionais"},
+        {name: "Colaboração", level: 4, description: "Trabalho em equipe eficaz", category: "Relacionais"},
         {name: "Gestão de Conflitos", level: 3, description: "Resolução de divergências", category: "Relacionais"},
-        {name: "Escuta Ativa", level: 2, description: "Área prioritária de desenvolvimento", category: "Comunicação"},
-        {name: "Empatia na Comunicação", level: 2, description: "Considerar perspectiva dos outros", category: "Relacionais"},
-        {name: "Comunicação Não-Violenta", level: 2, description: "Técnicas de comunicação respeitosa", category: "Comunicação"}
+        {name: "Escuta Ativa", level: 3, description: "Área prioritária de desenvolvimento", category: "Comunicação"},
+        {name: "Empatia na Comunicação", level: 3, description: "Considerar perspectiva dos outros", category: "Relacionais"},
+        {name: "Comunicação Não-Violenta", level: 4, description: "Técnicas de comunicação respeitosa", category: "Comunicação"}
     ],
     milestones: [
         {
@@ -49,15 +49,15 @@ const userData = {
             description: "Completar prova de engenheiro de analytics",
             deadline: "2025-08-15",
             status: "em_progresso",
-            progress: 60
+            progress: 80
         },
         {
             id: 2,
             title: "Soft Skills",
-            description: "Receber feedback positivo de pelo menos 2 colegas sobre melhoria na escuta",
+            description: "Receber feedback positivo de pelo menos 3 colegas sobre melhoria na escuta",
             deadline: "2025-09-30",
             status: "em_progresso",
-            progress: 30
+            progress: 66
         },
         {
             id: 3,
@@ -65,7 +65,7 @@ const userData = {
             description: "Liderar pelo menos 2 projetos significativos",
             deadline: "2025-12-31",
             status: "em_progresso",
-            progress: 25
+            progress: 50
         },
         {
             id: 4,
@@ -135,84 +135,84 @@ const userData = {
             id: 1,
             name: "Livros sobre Comunicação",
             resources: [
-                { name: "Comunicação Não-Violenta", description: "Um guia para melhorar a comunicação interpessoal.", status: "concluido", image: "assets/img/book1.jpg" },
-                { name: "Como Fazer Amigos e Influenciar Pessoas", description: "Clássico sobre habilidades sociais.", status: "em_progresso", image: "assets/img/book2.jpg" },
-                { name: "Crucial Conversations", description: "Técnicas para lidar com conversas difíceis.", status: "nao_iniciado", image: "assets/img/book3.jpg" }
+                { name: "Comunicação Não-Violenta", description: "Um guia para melhorar a comunicação interpessoal.", status: "concluido", image: "assets/img/books/cnv.jpg" },
+                { name: "Como Fazer Amigos e Influenciar Pessoas", description: "Clássico sobre habilidades sociais.", status: "em_progresso", image: "assets/img/books/cfaip.jpg" },
+                { name: "Crucial Conversations", description: "Técnicas para lidar com conversas difíceis.", status: "nao_iniciado", image: "assets/img/books/cc.jpg" }
             ]
         },
         {
             id: 2,
             name: "Mentoria com Senior Engineers",
             resources: [
-                { name: "João Silva", description: "Mentor em arquitetura de sistemas.", status: "em_progresso", image: "assets/img/mentor1.jpg" },
-                { name: "Maria Oliveira", description: "Mentora em desenvolvimento de software.", status: "nao_iniciado", image: "assets/img/mentor2.jpg" }
+                { name: "Em breve", description: "Mentor em engenharia de analytics.", status: "nao_iniciado", image: "assets/img/mentor.png" }
             ]
         },
         {
             id: 3,
             name: "Certificação Analytics Engineer",
             resources: [
-                { name: "Curso Preparatório", description: "Curso online para preparação da certificação.", status: "em_progresso", image: "assets/img/course1.jpg" }
+                { name: "Curso Preparatório", description: "Curso online para preparação da certificação.", status: "em_progresso", image: "assets/img/professionalea.webp" }
             ]
         },
         {
             id: 4,
             name: "Workshops de Liderança Técnica",
             resources: [
-                { name: "Workshop Interno", description: "Workshop sobre liderança técnica e gestão de equipes.", status: "nao_iniciado", image: "assets/img/workshop1.jpg" }
+                { name: "Em breve", description: "Workshop sobre liderança técnica e gestão de equipes.", status: "nao_iniciado", image: "assets/img/workshop.png" }
             ]
         },
         {
             id: 5,
             name: "Livros de Analytics",
             resources: [
-                { name: "Data Science for Business", description: "Fundamentos de ciência de dados para negócios.", status: "concluido", image: "assets/img/book4.jpg" },
-                { name: "The Art of Data Science", description: "Um guia para análise de dados.", status: "em_progresso", image: "assets/img/book5.jpg" }
+                { name: "Storytelling with Data", description: "Um guia para apresentação de dados.", status: "concluido", image: "assets/img/books/swd.jpg" },
+                { name: "Data Science for Business", description: "Fundamentos de ciência de dados para negócios.", status: "nao_iniciado", image: "assets/img/books/dsfb.jpg" },
+                { name: "The Art of Data Science", description: "Um guia para análise de dados.", status: "nao_iniciado", image: "assets/img/books/tads.jpg" }
             ]
         },
         {
             id: 6,
             name: "Curso de DevOps",
             resources: [
-                { name: "DevOps Fundamentals", description: "Curso introdutório sobre práticas de DevOps.", status: "nao_iniciado", image: "assets/img/course2.jpg" }
+                { name: "DevOps Fundamentals", description: "Curso introdutório sobre práticas de DevOps.", status: "nao_iniciado", image: "assets/img/devops.jpg" }
             ]
         },
         {
             id: 7,
             name: "Certificação de Cloud",
             resources: [
-                { name: "AWS Certified Solutions Architect", description: "Preparação para a certificação AWS.", status: "em_progresso", image: "assets/img/certification1.jpg" }
+                { name: "AWS Certified Solutions Architect", description: "Preparação para a certificação AWS.", status: "nao_iniciado", image: "assets/img/aws.png" }
             ]
         },
         {
             id: 8,
             name: "Certificação de Cyber Security",
             resources: [
-                { name: "CompTIA Security+", description: "Curso preparatório para a certificação CompTIA Security+.", status: "nao_iniciado", image: "assets/img/certification2.jpg" }
+                { name: "CompTIA Security+", description: "Curso preparatório para a certificação CompTIA Security+.", status: "pausado", image: "assets/img/comptiasec.png" }
             ]
         },
         {
             id: 9,
             name: "Livros de Engenharia de Dados",
             resources: [
-                { name: "Designing Data-Intensive Applications", description: "Um guia para aplicações intensivas em dados.", status: "concluido", image: "assets/img/book6.jpg" },
-                { name: "Data Mesh", description: "Arquitetura de dados para empresas modernas.", status: "em_progresso", image: "assets/img/book7.jpg" }
+                { name: "Designing Data-Intensive Applications", description: "Um guia para aplicações intensivas em dados.", status: "nao_iniciado", image: "assets/img/books/ddia.jpg" },
+                { name: "Data Mesh", description: "Arquitetura de dados para empresas modernas.", status: "nao_iniciado", image: "assets/img/books/dm.jpg" }
             ]
         },
         {
             id: 10,
             name: "Livros de Engenharia de Software",
             resources: [
-                { name: "Clean Code", description: "Um manual de artesanato de software.", status: "concluido", image: "assets/img/book8.jpg" },
-                { name: "The Pragmatic Programmer", description: "Dicas e truques para programadores.", status: "em_progresso", image: "assets/img/book9.jpg" }
+                { name: "Clean Code", description: "Um manual de artesanato de software.", status: "nao_iniciado", image: "assets/img/books/cco.jpg" },
+                { name: "The Pragmatic Programmer", description: "Dicas e truques para programadores.", status: "nao_iniciado", image: "assets/img/books/tpp.jpg" }
             ]
         },
         {
             id: 11,
             name: "Livros de Arquitetura de Sistemas",
             resources: [
-                { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/book10.jpg" },
-                { name: "Domain-Driven Design", description: "Tackling Complexity in the Heart of Software.", status: "em_progresso", image: "assets/img/book11.jpg" }
+                { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/books/peaa.jpg" },
+                { name: "Domain-Driven Design", description: "Tackling Complexity in the Heart of Software.", status: "nao_iniciado", image: "assets/img/books/ddd.jpg" }
             ]
         }
     ]
@@ -316,6 +316,10 @@ function renderSkillsByCategory(skills, container) {
         `;
 
         const skillsList = categoryElement.querySelector('.skills-list');
+        
+        // Ordenar skills por nível (estrelas) em ordem decrescente
+        categorySkills.sort((a, b) => b.level - a.level);
+        
         categorySkills.forEach(skill => {
             const skillItem = document.createElement('div');
             skillItem.className = 'skill-item';
@@ -334,15 +338,16 @@ function renderSkillsByCategory(skills, container) {
                 e.stopPropagation();
                 openSkillModal(skill);
             });
+            
             skillsList.appendChild(skillItem);
         });
-
+        
         // Add click event for accordion
         const header = categoryElement.querySelector('.skill-category-header');
         header.addEventListener('click', () => {
             categoryElement.classList.toggle('expanded');
         });
-
+        
         container.appendChild(categoryElement);
     });
 }
@@ -538,11 +543,13 @@ function openMilestoneModal(id) {
     document.getElementById('modal-progress-fill').style.width = `${milestone.progress}%`;
     document.getElementById('modal-progress-text').textContent = `${milestone.progress}%`;
     
-    document.getElementById('milestone-modal').style.display = 'flex';
+    const modal = document.getElementById('milestone-modal');
+    modal.classList.add('show');
 }
 
 function closeModal() {
-    document.getElementById('milestone-modal').style.display = 'none';
+    const modal = document.getElementById('milestone-modal');
+    modal.classList.remove('show');
 }
 
 // Função para abrir o modal de info da skill
@@ -638,11 +645,17 @@ function getStatusClass(status) {
 }
 
 function getStatusText(status) {
-    switch(status) {
-        case 'nao_iniciado': return 'Não iniciado';
-        case 'em_progresso': return 'Em progresso';
-        case 'concluido': return 'Concluído';
-        default: return status;
+    switch (status) {
+        case 'concluido':
+            return 'Concluído';
+        case 'em_progresso':
+            return 'Em Progresso';
+        case 'nao_iniciado':
+            return 'Não Iniciado';
+        case 'pausado':
+            return 'Pausado';
+        default:
+            return status;
     }
 }
 
@@ -673,22 +686,21 @@ function openCategoryModal(category) {
         resourceItem.className = 'resource-item';
         resourceItem.innerHTML = `
             <img src="${resource.image}" alt="${resource.name}" class="resource-image">
-            <h5 class="resource-name">${resource.name}</h5>
-            <p class="resource-description">${resource.description}</p>
-            <span class="resource-status ${resource.status}">${getStatusText(resource.status)}</span>
+            <div class="resource-content">
+                <h5 class="resource-name">${resource.name}</h5>
+                <p class="resource-description">${resource.description}</p>
+                <span class="resource-status ${resource.status}">${getStatusText(resource.status)}</span>
+            </div>
         `;
         resourcesList.appendChild(resourceItem);
     });
     
     modal.classList.add('show');
-    modal.classList.remove('hidden');
 }
 
-// Função para fechar o modal de categoria
 function closeCategoryModal() {
     const modal = document.getElementById('category-modal');
     modal.classList.remove('show');
-    modal.classList.add('hidden');
 }
 
 // Fecha o modal ao clicar fora do conteúdo
