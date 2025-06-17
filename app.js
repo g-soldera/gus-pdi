@@ -54,7 +54,7 @@ const userData = {
         {
             id: 2,
             title: "Soft Skills",
-            description: "Melhorar escuta ativa e empatia",
+            description: "Receber feedback positivo de pelo menos 2 colegas sobre melhoria na escuta",
             deadline: "2025-09-30",
             status: "em_progresso",
             progress: 30
@@ -70,7 +70,7 @@ const userData = {
         {
             id: 4,
             title: "Mentorar Colegas",
-            description: "Orientar membros da equipe/comunidade que queiram se aperfeiçoar na área",
+            description: "Orientar pelo menos 3 membros da equipe/comunidade que queiram se aperfeiçoar na área",
             deadline: "2025-10-31",
             status: "nao_iniciado",
             progress: 0
@@ -86,7 +86,7 @@ const userData = {
         {
             id: 6,
             title: "Decisões Estratégicas",
-            description: "Participar ativamente de tomadas de decisão",
+            description: "Apresentar 3 propostas de melhoria aceitas pela liderança",
             deadline: "2025-12-31",
             status: "nao_iniciado",
             progress: 0
