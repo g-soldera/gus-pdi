@@ -155,20 +155,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function calculateDaysRemaining() {
-    const targetDate = new Date('2026-06-01'); 
-    const currentDate = new Date();
-    
-    const diffTime = targetDate.getTime() - currentDate.getTime();
-    const daysRemaining = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
-    
-    return daysRemaining;
+function calculateDaysRemaining(deadline) {
+    let targetDate;
+    if (deadline) {
+        targetDate = new Date(deadline);
+    } else {
+        targetDate = new Date(2026, 5, 1);
+    }
+    const today = new Date();
+    const diffTime = targetDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return Math.max(0, diffDays);
 }
 
 function updateDaysRemaining() {
     const daysRemaining = calculateDaysRemaining();
     const element = document.getElementById('timeline-days-remaining');
-    
     if (element) {
         element.textContent = daysRemaining;
     }
@@ -248,7 +250,11 @@ function renderSkillsByCategory(skills, container) {
                 </div>
                 <p class="skill-description">${skill.description}</p>
             `;
-            
+            // Adiciona evento de clique para abrir o modal de info da skill
+            skillItem.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openSkillModal(skill);
+            });
             skillsList.appendChild(skillItem);
         });
 
@@ -455,15 +461,80 @@ function closeModal() {
     document.getElementById('milestone-modal').style.display = 'none';
 }
 
-// Utility functions
-function calculateDaysRemaining(deadline) {
-    const today = new Date();
-    const deadlineDate = new Date(deadline);
-    const diffTime = deadlineDate - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return Math.max(0, diffDays);
+// Função para abrir o modal de info da skill
+function openSkillModal(skill) {
+    const modal = document.getElementById('skill-info-modal');
+    document.getElementById('skill-modal-title').textContent = skill.name;
+    document.getElementById('skill-modal-rating').innerHTML = generateStars(skill.level);
+    document.getElementById('skill-modal-description').textContent = skill.description;
+    document.getElementById('skill-modal-ruler').innerHTML = renderSkillRuler(skill);
+    modal.classList.add('show');
+    modal.classList.remove('hidden');
 }
 
+// Função para fechar o modal de info da skill
+function closeSkillModal() {
+    const modal = document.getElementById('skill-info-modal');
+    modal.classList.remove('show');
+    modal.classList.add('hidden');
+}
+
+// Fecha o modal ao clicar fora do conteúdo
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('skill-info-modal');
+    if (event.target === modal) {
+        closeSkillModal();
+    }
+});
+
+// Função para renderizar a régua da skill
+function renderSkillRuler(skill) {
+    const ruler = getSkillRuler(skill);
+    let html = '<div class="skill-ruler-list">';
+    // Começa do nível 1
+    for (let i = 1; i < ruler.length; i++) {
+        html += `<div class="skill-ruler-item${skill.level === i ? ' current' : ''}"><span class="skill-ruler-level">${i}</span> - <span class="skill-ruler-desc">${ruler[i]}</span></div>`;
+    }
+    html += '</div>';
+    return html;
+}
+
+// Função para obter a régua correta conforme o nome/categoria da skill
+function getSkillRuler(skill) {
+    // Liderança
+    if (skill.name.toLowerCase().includes('lideran')) {
+        return [
+            'Dependente de direcionamentos, precisa de apoio para cadência das próprias atividades',
+            'Toma decisões de forma centralizada, sem ouvir muito a opinião dos membros da equipe',
+            'Toma decisões de forma centralizada, mas ouve a opinião dos membros da equipe',
+            'Inspira e influencia, tem decisões e comportamentos direcionando seus esforços a fim de alcançar os resultados desejados',
+            'Tem decisões e comportamentos direcionando seus esforços a fim de alcançar os resultados desejados, influenciando positivamente as pessoas ao seu redor',
+            'Tem decisões e comportamentos direcionando seus esforços a fim de alcançar os resultados desejados, influenciando positivamente as pessoas ao seu redor * multiplicador'
+        ];
+    }
+    // Comunicação
+    if (skill.category && skill.category.toLowerCase().includes('comunica')) {
+        return [
+            '',
+            'Tem muita dificuldade pra se comunicar de forma clara e objetiva, com assertividade e empatia',
+            'Tem muita dificuldade para se comunicar de forma clara e objetiva, com assertividade e empatia, mas corre atrás para conseguir superá-los',
+            'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento',
+            'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento, influenciando positivamente as pessoas ao seu redor',
+            'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento, influenciando positivamente o time/pessoas ao seu redor/comunidade'
+        ];
+    }
+    // Hardskills (default)
+    return [
+        '',
+        'Desconhecido, não possui conhecimento nessa habilidade',
+        'Iniciante, conhece pouco e consegue usar em situações simples com ajuda',
+        'Intermediário, sabe usar bem com ajuda em tarefas mais difíceis',
+        'Avançado, domina e consegue criar soluções avançadas e inovadoras',
+        'Referência, lidera, orienta outras pessoas e influencia decisões'
+    ];
+}
+
+// Utility functions
 function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('pt-BR', {
