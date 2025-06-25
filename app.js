@@ -211,8 +211,8 @@ const userData = {
             id: 11,
             name: "Livros de Arquitetura de Sistemas",
             resources: [
-                { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/books/peaa.jpg" },
-                { name: "Domain-Driven Design", description: "Tackling Complexity in the Heart of Software.", status: "nao_iniciado", image: "assets/img/books/ddd.jpg" }
+                { name: "Domain-Driven Design", description: "Tackling Complexity in the Heart of Software.", status: "concluido", image: "assets/img/books/ddd.jpg" },
+                { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/books/peaa.jpg" }
             ]
         }
     ]
