@@ -1631,7 +1631,6 @@ a:hover {
   height: 12px;
   background: var(--color-border-light);
   border-radius: var(--radius-full);
-  overflow: hidden;
 }
 
 .ruler-fill {
@@ -1662,6 +1661,7 @@ a:hover {
 }
 
 .skill-level-explanation {
+  text-align: center;
   margin-top: var(--space-6);
   padding: var(--space-4);
   background: var(--color-secondary);

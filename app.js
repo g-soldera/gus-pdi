@@ -804,18 +804,9 @@ function openSkillModal(skill) {
             </div>
         `;
         
-        const marker = ruler.querySelector('.ruler-marker');
         const explanation = ruler.querySelector('.skill-level-explanation');
         
-        if (marker && explanation) {
-            marker.addEventListener('click', function() {
-                const level = parseInt(this.getAttribute('data-level'));
-                if (level > 0 && level <= skillRuler.length - 1) {
-                    explanation.textContent = skillRuler[level];
-                    explanation.classList.add('active');
-                }
-            });
-            
+        if (ruler && explanation) {            
             if (skill.level > 0 && skill.level <= skillRuler.length - 1) {
                 explanation.textContent = skillRuler[skill.level];
                 explanation.classList.add('active');
