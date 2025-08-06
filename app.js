@@ -28,7 +28,10 @@ const userData = {
         {name: "Docker", level: 3, description: "Containerização de aplicações", category: "DevOps"},
         {name: "Figma", level: 4, description: "Ferramenta de design de interfaces", category: "Design & UX"},
         {name: "UX", level: 3, description: "Engenharia de usabilidade", category: "Design & UX"},
-        {name: "Documentação Técnica", level: 5, description: "Doc Advocate", category: "Comunicação"}
+        {name: "Documentação Técnica", level: 5, description: "Doc Advocate", category: "Comunicação"},
+        {name: "Português", level: 5, description: "Conhecimento técnico, escrita e conversação", category: "Idiomas"},
+        {name: "Inglês", level: 4, description: "Conhecimento técnico, escrita e conversação", category: "Idiomas"},
+        {name: "Italiano", level: 1, description: "Conhecimento técnico, escrita e conversação", category: "Idiomas"}
     ],
     soft_skills: [
         {name: "Pensamento Crítico", level: 5, description: "Análise e resolução de problemas", category: "Cognitivas"},
@@ -746,6 +749,17 @@ function getSkillRuler(skill) {
             'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento',
             'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento, influenciando positivamente as pessoas ao seu redor',
             'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento, influenciando positivamente o time/pessoas ao seu redor/comunidade'
+        ];
+    }
+    
+    if (skill.category && skill.category.toLowerCase().includes('idioma')) {
+        return [
+            '',
+            'Conhecimento básico, vocabulário limitado',
+            'Conhecimento intermediário, amplo vocabulário, mas sem experiência de leitura, escrita e conversação',
+            'Conhecimento avançado, amplo vocabulário, com experiência de leitura e escrita mas sem experiência de conversação',
+            'Conhecimento avançado, amplo vocabulário e experiências de leitura, escrita e comunicação, com pequenas "travas" em conversação',
+            'Nativo/Fluente, leitura, escrita e comunicação flúida'
         ];
     }
     
