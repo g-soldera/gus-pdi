@@ -189,7 +189,8 @@ const userData = {
             id: 7,
             name: "Certificação de Cloud",
             resources: [
-                { name: "AWS Certified Solutions Architect", description: "Preparação para a certificação AWS.", status: "nao_iniciado", image: "assets/img/aws.png" }
+                { name: "AWS Cloud Practitioner", description: "Preparação para a certificação AWS Foundational.", status: "nao_iniciado", image: "assets/img/awspractitioner.webp" },
+                { name: "AWS Certified Solutions Architect", description: "Preparação para a certificação AWS Associate.", status: "nao_iniciado", image: "assets/img/aws.png" }
             ]
         },
         {
