@@ -1,4 +1,3 @@
-// PDI Application Data
 const userData = {
     user_info: {
         name: "Gustavo Soldera",
@@ -55,17 +54,17 @@ const userData = {
             id: 2,
             title: "Soft Skills",
             description: "Receber feedback positivo de pelo menos 3 colegas sobre melhoria na escuta",
-            deadline: "2025-09-30",
-            status: "em_progresso",
-            progress: 66
+            deadline: "2025-08-30",
+            status: "concluido",
+            progress: 100
         },
         {
             id: 3,
             title: "Liderar Projetos de Impacto",
-            description: "Liderar pelo menos 2 projetos significativos",
-            deadline: "2025-12-31",
-            status: "em_progresso",
-            progress: 50
+            description: "Atuação chave em pelo menos 2 projetos significativos",
+            deadline: "2025-09-30",
+            status: "concluido",
+            progress: 100
         },
         {
             id: 4,
@@ -85,6 +84,14 @@ const userData = {
         },
         {
             id: 6,
+            title: "Pílulas de Conhecimento",
+            description: "Iniciar produção de conteúdo com pelo menos 7 pílulas de conhecimento nos campos de Engenharia de Dados e Analytics",
+            deadline: "2025-12-30",
+            status: "nao_iniciado",
+            progress: 0
+        },
+        {
+            id: 7,
             title: "Decisões Estratégicas",
             description: "Apresentar 3 propostas de melhoria aceitas pela liderança",
             deadline: "2025-12-31",
@@ -144,6 +151,7 @@ const userData = {
             id: 2,
             name: "Mentoria com Senior Engineers",
             resources: [
+                { name: "Henrique Vieira", description: "Mentor em engenharia de dados e carreira", status: "em_progresso", image: "assets/img/mentor-henrique.png" },
                 { name: "Em breve", description: "Mentor em engenharia de analytics.", status: "nao_iniciado", image: "assets/img/mentor.png" }
             ]
         },
@@ -220,9 +228,72 @@ const userData = {
 
 // Global variables
 let currentView = 'timeline';
+let currentTheme = null;
+
+// Theme Management
+class ThemeManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        // Get saved theme from localStorage or detect system preference
+        const savedTheme = localStorage.getItem('pdi-theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            this.currentTheme = savedTheme;
+        } else {
+            this.currentTheme = systemPrefersDark ? 'dark' : 'light';
+        }
+        
+        this.applyTheme(this.currentTheme);
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('pdi-theme')) {
+                this.currentTheme = e.matches ? 'dark' : 'light';
+                this.applyTheme(this.currentTheme);
+            }
+        });
+    }
+
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.applyTheme(this.currentTheme);
+        localStorage.setItem('pdi-theme', this.currentTheme);
+    }
+
+    applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        this.currentTheme = theme;
+        
+        // Add smooth transition for theme change
+        document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            document.body.style.transition = '';
+        }, 300);
+    }
+
+    getCurrentTheme() {
+        return this.currentTheme;
+    }
+}
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme manager first
+    const themeManager = new ThemeManager();
+    
+    // Initialize other components
     renderSkills();
     renderMilestones();
     renderPortfolio();
@@ -231,8 +302,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setLastUpdateDate();
     setupEventListeners();
     updateDaysRemaining();
+    
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
 });
-
 
 function calculateDaysRemaining(deadline) {
     let targetDate;
@@ -259,9 +332,11 @@ function updateDaysRemaining() {
 function setupEventListeners() {
     // Skills card flip
     const skillsCard = document.getElementById('skills-card');
-    skillsCard.addEventListener('click', () => {
-        skillsCard.classList.toggle('flipped');
-    });
+    if (skillsCard) {
+        skillsCard.addEventListener('click', () => {
+            skillsCard.classList.toggle('flipped');
+        });
+    }
 
     // View switch buttons
     const switchButtons = document.querySelectorAll('.switch-btn');
@@ -274,9 +349,27 @@ function setupEventListeners() {
 
     // Modal close on outside click
     window.addEventListener('click', (event) => {
-        const modal = document.getElementById('milestone-modal');
-        if (event.target === modal) {
+        const milestoneModal = document.getElementById('milestone-modal');
+        const skillModal = document.getElementById('skill-info-modal');
+        const categoryModal = document.getElementById('category-modal');
+        
+        if (event.target === milestoneModal) {
             closeModal();
+        }
+        if (event.target === skillModal) {
+            closeSkillModal();
+        }
+        if (event.target === categoryModal) {
+            closeCategoryModal();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            closeSkillModal();
+            closeCategoryModal();
         }
     });
 }
@@ -286,8 +379,10 @@ function renderSkills() {
     const hardSkillsContainer = document.getElementById('hard-skills-categories');
     const softSkillsContainer = document.getElementById('soft-skills-categories');
     
-    renderSkillsByCategory(userData.hard_skills, hardSkillsContainer);
-    renderSkillsByCategory(userData.soft_skills, softSkillsContainer);
+    if (hardSkillsContainer && softSkillsContainer) {
+        renderSkillsByCategory(userData.hard_skills, hardSkillsContainer);
+        renderSkillsByCategory(userData.soft_skills, softSkillsContainer);
+    }
 }
 
 function renderSkillsByCategory(skills, container) {
@@ -317,7 +412,7 @@ function renderSkillsByCategory(skills, container) {
 
         const skillsList = categoryElement.querySelector('.skills-list');
         
-        // Ordenar skills por nível (estrelas) em ordem decrescente
+        // Sort skills by level (stars) in descending order
         categorySkills.sort((a, b) => b.level - a.level);
         
         categorySkills.forEach(skill => {
@@ -333,7 +428,8 @@ function renderSkillsByCategory(skills, container) {
                 </div>
                 <p class="skill-description">${skill.description}</p>
             `;
-            // Adiciona evento de clique para abrir o modal de info da skill
+            
+            // Add click event to open skill modal
             skillItem.addEventListener('click', function(e) {
                 e.stopPropagation();
                 openSkillModal(skill);
@@ -371,228 +467,265 @@ function switchView(view) {
             btn.classList.add('active');
         }
     });
-
-    // Show/hide containers
-    const timelineContainer = document.getElementById('milestones-timeline');
-    const gridContainer = document.getElementById('milestones-grid');
+    
+    // Show/hide views
+    const timelineView = document.getElementById('milestones-timeline');
+    const gridView = document.getElementById('milestones-grid');
     
     if (view === 'timeline') {
-        timelineContainer.classList.remove('hidden');
-        gridContainer.classList.add('hidden');
+        timelineView.classList.remove('hidden');
+        gridView.classList.add('hidden');
     } else {
-        timelineContainer.classList.add('hidden');
-        gridContainer.classList.remove('hidden');
+        timelineView.classList.add('hidden');
+        gridView.classList.remove('hidden');
     }
 }
 
 // Render Milestones
 function renderMilestones() {
-    renderTimelineView();
-    renderCardsView();
+    const timelineContainer = document.getElementById('milestones-timeline');
+    const gridContainer = document.getElementById('milestones-grid');
+    
+    if (timelineContainer && gridContainer) {
+        // Clear containers
+        timelineContainer.innerHTML = '';
+        gridContainer.innerHTML = '';
+        
+        userData.milestones.forEach(milestone => {
+            // Create timeline element
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'milestone-item';
+            
+            if (milestone.status === 'concluido') {
+                timelineItem.classList.add('completed');
+            } else if (milestone.status === 'em_progresso') {
+                timelineItem.classList.add('in-progress');
+            }
+            
+            const timelineCard = createMilestoneElement(milestone);
+            timelineItem.appendChild(timelineCard);
+            
+            // Create grid element (separate instance with its own event listener)
+            const gridCard = createMilestoneElement(milestone);
+            
+            timelineContainer.appendChild(timelineItem);
+            gridContainer.appendChild(gridCard);
+        });
+    }
 }
 
-function renderTimelineView() {
-    const container = document.getElementById('milestones-timeline');
-    container.innerHTML = '<div class="timeline-line"></div>';
+function createMilestoneElement(milestone) {
+    const element = document.createElement('div');
+    element.className = 'milestone-card';
+    element.style.cursor = 'pointer';
     
-    userData.milestones.forEach((milestone, index) => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
-        timelineItem.onclick = () => openMilestoneModal(milestone.id);
-        
-        const daysRemaining = calculateDaysRemaining(milestone.deadline);
-        const statusClass = getStatusClass(milestone.status);
-        const statusText = getStatusText(milestone.status);
-        
-        timelineItem.innerHTML = `
-            <div class="timeline-content">
-                <div class="milestone-header">
-                    <h4 class="milestone-title">${milestone.title}</h4>
-                    <span class="milestone-status ${statusClass}">${statusText}</span>
-                </div>
-                <p class="milestone-description">${milestone.description}</p>
-                <div class="milestone-progress">
-                    <div class="milestone-deadline">
-                        <span>Prazo: ${formatDate(milestone.deadline)}</span>
-                        <span>${milestone.progress}%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${milestone.progress}%"></div>
-                    </div>
-                    <div class="days-remaining">${daysRemaining} dias restantes</div>
-                </div>
+    const statusClass = getStatusClass(milestone.status);
+    const statusText = getStatusText(milestone.status);
+    const daysRemaining = calculateDaysRemaining(milestone.deadline);
+    
+    element.innerHTML = `
+        <div class="milestone-header">
+            <h3 class="milestone-title">${milestone.title}</h3>
+            <span class="milestone-status ${statusClass}">${statusText}</span>
+        </div>
+        <p class="milestone-description">${milestone.description}</p>
+        <div class="milestone-progress">
+            <div class="progress-header">
+                <span class="progress-label">Progresso</span>
+                <span class="progress-percentage">${milestone.progress}%</span>
             </div>
-            <div class="timeline-marker"></div>
-        `;
-        
-        container.appendChild(timelineItem);
-    });
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: ${milestone.progress}%"></div>
+            </div>
+        </div>
+        <div class="milestone-meta">
+            <div class="milestone-deadline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                ${formatDate(milestone.deadline)} (${daysRemaining} dias restantes)
+            </div>
+        </div>
+    `;
+    
+    element.addEventListener('click', () => openMilestoneModal(milestone));
+    
+    return element;
 }
 
-function renderCardsView() {
-    const container = document.getElementById('milestones-grid');
-    container.innerHTML = '';
-    
-    userData.milestones.forEach(milestone => {
-        const milestoneCard = document.createElement('div');
-        milestoneCard.className = 'milestone-card';
-        milestoneCard.onclick = () => openMilestoneModal(milestone.id);
-        
-        const daysRemaining = calculateDaysRemaining(milestone.deadline);
-        const statusClass = getStatusClass(milestone.status);
-        const statusText = getStatusText(milestone.status);
-        
-        milestoneCard.innerHTML = `
-            <div class="milestone-header">
-                <h4 class="milestone-title">${milestone.title}</h4>
-                <span class="milestone-status ${statusClass}">${statusText}</span>
-            </div>
-            <p class="milestone-description">${milestone.description}</p>
-            <div class="milestone-progress">
-                <div class="milestone-deadline">
-                    <span>Prazo: ${formatDate(milestone.deadline)}</span>
-                    <span>${milestone.progress}%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: ${milestone.progress}%"></div>
-                </div>
-                <div class="days-remaining">${daysRemaining} dias restantes</div>
-            </div>
-        `;
-        
-        container.appendChild(milestoneCard);
-    });
+function getStatusClass(status) {
+    const statusMap = {
+        'concluido': 'completed',
+        'em_progresso': 'in-progress',
+        'nao_iniciado': 'not-started'
+    };
+    return statusMap[status] || 'not-started';
+}
+
+function getStatusText(status) {
+    const statusMap = {
+        'concluido': 'Concluído',
+        'em_progresso': 'Em Progresso',
+        'nao_iniciado': 'Não Iniciado'
+    };
+    return statusMap[status] || 'Não Iniciado';
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-BR');
 }
 
 // Render Portfolio
 function renderPortfolio() {
     const container = document.getElementById('portfolio-grid');
+    if (!container) return;
+    
+    container.innerHTML = '';
     
     userData.portfolio.forEach(project => {
-        const portfolioItem = document.createElement('div');
-        portfolioItem.className = 'portfolio-item';
+        const projectElement = document.createElement('div');
+        projectElement.className = 'portfolio-card';
         
-        const techTags = project.technologies.map(tech => 
-            `<span class="tech-tag">${tech}</span>`
-        ).join('');
-        
-        const statusClass = project.status.replace(/_/g, '_');
+        const statusClass = getPortfolioStatusClass(project.status);
         const statusText = getPortfolioStatusText(project.status);
         
-        portfolioItem.innerHTML = `
-        <div>
+        projectElement.innerHTML = `
             <div class="portfolio-header">
-                <h4 class="portfolio-title">${project.title}</h4>
+                <h3 class="portfolio-title">${project.title}</h3>
                 <span class="portfolio-status ${statusClass}">${statusText}</span>
             </div>
             <p class="portfolio-description">${project.description}</p>
-        </div>
-            <div class="portfolio-tech">
-                ${techTags}
+            <div class="portfolio-technologies">
+                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
         `;
         
-        container.appendChild(portfolioItem);
+        container.appendChild(projectElement);
     });
+}
+
+function getPortfolioStatusClass(status) {
+    const statusMap = {
+        'concluido': 'completed',
+        'em_progresso': 'in-progress',
+        'em_desenvolvimento': 'in-development'
+    };
+    return statusMap[status] || 'not-started';
+}
+
+function getPortfolioStatusText(status) {
+    const statusMap = {
+        'concluido': 'Concluído',
+        'em_progresso': 'Em Progresso',
+        'em_desenvolvimento': 'Em Desenvolvimento'
+    };
+    return statusMap[status] || 'Não Iniciado';
 }
 
 // Render Learning Resources
 function renderLearningResources() {
     const container = document.getElementById('learning-resources');
+    if (!container) return;
+    
     container.innerHTML = '';
     
     userData.learning_resources.forEach(category => {
-        const categoryCard = document.createElement('div');
-        categoryCard.className = 'category-card';
-        categoryCard.innerHTML = `
-            <h4 class="category-name">${category.name}</h4>
-            <p class="category-description">Clique para ver os recursos disponíveis.</p>
+        const categoryElement = document.createElement('div');
+        categoryElement.className = 'learning-card';
+        
+        categoryElement.innerHTML = `
+            <h3 class="learning-title">${category.name}</h3>
+            <div class="learning-resources">
+                ${category.resources.map(resource => `
+                    <div class="learning-resource">
+                        <div class="resource-image">
+                            <img src="${resource.image}" alt="${resource.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display: block;">
+                            <div class="resource-placeholder" style="display: none;">${resource.name.substring(0, 2).toUpperCase()}</div>
+                        </div>
+                        <div class="resource-status ${resource.status}"></div>
+                        <div class="resource-info">
+                            <div class="resource-name">${resource.name}</div>
+                            <p class="resource-description">${resource.description}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
         `;
-        categoryCard.addEventListener('click', () => openCategoryModal(category));
-        container.appendChild(categoryCard);
+        
+        categoryElement.addEventListener('click', () => openCategoryModal(category));
+        
+        container.appendChild(categoryElement);
     });
 }
 
-// Update Progress Statistics
+// Update Progress Stats
 function updateProgressStats() {
-    const totalMilestones = userData.milestones.length;
+    // Calculate overall progress
     const completedMilestones = userData.milestones.filter(m => m.status === 'concluido').length;
-    const overallProgress = Math.round(userData.milestones.reduce((sum, m) => sum + m.progress, 0) / totalMilestones);
+    const totalMilestones = userData.milestones.length;
+    const overallProgress = Math.round((completedMilestones / totalMilestones) * 100);
     
-    document.getElementById('overall-progress').textContent = `${overallProgress}%`;
-    document.getElementById('completed-milestones').textContent = `${completedMilestones}/${totalMilestones}`;
-    document.getElementById('total-skills').textContent = userData.hard_skills.length + userData.soft_skills.length;
-    document.getElementById('hard-skills-count').textContent = userData.hard_skills.length;
-    document.getElementById('soft-skills-count').textContent = userData.soft_skills.length;
-    document.getElementById('total-projects').textContent = userData.portfolio.length;
+    // Update stats
+    const completedMilestonesElement = document.getElementById('completed-milestones');
+    const totalSkillsElement = document.getElementById('total-skills');
+    const hardSkillsCountElement = document.getElementById('hard-skills-count');
+    const softSkillsCountElement = document.getElementById('soft-skills-count');
+    const totalProjectsElement = document.getElementById('total-projects');
+    
+    if (completedMilestonesElement) completedMilestonesElement.textContent = `${completedMilestones}/${totalMilestones}`;
+    if (totalSkillsElement) totalSkillsElement.textContent = userData.hard_skills.length + userData.soft_skills.length;
+    if (hardSkillsCountElement) hardSkillsCountElement.textContent = userData.hard_skills.length;
+    if (softSkillsCountElement) softSkillsCountElement.textContent = userData.soft_skills.length;
+    if (totalProjectsElement) totalProjectsElement.textContent = userData.portfolio.length;
 }
 
-// Modal functions
-function openMilestoneModal(id) {
-    const milestone = userData.milestones.find(m => m.id === id);
-    if (!milestone) return;
-    
-    const daysRemaining = calculateDaysRemaining(milestone.deadline);
-    const statusText = getStatusText(milestone.status);
-    
-    document.getElementById('modal-title').textContent = milestone.title;
-    document.getElementById('modal-description').textContent = milestone.description;
-    document.getElementById('modal-deadline').textContent = formatDate(milestone.deadline);
-    document.getElementById('modal-days-remaining').textContent = `${daysRemaining} dias`;
-    document.getElementById('modal-status').textContent = statusText;
-    document.getElementById('modal-progress-fill').style.width = `${milestone.progress}%`;
-    document.getElementById('modal-progress-text').textContent = `${milestone.progress}%`;
-    
+// Set Last Update Date
+function setLastUpdateDate() {
+    const element = document.getElementById('last-update');
+    if (element) {
+        const today = new Date();
+        element.textContent = today.toLocaleDateString('pt-BR');
+    }
+}
+
+// Modal Functions
+function openMilestoneModal(milestone) {
     const modal = document.getElementById('milestone-modal');
-    modal.classList.add('show');
+    const title = document.getElementById('modal-title');
+    const description = document.getElementById('modal-description');
+    const deadline = document.getElementById('modal-deadline');
+    const daysRemaining = document.getElementById('modal-days-remaining');
+    const status = document.getElementById('modal-status');
+    const progressText = document.getElementById('modal-progress-text');
+    const progressFill = document.getElementById('modal-progress-fill');
+    
+    if (modal && title && description && deadline && daysRemaining && status && progressText && progressFill) {
+        title.textContent = milestone.title;
+        description.textContent = milestone.description;
+        deadline.textContent = formatDate(milestone.deadline);
+        daysRemaining.textContent = calculateDaysRemaining(milestone.deadline);
+        status.textContent = getStatusText(milestone.status);
+        progressText.textContent = `${milestone.progress}%`;
+        progressFill.style.width = `${milestone.progress}%`;
+        
+        modal.classList.add('show');
+        modal.style.display = 'flex';
+    }
 }
 
 function closeModal() {
     const modal = document.getElementById('milestone-modal');
-    modal.classList.remove('show');
-}
-
-// Função para abrir o modal de info da skill
-function openSkillModal(skill) {
-    const modal = document.getElementById('skill-info-modal');
-    document.getElementById('skill-modal-title').textContent = skill.name;
-    document.getElementById('skill-modal-rating').innerHTML = generateStars(skill.level);
-    document.getElementById('skill-modal-description').textContent = skill.description;
-    document.getElementById('skill-modal-ruler').innerHTML = renderSkillRuler(skill);
-    modal.classList.add('show');
-    modal.classList.remove('hidden');
-}
-
-// Função para fechar o modal de info da skill
-function closeSkillModal() {
-    const modal = document.getElementById('skill-info-modal');
-    modal.classList.remove('show');
-    modal.classList.add('hidden');
-}
-
-// Fecha o modal ao clicar fora do conteúdo
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('skill-info-modal');
-    if (event.target === modal) {
-        closeSkillModal();
+    if (modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
     }
-});
-
-// Função para renderizar a régua da skill
-function renderSkillRuler(skill) {
-    const ruler = getSkillRuler(skill);
-    let html = '<div class="skill-ruler-list">';
-    // Começa do nível 1
-    for (let i = 1; i < ruler.length; i++) {
-        html += `<div class="skill-ruler-item${skill.level === i ? ' current' : ''}"><span class="skill-ruler-level">${i}</span> - <span class="skill-ruler-desc">${ruler[i]}</span></div>`;
-    }
-    html += '</div>';
-    return html;
 }
 
-// Função para obter a régua correta conforme o nome/categoria da skill
 function getSkillRuler(skill) {
-    // Liderança
     if (skill.name.toLowerCase().includes('lideran')) {
         return [
             'Dependente de direcionamentos, precisa de apoio para cadência das próprias atividades',
@@ -603,7 +736,7 @@ function getSkillRuler(skill) {
             'Tem decisões e comportamentos direcionando seus esforços a fim de alcançar os resultados desejados, influenciando positivamente as pessoas ao seu redor * multiplicador'
         ];
     }
-    // Comunicação
+    
     if (skill.category && skill.category.toLowerCase().includes('comunica')) {
         return [
             '',
@@ -614,7 +747,7 @@ function getSkillRuler(skill) {
             'Consegue se comunicar de forma clara e objetiva, com assertividade e empatia, buscando e garantindo o alinhamento, influenciando positivamente o time/pessoas ao seu redor/comunidade'
         ];
     }
-    // Hardskills (default)
+    
     return [
         '',
         'Desconhecido, não possui conhecimento nessa habilidade',
@@ -625,88 +758,157 @@ function getSkillRuler(skill) {
     ];
 }
 
-// Utility functions
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-}
-
-function getStatusClass(status) {
-    switch(status) {
-        case 'nao_iniciado': return 'not-started';
-        case 'em_progresso': return 'in-progress';
-        case 'concluido': return 'completed';
-        default: return '';
-    }
-}
-
-function getStatusText(status) {
-    switch (status) {
-        case 'concluido':
-            return 'Concluído';
-        case 'em_progresso':
-            return 'Em Progresso';
-        case 'nao_iniciado':
-            return 'Não Iniciado';
-        case 'pausado':
-            return 'Pausado';
-        default:
-            return status;
-    }
-}
-
-function getPortfolioStatusText(status) {
-    switch(status) {
-        case 'em_desenvolvimento': return 'Em desenvolvimento';
-        case 'em_progresso': return 'Em progresso';
-        case 'concluido': return 'Concluído';
-        default: return status;
-    }
-}
-
-function setLastUpdateDate() {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Date().toLocaleDateString('pt-BR', options);
-    document.getElementById('last-update').textContent = formattedDate;
-}
-
-// Função para abrir o modal de categoria
-function openCategoryModal(category) {
-    const modal = document.getElementById('category-modal');
-    document.getElementById('category-modal-title').textContent = category.name;
-    const resourcesList = document.getElementById('category-modal-resources');
-    resourcesList.innerHTML = '';
+function openSkillModal(skill) {
+    const modal = document.getElementById('skill-info-modal');
+    const title = document.getElementById('skill-modal-title');
+    const rating = document.getElementById('skill-modal-rating');
+    const description = document.getElementById('skill-modal-description');
+    const ruler = document.getElementById('skill-modal-ruler');
     
-    category.resources.forEach(resource => {
-        const resourceItem = document.createElement('div');
-        resourceItem.className = 'resource-item';
-        resourceItem.innerHTML = `
-            <img src="${resource.image}" alt="${resource.name}" class="resource-image">
-            <div class="resource-content">
-                <h5 class="resource-name">${resource.name}</h5>
-                <p class="resource-description">${resource.description}</p>
-                <span class="resource-status ${resource.status}">${getStatusText(resource.status)}</span>
+    if (modal && title && rating && description && ruler) {
+        title.textContent = skill.name;
+        rating.innerHTML = generateStars(skill.level);
+        description.textContent = skill.description;
+        
+        const skillRuler = getSkillRuler(skill);
+        
+        ruler.innerHTML = `
+            <div class="skill-ruler">
+                <div class="ruler-labels">
+                    <span>Iniciante</span>
+                    <span>Básico</span>
+                    <span>Intermediário</span>
+                    <span>Avançado</span>
+                    <span>Especialista</span>
+                </div>
+                <div class="ruler-bar">
+                    <div class="ruler-fill" style="width: ${(skill.level / 5) * 100}%"></div>
+                    <div class="ruler-marker" style="left: ${(skill.level / 5) * 100}%" data-level="${skill.level}"></div>
+                </div>
+                <div class="skill-level-explanation" id="skill-level-explanation"></div>
             </div>
         `;
-        resourcesList.appendChild(resourceItem);
-    });
+        
+        const marker = ruler.querySelector('.ruler-marker');
+        const explanation = ruler.querySelector('.skill-level-explanation');
+        
+        if (marker && explanation) {
+            marker.addEventListener('click', function() {
+                const level = parseInt(this.getAttribute('data-level'));
+                if (level > 0 && level <= skillRuler.length - 1) {
+                    explanation.textContent = skillRuler[level];
+                    explanation.classList.add('active');
+                }
+            });
+            
+            if (skill.level > 0 && skill.level <= skillRuler.length - 1) {
+                explanation.textContent = skillRuler[skill.level];
+                explanation.classList.add('active');
+            }
+        }
+        
+        modal.classList.add('show');
+        modal.style.display = 'flex';
+    }
+}
+
+function closeSkillModal() {
+    const modal = document.getElementById('skill-info-modal');
+    if (modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+    }
+}
+
+function openCategoryModal(category) {
+    const modal = document.getElementById('category-modal');
+    const title = document.getElementById('category-modal-title');
+    const resources = document.getElementById('category-modal-resources');
     
-    modal.classList.add('show');
+    if (modal && title && resources) {
+        title.textContent = category.name;
+        
+        resources.innerHTML = category.resources.map(resource => `
+            <div class="resource-item">
+                <div class="resource-image">
+                    <img src="${resource.image}" alt="${resource.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display: block;">
+                    <div class="resource-placeholder" style="display: none;">${resource.name.substring(0, 2).toUpperCase()}</div>
+                </div>
+                <div class="resource-status ${resource.status}"></div>
+                <div class="resource-details">
+                    <h4>${resource.name}</h4>
+                    <p>${resource.description}</p>
+                    <span class="resource-status-text">${getResourceStatusText(resource.status)}</span>
+                </div>
+            </div>
+        `).join('');
+        
+        modal.classList.add('show');
+        modal.style.display = 'flex';
+    }
 }
 
 function closeCategoryModal() {
     const modal = document.getElementById('category-modal');
-    modal.classList.remove('show');
+    if (modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+    }
 }
 
-// Fecha o modal ao clicar fora do conteúdo
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('category-modal');
-    if (event.target === modal) {
-        closeCategoryModal();
-    }
+function getResourceStatusText(status) {
+    const statusMap = {
+        'concluido': 'Concluído',
+        'em_progresso': 'Em Progresso',
+        'nao_iniciado': 'Não Iniciado',
+        'pausado': 'Pausado'
+    };
+    return statusMap[status] || 'Não Iniciado';
+}
+
+// Utility Functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Performance optimizations
+const debouncedResize = debounce(() => {
+    // Handle resize events if needed
+}, 250);
+
+window.addEventListener('resize', debouncedResize);
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.stat-card, .skill-category, .milestone-card, .portfolio-card, .learning-card');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
 });
+
