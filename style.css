@@ -1469,6 +1469,7 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
   animation: fadeIn var(--duration-normal) var(--ease-out);
+  scrollbar-color: var(--color-secondary) var(--color-surface);
 }
 
 .modal.show {
@@ -1710,7 +1711,7 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.resources-list {
+.resources-list, .resources-modal-related{
   padding: var(--space-6);
   max-height: 400px;
   overflow-y: auto;
@@ -1877,6 +1878,31 @@ a:hover {
     width: 12px;
     height: 12px;
   }
+}
+
+.modal-related {
+  margin-top: var(--space-8);
+  display: grid;
+  gap: var(--space-6);
+}
+
+.modal-related h4 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.modal-related ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-related li {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
 }
 
 @media (max-width: 480px) {

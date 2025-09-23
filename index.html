@@ -42,7 +42,7 @@
                     <div class="hero-roles">
                         <div class="role-current">
                             <span class="role-label">Atual:</span>
-                            <span class="role-text">Analista de Engenharia de TI (Junior)</span>
+                            <span class="role-text">Engenheiro de Analytics JR</span>
                         </div>
                         <div class="role-arrow">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="role-target">
                             <span class="role-label">Meta:</span>
-                            <span class="role-text">Engenheiro de Analytics Pleno</span>
+                            <span class="role-text">Engenheiro de Analytics PL</span>
                         </div>
                     </div>
                     <div class="hero-timeline">
@@ -284,6 +284,10 @@
                         <span class="detail-label">Status:</span>
                         <span class="detail-value" id="modal-status"></span>
                     </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Anotação:</span>
+                        <span class="detail-value" id="modal-note"></span>
+                    </div>
                 </div>
                 <div class="modal-progress">
                     <div class="progress-label">
@@ -292,6 +296,17 @@
                     </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="modal-progress-fill"></div>
+                    </div>
+                </div>
+                <!-- Related data for milestones -->
+                <div class="modal-related">
+                    <div class="related-skills">
+                        <h4>Habilidades relacionadas</h4>
+                        <ul id="modal-related-skills"></ul>
+                    </div>
+                    <div class="related-resources">
+                        <h4>Recursos de aprendizado</h4>
+                        <ul id="modal-related-resources"></ul>
                     </div>
                 </div>
             </div>
@@ -313,13 +328,24 @@
                 <div class="skill-modal-rating" id="skill-modal-rating"></div>
                 <p class="skill-modal-description" id="skill-modal-description"></p>
                 <div class="skill-modal-ruler" id="skill-modal-ruler"></div>
+                <!-- Related data for skills -->
+                <div class="modal-related">
+                    <div class="related-milestones">
+                        <h4>Marcos relacionados</h4>
+                        <ul id="skill-modal-related-milestones"></ul>
+                    </div>
+                    <div class="related-resources">
+                        <h4>Recursos de aprendizado</h4>
+                        <ul id="skill-modal-related-resources"></ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Category Modal -->
-    <div id="category-modal" class="modal">
-        <div class="modal-content">
+    <div id="category-modal" class="modal" id="resources-modal">
+        <div class="modal-content" id="resources-modal-content">
             <div class="modal-header">
                 <h2 id="category-modal-title"></h2>
                 <button class="close" onclick="closeCategoryModal()">
@@ -330,6 +356,17 @@
                 </button>
             </div>
             <div id="category-modal-resources" class="resources-list"></div>
+            <!-- Related data for learning resources categories -->
+            <div class="modal-related resources-modal-related">
+                <div class="related-skills">
+                    <h4>Habilidades relacionadas</h4>
+                    <ul id="category-modal-related-skills"></ul>
+                </div>
+                <div class="related-milestones">
+                    <h4>Marcos relacionados</h4>
+                    <ul id="category-modal-related-milestones"></ul>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -2,8 +2,8 @@ const userData = {
     user_info: {
         name: "Gustavo Soldera",
         age: 23,
-        current_role: "Analista de Engenharia de TI (Junior)",
-        target_role: "Engenheiro de Analytics Pleno",
+        current_role: "Engenheiro de Analytics JR",
+        target_role: "Engenheiro de Analytics PL",
         company: "Itaú Unibanco",
         area: "Cyber Security",
         timeline: "12 meses",
@@ -17,14 +17,14 @@ const userData = {
         {name: "Angular", level: 3, description: "Framework front-end para aplicações web", category: "Desenvolvimento"},
         {name: "Amazon QuickSight", level: 5, description: "Ferramenta de BI do banco", category: "Analytics & BI"},
         {name: "PySpark", level: 4, description: "Processamento de big data", category: "Analytics & BI"},
-        {name: "Modelagem de Dados", level: 3, description: "Design e estruturação de modelos", category: "Analytics & BI"},
+        {name: "Modelagem de Dados", level: 4, description: "Design e estruturação de modelos", category: "Analytics & BI"},
         {name: "AWS Glue", level: 5, description: "ETL e integração de dados", category: "Cloud & Data"},
         {name: "AWS S3", level: 4, description: "Armazenamento de dados na nuvem", category: "Cloud & Data"},
         {name: "AWS Step Functions", level: 3, description: "Orquestração de workflows", category: "Cloud & Data"},
         {name: "Terraform", level: 4, description: "Infraestrutura como código", category: "Cloud & Data"},
         {name: "Kafka/Mensageria", level: 2, description: "Streaming de dados em tempo real", category: "Cloud & Data"},
         {name: "LLM e Agentes", level: 4, description: "Criação de soluções com IA", category: "IA & Inovação"},
-        {name: "Kubernetes", level: 3, description: "Gerenciamento de containers", category: "DevOps"},
+        {name: "Kubernetes", level: 4, description: "Gerenciamento de containers", category: "DevOps"},
         {name: "Docker", level: 3, description: "Containerização de aplicações", category: "DevOps"},
         {name: "Figma", level: 4, description: "Ferramenta de design de interfaces", category: "Design & UX"},
         {name: "UX", level: 3, description: "Engenharia de usabilidade", category: "Design & UX"},
@@ -50,8 +50,11 @@ const userData = {
             title: "Certificação Profissional",
             description: "Completar prova de engenheiro de analytics",
             deadline: "2025-08-15",
-            status: "em_progresso",
-            progress: 80
+            status: "concluido",
+            progress: 100,
+            note: "Aprovação recebida em 11/09/2025",
+            skills: ["SQL", "Python", "Modelagem de Dados", "PySpark", "Amazon QuickSight"],
+            resources: [3, 5, 9]
         },
         {
             id: 2,
@@ -59,7 +62,10 @@ const userData = {
             description: "Receber feedback positivo de pelo menos 3 colegas sobre melhoria na escuta",
             deadline: "2025-08-30",
             status: "concluido",
-            progress: 100
+            progress: 100,
+            note: "Feedback de colegas indicou melhoria significativa",
+            skills: ["Comunicação Verbal", "Escuta Ativa", "Empatia na Comunicação", "Comunicação Não-Violenta", "Colaboração", "Gestão de Conflitos"],
+            resources: [1, 2]
         },
         {
             id: 3,
@@ -67,39 +73,70 @@ const userData = {
             description: "Atuação chave em pelo menos 2 projetos significativos",
             deadline: "2025-09-30",
             status: "concluido",
-            progress: 100
+            progress: 100,
+            note: "Atuação chave no Insight Guard e Padronizações",
+            skills: ["Liderança", "Pensamento Crítico", "Apresentação", "Colaboração"],
+            resources: [2, 4, 5]
         },
         {
             id: 4,
+            title: "Decisões Estratégicas",
+            description: "Apresentar 3 propostas de melhoria aceitas pela liderança",
+            deadline: "2025-12-31",
+            status: "em_progresso",
+            progress: 0,
+            skills: ["Pensamento Crítico", "Liderança", "Comunicação Verbal"],
+            resources: [1, 4]
+        },
+        {
+            id: 5,
+            title: "Certificação Comptia Security+",
+            description: "Estudar e realizar prova para certificação Comptia Security+",
+            deadline: "2025-12-30",
+            status: "em_progresso",
+            progress: 30,
+            skills: ["AWS S3", "AWS Step Functions", "Terraform", "Kafka/Mensageria", "Kubernetes"],
+            resources: [7, 8]
+        },
+        {
+            id: 6,
+            title: "Certificação AWS Cloud Practitioner",
+            description: "Completar prova para certificação AWS Cloud Practitioner",
+            deadline: "2026-03-30",
+            status: "nao_iniciado",
+            progress: 0,
+            skills: ["AWS Glue", "AWS S3", "AWS Step Functions", "Terraform"],
+            resources: [7]
+        },
+        {
+            id: 7,
             title: "Mentorar Colegas",
             description: "Orientar pelo menos 3 membros da equipe/comunidade que queiram se aperfeiçoar na área",
             deadline: "2025-10-31",
             status: "nao_iniciado",
-            progress: 0
+            progress: 0,
+            skills: ["Liderança", "Colaboração", "Pensamento Crítico", "Escuta Ativa", "Empatia na Comunicação"],
+            resources: [2, 4]
         },
         {
-            id: 5,
+            id: 8,
             title: "Workshops e Palestras",
             description: "Apresentar 3 workshops/palestras internas",
             deadline: "2025-11-30",
             status: "nao_iniciado",
-            progress: 0
+            progress: 0,
+            skills: ["Apresentação", "Comunicação Verbal", "Pensamento Crítico"],
+            resources: [4, 5]
         },
         {
-            id: 6,
+            id: 9,
             title: "Pílulas de Conhecimento",
             description: "Iniciar produção de conteúdo com pelo menos 7 pílulas de conhecimento nos campos de Engenharia de Dados e Analytics",
             deadline: "2025-12-30",
             status: "nao_iniciado",
-            progress: 0
-        },
-        {
-            id: 7,
-            title: "Decisões Estratégicas",
-            description: "Apresentar 3 propostas de melhoria aceitas pela liderança",
-            deadline: "2025-12-31",
-            status: "nao_iniciado",
-            progress: 0
+            progress: 0,
+            skills: ["Documentação Técnica", "Apresentação", "SQL", "Python"],
+            resources: [5, 9, 10, 11]
         }
     ],
     portfolio: [
@@ -148,7 +185,9 @@ const userData = {
                 { name: "Comunicação Não-Violenta", description: "Um guia para melhorar a comunicação interpessoal.", status: "concluido", image: "assets/img/books/cnv.jpg" },
                 { name: "Como Fazer Amigos e Influenciar Pessoas", description: "Clássico sobre habilidades sociais.", status: "em_progresso", image: "assets/img/books/cfaip.jpg" },
                 { name: "Crucial Conversations", description: "Técnicas para lidar com conversas difíceis.", status: "nao_iniciado", image: "assets/img/books/cc.jpg" }
-            ]
+            ],
+            relatedSkills: ["Apresentação", "Comunicação Verbal", "Escuta Ativa", "Empatia na Comunicação", "Comunicação Não-Violenta"],
+            relatedMilestones: [2, 4, 7, 8]
         },
         {
             id: 2,
@@ -156,21 +195,27 @@ const userData = {
             resources: [
                 { name: "Henrique Vieira", description: "Mentor em engenharia de dados e carreira", status: "em_progresso", image: "assets/img/mentor-henrique.png" },
                 { name: "Em breve", description: "Mentor em engenharia de analytics.", status: "nao_iniciado", image: "assets/img/mentor.png" }
-            ]
+            ],
+            relatedSkills: ["SQL", "Python", "Modelagem de Dados", "AWS Glue", "Terraform", "Liderança", "Pensamento Crítico", "Colaboração"],
+            relatedMilestones: [1, 3, 7, 9]
         },
         {
             id: 3,
             name: "Certificação Analytics Engineer",
             resources: [
-                { name: "Curso Preparatório", description: "Curso online para preparação da certificação.", status: "em_progresso", image: "assets/img/professionalea.webp" }
-            ]
+                { name: "Curso Preparatório", description: "Curso online para preparação da certificação.", status: "concluido", image: "assets/img/professionalea.webp" }
+            ],
+            relatedSkills: ["SQL", "Python", "Modelagem de Dados", "PySpark", "Amazon QuickSight"],
+            relatedMilestones: [1, 9]
         },
         {
             id: 4,
             name: "Workshops de Liderança Técnica",
             resources: [
                 { name: "Em breve", description: "Workshop sobre liderança técnica e gestão de equipes.", status: "nao_iniciado", image: "assets/img/workshop.png" }
-            ]
+            ],
+            relatedSkills: ["Liderança", "Pensamento Crítico", "Apresentação", "Comunicação Verbal", "Colaboração", "Gestão de Conflitos"],
+            relatedMilestones: [2, 3, 4, 7, 8]
         },
         {
             id: 5,
@@ -179,14 +224,18 @@ const userData = {
                 { name: "Storytelling with Data", description: "Um guia para apresentação de dados.", status: "concluido", image: "assets/img/books/swd.jpg" },
                 { name: "Data Science for Business", description: "Fundamentos de ciência de dados para negócios.", status: "nao_iniciado", image: "assets/img/books/dsfb.jpg" },
                 { name: "The Art of Data Science", description: "Um guia para análise de dados.", status: "nao_iniciado", image: "assets/img/books/tads.jpg" }
-            ]
+            ],
+            relatedSkills: ["Amazon QuickSight", "Modelagem de Dados", "PySpark", "LLM e Agentes"],
+            relatedMilestones: [1, 3, 9]
         },
         {
             id: 6,
             name: "Curso de DevOps",
             resources: [
                 { name: "DevOps Fundamentals", description: "Curso introdutório sobre práticas de DevOps.", status: "nao_iniciado", image: "assets/img/devops.jpg" }
-            ]
+            ],
+            relatedSkills: ["Docker", "Kubernetes", "Terraform"],
+            relatedMilestones: [9]
         },
         {
             id: 7,
@@ -194,14 +243,18 @@ const userData = {
             resources: [
                 { name: "AWS Cloud Practitioner", description: "Preparação para a certificação AWS Foundational.", status: "nao_iniciado", image: "assets/img/awspractitioner.webp" },
                 { name: "AWS Certified Solutions Architect", description: "Preparação para a certificação AWS Associate.", status: "nao_iniciado", image: "assets/img/aws.png" }
-            ]
+            ],
+            relatedSkills: ["AWS Glue", "AWS S3", "AWS Step Functions", "Terraform", "Kubernetes"],
+            relatedMilestones: [5, 6]
         },
         {
             id: 8,
             name: "Certificação de Cyber Security",
             resources: [
-                { name: "CompTIA Security+", description: "Curso preparatório para a certificação CompTIA Security+.", status: "pausado", image: "assets/img/comptiasec.png" }
-            ]
+                { name: "CompTIA Security+", description: "Curso preparatório para a certificação CompTIA Security+.", status: "em_progresso", image: "assets/img/comptiasec.png" }
+            ],
+            relatedSkills: ["AWS Step Functions", "Kafka/Mensageria", "Kubernetes", "Terraform"],
+            relatedMilestones: [5]
         },
         {
             id: 9,
@@ -209,7 +262,9 @@ const userData = {
             resources: [
                 { name: "Designing Data-Intensive Applications", description: "Um guia para aplicações intensivas em dados.", status: "nao_iniciado", image: "assets/img/books/ddia.jpg" },
                 { name: "Data Mesh", description: "Arquitetura de dados para empresas modernas.", status: "nao_iniciado", image: "assets/img/books/dm.jpg" }
-            ]
+            ],
+            relatedSkills: ["AWS Glue", "AWS S3", "Modelagem de Dados", "Kafka/Mensageria", "PySpark"],
+            relatedMilestones: [1, 5, 9]
         },
         {
             id: 10,
@@ -217,7 +272,9 @@ const userData = {
             resources: [
                 { name: "Clean Code", description: "Um manual de artesanato de software.", status: "nao_iniciado", image: "assets/img/books/cco.jpg" },
                 { name: "The Pragmatic Programmer", description: "Dicas e truques para programadores.", status: "nao_iniciado", image: "assets/img/books/tpp.jpg" }
-            ]
+            ],
+            relatedSkills: ["Python", "JavaScript", "Terraform", "Docker"],
+            relatedMilestones: [3, 9]
         },
         {
             id: 11,
@@ -225,7 +282,9 @@ const userData = {
             resources: [
                 { name: "Domain-Driven Design", description: "Tackling Complexity in the Heart of Software.", status: "concluido", image: "assets/img/books/ddd.jpg" },
                 { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/books/peaa.jpg" }
-            ]
+            ],
+            relatedSkills: ["AWS Glue", "AWS Step Functions", "Terraform", "Kubernetes", "Modelagem de Dados"],
+            relatedMilestones: [5, 9]
         }
     ]
 };
@@ -706,8 +765,11 @@ function openMilestoneModal(milestone) {
     const status = document.getElementById('modal-status');
     const progressText = document.getElementById('modal-progress-text');
     const progressFill = document.getElementById('modal-progress-fill');
+    const noteElement = document.getElementById('modal-note');
+    const relatedSkillsList = document.getElementById('modal-related-skills');
+    const relatedResourcesList = document.getElementById('modal-related-resources');
     
-    if (modal && title && description && deadline && daysRemaining && status && progressText && progressFill) {
+    if (modal && title && description && deadline && daysRemaining && status && progressText && progressFill && noteElement && relatedSkillsList && relatedResourcesList) {
         title.textContent = milestone.title;
         description.textContent = milestone.description;
         deadline.textContent = formatDate(milestone.deadline);
@@ -715,6 +777,30 @@ function openMilestoneModal(milestone) {
         status.textContent = getStatusText(milestone.status);
         progressText.textContent = `${milestone.progress}%`;
         progressFill.style.width = `${milestone.progress}%`;
+        
+        // Definir a anotação textual se existir e o marco estiver concluído
+        if (milestone.status === 'concluido' && typeof milestone.note !== 'undefined') {
+            noteElement.textContent = milestone.note;
+        } else {
+            noteElement.textContent = '—';
+        }
+        
+        // Preencher lista de habilidades relacionadas
+        if (milestone.skills && milestone.skills.length) {
+            relatedSkillsList.innerHTML = milestone.skills.map(skillName => `<li>${skillName}</li>`).join('');
+        } else {
+            relatedSkillsList.innerHTML = '<li>N/A</li>';
+        }
+        
+        // Preencher lista de recursos relacionados
+        if (milestone.resources && milestone.resources.length) {
+            relatedResourcesList.innerHTML = milestone.resources.map(catId => {
+                const cat = userData.learning_resources.find(c => c.id === catId);
+                return cat ? `<li>${cat.name}</li>` : '';
+            }).join('');
+        } else {
+            relatedResourcesList.innerHTML = '<li>N/A</li>';
+        }
         
         modal.classList.add('show');
         modal.style.display = 'flex';
@@ -779,8 +865,10 @@ function openSkillModal(skill) {
     const rating = document.getElementById('skill-modal-rating');
     const description = document.getElementById('skill-modal-description');
     const ruler = document.getElementById('skill-modal-ruler');
+    const relatedMilestonesList = document.getElementById('skill-modal-related-milestones');
+    const relatedResourcesList = document.getElementById('skill-modal-related-resources');
     
-    if (modal && title && rating && description && ruler) {
+    if (modal && title && rating && description && ruler && relatedMilestonesList && relatedResourcesList) {
         title.textContent = skill.name;
         rating.innerHTML = generateStars(skill.level);
         description.textContent = skill.description;
@@ -813,6 +901,22 @@ function openSkillModal(skill) {
             }
         }
         
+        // Determinar marcos relacionados (buscando skills listados nos marcos)
+        const relatedMilestones = userData.milestones.filter(m => (m.skills || []).includes(skill.name));
+        if (relatedMilestones.length) {
+            relatedMilestonesList.innerHTML = relatedMilestones.map(m => `<li>${m.title}</li>`).join('');
+        } else {
+            relatedMilestonesList.innerHTML = '<li>N/A</li>';
+        }
+        
+        // Determinar recursos relacionados (procurando categorias que listem esta skill)
+        const relatedResources = userData.learning_resources.filter(cat => (cat.relatedSkills || []).includes(skill.name));
+        if (relatedResources.length) {
+            relatedResourcesList.innerHTML = relatedResources.map(cat => `<li>${cat.name}</li>`).join('');
+        } else {
+            relatedResourcesList.innerHTML = '<li>N/A</li>';
+        }
+        
         modal.classList.add('show');
         modal.style.display = 'flex';
     }
@@ -830,8 +934,10 @@ function openCategoryModal(category) {
     const modal = document.getElementById('category-modal');
     const title = document.getElementById('category-modal-title');
     const resources = document.getElementById('category-modal-resources');
+    const relatedSkillsList = document.getElementById('category-modal-related-skills');
+    const relatedMilestonesList = document.getElementById('category-modal-related-milestones');
     
-    if (modal && title && resources) {
+    if (modal && title && resources && relatedSkillsList && relatedMilestonesList) {
         title.textContent = category.name;
         
         resources.innerHTML = category.resources.map(resource => `
@@ -848,6 +954,23 @@ function openCategoryModal(category) {
                 </div>
             </div>
         `).join('');
+        
+        // Preencher lista de skills relacionadas
+        if (category.relatedSkills && category.relatedSkills.length) {
+            relatedSkillsList.innerHTML = category.relatedSkills.map(skillName => `<li>${skillName}</li>`).join('');
+        } else {
+            relatedSkillsList.innerHTML = '<li>N/A</li>';
+        }
+        
+        // Preencher lista de marcos relacionados
+        if (category.relatedMilestones && category.relatedMilestones.length) {
+            relatedMilestonesList.innerHTML = category.relatedMilestones.map(mid => {
+                const m = userData.milestones.find(x => x.id === mid);
+                return m ? `<li>${m.title}</li>` : '';
+            }).join('');
+        } else {
+            relatedMilestonesList.innerHTML = '<li>N/A</li>';
+        }
         
         modal.classList.add('show');
         modal.style.display = 'flex';
