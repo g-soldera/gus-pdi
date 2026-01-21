@@ -1,7 +1,7 @@
 const userData = {
     user_info: {
         name: "Gustavo Soldera",
-        age: 23,
+        age: null,
         current_role: "Engenheiro de Analytics JR",
         target_role: "Engenheiro de Analytics PL",
         company: "Itaú Unibanco",
@@ -14,6 +14,7 @@ const userData = {
         {name: "Python", level: 5, description: "Programação e análise de dados", category: "Desenvolvimento"},
         {name: "HTML/CSS", level: 5, description: "Conhecimento básico para front-end", category: "Desenvolvimento"},
         {name: "JavaScript", level: 4, description: "Programação para web", category: "Desenvolvimento"},
+        {name: "TypeScript", level: 4, description: "Tipagem estática para front-end e APIs", category: "Desenvolvimento"},
         {name: "Angular", level: 3, description: "Framework front-end para aplicações web", category: "Desenvolvimento"},
         {name: "Amazon QuickSight", level: 5, description: "Ferramenta de BI do banco", category: "Analytics & BI"},
         {name: "PySpark", level: 4, description: "Processamento de big data", category: "Analytics & BI"},
@@ -44,6 +45,7 @@ const userData = {
         {name: "AWS CodeBuild", level: 4, description: "Builds automatizados e artefatos versionados", category: "CI/CD & Testes"},
         {name: "AWS CodePipeline", level: 3, description: "Orquestração de etapas de entrega contínua", category: "CI/CD & Testes"},
         {name: "GitHub Actions", level: 4, description: "CI/CD como código para repositórios GitHub", category: "CI/CD & Testes"},
+        {name: "SonarQube", level: 4, description: "Qualidade contínua e análise estática", category: "CI/CD & Testes"},
         {name: "Vercel", level: 3, description: "Deploy contínuo de frontends e edge functions", category: "CI/CD & Testes"},
         {name: "Railway", level: 3, description: "Deploy rápido de serviços e automações", category: "CI/CD & Testes"},
         {name: "Linters", level: 4, description: "Padronização e qualidade contínua em pipelines", category: "CI/CD & Testes"},
@@ -165,56 +167,80 @@ const userData = {
             description: "Microfrontend para centralização e padronização de jornada, interface para embarcação de agentes e sistemas, DNS via CloudFront, observabilidade Datadog e backend em andamento com desenho de arquitetura.",
             status: "em_desenvolvimento",
             impact: "Em breve",
-            technologies: ["HTML/CSS", "Javascript", "Sass", "AWS", "Terraform", "Angular", "CloudFront", "Datadog", "Microfrontends"]
+            technologies: ["HTML/CSS", "Javascript", "Sass", "AWS", "Terraform", "Angular", "CloudFront", "Datadog", "Microfrontends"],
+            skills: ["HTML/CSS", "JavaScript", "TypeScript", "Angular", "AWS CloudFront", "AWS Microfrontends", "Terraform", "Data Observability (Datadog)", "Documentação Técnica", "Testes Automatizados", "Testes Unitários", "Linters", "SonarQube"],
+            milestones: [3, 8],
+            resources: [5, 11, 12]
         },
         {
             title: "User Behavior (Comportamento Anômalo)",
             description: "Engenharia de ML transformando notebooks em aplicação escalável em Lambda (Python) com democratização de resultados.",
             status: "concluido",
             impact: "Em breve",
-            technologies: ["Python", "AWS Lambda", "API Gateway", "MLOps", "CI/CD"]
+            technologies: ["Python", "AWS Lambda", "API Gateway", "MLOps", "CI/CD"],
+            skills: ["Python", "AWS Lambda", "GitHub Actions", "Testes Automatizados", "Testes Unitários", "Linters", "SonarQube", "MLOps"],
+            milestones: [3],
+            resources: [10]
         },
         {
             title: "Agente Leila (Fluxo Sequencial)",
             description: "Apoio no desenvolvimento da agente para analisar normativos de Segurança da Informação e extrair requisitos de SI, usando fluxos do Power Automate, tópicos, conhecimentos e prompt engineering; deploy no Teams e 365 Copilot via Copilot Studio.",
             status: "concluido",
             impact: "~80% de redução do tempo de análise de normativos de Segurança da Informação",
-            technologies: ["Power Automate", "Prompt Engineering", "Copilot Studio", "Microsoft 365 Copilot", "Teams", "LLM", "Topics"]
+            technologies: ["Power Automate", "Prompt Engineering", "Copilot Studio", "Microsoft 365 Copilot", "Teams", "LLM", "Topics"],
+            skills: ["Prompt Engineering", "Fluxo Sequencial", "Copilot Studio", "RAG", "Agent Design"],
+            milestones: [3, 8],
+            resources: [1, 5]
         },
         {
             title: "Engenharia de Dados",
             description: "Desenvolvimento de tabelas em producer, consumer, e consultorias de democratização",
             status: "em_progresso",
             impact: "-30% no tempo de entrega de tabelas spec, -30% de custos em gluejob na consumer através de Flex Execution e +99% de sucesso dos jobs críticos",
-            technologies: ["SQL", "Python", "AWS Glue", "PySpark", "Terraform"]
+            technologies: ["SQL", "Python", "AWS Glue", "PySpark", "Terraform"],
+            skills: ["SQL", "Python", "AWS Glue", "AWS S3", "PySpark", "Modelagem de Dados", "FinOps"],
+            milestones: [9],
+            resources: [2, 5, 9, 12]
         },
         {
             title: "Padronização de Dashboards",
             description: "Apoiando times na modernização e liderando padronização de design de dashboards na comunidade Cyber Security",
             status: "em_progresso",
             impact: "-40% no tempo de produção de dashboards e aderência ao Itaú Design System nos times",
-            technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
+            technologies: ["Amazon QuickSight", "Figma", "Design Systems"],
+            skills: ["Amazon QuickSight", "Figma", "UX", "Storytelling com Dados"],
+            milestones: [3, 8],
+            resources: [5, 11]
         },
         {
             title: "IAM Analytics",
             description: "Padrão de visual para dashboards de Acessos (IAM)",
             status: "concluido",
             impact: "Aderência ao Itaú Design System e -30% no tempo de construção de dashboards nos times de Acessos",
-            technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
+            technologies: ["Amazon QuickSight", "Figma", "Design Systems"],
+            skills: ["Amazon QuickSight", "Figma", "Design Systems"],
+            milestones: [3],
+            resources: [5]
         },
         {
             title: "Cyber Insights",
             description: "Padrão de visual para dashboards de Cyber Defense",
             status: "concluido",
             impact: "Aderência ao Itaú Design System e -30% no tempo de construção de dashboards nos times de Cyber Security",
-            technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
+            technologies: ["Amazon QuickSight", "Figma", "Design Systems"],
+            skills: ["Amazon QuickSight", "Figma", "Design Systems"],
+            milestones: [3],
+            resources: [5]
         },
         {
             title: "Observability360",
             description: "Padrão de visual para dashboards de indicadores da comunidade",
             status: "concluido",
             impact: "Identidade unificada e -30% no tempo de construção de dashboards nos indicadores da comunidade",
-            technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
+            technologies: ["Amazon QuickSight", "Figma", "Design Systems"],
+            skills: ["Amazon QuickSight", "Figma", "Design Systems", "Data Observability (Datadog)"],
+            milestones: [3],
+            resources: [5, 12]
         }
     ],
     learning_resources: [
@@ -356,6 +382,7 @@ const macroOrder = [
 // Global variables
 let currentView = 'timeline';
 let currentTheme = null;
+let openPortfolioCardId = null;
 
 // Theme Management
 class ThemeManager {
@@ -365,7 +392,8 @@ class ThemeManager {
 
     init() {
         // Get saved theme from localStorage or detect system preference
-        const savedTheme = localStorage.getItem('pdi-theme');
+        const storageKey = (typeof CONFIG !== 'undefined' && CONFIG.themeStorageKey) ? CONFIG.themeStorageKey : 'pdi-theme';
+        const savedTheme = localStorage.getItem(storageKey);
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         
         if (savedTheme) {
@@ -396,7 +424,8 @@ class ThemeManager {
     toggleTheme() {
         this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
         this.applyTheme(this.currentTheme);
-        localStorage.setItem('pdi-theme', this.currentTheme);
+        const storageKey = (typeof CONFIG !== 'undefined' && CONFIG.themeStorageKey) ? CONFIG.themeStorageKey : 'pdi-theme';
+        localStorage.setItem(storageKey, this.currentTheme);
     }
 
     applyTheme(theme) {
@@ -421,6 +450,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeManager = new ThemeManager();
     
     // Initialize other components
+    hydrateUserInfo();
     renderSkills();
     renderMilestones();
     renderPortfolio();
@@ -434,12 +464,38 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.style.scrollBehavior = 'smooth';
 });
 
+function hydrateUserInfo() {
+    if (typeof CONFIG !== 'undefined' && CONFIG.birthDate) {
+        userData.user_info.age = calculateAge(CONFIG.birthDate);
+    }
+
+    const ageBadge = document.getElementById('age-badge');
+    if (ageBadge && userData.user_info.age !== null) {
+        ageBadge.textContent = `${userData.user_info.age} anos`;
+    }
+}
+
+function calculateAge(birthDateString) {
+    const today = new Date();
+    const birthDate = new Date(birthDateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 function calculateDaysRemaining(deadline) {
     let targetDate;
     if (deadline) {
         targetDate = new Date(deadline);
     } else {
-        targetDate = new Date(2026, 5, 1);
+        if (typeof CONFIG !== 'undefined' && CONFIG.timelineTarget) {
+            targetDate = new Date(CONFIG.timelineTarget);
+        } else {
+            targetDate = new Date(2026, 5, 1);
+        }
     }
     const today = new Date();
     const diffTime = targetDate - today;
@@ -499,6 +555,49 @@ function setupEventListeners() {
             closeCategoryModal();
         }
     });
+
+    // Deep link skills: expand, scroll, and open modal
+    window.addEventListener('hashchange', handleSkillHashNavigation);
+    window.addEventListener('hashchange', handlePortfolioHashNavigation);
+    window.addEventListener('hashchange', handleMilestoneHashNavigation);
+
+    document.addEventListener('click', (event) => {
+        const skillLink = event.target.closest('a[href^="#skill-"]');
+        const portfolioLink = event.target.closest('a[href^="#portfolio-"]');
+        const milestoneLink = event.target.closest('a[href^="#milestone-"]');
+
+        if (skillLink) {
+            event.preventDefault();
+            const hash = skillLink.getAttribute('href');
+            if (hash) {
+                closeAllModals();
+                if (window.location.hash !== hash) {
+                    window.location.hash = hash;
+                }
+                handleSkillHashNavigation();
+            }
+        } else if (portfolioLink) {
+            event.preventDefault();
+            const hash = portfolioLink.getAttribute('href');
+            if (hash) {
+                closeAllModals();
+                if (window.location.hash !== hash) {
+                    window.location.hash = hash;
+                }
+                handlePortfolioHashNavigation();
+            }
+        } else if (milestoneLink) {
+            event.preventDefault();
+            const hash = milestoneLink.getAttribute('href');
+            if (hash) {
+                closeAllModals();
+                if (window.location.hash !== hash) {
+                    window.location.hash = hash;
+                }
+                handleMilestoneHashNavigation();
+            }
+        }
+    });
 }
 
 // Render Skills with Categories
@@ -510,6 +609,9 @@ function renderSkills() {
         renderSkillsByCategory(userData.hard_skills, hardSkillsContainer, true);
         renderSkillsByCategory(userData.soft_skills, softSkillsContainer, false);
     }
+
+    // After render, if there is a hash pointing to a skill, reveal it
+    handleSkillHashNavigation();
 }
 
 function renderSkillsByCategory(skills, container, useMacros = true) {
@@ -530,6 +632,12 @@ function renderSkillsByCategory(skills, container, useMacros = true) {
         `;
 
         const skillsList = categoryElement.querySelector('.skills-list');
+        const header = categoryElement.querySelector('.skill-category-header');
+
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+        header.setAttribute('aria-label', `Categoria ${category}`);
 
         // Sort skills by level (stars) in descending order
         categorySkills.sort((a, b) => b.level - a.level);
@@ -537,6 +645,8 @@ function renderSkillsByCategory(skills, container, useMacros = true) {
         categorySkills.forEach(skill => {
             const skillItem = document.createElement('div');
             skillItem.className = 'skill-item';
+            const skillSlug = slugify(skill.name);
+            skillItem.id = `skill-${skillSlug}`;
 
             skillItem.innerHTML = `
                 <div class="skill-header">
@@ -557,10 +667,22 @@ function renderSkillsByCategory(skills, container, useMacros = true) {
             skillsList.appendChild(skillItem);
         });
 
+        const toggleCategory = () => {
+            const isExpanded = categoryElement.classList.toggle('expanded');
+            header.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        };
+
         // Make the whole card clickable (except skill items)
         categoryElement.addEventListener('click', (event) => {
             if (event.target.closest('.skill-item')) return;
-            categoryElement.classList.toggle('expanded');
+            toggleCategory();
+        });
+
+        header.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleCategory();
+            }
         });
 
         return categoryElement;
@@ -612,10 +734,28 @@ function renderSkillsByCategory(skills, container, useMacros = true) {
             macroContent.appendChild(categoryElement);
         });
 
+        const macroHeader = macroBlock.querySelector('.macro-category-header');
+        macroHeader.setAttribute('role', 'button');
+        macroHeader.setAttribute('tabindex', '0');
+        macroHeader.setAttribute('aria-expanded', 'false');
+        macroHeader.setAttribute('aria-label', `Macro categoria ${macro}`);
+
+        const toggleMacro = () => {
+            const isExpanded = macroBlock.classList.toggle('expanded');
+            macroHeader.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        };
+
         // Make the whole macro card clickable (avoid toggling when interacting with content)
         macroBlock.addEventListener('click', (event) => {
             if (event.target.closest('.macro-category-content')) return;
-            macroBlock.classList.toggle('expanded');
+            toggleMacro();
+        });
+
+        macroHeader.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleMacro();
+            }
         });
 
         container.appendChild(macroBlock);
@@ -628,6 +768,141 @@ function generateStars(level) {
         stars += `<span class="star ${i <= level ? 'filled' : ''}">★</span>`;
     }
     return stars;
+}
+
+function slugify(text) {
+    return text
+        .toString()
+        .normalize('NFD')
+        .replace(/\p{Diacritic}/gu, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)+/g, '');
+}
+
+function findSkillBySlug(slug) {
+    const allSkills = [...userData.hard_skills, ...userData.soft_skills];
+    return allSkills.find(skill => slugify(skill.name) === slug);
+}
+
+function findMilestoneById(id) {
+    return userData.milestones.find(m => m.id === id);
+}
+
+function handleSkillHashNavigation() {
+    const hash = decodeURIComponent(window.location.hash || '');
+    if (!hash || !hash.startsWith('#skill-')) return;
+
+    closeAllModals();
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const skillSlug = hash.replace('#skill-', '');
+    const skillData = findSkillBySlug(skillSlug);
+
+    const categoryElement = target.closest('.skill-category');
+    if (categoryElement) {
+        categoryElement.classList.add('expanded');
+        const header = categoryElement.querySelector('.skill-category-header');
+        if (header) header.setAttribute('aria-expanded', 'true');
+    }
+
+    const macroElement = target.closest('.macro-category');
+    if (macroElement) {
+        macroElement.classList.add('expanded');
+        const header = macroElement.querySelector('.macro-category-header');
+        if (header) header.setAttribute('aria-expanded', 'true');
+    }
+
+    requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (skillData) {
+            openSkillModal(skillData);
+        }
+    });
+}
+
+function handleMilestoneHashNavigation() {
+    const hash = decodeURIComponent(window.location.hash || '');
+    if (!hash || !hash.startsWith('#milestone-')) return;
+
+    closeAllModals();
+
+    const milestoneId = parseInt(hash.replace('#milestone-', ''), 10);
+    const milestone = findMilestoneById(milestoneId);
+    const target = document.getElementById(`milestone-${milestoneId}`);
+
+    if (target) {
+        requestAnimationFrame(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (milestone) {
+                openMilestoneModal(milestone);
+            }
+        });
+    }
+}
+
+function openPortfolioCard(cardId) {
+    const container = document.getElementById('portfolio-grid');
+    if (!container) return;
+
+    const cards = container.querySelectorAll('.portfolio-card');
+    cards.forEach(card => {
+        card.classList.remove('open');
+        const btn = card.querySelector('.portfolio-more-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+
+    openPortfolioCardId = null;
+
+    if (cardId) {
+        const target = container.querySelector(`#${cardId}`);
+        if (target) {
+            target.classList.add('open');
+            const btn = target.querySelector('.portfolio-more-btn');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+            openPortfolioCardId = cardId;
+        }
+    }
+}
+
+function closeAllModals() {
+    closeModal();
+    closeSkillModal();
+    closeCategoryModal();
+}
+
+function handlePortfolioHashNavigation() {
+    const hash = decodeURIComponent(window.location.hash || '');
+    if (!hash || !hash.startsWith('#portfolio-')) return;
+
+    closeAllModals();
+
+    const cardId = hash.replace('#', '');
+    openPortfolioCard(cardId);
+
+    const target = document.getElementById(cardId);
+    if (target) {
+        requestAnimationFrame(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+}
+
+function escapeHTML(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function formatNoteHTML(note) {
+    const safe = escapeHTML(note);
+    const withBreaks = safe.replace(/\n/g, '<br>');
+    return `<div class="note-body">${withBreaks}</div>`;
 }
 
 // Switch between milestone views
@@ -664,8 +939,10 @@ function renderMilestones() {
         // Clear containers
         timelineContainer.innerHTML = '';
         gridContainer.innerHTML = '';
+
+        const sortedMilestones = [...userData.milestones].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
         
-        userData.milestones.forEach(milestone => {
+        sortedMilestones.forEach(milestone => {
             // Create timeline element
             const timelineItem = document.createElement('div');
             timelineItem.className = 'milestone-item';
@@ -685,6 +962,9 @@ function renderMilestones() {
             timelineContainer.appendChild(timelineItem);
             gridContainer.appendChild(gridCard);
         });
+
+        // Handle deep link after rendering
+        handleMilestoneHashNavigation();
     }
 }
 
@@ -692,6 +972,11 @@ function createMilestoneElement(milestone) {
     const element = document.createElement('div');
     element.className = 'milestone-card';
     element.style.cursor = 'pointer';
+    element.id = `milestone-${milestone.id}`;
+    const isCompleted = milestone.status === 'concluido' || milestone.progress === 100;
+    if (isCompleted) {
+        element.classList.add('milestone-card--completed');
+    }
     
     const statusClass = getStatusClass(milestone.status);
     const statusText = getStatusText(milestone.status);
@@ -709,7 +994,7 @@ function createMilestoneElement(milestone) {
                 <span class="progress-percentage">${milestone.progress}%</span>
             </div>
             <div class="progress-bar">
-                <div class="progress-fill" style="width: ${milestone.progress}%"></div>
+                <div class="progress-fill ${isCompleted ? 'progress-fill--static' : ''}" style="width: ${milestone.progress}%"></div>
             </div>
         </div>
         <div class="milestone-meta">
@@ -760,12 +1045,17 @@ function renderPortfolio() {
     
     container.innerHTML = '';
     
-    userData.portfolio.forEach(project => {
+    userData.portfolio.forEach((project, index) => {
         const projectElement = document.createElement('div');
         projectElement.className = 'portfolio-card';
+        const cardId = `portfolio-${index}`;
+        projectElement.id = cardId;
         
         const statusClass = getPortfolioStatusClass(project.status);
         const statusText = getPortfolioStatusText(project.status);
+        const skills = project.skills || [];
+        const milestones = project.milestones || [];
+        const resources = project.resources || [];
         
         projectElement.innerHTML = `
             <div class="portfolio-header">
@@ -774,13 +1064,38 @@ function renderPortfolio() {
             </div>
             <p class="portfolio-description">${project.description}</p>
             ${project.impact ? `<p class="portfolio-impact"><strong>Impacto:</strong> ${project.impact}</p>` : ''}
-            <div class="portfolio-technologies">
-                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            <button class="portfolio-more-btn" type="button" aria-expanded="false" aria-controls="${cardId}-details">Mais informações</button>
+            <div class="portfolio-details" id="${cardId}-details">
+                ${skills.length ? `<div class="portfolio-meta"><span class="portfolio-meta-label">Skills</span><br><div class="portfolio-tags">${skills.map(skill => `<a class="tech-tag tech-tag--ghost" href="#skill-${slugify(skill)}">${skill}</a>`).join('')}</div></div>` : ''}
+                ${milestones.length ? `<div class="portfolio-meta"><span class="portfolio-meta-label">Marcos</span><br><div class="portfolio-tags">${milestones.map(id => {
+                    const m = userData.milestones.find(item => item.id === id);
+                    const label = m ? m.title : `Marco ${id}`;
+                    return `<a class="tech-tag tech-tag--ghost" href="#milestone-${id}">${label}</a>`;
+                }).join('')}</div></div>` : ''}
+                ${resources.length ? `<div class="portfolio-meta"><span class="portfolio-meta-label">Recursos</span><br><div class="portfolio-tags">${resources.map(id => {
+                    const cat = userData.learning_resources.find(c => c.id === id);
+                    const label = cat ? cat.name : `Recurso ${id}`;
+                    return `<a class="tech-tag tech-tag--ghost" href="#resource-${id}">${label}</a>`;
+                }).join('')}</div></div>` : ''}
             </div>
         `;
+
+        const details = projectElement.querySelector('.portfolio-details');
+        const toggleBtn = projectElement.querySelector('.portfolio-more-btn');
+        toggleBtn.addEventListener('click', () => {
+            const isOpen = projectElement.classList.contains('open');
+            if (isOpen) {
+                openPortfolioCard(null);
+            } else {
+                openPortfolioCard(cardId);
+            }
+        });
         
         container.appendChild(projectElement);
     });
+
+    // If hash points to a project, open it
+    handlePortfolioHashNavigation();
 }
 
 function getPortfolioStatusClass(status) {
@@ -811,6 +1126,7 @@ function renderLearningResources() {
     userData.learning_resources.forEach(category => {
         const categoryElement = document.createElement('div');
         categoryElement.className = 'learning-card';
+        categoryElement.id = `resource-${category.id}`;
         
         categoryElement.innerHTML = `
             <h3 class="learning-title">${category.name}</h3>
@@ -891,15 +1207,19 @@ function openMilestoneModal(milestone) {
         progressFill.style.width = `${milestone.progress}%`;
         
         // Definir a anotação textual se existir e o marco estiver concluído
-        if (milestone.status === 'concluido' && typeof milestone.note !== 'undefined') {
-            noteElement.textContent = milestone.note;
+        if (milestone.status === 'concluido' && typeof milestone.note !== 'undefined' && milestone.note !== '') {
+            noteElement.innerHTML = formatNoteHTML(milestone.note);
         } else {
-            noteElement.textContent = '—';
+            noteElement.innerHTML = '<span class="note-placeholder">Nenhuma anotação disponível.</span>';
         }
+        noteElement.parentElement.classList.add('detail-item--note');
         
         // Preencher lista de habilidades relacionadas
         if (milestone.skills && milestone.skills.length) {
-            relatedSkillsList.innerHTML = milestone.skills.map(skillName => `<li>${skillName}</li>`).join('');
+            relatedSkillsList.innerHTML = milestone.skills.map(skillName => {
+                const anchor = `#skill-${slugify(skillName)}`;
+                return `<li><a href="${anchor}">${skillName}</a></li>`;
+            }).join('');
         } else {
             relatedSkillsList.innerHTML = '<li>N/A</li>';
         }
@@ -908,7 +1228,7 @@ function openMilestoneModal(milestone) {
         if (milestone.resources && milestone.resources.length) {
             relatedResourcesList.innerHTML = milestone.resources.map(catId => {
                 const cat = userData.learning_resources.find(c => c.id === catId);
-                return cat ? `<li>${cat.name}</li>` : '';
+                return cat ? `<li><a href="#resource-${catId}">${cat.name}</a></li>` : '';
             }).join('');
         } else {
             relatedResourcesList.innerHTML = '<li>N/A</li>';
@@ -979,6 +1299,7 @@ function openSkillModal(skill) {
     const ruler = document.getElementById('skill-modal-ruler');
     const relatedMilestonesList = document.getElementById('skill-modal-related-milestones');
     const relatedResourcesList = document.getElementById('skill-modal-related-resources');
+    const relatedProjectsList = document.getElementById('skill-modal-related-projects');
     
     if (modal && title && rating && description && ruler && relatedMilestonesList && relatedResourcesList) {
         title.textContent = skill.name;
@@ -1014,20 +1335,34 @@ function openSkillModal(skill) {
         }
         
         // Determinar marcos relacionados (buscando skills listados nos marcos)
-        const relatedMilestones = userData.milestones.filter(m => (m.skills || []).includes(skill.name));
-        if (relatedMilestones.length) {
-            relatedMilestonesList.innerHTML = relatedMilestones.map(m => `<li>${m.title}</li>`).join('');
-        } else {
-            relatedMilestonesList.innerHTML = '<li>N/A</li>';
-        }
-        
-        // Determinar recursos relacionados (procurando categorias que listem esta skill)
+        const relatedProjects = userData.portfolio
+            .map((project, index) => ({ project, index }))
+            .filter(entry => (entry.project.skills || []).includes(skill.name));
+
+        const milestoneIdsFromProjects = new Set(
+            relatedProjects.flatMap(entry => entry.project.milestones || [])
+        );
+
+        const directMilestones = userData.milestones.filter(m => (m.skills || []).includes(skill.name));
+        const indirectMilestones = userData.milestones.filter(m => milestoneIdsFromProjects.has(m.id));
+        const combinedMilestones = [...new Map([...directMilestones, ...indirectMilestones].map(m => [m.id, m])).values()];
+
         const relatedResources = userData.learning_resources.filter(cat => (cat.relatedSkills || []).includes(skill.name));
-        if (relatedResources.length) {
-            relatedResourcesList.innerHTML = relatedResources.map(cat => `<li>${cat.name}</li>`).join('');
-        } else {
-            relatedResourcesList.innerHTML = '<li>N/A</li>';
-        }
+
+        const renderListOrHide = (listElement, items, formatter) => {
+            if (!listElement || !listElement.parentElement) return;
+            if (items.length) {
+                listElement.innerHTML = items.map(formatter).join('');
+                listElement.parentElement.style.display = '';
+            } else {
+                listElement.innerHTML = '';
+                listElement.parentElement.style.display = 'none';
+            }
+        };
+
+        renderListOrHide(relatedMilestonesList, combinedMilestones, (m) => `<li><a href="#milestone-${m.id}">${m.title}</a></li>`);
+        renderListOrHide(relatedResourcesList, relatedResources, (cat) => `<li><a href="#resource-${cat.id}">${cat.name}</a></li>`);
+        renderListOrHide(relatedProjectsList, relatedProjects, (entry) => `<li><a href="#portfolio-${entry.index}">${entry.project.title}</a></li>`);
         
         modal.classList.add('show');
         modal.style.display = 'flex';

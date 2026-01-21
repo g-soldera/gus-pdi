@@ -333,6 +333,21 @@ a:hover {
   text-align: center;
 }
 
+.section-header--left {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.section-kicker {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2);
+}
+
 .section-title {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
@@ -536,7 +551,10 @@ a:hover {
   padding: var(--space-8);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: transform var(--duration-normal) var(--ease-standard),
+              box-shadow var(--duration-normal) var(--ease-standard),
+              border-color var(--duration-normal) var(--ease-standard),
+              background-color var(--duration-normal) var(--ease-standard);
   position: relative;
   overflow: hidden;
   min-height: 140px;
@@ -557,6 +575,13 @@ a:hover {
 .stat-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-xl);
+  border-color: var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.stat-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
 }
 
 .stat-card--flippable {
@@ -684,20 +709,28 @@ a:hover {
 
 .macro-category {
   margin-bottom: var(--space-6);
-  padding: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard);
+  overflow: hidden;
 }
 
 .macro-category-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-secondary);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   cursor: pointer;
-  padding: 0;
+  gap: var(--space-3);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.macro-category-header:hover {
+  background: var(--color-secondary-hover);
 }
 
 .macro-category-title {
@@ -712,17 +745,29 @@ a:hover {
   transition: transform var(--duration-normal) var(--ease-standard);
 }
 
+.macro-category:focus-within,
+.macro-category:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.macro-category-header:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
+}
+
 .macro-category-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--duration-normal) var(--ease-standard), padding var(--duration-normal) var(--ease-standard);
-  padding-bottom: 0;
+  padding: 0 var(--space-3);
 }
 
 .macro-category.expanded .macro-category-content {
   max-height: 2000px;
-  margin-top: var(--space-2);
-  padding-bottom: var(--space-2);
+  margin-top: 0;
+  padding: var(--space-3);
 }
 
 .macro-category.expanded .macro-category-toggle {
@@ -741,6 +786,7 @@ a:hover {
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
+  transition: box-shadow var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard);
 }
 
 .skills-column-header {
@@ -783,6 +829,11 @@ a:hover {
   box-shadow: var(--shadow-sm);
 }
 
+.skill-category:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
 .skill-category-header {
   display: flex;
   align-items: center;
@@ -795,6 +846,12 @@ a:hover {
 
 .skill-category-header:hover {
   background: var(--color-secondary-hover);
+}
+
+.skill-category-header:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
 }
 
 .skill-category-title {
@@ -838,6 +895,11 @@ a:hover {
 .skill-item:hover {
   background: var(--color-primary-light);
   transform: translateX(4px);
+}
+
+.skill-item:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .skill-item:last-child {
@@ -905,6 +967,7 @@ a:hover {
   gap: var(--space-1);
   box-shadow: var(--shadow-sm);
   margin-top: var(--space-6);
+  overflow: hidden;
 }
 
 .switch-btn {
@@ -917,7 +980,7 @@ a:hover {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-base);
+  border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
 }
@@ -936,6 +999,11 @@ a:hover {
   background: var(--color-primary);
   color: white;
   box-shadow: var(--shadow-sm);
+}
+
+.switch-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* Timeline View */
@@ -1107,6 +1175,14 @@ a:hover {
   animation: shimmer 2s infinite;
 }
 
+.progress-fill--static {
+  background: var(--color-success);
+}
+
+.progress-fill--static::after {
+  display: none;
+}
+
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
@@ -1124,6 +1200,16 @@ a:hover {
 .milestone-deadline {
   display: flex;
   align-items: center;
+
+.milestone-card--completed {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-md);
+}
+
+.milestone-card--completed::before {
+  background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);
+}
   gap: var(--space-2);
   background: var(--color-secondary);
   padding: var(--space-2) var(--space-3);
@@ -1190,6 +1276,11 @@ a:hover {
 .portfolio-card {
   background: var(--color-surface);
   border-radius: var(--radius-xl);
+
+.portfolio-card.open {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-strong);
+}
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
@@ -1255,15 +1346,30 @@ a:hover {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
   line-height: var(--line-height-relaxed);
+}
 
 .portfolio-impact {
   color: var(--color-text);
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--space-3);
 }
+
+.portfolio-meta {
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  flex-wrap: wrap;
 }
 
-.portfolio-technologies {
+.portfolio-meta-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-top: 2px;
+}
+
+.portfolio-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -1277,6 +1383,45 @@ a:hover {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   border: 1px solid var(--color-primary);
+}
+
+.tech-tag--ghost {
+  background: var(--color-secondary);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.portfolio-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  margin-top: var(--space-3);
+}
+
+.portfolio-more-btn:hover {
+  background: var(--color-secondary-hover);
+}
+
+.portfolio-more-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.portfolio-details {
+  display: none;
+  margin-top: var(--space-4);
+}
+
+.portfolio-card.open .portfolio-details {
+  display: block;
 }
 
 /* Learning Section */
@@ -1523,6 +1668,7 @@ a:hover {
   backdrop-filter: blur(8px);
   animation: fadeIn var(--duration-normal) var(--ease-out);
   scrollbar-color: var(--color-secondary) var(--color-surface);
+  overflow: hidden; /* Keep scrollbars within the modal content */
 }
 
 .modal::-webkit-scrollbar {
@@ -1543,7 +1689,9 @@ a:hover {
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Contain scroll within rounded corners */
   animation: slideUp var(--duration-normal) var(--ease-out);
   border: 1px solid var(--color-border);
 }
@@ -1598,6 +1746,8 @@ a:hover {
 
 .modal-body {
   padding: var(--space-8);
+  flex: 1;
+  overflow-y: auto;
 }
 
 .modal-description {
@@ -1616,11 +1766,12 @@ a:hover {
 .detail-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--space-4) var(--space-5);
   background: var(--color-secondary);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
+  gap: var(--space-3);
 }
 
 .detail-label {
@@ -1633,6 +1784,42 @@ a:hover {
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
   font-size: var(--font-size-sm);
+  flex: 1;
+  text-align: right;
+}
+
+#modal-note .note-body {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  white-space: normal;
+}
+
+#modal-note.detail-value {
+  text-align: left;
+}
+
+.detail-item--note {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#modal-note .note-body {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  white-space: normal;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  width: 100%;
+  box-shadow: var(--shadow-xs);
+}
+
+#modal-note .note-placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 .modal-progress {

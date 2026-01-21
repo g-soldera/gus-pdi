@@ -35,7 +35,7 @@
                 <div class="hero-info">
                     <h1 class="hero-name">Gustavo Soldera</h1>
                     <p class="hero-subtitle">
-                        <span class="hero-badge">23 anos</span>
+                        <span class="hero-badge" id="age-badge">-- anos</span>
                         <span class="hero-badge">Itaú Unibanco</span>
                         <span class="hero-badge">Cyber Security</span>
                     </p>
@@ -72,6 +72,11 @@
     <!-- Statistics Section -->
     <section class="stats-section">
         <div class="container">
+            <div class="section-header section-header--left">
+                <span class="section-kicker">Panorama</span>
+                <h2 class="section-title">Estatísticas</h2>
+                <p class="section-subtitle">Resumo rápido do PDI</p>
+            </div>
             <div class="stats-grid">
 
                 <div class="stat-card">
@@ -136,6 +141,7 @@
     <section class="skills-section">
         <div class="container">
             <div class="section-header">
+                <span class="section-kicker">Capacidades</span>
                 <h2 class="section-title">Competências e Habilidades</h2>
                 <p class="section-subtitle">Desenvolvimento contínuo de hard e soft skills</p>
             </div>
@@ -173,6 +179,7 @@
     <section class="milestones-section">
         <div class="container">
             <div class="section-header">
+                <span class="section-kicker">Progresso</span>
                 <div>
                     <h2 class="section-title">Marcos de Desenvolvimento</h2>
                     <p class="section-subtitle">Acompanhe o progresso dos objetivos principais</p>
@@ -211,6 +218,7 @@
     <section class="portfolio-section">
         <div class="container">
             <div class="section-header">
+                <span class="section-kicker">Entrega</span>
                 <h2 class="section-title">Portfolio de Projetos</h2>
                 <p class="section-subtitle">Principais projetos e contribuições técnicas</p>
             </div>
@@ -222,6 +230,7 @@
     <section class="learning-section">
         <div class="container">
             <div class="section-header">
+                <span class="section-kicker">Evolução</span>
                 <h2 class="section-title">Recursos de Aprendizado</h2>
                 <p class="section-subtitle">Cursos, livros e materiais para desenvolvimento contínuo</p>
             </div>
@@ -337,6 +346,10 @@
                         <h4>Recursos de aprendizado</h4>
                         <ul id="skill-modal-related-resources"></ul>
                     </div>
+                    <div class="related-projects">
+                        <h4>Projetos relacionados</h4>
+                        <ul id="skill-modal-related-projects"></ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -369,6 +382,7 @@
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
 
