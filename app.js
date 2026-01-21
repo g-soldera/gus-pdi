@@ -18,12 +18,28 @@ const userData = {
         {name: "Amazon QuickSight", level: 5, description: "Ferramenta de BI do banco", category: "Analytics & BI"},
         {name: "PySpark", level: 4, description: "Processamento de big data", category: "Analytics & BI"},
         {name: "Modelagem de Dados", level: 4, description: "Design e estruturação de modelos", category: "Analytics & BI"},
+        {name: "Glue Data Quality", level: 5, description: "Validação automatizada de dados em pipelines Glue", category: "Data Quality"},
+        {name: "Deequ", level: 3, description: "Checks de qualidade de dados em escala", category: "Data Quality"},
+        {name: "Data Observability (Datadog)", level: 4, description: "Alertas e métricas de saúde de dados e pipelines", category: "Data Quality"},
+        {name: "Data Contracts", level: 2, description: "Definição de esquemas e SLAs para produtores/consumidores", category: "Governança de Dados"},
+        {name: "Data Lineage", level: 2, description: "Mapeamento de origem-impacto e rastreabilidade de dados", category: "Governança de Dados"},
         {name: "AWS Glue", level: 5, description: "ETL e integração de dados", category: "Cloud & Data"},
         {name: "AWS S3", level: 4, description: "Armazenamento de dados na nuvem", category: "Cloud & Data"},
         {name: "AWS Step Functions", level: 3, description: "Orquestração de workflows", category: "Cloud & Data"},
         {name: "Terraform", level: 4, description: "Infraestrutura como código", category: "Cloud & Data"},
         {name: "Kafka/Mensageria", level: 2, description: "Streaming de dados em tempo real", category: "Cloud & Data"},
         {name: "LLM e Agentes", level: 4, description: "Criação de soluções com IA", category: "IA & Inovação"},
+        {name: "Prompt Engineering", level: 4, description: "Design e avaliação sistemática de prompts", category: "LLM"},
+        {name: "Fluxo Sequencial", level: 3, description: "Orquestração de pipelines de LLM em etapas", category: "LLM"},
+        {name: "MAS (Multi-Agent Systems)", level: 3, description: "Desenho e coordenação de agentes especializados", category: "LLM"},
+        {name: "RAG", level: 4, description: "Recuperação aumentada por contexto em produção", category: "LLM"},
+        {name: "MCP Tools (Consumo e Criação)", level: 3, description: "Integração e authoring de ferramentas MCP", category: "LLM"},
+        {name: "StackSpot AI", level: 4, description: "Construção e governança de soluções com StackSpot AI", category: "LLM"},
+        {name: "Copilot Studio", level: 3, description: "Automação e copilotos especializados", category: "LLM"},
+        {name: "Pipelines CI/CD", level: 4, description: "Automação de build, teste e deploy com pipelines versionadas", category: "CI/CD"},
+        {name: "Testes Automatizados", level: 4, description: "Estratégia de testes end-to-end e integração contínua", category: "Testes Automatizados"},
+        {name: "Testes Unitários", level: 4, description: "Cobertura de componentes críticos com mocks e stubs", category: "Testes Unitários"},
+        {name: "FinOps", level: 3, description: "Otimização de custos de pipelines e workloads", category: "FinOps"},
         {name: "Kubernetes", level: 4, description: "Gerenciamento de containers", category: "DevOps"},
         {name: "Docker", level: 3, description: "Containerização de aplicações", category: "DevOps"},
         {name: "Figma", level: 4, description: "Ferramenta de design de interfaces", category: "Design & UX"},
@@ -42,7 +58,8 @@ const userData = {
         {name: "Gestão de Conflitos", level: 3, description: "Resolução de divergências", category: "Relacionais"},
         {name: "Escuta Ativa", level: 3, description: "Área prioritária de desenvolvimento", category: "Comunicação"},
         {name: "Empatia na Comunicação", level: 3, description: "Considerar perspectiva dos outros", category: "Relacionais"},
-        {name: "Comunicação Não-Violenta", level: 4, description: "Técnicas de comunicação respeitosa", category: "Comunicação"}
+        {name: "Comunicação Não-Violenta", level: 4, description: "Técnicas de comunicação respeitosa", category: "Comunicação"},
+        {name: "Storytelling com Dados", level: 4, description: "Narrativa orientada a decisão para stakeholders", category: "Comunicação"}
     ],
     milestones: [
         {
@@ -52,7 +69,7 @@ const userData = {
             deadline: "2025-08-15",
             status: "concluido",
             progress: 100,
-            note: "Aprovação recebida em 11/09/2025",
+            note: "Aprovação em 11/09/2025 e aplicação imediata nos fluxos do Insight Guard (modelagem e automações).",
             skills: ["SQL", "Python", "Modelagem de Dados", "PySpark", "Amazon QuickSight"],
             resources: [3, 5, 9]
         },
@@ -63,7 +80,7 @@ const userData = {
             deadline: "2025-08-30",
             status: "concluido",
             progress: 100,
-            note: "Feedback de colegas indicou melhoria significativa",
+            note: "Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.",
             skills: ["Comunicação Verbal", "Escuta Ativa", "Empatia na Comunicação", "Comunicação Não-Violenta", "Colaboração", "Gestão de Conflitos"],
             resources: [1, 2]
         },
@@ -74,25 +91,15 @@ const userData = {
             deadline: "2025-09-30",
             status: "concluido",
             progress: 100,
-            note: "Atuação chave no Insight Guard e Padronizações",
+            note: "Liderança no Insight Guard (frontend) e padronizações; guilda reconheceu entregas como referência.",
             skills: ["Liderança", "Pensamento Crítico", "Apresentação", "Colaboração"],
-            resources: [2, 4, 5]
-        },
-        {
-            id: 4,
-            title: "Decisões Estratégicas",
-            description: "Apresentar 3 propostas de melhoria aceitas pela liderança",
-            deadline: "2025-12-31",
-            status: "em_progresso",
-            progress: 0,
-            skills: ["Pensamento Crítico", "Liderança", "Comunicação Verbal"],
-            resources: [1, 4]
+            resources: [2, 5]
         },
         {
             id: 5,
             title: "Certificação Comptia Security+",
             description: "Estudar e realizar prova para certificação Comptia Security+",
-            deadline: "2025-12-30",
+            deadline: "2026-03-30",
             status: "em_progresso",
             progress: 30,
             skills: ["AWS S3", "AWS Step Functions", "Terraform", "Kafka/Mensageria", "Kubernetes"],
@@ -111,69 +118,85 @@ const userData = {
         {
             id: 7,
             title: "Mentorar Colegas",
-            description: "Orientar pelo menos 3 membros da equipe/comunidade que queiram se aperfeiçoar na área",
+            description: "Orientar 1 membro da equipe/comunidade que queira se aperfeiçoar na área",
             deadline: "2025-10-31",
-            status: "nao_iniciado",
-            progress: 0,
+            status: "concluido",
+            progress: 100,
+            note: "Apoiei Isabelli com conhecimentos técnicos, evolução de hard skills e PDI até conclusão.",
             skills: ["Liderança", "Colaboração", "Pensamento Crítico", "Escuta Ativa", "Empatia na Comunicação"],
-            resources: [2, 4]
+            resources: [2]
         },
         {
             id: 8,
             title: "Workshops e Palestras",
-            description: "Apresentar 3 workshops/palestras internas",
+            description: "Agendar e apresentar 3 workshops/palestras internas (agendas inclusive)",
             deadline: "2025-11-30",
-            status: "nao_iniciado",
-            progress: 0,
+            status: "em_progresso",
+            progress: 66,
+            note: "66% concluído com guildas do Devin e agendas de inovação em andamento.",
             skills: ["Apresentação", "Comunicação Verbal", "Pensamento Crítico"],
-            resources: [4, 5]
+            resources: [5]
         },
         {
             id: 9,
-            title: "Pílulas de Conhecimento",
-            description: "Iniciar produção de conteúdo com pelo menos 7 pílulas de conhecimento nos campos de Engenharia de Dados e Analytics",
-            deadline: "2025-12-30",
-            status: "nao_iniciado",
+            title: "FinOps na Consumer",
+            description: "Reduzir 30% do custo do Glue Job consumer via Flex Execution",
+            deadline: "2026-01-20",
+            status: "concluido",
             progress: 0,
-            skills: ["Documentação Técnica", "Apresentação", "SQL", "Python"],
-            resources: [5, 9, 10, 11]
+            note: "Alvo: -30% de custo por execução aplicando Flex Execution e tuning de recursos.",
+            skills: ["FinOps", "AWS Glue", "PySpark"],
+            resources: [7]
         }
     ],
     portfolio: [
         {
             title: "InsightGuard",
-            description: "Primeira plataforma front-end desenvolvida no time",
+            description: "Microfrontend para centralização e padronização de jornada, interface para embarcação de agentes e sistemas, DNS via CloudFront, observabilidade Datadog e backend em andamento com desenho de arquitetura.",
             status: "em_desenvolvimento",
-            technologies: ["HTML/CSS", "Javascript", "Sass", "AWS", "Terraform", "Angular"]
+            impact: "Em breve",
+            technologies: ["HTML/CSS", "Javascript", "Sass", "AWS", "Terraform", "Angular", "CloudFront", "Datadog", "Microfrontends"]
+        },
+        {
+            title: "User Behavior (Comportamento Anômalo)",
+            description: "Engenharia de ML transformando notebooks em aplicação escalável em Lambda (Python) com democratização de resultados.",
+            status: "concluido",
+            impact: "Em breve",
+            technologies: ["Python", "AWS Lambda", "API Gateway", "MLOps", "CI/CD"]
         },
         {
             title: "Engenharia de Dados",
-            description: "Desenvolvimento de tabelas spec e consultorias de democratização",
+            description: "Desenvolvimento de tabelas em producer, consumer, e consultorias de democratização",
             status: "em_progresso",
+            impact: "-30% no tempo de entrega de tabelas spec, -30% de custos em gluejob na consumer através de Flex Execution e +99% de sucesso dos jobs críticos",
             technologies: ["SQL", "Python", "AWS Glue", "PySpark", "Terraform"]
         },
         {
             title: "Padronização de Dashboards",
             description: "Apoiando times na modernização e liderando padronização de design de dashboards na comunidade Cyber Security",
             status: "em_progresso",
+            impact: "-40% no tempo de produção de dashboards e aderência ao Itaú Design System nos times",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         },
         {
             title: "IAM Analytics",
             description: "Padrão de visual para dashboards de Acessos (IAM)",
             status: "concluido",
+            impact: "Aderência ao Itaú Design System e -30% no tempo de construção de dashboards nos times de Acessos",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         },
         {
             title: "Cyber Insights",
             description: "Padrão de visual para dashboards de Cyber Defense",
             status: "concluido",
+            impact: "Aderência ao Itaú Design System e -30% no tempo de construção de dashboards nos times de Cyber Security",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         },
         {
             title: "Observability360",
             description: "Padrão de visual para dashboards de indicadores da comunidade",
             status: "concluido",
+            impact: "Identidade unificada e -30% no tempo de construção de dashboards nos indicadores da comunidade",
             technologies: ["Amazon QuickSight", "Figma", "Design Systems"]
         }
     ],
@@ -187,7 +210,7 @@ const userData = {
                 { name: "Crucial Conversations", description: "Técnicas para lidar com conversas difíceis.", status: "nao_iniciado", image: "assets/img/books/cc.jpg" }
             ],
             relatedSkills: ["Apresentação", "Comunicação Verbal", "Escuta Ativa", "Empatia na Comunicação", "Comunicação Não-Violenta"],
-            relatedMilestones: [2, 4, 7, 8]
+            relatedMilestones: [2, 7, 8]
         },
         {
             id: 2,
@@ -197,7 +220,7 @@ const userData = {
                 { name: "Em breve", description: "Mentor em engenharia de analytics.", status: "nao_iniciado", image: "assets/img/mentor.png" }
             ],
             relatedSkills: ["SQL", "Python", "Modelagem de Dados", "AWS Glue", "Terraform", "Liderança", "Pensamento Crítico", "Colaboração"],
-            relatedMilestones: [1, 3, 7, 9]
+            relatedMilestones: [1, 3, 7]
         },
         {
             id: 3,
@@ -206,16 +229,7 @@ const userData = {
                 { name: "Curso Preparatório", description: "Curso online para preparação da certificação.", status: "concluido", image: "assets/img/professionalea.webp" }
             ],
             relatedSkills: ["SQL", "Python", "Modelagem de Dados", "PySpark", "Amazon QuickSight"],
-            relatedMilestones: [1, 9]
-        },
-        {
-            id: 4,
-            name: "Workshops de Liderança Técnica",
-            resources: [
-                { name: "Em breve", description: "Workshop sobre liderança técnica e gestão de equipes.", status: "nao_iniciado", image: "assets/img/workshop.png" }
-            ],
-            relatedSkills: ["Liderança", "Pensamento Crítico", "Apresentação", "Comunicação Verbal", "Colaboração", "Gestão de Conflitos"],
-            relatedMilestones: [2, 3, 4, 7, 8]
+            relatedMilestones: [1]
         },
         {
             id: 5,
@@ -225,8 +239,8 @@ const userData = {
                 { name: "Data Science for Business", description: "Fundamentos de ciência de dados para negócios.", status: "nao_iniciado", image: "assets/img/books/dsfb.jpg" },
                 { name: "The Art of Data Science", description: "Um guia para análise de dados.", status: "nao_iniciado", image: "assets/img/books/tads.jpg" }
             ],
-            relatedSkills: ["Amazon QuickSight", "Modelagem de Dados", "PySpark", "LLM e Agentes"],
-            relatedMilestones: [1, 3, 9]
+            relatedSkills: ["Amazon QuickSight", "Modelagem de Dados", "PySpark", "LLM e Agentes", "Storytelling com Dados"],
+            relatedMilestones: [1, 3, 8]
         },
         {
             id: 6,
@@ -235,7 +249,7 @@ const userData = {
                 { name: "DevOps Fundamentals", description: "Curso introdutório sobre práticas de DevOps.", status: "nao_iniciado", image: "assets/img/devops.jpg" }
             ],
             relatedSkills: ["Docker", "Kubernetes", "Terraform"],
-            relatedMilestones: [9]
+            relatedMilestones: []
         },
         {
             id: 7,
@@ -264,7 +278,7 @@ const userData = {
                 { name: "Data Mesh", description: "Arquitetura de dados para empresas modernas.", status: "nao_iniciado", image: "assets/img/books/dm.jpg" }
             ],
             relatedSkills: ["AWS Glue", "AWS S3", "Modelagem de Dados", "Kafka/Mensageria", "PySpark"],
-            relatedMilestones: [1, 5, 9]
+            relatedMilestones: [1, 5]
         },
         {
             id: 10,
@@ -274,7 +288,7 @@ const userData = {
                 { name: "The Pragmatic Programmer", description: "Dicas e truques para programadores.", status: "nao_iniciado", image: "assets/img/books/tpp.jpg" }
             ],
             relatedSkills: ["Python", "JavaScript", "Terraform", "Docker"],
-            relatedMilestones: [3, 9]
+            relatedMilestones: [3]
         },
         {
             id: 11,
@@ -284,7 +298,18 @@ const userData = {
                 { name: "Patterns of Enterprise Application Architecture", description: "Padrões de arquitetura para aplicações empresariais.", status: "nao_iniciado", image: "assets/img/books/peaa.jpg" }
             ],
             relatedSkills: ["AWS Glue", "AWS Step Functions", "Terraform", "Kubernetes", "Modelagem de Dados"],
-            relatedMilestones: [5, 9]
+            relatedMilestones: [5]
+        },
+        {
+            id: 12,
+            name: "Data Quality & Observability",
+            resources: [
+                { name: "Glue Data Quality", description: "Configuração de regras e monitoramento de qualidade no Glue.", status: "nao_iniciado", image: "assets/img/devops.jpg" },
+                { name: "Deequ", description: "Checks de qualidade de dados em escala.", status: "nao_iniciado", image: "assets/img/devops.jpg" },
+                { name: "Datadog para Dados", description: "Dashboards e alertas de pipelines e freshness.", status: "nao_iniciado", image: "assets/img/devops.jpg" }
+            ],
+            relatedSkills: ["Glue Data Quality", "Deequ", "Data Observability (Datadog)", "Data Contracts", "Data Lineage"],
+            relatedMilestones: [5, 6, 9]
         }
     ]
 };
@@ -662,6 +687,7 @@ function renderPortfolio() {
                 <span class="portfolio-status ${statusClass}">${statusText}</span>
             </div>
             <p class="portfolio-description">${project.description}</p>
+            ${project.impact ? `<p class="portfolio-impact"><strong>Impacto:</strong> ${project.impact}</p>` : ''}
             <div class="portfolio-technologies">
                 ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
@@ -1040,4 +1066,3 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
-

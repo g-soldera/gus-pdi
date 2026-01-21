@@ -1208,6 +1208,12 @@ a:hover {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
   line-height: var(--line-height-relaxed);
+
+.portfolio-impact {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-3);
+}
 }
 
 .portfolio-technologies {
@@ -1470,6 +1476,10 @@ a:hover {
   backdrop-filter: blur(8px);
   animation: fadeIn var(--duration-normal) var(--ease-out);
   scrollbar-color: var(--color-secondary) var(--color-surface);
+}
+
+.modal::-webkit-scrollbar {
+  border-radius: var(--radius-xl);
 }
 
 .modal.show {
