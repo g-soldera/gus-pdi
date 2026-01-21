@@ -847,19 +847,42 @@ function openPortfolioCard(cardId) {
     const container = document.getElementById('portfolio-grid');
     if (!container) return;
 
-    const cards = container.querySelectorAll('.portfolio-card');
+    const cards = Array.from(container.querySelectorAll('.portfolio-card'));
     cards.forEach(card => {
         card.classList.remove('open');
         const btn = card.querySelector('.portfolio-more-btn');
+        updatePortfolioToggleButton(btn, false);
+    });
+
+    openPortfolioCardId = null;
+
+    if (cardId) {
+        const target = container.querySelector(`#${cardId}`);
+        if (target) {
+            target.classList.add('open');
+            const btn = target.querySelector('.portfolio-more-btn');
+            updatePortfolioToggleButton(btn, true);
+            openPortfolioCardId = cardId;
+        }
+    }
+
+    requestAnimationFrame(() => applyPortfolioClosedHeights());
+}
 
 function animateCardHeight(card, targetHeight, revertToAuto = false) {
     if (!card) return;
     const currentHeight = card.getBoundingClientRect().height;
     const target = Math.max(targetHeight, 0);
+    if (Math.abs(target - currentHeight) < 0.5) {
+        if (revertToAuto) card.style.height = 'auto';
+        return;
+    }
     card.style.height = `${currentHeight}px`;
     // force reflow
     void card.offsetHeight;
-    card.style.height = `${target}px`;
+    requestAnimationFrame(() => {
+        card.style.height = `${target}px`;
+    });
 
     if (revertToAuto) {
         const onEnd = (e) => {
@@ -901,27 +924,12 @@ function applyPortfolioClosedHeights() {
 
     // Animate open cards to their natural height
     openCards.forEach(card => {
-        // Ensure details are visible for measurement
+        if (maxClosedHeight > 0) {
+            card.style.height = `${maxClosedHeight}px`;
+        }
         const targetHeight = card.scrollHeight;
         animateCardHeight(card, targetHeight, true);
     });
-}
-        updatePortfolioToggleButton(btn, false);
-    });
-
-    openPortfolioCardId = null;
-
-    if (cardId) {
-        const target = container.querySelector(`#${cardId}`);
-        if (target) {
-            target.classList.add('open');
-            const btn = target.querySelector('.portfolio-more-btn');
-            updatePortfolioToggleButton(btn, true);
-            openPortfolioCardId = cardId;
-        }
-    }
-
-    applyPortfolioClosedHeights();
 }
 
 function closeAllModals() {
