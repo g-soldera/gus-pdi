@@ -851,7 +851,62 @@ function openPortfolioCard(cardId) {
     cards.forEach(card => {
         card.classList.remove('open');
         const btn = card.querySelector('.portfolio-more-btn');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
+
+function animateCardHeight(card, targetHeight, revertToAuto = false) {
+    if (!card) return;
+    const currentHeight = card.getBoundingClientRect().height;
+    const target = Math.max(targetHeight, 0);
+    card.style.height = `${currentHeight}px`;
+    // force reflow
+    void card.offsetHeight;
+    card.style.height = `${target}px`;
+
+    if (revertToAuto) {
+        const onEnd = (e) => {
+            if (e.target !== card || e.propertyName !== 'height') return;
+            card.style.height = 'auto';
+            card.removeEventListener('transitionend', onEnd);
+        };
+        card.addEventListener('transitionend', onEnd);
+    }
+}
+
+function applyPortfolioClosedHeights() {
+    const container = document.getElementById('portfolio-grid');
+    if (!container) return;
+
+    const cards = Array.from(container.querySelectorAll('.portfolio-card'));
+    if (!cards.length) return;
+
+    const openCards = cards.filter(card => card.classList.contains('open'));
+    const closedCards = cards.filter(card => !card.classList.contains('open'));
+
+    // Reset closed heights to natural to measure
+    closedCards.forEach(card => {
+        card.style.height = 'auto';
+    });
+
+    let maxClosedHeight = 0;
+    closedCards.forEach(card => {
+        const h = card.getBoundingClientRect().height;
+        if (h > maxClosedHeight) maxClosedHeight = h;
+    });
+
+    // Apply equalized height to closed cards
+    closedCards.forEach(card => {
+        if (maxClosedHeight > 0) {
+            animateCardHeight(card, maxClosedHeight, false);
+        }
+    });
+
+    // Animate open cards to their natural height
+    openCards.forEach(card => {
+        // Ensure details are visible for measurement
+        const targetHeight = card.scrollHeight;
+        animateCardHeight(card, targetHeight, true);
+    });
+}
+        updatePortfolioToggleButton(btn, false);
     });
 
     openPortfolioCardId = null;
@@ -861,10 +916,12 @@ function openPortfolioCard(cardId) {
         if (target) {
             target.classList.add('open');
             const btn = target.querySelector('.portfolio-more-btn');
-            if (btn) btn.setAttribute('aria-expanded', 'true');
+            updatePortfolioToggleButton(btn, true);
             openPortfolioCardId = cardId;
         }
     }
+
+    applyPortfolioClosedHeights();
 }
 
 function closeAllModals() {
@@ -887,6 +944,52 @@ function handlePortfolioHashNavigation() {
         requestAnimationFrame(() => {
             target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
+    }
+}
+
+function applyPortfolioClosedHeights() {
+    const container = document.getElementById('portfolio-grid');
+    if (!container) return;
+
+    const cards = Array.from(container.querySelectorAll('.portfolio-card'));
+    if (!cards.length) return;
+
+    const openIds = new Set(cards.filter(card => card.classList.contains('open')).map(card => card.id));
+
+    const state = cards.map(card => {
+        const wasOpen = card.classList.contains('open');
+        card.classList.remove('open');
+        return { card, wasOpen };
+    });
+
+    let maxHeight = 0;
+    state.forEach(({ card }) => {
+        const h = card.offsetHeight;
+        if (h > maxHeight) maxHeight = h;
+    });
+
+    state.forEach(({ card, wasOpen }) => {
+        if (wasOpen) card.classList.add('open');
+    });
+
+    cards.forEach(card => {
+        if (openIds.has(card.id)) {
+            card.style.height = 'auto';
+        } else {
+            card.style.height = `${maxHeight}px`;
+        }
+    });
+}
+
+function updatePortfolioToggleButton(button, isOpen) {
+    if (!button) return;
+    const textEl = button.querySelector('.portfolio-more-text');
+    const chevron = button.querySelector('.portfolio-more-chevron');
+    if (textEl) textEl.textContent = isOpen ? 'Menos informações' : 'Mais informações';
+    button.classList.toggle('portfolio-more-btn--open', Boolean(isOpen));
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (chevron) {
+        chevron.setAttribute('aria-hidden', 'true');
     }
 }
 
@@ -1064,7 +1167,14 @@ function renderPortfolio() {
             </div>
             <p class="portfolio-description">${project.description}</p>
             ${project.impact ? `<p class="portfolio-impact"><strong>Impacto:</strong> ${project.impact}</p>` : ''}
-            <button class="portfolio-more-btn" type="button" aria-expanded="false" aria-controls="${cardId}-details">Mais informações</button>
+            <button class="portfolio-more-btn" type="button" aria-expanded="false" aria-controls="${cardId}-details">
+                <span class="portfolio-more-text">Mais informações</span>
+                <span class="portfolio-more-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </span>
+            </button>
             <div class="portfolio-details" id="${cardId}-details">
                 ${skills.length ? `<div class="portfolio-meta"><span class="portfolio-meta-label">Skills</span><br><div class="portfolio-tags">${skills.map(skill => `<a class="tech-tag tech-tag--ghost" href="#skill-${slugify(skill)}">${skill}</a>`).join('')}</div></div>` : ''}
                 ${milestones.length ? `<div class="portfolio-meta"><span class="portfolio-meta-label">Marcos</span><br><div class="portfolio-tags">${milestones.map(id => {
@@ -1096,6 +1206,9 @@ function renderPortfolio() {
 
     // If hash points to a project, open it
     handlePortfolioHashNavigation();
+
+    // Apply uniform height for closed cards
+    applyPortfolioClosedHeights();
 }
 
 function getPortfolioStatusClass(status) {
@@ -1457,7 +1570,7 @@ function debounce(func, wait) {
 
 // Performance optimizations
 const debouncedResize = debounce(() => {
-    // Handle resize events if needed
+    applyPortfolioClosedHeights();
 }, 250);
 
 window.addEventListener('resize', debouncedResize);
