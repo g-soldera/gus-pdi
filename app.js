@@ -331,6 +331,28 @@ const userData = {
     ]
 };
 
+// Macro grouping for skill categories
+const categoryMacroMap = {
+    "Cloud & Data": "Plataforma & Pipelines",
+    "CI/CD & Testes": "Plataforma & Pipelines",
+    "Analytics & BI": "Visualização & Experiência",
+    "Design & UX": "Visualização & Experiência",
+    "Data Quality": "Qualidade & Confiabilidade",
+    "Governança de Dados": "Governança & Produto de Dados",
+    "LLM": "LLM & Agentes",
+    "FinOps": "FinOps"
+};
+
+const macroOrder = [
+    "Plataforma & Pipelines",
+    "Qualidade & Confiabilidade",
+    "LLM & Agentes",
+    "Visualização & Experiência",
+    "Governança & Produto de Dados",
+    "FinOps",
+    "Outros"
+];
+
 // Global variables
 let currentView = 'timeline';
 let currentTheme = null;
@@ -485,26 +507,18 @@ function renderSkills() {
     const softSkillsContainer = document.getElementById('soft-skills-categories');
     
     if (hardSkillsContainer && softSkillsContainer) {
-        renderSkillsByCategory(userData.hard_skills, hardSkillsContainer);
-        renderSkillsByCategory(userData.soft_skills, softSkillsContainer);
+        renderSkillsByCategory(userData.hard_skills, hardSkillsContainer, true);
+        renderSkillsByCategory(userData.soft_skills, softSkillsContainer, false);
     }
 }
 
-function renderSkillsByCategory(skills, container) {
-    // Group skills by category
-    const categorizedSkills = skills.reduce((acc, skill) => {
-        if (!acc[skill.category]) {
-            acc[skill.category] = [];
-        }
-        acc[skill.category].push(skill);
-        return acc;
-    }, {});
+function renderSkillsByCategory(skills, container, useMacros = true) {
+    container.innerHTML = '';
 
-    // Render each category
-    Object.entries(categorizedSkills).forEach(([category, categorySkills]) => {
+    const buildCategoryElement = (category, categorySkills) => {
         const categoryElement = document.createElement('div');
         categoryElement.className = 'skill-category';
-        
+
         categoryElement.innerHTML = `
             <div class="skill-category-header">
                 <h4 class="skill-category-title">${category}</h4>
@@ -516,14 +530,14 @@ function renderSkillsByCategory(skills, container) {
         `;
 
         const skillsList = categoryElement.querySelector('.skills-list');
-        
+
         // Sort skills by level (stars) in descending order
         categorySkills.sort((a, b) => b.level - a.level);
-        
+
         categorySkills.forEach(skill => {
             const skillItem = document.createElement('div');
             skillItem.className = 'skill-item';
-            
+
             skillItem.innerHTML = `
                 <div class="skill-header">
                     <span class="skill-name">${skill.name}</span>
@@ -533,23 +547,78 @@ function renderSkillsByCategory(skills, container) {
                 </div>
                 <p class="skill-description">${skill.description}</p>
             `;
-            
+
             // Add click event to open skill modal
             skillItem.addEventListener('click', function(e) {
                 e.stopPropagation();
                 openSkillModal(skill);
             });
-            
+
             skillsList.appendChild(skillItem);
         });
-        
-        // Add click event for accordion
-        const header = categoryElement.querySelector('.skill-category-header');
-        header.addEventListener('click', () => {
+
+        // Make the whole card clickable (except skill items)
+        categoryElement.addEventListener('click', (event) => {
+            if (event.target.closest('.skill-item')) return;
             categoryElement.classList.toggle('expanded');
         });
-        
-        container.appendChild(categoryElement);
+
+        return categoryElement;
+    };
+
+    if (!useMacros) {
+        const groupedByCategory = skills.reduce((acc, skill) => {
+            if (!acc[skill.category]) acc[skill.category] = [];
+            acc[skill.category].push(skill);
+            return acc;
+        }, {});
+
+        Object.entries(groupedByCategory).forEach(([category, categorySkills]) => {
+            const categoryElement = buildCategoryElement(category, categorySkills);
+            container.appendChild(categoryElement);
+        });
+        return;
+    }
+
+    // Group skills by macro then category
+    const grouped = skills.reduce((acc, skill) => {
+        const macro = categoryMacroMap[skill.category] || 'Outros';
+        if (!acc[macro]) acc[macro] = {};
+        if (!acc[macro][skill.category]) acc[macro][skill.category] = [];
+        acc[macro][skill.category].push(skill);
+        return acc;
+    }, {});
+
+    const macros = Object.keys(grouped).sort((a, b) => {
+        const ai = macroOrder.indexOf(a) === -1 ? Number.MAX_SAFE_INTEGER : macroOrder.indexOf(a);
+        const bi = macroOrder.indexOf(b) === -1 ? Number.MAX_SAFE_INTEGER : macroOrder.indexOf(b);
+        return ai - bi;
+    });
+
+    macros.forEach(macro => {
+        const macroBlock = document.createElement('div');
+        macroBlock.className = 'macro-category';
+        macroBlock.innerHTML = `
+            <div class="macro-category-header">
+                <h3 class="macro-category-title">${macro}</h3>
+                <span class="macro-category-toggle">▼</span>
+            </div>
+            <div class="macro-category-content"></div>
+        `;
+
+        const macroContent = macroBlock.querySelector('.macro-category-content');
+        Object.entries(grouped[macro]).forEach(([category, categorySkills]) => {
+            const categoryElement = buildCategoryElement(category, categorySkills);
+            macroContent.appendChild(categoryElement);
+        });
+
+        // Make the whole macro card clickable (avoid toggling when interacting with content)
+        macroBlock.addEventListener('click', (event) => {
+            if (event.target.closest('.macro-category-content')) return;
+            macroBlock.classList.toggle('expanded');
+        });
+
+        container.appendChild(macroBlock);
     });
 }
 
