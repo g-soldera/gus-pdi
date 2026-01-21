@@ -127,26 +127,26 @@ const userData = {
             resources: [2]
         },
         {
-            id: 8,
-            title: "Workshops e Palestras",
-            description: "Agendar e apresentar 3 workshops/palestras internas (agendas inclusive)",
-            deadline: "2025-11-30",
-            status: "em_progresso",
-            progress: 66,
-            note: "66% concluído com guildas do Devin e agendas de inovação em andamento.",
-            skills: ["Apresentação", "Comunicação Verbal", "Pensamento Crítico"],
-            resources: [5]
-        },
-        {
             id: 9,
             title: "FinOps na Consumer",
             description: "Reduzir 30% do custo do Glue Job consumer via Flex Execution",
             deadline: "2026-01-20",
             status: "concluido",
-            progress: 0,
+            progress: 100,
             note: "Alvo: -30% de custo por execução aplicando Flex Execution e tuning de recursos.",
             skills: ["FinOps", "AWS Glue", "PySpark"],
             resources: [7]
+        },
+        {
+            id: 8,
+            title: "Workshops e Palestras",
+            description: "Agendar e apresentar 3 pautas/palestras internas",
+            deadline: "2026-02-20",
+            status: "em_progresso",
+            progress: 66,
+            note: "66% concluído com guildas do Devin e agendas de inovação em andamento.",
+            skills: ["Apresentação", "Comunicação Verbal", "Pensamento Crítico"],
+            resources: [5]
         }
     ],
     portfolio: [
@@ -163,6 +163,13 @@ const userData = {
             status: "concluido",
             impact: "Em breve",
             technologies: ["Python", "AWS Lambda", "API Gateway", "MLOps", "CI/CD"]
+        },
+        {
+            title: "Agente Leila (Fluxo Sequencial)",
+            description: "Apoio no desenvolvimento da agente para analisar normativos de Segurança da Informação e extrair requisitos de SI, usando fluxos do Power Automate, tópicos, conhecimentos e prompt engineering; deploy no Teams e 365 Copilot via Copilot Studio.",
+            status: "concluido",
+            impact: "~80% de redução do tempo de análise de normativos de Segurança da Informação",
+            technologies: ["Power Automate", "Prompt Engineering", "Copilot Studio", "Microsoft 365 Copilot", "Teams", "LLM", "Topics"]
         },
         {
             title: "Engenharia de Dados",
