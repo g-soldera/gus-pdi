@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDI - Gustavo Soldera</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        </svg>
+        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+    </button>
+
     <!-- Header/Hero Section -->
-    <header class="hero">
+    <header class="hero-section">
         <div class="container">
-            <div class="hero__content">
-                <div class="hero__profile">
-                    <div class="profile-picture">
-                        <img src="assets/img/profile.jpg" alt="Gustavo Soldera" class="profile-img">
-                        <!-- <div class="profile-initial">GS</div> -->
-                    </div>
-                    <div class="hero__info">
-                        <h1 class="hero__name">Gustavo Soldera</h1>
-                        <p class="hero__current-role">Analista de Engenharia de TI (Junior) - Itaú Unibanco</p>
-                        <p class="hero__tagline">Transformando dados em insights, evoluindo para Engenheiro de Analytics Pleno</p>
-                    </div>
+            <div class="hero-content">
+                <div class="hero-avatar">
+                    <img src="assets/img/profile.jpg" alt="Gustavo Soldera" class="avatar-image">
+                    <!-- <div class="avatar-placeholder">GS</div> -->
                 </div>
-                <div class="hero__timeline">
-                    <div class="timeline">
-                        <div class="timeline__item active">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4>Junior</h4>
-                                <span>Atual</span>
-                            </div>
+                <div class="hero-info">
+                    <h1 class="hero-name">Gustavo Soldera</h1>
+                    <p class="hero-subtitle">
+                        <span class="hero-badge" id="age-badge">-- anos</span>
+                        <span class="hero-badge">Itaú Unibanco</span>
+                        <span class="hero-badge">Cyber Security</span>
+                    </p>
+                    <div class="hero-roles">
+                        <div class="role-current">
+                            <span class="role-label">Atual:</span>
+                            <span class="role-text">Engenheiro de Analytics JR</span>
                         </div>
-                        <div class="timeline__line"></div>
-                        <div class="timeline__item target">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4>Pleno</h4>
-                                <span>Meta: 12 meses</span>
-                            </div>
+                        <div class="role-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <div class="role-target">
+                            <span class="role-label">Meta:</span>
+                            <span class="role-text">Engenheiro de Analytics PL</span>
+                        </div>
+                    </div>
+                    <div class="hero-timeline">
+                        <div class="timeline-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12,6 12,12 16,14" />
+                            </svg>
+                            <span class="timeline-text">Estimativa: 12 meses (<span
+                                    id="timeline-days-remaining">xx</span> dias restantes)</span>
                         </div>
                     </div>
                 </div>
@@ -45,24 +69,69 @@
         </div>
     </header>
 
-    <!-- Progress Overview -->
-    <section class="progress-overview">
+    <!-- Statistics Section -->
+    <section class="stats-section">
         <div class="container">
-            <div class="progress-stats">
+            <div class="section-header section-header--left">
+                <span class="section-kicker">Panorama</span>
+                <h2 class="section-title">Estatísticas</h2>
+                <p class="section-subtitle">Resumo rápido do PDI</p>
+            </div>
+            <div class="stats-grid">
+
                 <div class="stat-card">
-                    <div class="stat-number" id="overall-progress">42</div>
-                    <div class="stat-label">Progresso Geral</div>
-                    <div class="stat-unit">%</div>
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="completed-milestones">0/6</h3>
+                        <p class="stat-label">Marcos concluídos</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="completed-milestones">2</div>
-                    <div class="stat-label">Marcos Completos</div>
-                    <div class="stat-unit">/6</div>
+
+                <div class="stat-card stat-card--flippable" id="skills-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-card-front">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M9 12.5 7.5 20 12 18l4.5 2-1.5-7.5" />
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" id="total-skills">27</h3>
+                                <p class="stat-label">Skills</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-back">
+                            <div class="skills-breakdown">
+                                <div class="skill-type">
+                                    <h4 id="hard-skills-count">18</h4>
+                                    <p>Hard Skills</p>
+                                </div>
+                                <div class="skill-type">
+                                    <h4 id="soft-skills-count">9</h4>
+                                    <p>Soft Skills</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="stat-card">
-                    <div class="stat-number" id="days-remaining">215</div>
-                    <div class="stat-label">Dias Restantes</div>
-                    <div class="stat-unit">dias</div>
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" id="total-projects">3</h3>
+                        <p class="stat-label">Projetos concluídos</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,19 +140,36 @@
     <!-- Skills Section -->
     <section class="skills-section">
         <div class="container">
-            <h2 class="section-title">Competências Atuais</h2>
-            <div class="skills-grid">
-                <div class="skills-category">
-                    <h3>Hard Skills</h3>
-                    <div class="skills-list" id="hard-skills">
-                        <!-- Hard skills will be populated by JavaScript -->
+            <div class="section-header">
+                <span class="section-kicker">Capacidades</span>
+                <h2 class="section-title">Competências e Habilidades</h2>
+                <p class="section-subtitle">Desenvolvimento contínuo de hard e soft skills</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <div class="skills-column-header">
+                        <h3 class="skills-column-title">Hard Skills</h3>
+                        <div class="skills-column-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
                     </div>
+                    <div class="skills-categories" id="hard-skills-categories"></div>
                 </div>
-                <div class="skills-category">
-                    <h3>Soft Skills</h3>
-                    <div class="skills-list" id="soft-skills">
-                        <!-- Soft skills will be populated by JavaScript -->
+                <div class="skills-column">
+                    <div class="skills-column-header">
+                        <h3 class="skills-column-title">Soft Skills</h3>
+                        <div class="skills-column-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
                     </div>
+                    <div class="skills-categories" id="soft-skills-categories"></div>
                 </div>
             </div>
         </div>
@@ -92,9 +178,38 @@
     <!-- Milestones Section -->
     <section class="milestones-section">
         <div class="container">
-            <h2 class="section-title">Marcos para Analytics Pleno</h2>
-            <div class="milestones-grid" id="milestones-grid">
-                <!-- Milestones will be populated by JavaScript -->
+            <div class="section-header">
+                <span class="section-kicker">Progresso</span>
+                <div>
+                    <h2 class="section-title">Marcos de Desenvolvimento</h2>
+                    <p class="section-subtitle">Acompanhe o progresso dos objetivos principais</p>
+                </div>
+                <div class="view-switch">
+                    <button class="switch-btn active" data-view="timeline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="8" y1="12" x2="21" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                            <line x1="3" y1="6" x2="3.01" y2="6" />
+                            <line x1="3" y1="12" x2="3.01" y2="12" />
+                            <line x1="3" y1="18" x2="3.01" y2="18" />
+                        </svg>
+                        Timeline
+                    </button>
+                    <button class="switch-btn" data-view="cards">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
+                        </svg>
+                        Cards
+                    </button>
+                </div>
+            </div>
+            <div class="milestones-container">
+                <div class="milestones-timeline" id="milestones-timeline"></div>
+                <div class="milestones-grid hidden" id="milestones-grid"></div>
             </div>
         </div>
     </section>
@@ -102,82 +217,173 @@
     <!-- Portfolio Section -->
     <section class="portfolio-section">
         <div class="container">
-            <h2 class="section-title">Portfolio & Projetos</h2>
-            <div class="portfolio-grid" id="portfolio-grid">
-                <!-- Portfolio items will be populated by JavaScript -->
+            <div class="section-header">
+                <span class="section-kicker">Entrega</span>
+                <h2 class="section-title">Portfolio de Projetos</h2>
+                <p class="section-subtitle">Principais projetos e contribuições técnicas</p>
             </div>
+            <div class="portfolio-grid" id="portfolio-grid"></div>
         </div>
     </section>
 
-    <!-- Learning Resources -->
+    <!-- Learning Resources Section -->
     <section class="learning-section">
         <div class="container">
-            <h2 class="section-title">Recursos de Aprendizado</h2>
-            <div class="learning-resources" id="learning-resources">
-                <!-- Learning resources will be populated by JavaScript -->
+            <div class="section-header">
+                <span class="section-kicker">Evolução</span>
+                <h2 class="section-title">Recursos de Aprendizado</h2>
+                <p class="section-subtitle">Cursos, livros e materiais para desenvolvimento contínuo</p>
             </div>
+            <div class="learning-grid" id="learning-resources"></div>
         </div>
     </section>
-
-    <!-- Notes Section
-    <section class="notes-section">
-        <div class="container">
-            <h2 class="section-title">Reflexões e Atualizações</h2>
-            <div class="notes-container">
-                <textarea 
-                    id="notes-area" 
-                    class="form-control notes-textarea" 
-                    placeholder="Adicione suas reflexões sobre o desenvolvimento, aprendizados recentes, desafios enfrentados..."
-                    rows="6"
-                >Iniciando minha jornada para Analytics Pleno. Focando em melhorar minhas soft skills, especialmente escuta ativa. O projeto de front-end está sendo uma ótima oportunidade para demonstrar liderança técnica.</textarea>
-                <button class="btn btn--primary" onclick="saveNotes()">Salvar Reflexões</button>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
-                    <h4>Gustavo Soldera</h4>
-                    <p>Analytics Engineer em desenvolvimento</p>
+            <div class="footer-content">
+                <div class="footer-info">
                     <p>Última atualização: <span id="last-update"></span></p>
+                    <p>Plano de Desenvolvimento Individual - Gustavo Soldera</p>
                 </div>
-                <div class="footer__motivation">
-                    <blockquote>
-                        "O crescimento acontece quando saímos da nossa zona de conforto e abraçamos novos desafios com humildade e determinação."
-                    </blockquote>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Modal for Milestone Details -->
-    <div id="milestone-modal" class="modal">
-        <div class="modal__content">
-            <div class="modal__header">
+    <!-- Milestone Modal -->
+    <div class="modal" id="milestone-modal">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h3 id="modal-title"></h3>
-                <button class="modal__close" onclick="closeModal()">&times;</button>
+                <button class="modal-close" onclick="closeModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
             </div>
-            <div class="modal__body">
-                <p id="modal-description"></p>
-                <div class="modal__progress">
-                    <label>Progresso Atual:</label>
+            <div class="modal-body">
+                <p class="modal-description" id="modal-description"></p>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Prazo:</span>
+                        <span class="detail-value" id="modal-deadline"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dias Restantes:</span>
+                        <span class="detail-value" id="modal-days-remaining"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" id="modal-status"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Anotação:</span>
+                        <span class="detail-value" id="modal-note"></span>
+                    </div>
+                </div>
+                <div class="modal-progress">
+                    <div class="progress-label">
+                        <span>Progresso</span>
+                        <span id="modal-progress-text">0%</span>
+                    </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="modal-progress-fill"></div>
                     </div>
-                    <span id="modal-progress-text"></span>
                 </div>
-                <div class="modal__actions">
-                    <button class="btn btn--secondary" onclick="updateProgress(-10)">-10%</button>
-                    <button class="btn btn--secondary" onclick="updateProgress(10)">+10%</button>
-                    <button class="btn btn--primary" onclick="markComplete()">Marcar Completo</button>
+                <!-- Related data for milestones -->
+                <div class="modal-related">
+                    <div class="related-skills">
+                        <h4>Habilidades relacionadas</h4>
+                        <ul id="modal-related-skills"></ul>
+                    </div>
+                    <div class="related-resources">
+                        <h4>Recursos de aprendizado</h4>
+                        <ul id="modal-related-resources"></ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="modal" id="skill-info-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="skill-modal-title"></h3>
+                <button class="modal-close" onclick="closeSkillModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="skill-modal-rating" id="skill-modal-rating"></div>
+                <p class="skill-modal-description" id="skill-modal-description"></p>
+                <div class="skill-modal-ruler" id="skill-modal-ruler"></div>
+                <!-- Related data for skills -->
+                <div class="modal-related">
+                    <div class="related-milestones">
+                        <h4>Marcos relacionados</h4>
+                        <ul id="skill-modal-related-milestones"></ul>
+                    </div>
+                    <div class="related-resources">
+                        <h4>Recursos de aprendizado</h4>
+                        <ul id="skill-modal-related-resources"></ul>
+                    </div>
+                    <div class="related-projects">
+                        <h4>Projetos relacionados</h4>
+                        <ul id="skill-modal-related-projects"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal" id="resources-modal">
+        <div class="modal-content" id="resources-modal-content">
+            <div class="modal-header">
+                <h2 id="category-modal-title"></h2>
+                <button class="close" onclick="closeCategoryModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div id="category-modal-resources" class="resources-list"></div>
+            <!-- Related data for learning resources categories -->
+            <div class="modal-related resources-modal-related">
+                <div class="related-skills">
+                    <h4>Habilidades relacionadas</h4>
+                    <ul id="category-modal-related-skills"></ul>
+                </div>
+                <div class="related-milestones">
+                    <h4>Marcos relacionados</h4>
+                    <ul id="category-modal-related-milestones"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
