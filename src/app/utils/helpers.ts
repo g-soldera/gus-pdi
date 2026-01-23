@@ -75,8 +75,8 @@ export function getStatusBgColor(status: 'completed' | 'in-progress' | 'not-star
 export function getStatusLabel(status: 'completed' | 'in-progress' | 'not-started'): string {
   const labels = {
     'completed': 'Concluído',
-    'in-progress': 'Em Progresso',
-    'not-started': 'Não Iniciado',
+    'in-progress': 'Em progresso',
+    'not-started': 'Não iniciado',
   };
   return labels[status];
 }
