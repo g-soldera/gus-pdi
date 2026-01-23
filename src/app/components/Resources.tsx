@@ -11,15 +11,38 @@ interface ResourcesProps {
 
 // Sub-componente para card de recurso no tooltip
 function ResourceCardPreview({ resource }: { resource: Resource }) {
+  const getIcon = () => {
+    const category = resource.parentCategory || resource.category;
+    switch (category) {
+      case 'Certificação':
+        return { Icon: Award, bg: 'bg-success-light', color: 'text-[var(--completed)]' };
+      case 'Mentoria':
+        return { Icon: Users, bg: 'bg-info-light', color: 'text-[var(--info)]' };
+      case 'Curso':
+        return { Icon: GraduationCap, bg: 'bg-primary-lighter', color: 'text-primary' };
+      case 'Livros':
+      default:
+        return { Icon: Book, bg: 'bg-warning-light', color: 'text-[var(--warning)]' };
+    }
+  };
+
+  const { Icon, bg, color } = getIcon();
+
   return (
     <div className="flex flex-col items-center text-center p-2">
-      {resource.image && (
-        <img 
-          src={resource.image} 
-          alt={resource.name}
-          className="w-16 h-20 object-cover rounded mb-2 shadow-md"
-        />
-      )}
+      <div className="w-16 h-20 mb-2">
+        {resource.image ? (
+          <img 
+            src={resource.image} 
+            alt={resource.name}
+            className="w-16 h-20 object-cover rounded shadow-md"
+          />
+        ) : (
+          <div className={`w-16 h-20 rounded flex items-center justify-center ${bg}`}>
+            <Icon className={`w-7 h-7 ${color}`} />
+          </div>
+        )}
+      </div>
       <p className="text-xs font-medium line-clamp-2 mb-1">{resource.name}</p>
       <div className="flex items-center gap-1">
         <StatusBadge status={resource.status} />

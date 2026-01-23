@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Resource, Skill, Milestone } from '@/types/pdi';
 import { Modal } from './Modal';
 import { StatusBadge } from '../StatusBadge';
-import { Code, Target, BookOpen } from 'lucide-react';
+import { Code, Target, BookOpen, Book, Award, Users, GraduationCap } from 'lucide-react';
 
 interface ResourceModalProps {
   category: string;
@@ -42,6 +42,21 @@ export function ResourceModal({
     });
     return groups;
   }, [resources]);
+
+  const getIconForResource = (resource: Resource) => {
+    const categoryName = resource.parentCategory || resource.category;
+    switch (categoryName) {
+      case 'Certificação':
+        return { Icon: Award, bg: 'bg-success-light', color: 'text-[var(--completed)]' };
+      case 'Mentoria':
+        return { Icon: Users, bg: 'bg-info-light', color: 'text-[var(--info)]' };
+      case 'Curso':
+        return { Icon: GraduationCap, bg: 'bg-primary-lighter', color: 'text-primary' };
+      case 'Livros':
+      default:
+        return { Icon: Book, bg: 'bg-warning-light', color: 'text-[var(--warning)]' };
+    }
+  };
 
   const defaultSub = hoveredSub;
   const currentList = defaultSub ? subGroups[defaultSub] || [] : [];
@@ -101,13 +116,24 @@ export function ResourceModal({
                   className={`flex gap-4 p-3 bg-muted/30 border rounded-lg ${isHighlighted ? 'border-primary ring-2 ring-primary/40' : 'border-border'}`}
                   id={`resource-${resource.id}`}
                 >
-                  {resource.image && (
-                    <img
-                      src={resource.image}
-                      alt={resource.name}
-                      className="w-20 h-28 object-cover rounded flex-shrink-0"
-                    />
-                  )}
+                  <div className="w-20 h-28 flex-shrink-0">
+                    {resource.image ? (
+                      <img
+                        src={resource.image}
+                        alt={resource.name}
+                        className="w-20 h-28 object-cover rounded"
+                      />
+                    ) : (
+                      (() => {
+                        const { Icon, bg, color } = getIconForResource(resource);
+                        return (
+                          <div className={`w-20 h-28 rounded flex items-center justify-center ${bg}`}>
+                            <Icon className={`w-10 h-10 ${color}`} />
+                          </div>
+                        );
+                      })()
+                    )}
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <h4 className="font-medium">{resource.name}</h4>

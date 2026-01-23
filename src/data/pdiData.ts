@@ -150,7 +150,7 @@ export const milestones: Milestone[] = [
     deadline: '2025-06-30',
     notes: 'Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.',
     relatedSkills: ['presentation', 'verbal-communication', 'nvc', 'storytelling', 'empathy'],
-    relatedResources: ['books-communication'],
+    relatedResources: ['books-comm-cnv', 'books-comm-storytelling'],
   },
   {
     id: 'lead-projects',
@@ -232,7 +232,7 @@ export const milestones: Milestone[] = [
     deadline: '2026-05-31',
     notes: '66% concluído com guildas do Devin e agendas de inovação em andamento, planejando usar teamtalks para concluir.',
     relatedSkills: ['presentation', 'storytelling', 'technical-docs'],
-    relatedResources: ['books-communication'],
+    relatedResources: ['books-comm-storytelling'],
   },
 ];
 
@@ -405,6 +405,18 @@ export const resources: Resource[] = [
     relatedMilestones: [],
   },
   {
+    id: 'books-ana-dsfb',
+    name: 'Data Science for Business',
+    description: 'Joel Grus - Fundamentos de ciência de dados para negócios.',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Livros de Analytics',
+    subCategory: 'Analytics',
+    image: '/assets/img/books/dsfb.jpg',
+    relatedSkills: ['python', 'data-modeling', 'pyspark'],
+    relatedMilestones: [],
+  },
+  {
     id: 'books-arch-ddd',
     name: 'Domain-Driven Design',
     description: 'Eric Evans - Tackling Complexity in the Heart of Software.',
@@ -487,18 +499,6 @@ export const resources: Resource[] = [
     image: '',
     relatedSkills: ['typescript', 'python', 'technical-docs'],
     relatedMilestones: [],
-  },
-  {
-    id: 'books-communication',
-    name: 'Coleção Comunicação',
-    description: 'Livros sobre comunicação, CNV e storytelling (12 títulos)',
-    status: 'completed',
-    parentCategory: 'Livros',
-    category: 'Livros de Comunicação',
-    subCategory: 'Comunicação',
-    image: '/assets/img/books/cnv.jpg',
-    relatedSkills: ['presentation', 'storytelling', 'nvc', 'verbal-communication'],
-    relatedMilestones: ['soft-skills', 'workshops-talks'],
   },
   // Certificações
   {
