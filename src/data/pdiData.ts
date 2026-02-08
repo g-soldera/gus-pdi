@@ -16,35 +16,37 @@ export const personalInfo: PersonalInfo = {
 };
 
 export const skills: Skill[] = [
-  // Hard Skills - Desenvolvimento
-  { id: 'sql', name: 'SQL', level: 5, description: 'Experiência avançada em queries complexas, otimização e modelagem de dados relacionais', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'python', name: 'Python', level: 5, description: 'Desenvolvimento de pipelines de dados, automação e scripts de analytics', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'html-css', name: 'HTML/CSS', level: 4, description: 'Desenvolvimento de interfaces web e dashboards customizados', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'javascript', name: 'JavaScript', level: 4, description: 'Desenvolvimento frontend e integração com APIs', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'typescript', name: 'TypeScript', level: 4, description: 'Desenvolvimento tipado para aplicações robustas', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'angular', name: 'Angular', level: 3, description: 'Framework para desenvolvimento de aplicações web', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'react', name: 'React', level: 3, description: 'Biblioteca para interfaces de usuário modernas', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'git', name: 'Git', level: 5, description: 'Controle de versão e colaboração em código', category: 'Desenvolvimento', type: 'hard' },
-  { id: 'bash', name: 'Bash/Shell', level: 4, description: 'Scripts e automação em linha de comando', category: 'Desenvolvimento', type: 'hard' },
-  
-  // Hard Skills - Analytics & BI
+  // ==========================================
+  // HARD SKILLS
+  // ==========================================
+
+  // Analytics & BI
   { id: 'quicksight', name: 'Amazon QuickSight', level: 5, description: 'Criação de dashboards interativos e análises visuais', category: 'Analytics & BI', type: 'hard' },
   { id: 'pyspark', name: 'PySpark', level: 4, description: 'Processamento distribuído de grandes volumes de dados', category: 'Analytics & BI', type: 'hard' },
   { id: 'data-modeling', name: 'Modelagem de Dados', level: 5, description: 'Design de schemas dimensionais e otimização de queries', category: 'Analytics & BI', type: 'hard' },
-  
-  // Hard Skills - Data Quality
-  { id: 'glue-dq', name: 'Glue Data Quality', level: 4, description: 'Implementação de regras de qualidade de dados', category: 'Data Quality', type: 'hard' },
-  { id: 'deequ', name: 'Deequ', level: 4, description: 'Framework para validação de qualidade de dados em escala', category: 'Data Quality', type: 'hard' },
-  { id: 'data-observability', name: 'Data Observability', level: 4, description: 'Monitoramento e rastreamento de pipelines de dados', category: 'Data Quality', type: 'hard' },
-  
-  // Hard Skills - Governança de Dados
-  { id: 'data-contracts', name: 'Data Contracts', level: 4, description: 'Definição e implementação de contratos de dados', category: 'Governança de Dados', type: 'hard' },
-  { id: 'data-lineage', name: 'Data Lineage', level: 4, description: 'Rastreamento da origem e transformação de dados', category: 'Governança de Dados', type: 'hard' },
-  
-  // Hard Skills - Cloud & Data
+
+  // APIs
+  { id: 'openapi', name: 'OpenAPI', level: 3, description: 'Especificação e versionamento de contratos REST', category: 'APIs', type: 'hard' },
+  { id: 'api-design', name: 'Design de APIs', level: 4, description: 'Padrões de design, consistência e governança', category: 'APIs', type: 'hard' },
+  { id: 'api-architecture', name: 'Arquitetura de APIs', level: 3, description: 'Topologias, gateways e observabilidade de interfaces', category: 'APIs', type: 'hard' },
+  { id: 'api-contracts', name: 'Contratos de API', level: 4, description: 'Lifecycle de contratos, breaking changes e testes', category: 'APIs', type: 'hard' },
+
+  // CI/CD & Testes
+  { id: 'codebuild', name: 'CodeBuild', level: 3, description: 'Build e testes automatizados', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'codepipeline', name: 'CodePipeline', level: 2, description: 'Pipelines de CI/CD', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'github-actions', name: 'GitHub Actions', level: 4, description: 'Automação de workflows', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'sonarqube', name: 'SonarQube', level: 3, description: 'Análise de qualidade de código', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'testing', name: 'Testes', level: 4, description: 'Testes unitários, integração e end-to-end', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'linters', name: 'Linters', level: 4, description: 'Análise estática de código e padronização', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'testes-automatizados', name: 'Testes Automatizados', level: 4, description: 'Automação de testes end-to-end e integração', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'testes-unitarios', name: 'Testes Unitários', level: 4, description: 'Testes de componentes individuais', category: 'CI/CD & Testes', type: 'hard' },
+
+  // Cloud & Data
+  { id: 'aws', name: 'AWS Cloud', level: 4, description: 'Arquitetura e serviços core da AWS', category: 'Cloud & Data', type: 'hard' },
   { id: 'aws-glue', name: 'AWS Glue', level: 5, description: 'ETL serverless e catalogação de dados', category: 'Cloud & Data', type: 'hard' },
   { id: 's3', name: 'S3', level: 5, description: 'Armazenamento de dados em data lake', category: 'Cloud & Data', type: 'hard' },
   { id: 'lambda', name: 'Lambda', level: 4, description: 'Funções serverless para processamento de eventos', category: 'Cloud & Data', type: 'hard' },
+  { id: 'api-gateway', name: 'Amazon API Gateway', level: 4, description: 'Gerenciamento e publicação de APIs em escala', category: 'Cloud & Data', type: 'hard' },
   { id: 'ecs', name: 'ECS', level: 4, description: 'Orquestração de containers para aplicações', category: 'Cloud & Data', type: 'hard' },
   { id: 'emr', name: 'EMR', level: 4, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudfront', name: 'CloudFront', level: 3, description: 'CDN para distribuição de conteúdo', category: 'Cloud & Data', type: 'hard' },
@@ -57,74 +59,95 @@ export const skills: Skill[] = [
   { id: 'cloudwatch', name: 'CloudWatch', level: 4, description: 'Monitoramento e logs de aplicações', category: 'Cloud & Data', type: 'hard' },
   { id: 'iam', name: 'IAM', level: 4, description: 'Gestão de identidades e acessos', category: 'Cloud & Data', type: 'hard' },
   { id: 'vpc', name: 'VPC', level: 3, description: 'Redes virtuais privadas na AWS', category: 'Cloud & Data', type: 'hard' },
-  
-  // Hard Skills - LLM
-  { id: 'prompt-engineering', name: 'Prompt Engineering', level: 4, description: 'Otimização de prompts para LLMs', category: 'LLM', type: 'hard' },
-  { id: 'rag', name: 'RAG', level: 4, description: 'Retrieval Augmented Generation para contexto expandido', category: 'LLM', type: 'hard' },
-  { id: 'mas', name: 'MAS', level: 3, description: 'Multi-Agent Systems para orquestração de agentes', category: 'LLM', type: 'hard' },
-  { id: 'mcp-tools', name: 'MCP Tools', level: 3, description: 'Model Context Protocol para integração de ferramentas', category: 'LLM', type: 'hard' },
-  { id: 'stackspot-ai', name: 'StackSpot AI', level: 4, description: 'Plataforma de desenvolvimento assistido por IA', category: 'LLM', type: 'hard' },
-  { id: 'agent-design', name: 'Agent Design', level: 4, description: 'Design e implementação de agentes autônomos', category: 'LLM', type: 'hard' },
-  
-  // Hard Skills - CI/CD & Testes
-  { id: 'codebuild', name: 'CodeBuild', level: 4, description: 'Build e testes automatizados', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'codepipeline', name: 'CodePipeline', level: 4, description: 'Pipelines de CI/CD', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'github-actions', name: 'GitHub Actions', level: 4, description: 'Automação de workflows', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'sonarqube', name: 'SonarQube', level: 3, description: 'Análise de qualidade de código', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'testing', name: 'Testes', level: 4, description: 'Testes unitários, integração e end-to-end', category: 'CI/CD & Testes', type: 'hard' },
-  
-  // Hard Skills - FinOps
-  { id: 'cost-optimization', name: 'Otimização de Custos', level: 4, description: 'Estratégias para redução de custos cloud', category: 'FinOps', type: 'hard' },
-  
-  // Hard Skills - DevOps
-  { id: 'kubernetes', name: 'Kubernetes', level: 3, description: 'Orquestração de containers', category: 'DevOps', type: 'hard' },
-  { id: 'docker', name: 'Docker', level: 4, description: 'Containerização de aplicações', category: 'DevOps', type: 'hard' },
-  
-  // Hard Skills - APIs
-  { id: 'openapi', name: 'OpenAPI', level: 3, description: 'Especificação e versionamento de contratos REST', category: 'APIs', type: 'hard' },
-  { id: 'api-design', name: 'Design de APIs', level: 4, description: 'Padrões de design, consistência e governança', category: 'APIs', type: 'hard' },
-  { id: 'api-architecture', name: 'Arquitetura de APIs', level: 3, description: 'Topologias, gateways e observabilidade de interfaces', category: 'APIs', type: 'hard' },
-  { id: 'api-contracts', name: 'Contratos de API', level: 4, description: 'Lifecycle de contratos, breaking changes e testes', category: 'APIs', type: 'hard' },
+  { id: 'microfrontends', name: 'Microfrontends', level: 3, description: 'Arquitetura distribuída de frontends', category: 'Cloud & Data', type: 'hard' },
 
-  // Hard Skills - Design & UX
+  // Comunicação Técnica
+  { id: 'technical-docs', name: 'Documentação Técnica', level: 5, description: 'Elaboração de documentação clara e completa', category: 'Comunicação Técnica', type: 'hard' },
+
+  // Data Quality
+  { id: 'glue-dq', name: 'Glue Data Quality', level: 4, description: 'Implementação de regras de qualidade de dados', category: 'Data Quality', type: 'hard' },
+  { id: 'deequ', name: 'Deequ', level: 4, description: 'Framework para validação de qualidade de dados em escala', category: 'Data Quality', type: 'hard' },
+  { id: 'data-observability', name: 'Data Observability', level: 4, description: 'Monitoramento e rastreamento de pipelines de dados', category: 'Data Quality', type: 'hard' },
+
+  // Design & UX
   { id: 'figma', name: 'Figma', level: 4, description: 'Design de interfaces e prototipação', category: 'Design & UX', type: 'hard' },
   { id: 'ux', name: 'UX', level: 3, description: 'Experiência do usuário e usabilidade', category: 'Design & UX', type: 'hard' },
-  
-  // Hard Skills - Comunicação
-  { id: 'technical-docs', name: 'Documentação Técnica', level: 5, description: 'Elaboração de documentação clara e completa', category: 'Comunicação Técnica', type: 'hard' },
-  
-  // Hard Skills - Idiomas
+  { id: 'design-systems', name: 'Design Systems', level: 3, description: 'Criação e manutenção de sistemas de design', category: 'Design & UX', type: 'hard' },
+
+  // Desenvolvimento
+  { id: 'sql', name: 'SQL', level: 5, description: 'Experiência avançada em queries complexas, otimização e modelagem de dados relacionais', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'python', name: 'Python', level: 5, description: 'Desenvolvimento de pipelines de dados, automação e scripts de analytics', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'html-css', name: 'HTML/CSS', level: 4, description: 'Desenvolvimento de interfaces web e dashboards customizados', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'sass', name: 'Sass/SCSS', level: 4, description: 'Pré-processador CSS para estilos manuteníveis', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'javascript', name: 'JavaScript', level: 4, description: 'Desenvolvimento frontend e integração com APIs', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'typescript', name: 'TypeScript', level: 4, description: 'Desenvolvimento tipado para aplicações robustas', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'angular', name: 'Angular', level: 3, description: 'Framework para desenvolvimento de aplicações web', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'react', name: 'React', level: 3, description: 'Biblioteca para interfaces de usuário modernas', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'git', name: 'Git', level: 5, description: 'Controle de versão e colaboração em código', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'bash', name: 'Bash/Shell', level: 4, description: 'Scripts e automação em linha de comando', category: 'Desenvolvimento', type: 'hard' },
+  { id: 'power-automate', name: 'Power Automate', level: 3, description: 'Automação de fluxos low-code', category: 'Desenvolvimento', type: 'hard' },
+
+  // DevOps
+  { id: 'kubernetes', name: 'Kubernetes', level: 3, description: 'Orquestração de containers', category: 'DevOps', type: 'hard' },
+  { id: 'docker', name: 'Docker', level: 4, description: 'Containerização de aplicações', category: 'DevOps', type: 'hard' },
+  { id: 'datadog', name: 'Datadog', level: 3, description: 'Monitoramento, logs e APM', category: 'DevOps', type: 'hard' },
+  { id: 'mlops', name: 'MLOps', level: 3, description: 'DevOps para Machine Learning', category: 'DevOps', type: 'hard' },
+
+  // FinOps
+  { id: 'cost-optimization', name: 'Otimização de Custos', level: 4, description: 'Estratégias para redução de custos cloud', category: 'FinOps', type: 'hard' },
+  { id: 'finops', name: 'FinOps', level: 3, description: 'Otimização de custos de infraestrutura cloud', category: 'FinOps', type: 'hard' },
+
+  // Governança de Dados
+  { id: 'data-contracts', name: 'Data Contracts', level: 4, description: 'Definição e implementação de contratos de dados', category: 'Governança de Dados', type: 'hard' },
+  { id: 'data-lineage', name: 'Data Lineage', level: 4, description: 'Rastreamento da origem e transformação de dados', category: 'Governança de Dados', type: 'hard' },
+
+  // IA Generativa
+  { id: 'llm', name: 'LLM (Generative AI)', level: 4, description: 'Arquitetura e implementação de soluções com IA Generativa', category: 'IA Generativa', type: 'hard' },
+  { id: 'prompt-engineering', name: 'Prompt Engineering', level: 4, description: 'Otimização de prompts para LLMs', category: 'IA Generativa', type: 'hard' },
+  { id: 'rag', name: 'RAG', level: 4, description: 'Retrieval Augmented Generation para contexto expandido', category: 'IA Generativa', type: 'hard' },
+  { id: 'agent-design', name: 'Agent Design', level: 4, description: 'Design e implementação de agentes autônomos', category: 'IA Generativa', type: 'hard' },
+  { id: 'stackspot-ai', name: 'StackSpot AI', level: 4, description: 'Plataforma de desenvolvimento assistido por IA', category: 'IA Generativa', type: 'hard' },
+  { id: 'devin', name: 'Devin', level: 4, description: 'Agente autônomo de desenvolvimento de software', category: 'IA Generativa', type: 'hard' },
+  { id: 'github-copilot', name: 'GitHub Copilot', level: 4, description: 'Assistente de código baseado em IA', category: 'IA Generativa', type: 'hard' },
+  { id: 'mas', name: 'MAS', level: 3, description: 'Multi-Agent Systems para orquestração de agentes', category: 'IA Generativa', type: 'hard' },
+  { id: 'mcp-tools', name: 'MCP Tools', level: 3, description: 'Model Context Protocol para integração de ferramentas', category: 'IA Generativa', type: 'hard' },
+  { id: 'copilot-studio', name: 'Copilot Studio', level: 3, description: 'Criação de copilotos e agentes especializados', category: 'IA Generativa', type: 'hard' },
+  { id: 'copilot-365', name: 'Microsoft 365 Copilot', level: 3, description: 'Extensibilidade e integração com M365 Copilot', category: 'IA Generativa', type: 'hard' },
+  { id: 'fluxo-sequencial', name: 'Fluxo Sequencial', level: 3, description: 'Orquestração de pipelines de LLM em etapas', category: 'IA Generativa', type: 'hard' },
+  { id: 'langgraph', name: 'LangGraph', level: 3, description: 'Orquestração de agentes com grafos', category: 'IA Generativa', type: 'hard' },
+  { id: 'langchain', name: 'LangChain', level: 3, description: 'Framework para desenvolvimento de aplicações LLM', category: 'IA Generativa', type: 'hard' },
+  { id: 'aws-bedrock', name: 'AWS Bedrock', level: 3, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
+  { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 3, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
+
+  // Idiomas
   { id: 'portuguese', name: 'Português', level: 5, description: 'Fluência nativa', category: 'Idiomas', type: 'hard' },
   { id: 'english', name: 'Inglês', level: 4, description: 'Fluência profissional', category: 'Idiomas', type: 'hard' },
-  { id: 'italian', name: 'Italiano', level: 3, description: 'Intermediário', category: 'Idiomas', type: 'hard' },
-  
-  // Soft Skills - Cognitivas
+  { id: 'italian', name: 'Italiano', level: 2, description: 'Básico', category: 'Idiomas', type: 'hard' },
+
+  // Segurança
+  { id: 'security', name: 'Cyber Security', level: 3, description: 'Fundamentos de Segurança da Informação', category: 'Segurança', type: 'hard' },
+
+  // ==========================================
+  // SOFT SKILLS
+  // ==========================================
+
+  // Cognitivas
   { id: 'critical-thinking', name: 'Pensamento Crítico', level: 4, description: 'Análise profunda de problemas e tomada de decisão baseada em dados', category: 'Cognitivas', type: 'soft' },
-  
-  // Soft Skills - Liderança
-  { id: 'leadership', name: 'Liderança', level: 4, description: 'Capacidade de inspirar e guiar equipes', category: 'Liderança', type: 'soft' },
-  
-  // Soft Skills - Comunicação
+
+  // Comunicação
   { id: 'presentation', name: 'Apresentação', level: 4, description: 'Apresentações técnicas e executivas impactantes', category: 'Comunicação', type: 'soft' },
   { id: 'verbal-communication', name: 'Comunicação Verbal', level: 4, description: 'Clareza e assertividade na comunicação', category: 'Comunicação', type: 'soft' },
   { id: 'active-listening', name: 'Escuta Ativa', level: 5, description: 'Compreensão profunda das necessidades dos stakeholders', category: 'Comunicação', type: 'soft' },
   { id: 'empathy', name: 'Empatia', level: 5, description: 'Capacidade de se colocar no lugar do outro', category: 'Comunicação', type: 'soft' },
   { id: 'nvc', name: 'CNV', level: 4, description: 'Comunicação Não-Violenta para resolução de conflitos', category: 'Comunicação', type: 'soft' },
   { id: 'storytelling', name: 'Storytelling', level: 4, description: 'Narrativa envolvente para transmitir ideias', category: 'Comunicação', type: 'soft' },
-  
-  // Soft Skills - Relacionais
+
+  // Liderança
+  { id: 'leadership', name: 'Liderança', level: 4, description: 'Capacidade de inspirar e guiar equipes', category: 'Liderança', type: 'soft' },
+
+  // Relacionais
   { id: 'collaboration', name: 'Colaboração', level: 5, description: 'Trabalho efetivo em equipes multidisciplinares', category: 'Relacionais', type: 'soft' },
   { id: 'conflict-management', name: 'Gestão de Conflitos', level: 4, description: 'Mediação e resolução construtiva de conflitos', category: 'Relacionais', type: 'soft' },
-  
-  // Hard Skills - Adicionais (de Recursos)
-  { id: 'microfrontends', name: 'Microfrontends', level: 3, description: 'Arquitetura distribuída de frontends', category: 'Cloud & Data', type: 'hard' },
-  { id: 'copilot-studio', name: 'Copilot Studio', level: 3, description: 'Criação de copilotos e agentes especializados', category: 'LLM', type: 'hard' },
-  { id: 'fluxo-sequencial', name: 'Fluxo Sequencial', level: 3, description: 'Orquestração de pipelines de LLM em etapas', category: 'LLM', type: 'hard' },
-  { id: 'design-systems', name: 'Design Systems', level: 3, description: 'Criação e manutenção de sistemas de design', category: 'Design & UX', type: 'hard' },
-  { id: 'linters', name: 'Linters', level: 4, description: 'Análise estática de código e padronização', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'testes-automatizados', name: 'Testes Automatizados', level: 4, description: 'Automação de testes end-to-end e integração', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'testes-unitarios', name: 'Testes Unitários', level: 4, description: 'Testes de componentes individuais', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'finops', name: 'FinOps', level: 3, description: 'Otimização de custos de infraestrutura cloud', category: 'FinOps', type: 'hard' },
 ];
 
 export const milestones: Milestone[] = [
@@ -136,9 +159,9 @@ export const milestones: Milestone[] = [
     status: 'completed',
     progress: 100,
     deadline: '2025-08-15',
-    notes: 'Aprovação em 11/09/2025 e aplicação imediata nos fluxos do Insight Guard (modelagem e automações).',
-    relatedSkills: ['aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python'],
-    relatedResources: ['cert-analytics', 'cert-cloud'],
+    notes: 'Aprovação em 11/09/2025 e aplicação nos fluxos do cyber.itau (arquitetura).',
+    relatedSkills: ['aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python', 'openapi', 'api-design', 'api-contracts', 'api-architecture'],
+    relatedResources: ['cert-analytics', 'cert-api-owner'],
   },
   {
     id: 'soft-skills',
@@ -150,7 +173,7 @@ export const milestones: Milestone[] = [
     deadline: '2025-06-30',
     notes: 'Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.',
     relatedSkills: ['presentation', 'verbal-communication', 'nvc', 'storytelling', 'empathy'],
-    relatedResources: ['books-comm-cnv', 'books-comm-storytelling'],
+    relatedResources: ['books-comm-cnv'],
   },
   {
     id: 'lead-projects',
@@ -160,7 +183,7 @@ export const milestones: Milestone[] = [
     status: 'completed',
     progress: 100,
     deadline: '2025-09-30',
-    notes: 'Liderança no Insight Guard (frontend), padronizações e Leila.',
+    notes: 'Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila.',
     relatedSkills: ['leadership', 'critical-thinking', 'collaboration', 'technical-docs'],
     relatedResources: ['mentoring'],
   },
@@ -184,7 +207,7 @@ export const milestones: Milestone[] = [
     status: 'in-progress',
     progress: 65,
     deadline: '2026-04-30',
-    relatedSkills: ['critical-thinking', 'technical-docs'],
+    relatedSkills: ['critical-thinking', 'technical-docs', 'security'],
     relatedResources: [],
   },
   {
@@ -202,7 +225,7 @@ export const milestones: Milestone[] = [
     id: 'mentor-colleagues',
     title: 'Mentorar Colegas',
     displayName: 'Programa de Mentoria',
-    description: 'Estabelecer programa de mentoria com engenheiros júnior',
+    description: 'Estabelecer programa de mentoria com estagiários',
     status: 'in-progress',
     progress: 70,
     deadline: '2026-04-01',
@@ -231,23 +254,36 @@ export const milestones: Milestone[] = [
     progress: 70,
     deadline: '2026-05-31',
     notes: '66% concluído com guildas do Devin e agendas de inovação em andamento, planejando usar teamtalks para concluir.',
-    relatedSkills: ['presentation', 'storytelling', 'technical-docs'],
+    relatedSkills: ['presentation', 'storytelling', 'technical-docs', 'devin', 'github-copilot'],
     relatedResources: ['books-comm-storytelling'],
   },
 ];
 
 export const projects: Project[] = [
   {
-    id: 'insightguard',
-    title: 'InsightGuard',
-    description: 'Microfrontend para centralização e padronização de jornada, interface para embarcação de agentes e sistemas, DNS via CloudFront, observabilidade Datadog e backend em andamento com desenho de arquitetura.',
+    id: 'cyberitau',
+    title: 'Cyber.itau',
+    description: 'Microfrontend para centralização de todas as jornadas de Cyber Security do Itaú Unibanco.',
     status: 'in-progress',
     impact: 'Em breve',
     technologies: ['HTML/CSS', 'JavaScript', 'Sass', 'AWS', 'Terraform', 'Angular', 'CloudFront', 'Datadog', 'Microfrontends'],
-    relatedSkills: ['html-css', 'javascript', 'typescript', 'angular', 'cloudfront', 'microfrontends', 'terraform', 'data-observability', 'technical-docs', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube'],
+    relatedSkills: ['html-css', 'javascript', 'typescript', 'angular', 'cloudfront', 'microfrontends', 'terraform', 'data-observability', 'technical-docs', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube', 'sass', 'datadog', 'aws'],
     relatedMilestones: ['lead-projects', 'workshops-talks'],
     relatedResources: ['books-arch-peaa', 'cert-security'],
-    url: 'https://insightguard.cloud.itau.com.br',
+    url: 'https://cyber.itau',
+    urlTooltip: 'Apenas acessível na rede interna do banco',
+  },
+  {
+    id: 'insightguard',
+    title: 'Insight Guard',
+    description: 'Agente de IA para auxiliar na jornada do cliente durante a navegação entre as jornadas do portal Cyber',
+    status: 'not-started',
+    impact: 'Em breve',
+    technologies: ['LLM', 'RAG', 'Agent Design', 'LangGraph', 'AWS', 'Terraform', 'Angular', 'Datadog', 'API Gateway', 'Lambda', 'S3'],
+    relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'aws', 'terraform', 'angular', 'datadog', 'api-gateway', 'lambda', 's3'],
+    relatedMilestones: ['lead-projects', 'workshops-talks'],
+    relatedResources: ['books-arch-peaa', 'cert-security'],
+    url: 'https://cyber.itau/insight-guard',
     urlTooltip: 'Apenas acessível na rede interna do banco',
   },
   {
@@ -257,7 +293,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: 'Em breve',
     technologies: ['Python', 'AWS Lambda', 'API Gateway', 'MLOps', 'CI/CD'],
-    relatedSkills: ['python', 'lambda', 'github-actions', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube'],
+    relatedSkills: ['python', 'lambda', 'github-actions', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube', 'mlops', 'api-gateway', 'aws'],
     relatedMilestones: ['lead-projects'],
     relatedResources: ['books-code-cco'],
   },
@@ -268,7 +304,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: '~80% de redução do tempo de análise de normativos de Segurança da Informação',
     technologies: ['Power Automate', 'Prompt Engineering', 'Copilot Studio', 'Microsoft 365 Copilot', 'Teams', 'LLM', 'Topics'],
-    relatedSkills: ['prompt-engineering', 'fluxo-sequencial', 'copilot-studio', 'rag', 'agent-design'],
+    relatedSkills: ['prompt-engineering', 'fluxo-sequencial', 'copilot-studio', 'rag', 'agent-design', 'power-automate', 'copilot-365'],
     relatedMilestones: ['lead-projects', 'workshops-talks'],
     relatedResources: ['books-comm-cnv', 'cert-analytics'],
   },
@@ -290,7 +326,7 @@ export const projects: Project[] = [
     status: 'in-progress',
     impact: '-40% no tempo de produção de dashboards e aderência ao Itaú Design System nos times',
     technologies: ['Amazon QuickSight', 'Figma', 'Design Systems'],
-    relatedSkills: ['quicksight', 'figma', 'ux', 'storytelling'],
+    relatedSkills: ['quicksight', 'figma', 'ux', 'storytelling', 'design-systems'],
     relatedMilestones: ['lead-projects', 'workshops-talks'],
     relatedResources: ['books-comm-storytelling', 'books-arch-ddd'],
   },
