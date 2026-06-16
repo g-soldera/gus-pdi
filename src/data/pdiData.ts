@@ -351,13 +351,29 @@ export const milestones: Milestone[] = [
     relatedSkills: ['aws', 'terraform', 'api-architecture', 'cost-optimization'],
     relatedResources: ['cert-cloud'],
   },
+  {
+    id: 'ai-fomentation',
+    title: 'Fomento ao Consumo de IA',
+    displayName: 'Multiplicador de IA e Automação',
+    description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
+    status: 'in-progress',
+    progress: 30,
+    deadline: '2026-12-31',
+    objectives: [
+      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
+      { text: 'Realizar 3 workshops práticos sobre o uso de agentes no dia a dia', completed: false },
+      { text: 'Criar e documentar 5 novos patterns de prompt para uso do time', completed: false }
+    ],
+    relatedSkills: ['llm', 'prompt-engineering', 'collaboration', 'presentation'],
+    relatedResources: ['llm-course'],
+  },
 ];
 
 export const projects: Project[] = [
   {
     id: 'cyberitau',
     title: 'Cyber.itau',
-    description: 'Microfrontend para centralização de todas as jornadas de Cyber Security do Itaú Unibanco.',
+    description: 'Portal para centralização de todas as jornadas de Cyber Security do Itaú Unibanco.',
     status: 'in-progress',
     impact: 'Centralização das jornadas de segurança da informação em um único portal disponível para todo o banco.',
     technologies: ['HTML/CSS', 'JavaScript', 'Sass', 'AWS', 'Terraform', 'Angular', 'CloudFront', 'Datadog', 'Microfrontends'],
@@ -370,7 +386,7 @@ export const projects: Project[] = [
   {
     id: 'insightguard',
     title: 'Insight Guard',
-    description: 'Agente de IA para auxiliar na jornada do cliente durante a navegação entre as jornadas do portal Cyber',
+    description: 'Agente orquestrador de todo o ecossistema de agentes de cybersecurity para auxiliar na jornada do cliente.',
     status: 'in-progress',
     impact: 'Navegação facilitada entre as jornadas do portal Cyber e auxílio na utilização das ferramentas disponíveis, tudo isso de forma conversacional.',
     technologies: ['LLM', 'RAG', 'Agent Design', 'LangGraph', 'AWS', 'Terraform', 'Angular', 'Datadog', 'API Gateway', 'Lambda', 'S3'],
@@ -482,6 +498,53 @@ export const resources: Resource[] = [
     image: '/assets/img/aws.png',
     relatedSkills: ['aws-glue', 's3', 'lambda', 'ecs', 'emr', 'terraform'],
     relatedMilestones: ['cert-aws-sa-pro'],
+  },
+  {
+    id: 'cert-cloud-practitioner',
+    name: 'AWS Cloud Practitioner',
+    description: 'Certificação foundational da AWS focada em fundamentos de nuvem e serviços core',
+    status: 'in-progress',
+    parentCategory: 'Certificação',
+    category: 'AWS',
+    subCategory: 'Fundamentos',
+    image: '/assets/img/awspractitioner.webp',
+    relatedSkills: ['s3', 'lambda', 'terraform', 'cloudfront'],
+    relatedMilestones: ['cert-aws-cloud'],
+  },
+  {
+    id: 'cert-security-comptia',
+    name: 'CompTIA Security+',
+    description: 'Certificação em segurança da informação',
+    status: 'in-progress',
+    parentCategory: 'Certificação',
+    category: 'Segurança',
+    subCategory: 'Segurança',
+    image: '/assets/img/comptiasec.png',
+    relatedSkills: ['critical-thinking', 'technical-docs', 'iam'],
+    relatedMilestones: ['cert-security'],
+  },
+  // Cursos
+  {
+    id: 'devops-course',
+    name: 'Curso Completo de DevOps',
+    description: 'Fundamentos de DevOps, CI/CD, Docker e Kubernetes',
+    status: 'in-progress',
+    parentCategory: 'Curso',
+    category: 'DevOps',
+    subCategory: 'DevOps',
+    relatedSkills: ['docker', 'kubernetes', 'github-actions', 'terraform'],
+    relatedMilestones: ['cert-aws-cloud'],
+  },
+  {
+    id: 'llm-course',
+    name: 'Prompt Engineering e LLMs',
+    description: 'Design de prompts e arquitetura de agentes com LLMs',
+    status: 'in-progress',
+    parentCategory: 'Curso',
+    category: 'LLM',
+    subCategory: 'LLM',
+    relatedSkills: ['prompt-engineering', 'rag', 'agent-design', 'mas'],
+    relatedMilestones: [],
   },
   // Mentoria
   {
