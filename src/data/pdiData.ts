@@ -279,13 +279,13 @@ export const milestones: Milestone[] = [
     title: 'System Design e Arquitetura',
     displayName: 'System Design Avançado',
     description: 'Liderar o desenho de arquitetura de soluções complexas e distribuídas.',
-    status: 'in-progress',
-    progress: 10,
+    status: 'not-started',
+    progress: 0,
     deadline: '2026-12-31',
-    metrics: [
-      '2 arquiteturas de soluções complexas documentadas e aprovadas',
-      'Participação ativa em 5+ discussões de arquitetura de alto nível',
-      'Feedback positivo de pares sobre a qualidade dos designs'
+    objectives: [
+      { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: false },
+      { text: 'Participação ativa em 5+ discussões de arquitetura de alto nível', completed: false },
+      { text: 'Feedback positivo de pares sobre a qualidade dos designs', completed: false }
     ],
     relatedSkills: ['api-architecture', 'data-modeling', 'technical-docs', 'critical-thinking'],
     relatedResources: ['books-arch-peaa', 'books-arch-ddd'],
@@ -295,13 +295,13 @@ export const milestones: Milestone[] = [
     title: 'Liderança Técnica de Projetos',
     displayName: 'Tech Lead de Projetos na Squad',
     description: 'Assumir liderança técnica de projetos estratégicos em colaboração com o líder atual.',
-    status: 'in-progress',
-    progress: 20,
+    status: 'not-started',
+    progress: 0,
     deadline: '2027-03-31',
-    metrics: [
-      'Liderança técnica em 2-3 projetos com entregas bem-sucedidas',
-      '10+ code reviews construtivos realizados',
-      'Feedback formal do líder sobre contribuição técnica'
+    objectives: [
+      { text: 'Liderança técnica em 2-3 projetos com entregas bem-sucedidas', completed: false },
+      { text: '10+ code reviews construtivos realizados', completed: false },
+      { text: 'Feedback formal do líder sobre contribuição técnica', completed: false }
     ],
     relatedSkills: ['leadership', 'collaboration', 'conflict-management', 'verbal-communication'],
     relatedResources: ['mentoring'],
@@ -310,14 +310,13 @@ export const milestones: Milestone[] = [
     id: 'ai-engineering',
     title: 'Engenharia de IA Generativa',
     displayName: 'Especialista em Engenharia de IA',
-    description: 'Aprofundar em otimização de modelos e agentes autônomos complexos.',
-    status: 'in-progress',
-    progress: 15,
+    description: 'Desenvolver recursos agênticos (skills) para auxiliar no processo e otimização de modelos.',
+    status: 'not-started',
+    progress: 0,
     deadline: '2027-06-30',
-    metrics: [
-      'Desenvolvimento de 1+ agente autônomo complexo com impacto real',
-      'Implementação de técnicas avançadas de RAG e otimização de prompts',
-      'Apresentação interna sobre arquitetura de agentes'
+    objectives: [
+      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
+      { text: 'Implementação de técnicas avançadas de RAG e otimização de prompts', completed: false }
     ],
     relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'prompt-engineering'],
     relatedResources: ['llm-course'],
@@ -330,10 +329,10 @@ export const milestones: Milestone[] = [
     status: 'not-started',
     progress: 0,
     deadline: '2027-09-30',
-    metrics: [
-      'Implementação de 1+ pipeline MLOps completo com monitoramento',
-      'Redução de 20%+ no tempo de deploy de modelos',
-      'Definição de padrões de governança de dados em projetos de ML'
+    objectives: [
+      { text: 'Implementação de 1+ pipeline MLOps completo com monitoramento', completed: false },
+      { text: 'Redução de 20%+ no tempo de deploy de modelos', completed: false },
+      { text: 'Definição de padrões de governança de dados em projetos de ML', completed: false }
     ],
     relatedSkills: ['mlops', 'data-observability', 'data-governance', 'github-actions', 'terraform'],
     relatedResources: ['devops-course'],
@@ -346,8 +345,8 @@ export const milestones: Milestone[] = [
     status: 'not-started',
     progress: 0,
     deadline: '2027-12-31',
-    metrics: [
-      'Aprovação no exame de certificação AWS SA Pro'
+    objectives: [
+      { text: 'Aprovação no exame de certificação AWS SA Pro', completed: false }
     ],
     relatedSkills: ['aws', 'terraform', 'api-architecture', 'cost-optimization'],
     relatedResources: ['cert-cloud'],
@@ -380,39 +379,6 @@ export const projects: Project[] = [
     relatedResources: ['books-arch-peaa', 'cert-security'],
     url: 'https://cyber.itau/insight-guard',
     urlTooltip: 'Apenas acessível na rede interna do banco',
-  },
-  {
-    id: 'user-behavior',
-    title: 'User Behavior (Comportamento Anômalo)',
-    description: 'Engenharia de ML transformando notebooks em aplicação escalável em Lambda (Python) com democratização de resultados.',
-    status: 'completed',
-    impact: 'Detecção proativa de anomalias com escala cloud.',
-    technologies: ['Python', 'AWS Lambda', 'API Gateway', 'MLOps', 'CI/CD'],
-    relatedSkills: ['python', 'lambda', 'github-actions', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube', 'mlops', 'api-gateway', 'aws'],
-    relatedMilestones: ['lead-projects'],
-    relatedResources: ['books-code-cco'],
-  },
-  {
-    id: 'agente-leila',
-    title: 'Agente Leila (Fluxo Sequencial)',
-    description: 'Agente para analisar normativos de Segurança da Informação e extrair requisitos; deploy no Teams e 365 Copilot via Copilot Studio.',
-    status: 'completed',
-    impact: '~80% de redução do tempo de análise de normativos de Segurança da Informação',
-    technologies: ['Power Automate', 'Prompt Engineering', 'Copilot Studio', 'Microsoft 365 Copilot', 'Teams', 'LLM', 'Topics'],
-    relatedSkills: ['prompt-engineering', 'fluxo-sequencial', 'copilot-studio', 'rag', 'agent-design', 'power-automate', 'copilot-365'],
-    relatedMilestones: ['lead-projects', 'workshops-talks'],
-    relatedResources: ['books-comm-cnv', 'cert-analytics'],
-  },
-  {
-    id: 'data-engineering',
-    title: 'Engenharia de Dados - Producer/Consumer',
-    description: 'Desenvolvimento de tabelas em producer, consumer, e consultorias de democratização',
-    status: 'in-progress',
-    impact: '-30% no tempo de entrega de tabelas spec, -30% de custos em gluejob na consumer através de Flex Execution e +99% de sucesso dos jobs críticos',
-    technologies: ['SQL', 'Python', 'AWS Glue', 'PySpark', 'Terraform'],
-    relatedSkills: ['sql', 'python', 'aws-glue', 's3', 'pyspark', 'data-modeling', 'finops'],
-    relatedMilestones: ['finops-consumer'],
-    relatedResources: ['books-ana-ddia', 'cert-analytics', 'cert-security'],
   },
 ];
 

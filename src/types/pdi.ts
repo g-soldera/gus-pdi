@@ -11,6 +11,11 @@ export interface Skill {
   type: 'hard' | 'soft';
 }
 
+export interface MilestoneObjective {
+  text: string;
+  completed: boolean;
+}
+
 export interface Milestone {
   id: string;
   title: string;
@@ -23,7 +28,7 @@ export interface Milestone {
   relatedSkills: string[];
   relatedResources: string[];
   archived?: boolean;
-  metrics?: string[];
+  objectives?: MilestoneObjective[];
 }
 
 export interface Project {

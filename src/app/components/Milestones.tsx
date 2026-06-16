@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square } from 'lucide-react';
 import { Milestone } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
@@ -140,8 +140,8 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
 
                     <motion.button
                       onClick={() => onMilestoneClick(milestone)}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
                       className="w-full bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all text-left group"
                     >
                       <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
@@ -177,17 +177,23 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
                         colorClass={milestone.status === 'in-progress' ? 'bg-blue-500' : 'bg-primary'}
                       />
                       
-                      {milestone.metrics && milestone.metrics.length > 0 && (
+                      {milestone.objectives && milestone.objectives.length > 0 && (
                         <div className="mt-4 pt-4 border-t border-border/50">
-                          <p className="text-xs font-semibold text-muted-foreground mb-2">Métricas:</p>
-                          <ul className="text-xs text-muted-foreground space-y-1">
-                            {milestone.metrics.map((metric, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-primary mt-0.5">•</span>
-                                <span>{metric}</span>
-                              </li>
+                          <p className="text-xs font-bold text-muted-foreground mb-3 uppercase tracking-wider">Objetivos de Evolução:</p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+                            {milestone.objectives.map((obj, idx) => (
+                              <div key={idx} className="flex items-start gap-2 text-sm">
+                                {obj.completed ? (
+                                  <CheckSquare className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                                ) : (
+                                  <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                                )}
+                                <span className={obj.completed ? 'text-foreground font-medium' : 'text-muted-foreground'}>
+                                  {obj.text}
+                                </span>
+                              </div>
                             ))}
-                          </ul>
+                          </div>
                         </div>
                       )}
                     </motion.button>
@@ -265,20 +271,26 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
                       )}
                     </div>
 
-                    {milestone.metrics && milestone.metrics.length > 0 && (
+                    {milestone.objectives && milestone.objectives.length > 0 && (
                       <div className="pt-3 border-t border-border/50">
-                        <p className="text-xs font-semibold text-muted-foreground mb-2">Métricas:</p>
-                        <ul className="text-xs text-muted-foreground space-y-1">
-                          {milestone.metrics.slice(0, 2).map((metric, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <span className="text-primary mt-0.5">•</span>
-                              <span className="line-clamp-1">{metric}</span>
-                            </li>
+                        <p className="text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider">Objetivos:</p>
+                        <div className="space-y-1.5">
+                          {milestone.objectives.slice(0, 3).map((obj, idx) => (
+                            <div key={idx} className="flex items-start gap-2 text-[11px]">
+                              {obj.completed ? (
+                                <CheckSquare className="w-3 h-3 text-primary shrink-0 mt-0.5" />
+                              ) : (
+                                <Square className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />
+                              )}
+                              <span className={obj.completed ? 'text-foreground line-clamp-1' : 'text-muted-foreground line-clamp-1'}>
+                                {obj.text}
+                              </span>
+                            </div>
                           ))}
-                          {milestone.metrics.length > 2 && (
-                            <li className="text-primary text-xs">+{milestone.metrics.length - 2} mais</li>
+                          {milestone.objectives.length > 3 && (
+                            <p className="text-primary text-[10px] font-medium">+{milestone.objectives.length - 3} mais objetivos</p>
                           )}
-                        </ul>
+                        </div>
                       </div>
                     )}
                   </div>

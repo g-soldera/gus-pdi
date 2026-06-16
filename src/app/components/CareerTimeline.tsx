@@ -67,15 +67,9 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
 
   const getStageTextColor = (stage: TimelineStage): string => {
     if (stage.isFuture) return 'text-muted-foreground';
-    if (stage.isActingAs) return 'text-primary font-semibold';
-    if (stage.isActive) return 'text-primary font-semibold';
-    return 'text-success';
-  };
-
-  const getStageOpacity = (stage: TimelineStage): string => {
-    if (stage.isFuture) return 'opacity-50';
-    if (stage.isActingAs) return 'opacity-100';
-    return 'opacity-100';
+    if (stage.isActingAs) return 'text-primary font-bold';
+    if (stage.isActive) return 'text-primary font-bold';
+    return 'text-success font-medium';
   };
 
   return (
@@ -91,28 +85,23 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
           >
             {/* Stage Circle */}
             <motion.div
-              className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-3 transition-all ${getStageColor(stage)} ${getStageOpacity(stage)} border-2 ${
-                stage.isActingAs ? 'border-primary shadow-lg shadow-primary/50' : 'border-border'
+              className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-3 transition-all ${getStageColor(stage)} border-2 ${
+                stage.isActingAs ? 'border-primary shadow-lg shadow-primary/30' : 'border-border'
               }`}
               animate={stage.isActingAs ? { scale: [1, 1.05, 1] } : {}}
               transition={stage.isActingAs ? { duration: 2, repeat: Infinity } : {}}
             >
-              <span className="text-xs md:text-sm font-bold text-white">
+              <span className={`text-xs md:text-sm font-black ${stage.isFuture ? 'text-muted-foreground' : 'text-white'}`}>
                 {index + 1}
               </span>
             </motion.div>
 
             {/* Stage Label */}
             <div className="text-center">
-              <p className={`text-xs md:text-sm font-medium ${getStageTextColor(stage)}`}>
+              <p className={`text-xs md:text-sm ${getStageTextColor(stage)}`}>
                 {stage.label}
               </p>
-              {stage.isActingAs && (
-                <p className="text-xs text-primary/70 mt-1 font-semibold">
-                  Atuando como
-                </p>
-              )}
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-[10px] md:text-xs text-muted-foreground mt-1">
                 {stage.startDate.getFullYear()}
               </p>
             </div>
@@ -136,7 +125,7 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
       <div className="mt-4 text-center">
         <p className="text-sm text-muted-foreground">
           {stages.find(s => s.isActive)?.isActingAs
-            ? 'Você já é Pleno tecnicamente, avançando para Sênior'
+            ? 'Foco: Evolução para Sênior (Janeiro de 2028)'
             : stages.find(s => s.isActive)
             ? `Buscando Pleno • ${Math.ceil((new Date(info.timelineTarget || '2026-06-07').getTime() - now.getTime()) / (1000 * 60 * 60 * 24))} dias restantes`
             : 'Objetivo: Sênior em Janeiro de 2028'}
