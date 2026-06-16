@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, CheckCircle2, Circle, Loader } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive } from 'lucide-react';
 import { Milestone } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
+import { ArchivedMilestonesModal } from './modals/ArchivedMilestonesModal';
 import { calculateDaysRemaining, formatDate } from '@/app/utils/helpers';
 
 interface MilestonesProps {
@@ -13,6 +14,7 @@ interface MilestonesProps {
 
 export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
   const [view, setView] = useState<'timeline' | 'cards'>('timeline');
+  const [showArchivedModal, setShowArchivedModal] = useState(false);
 
   // Handle deep linking
   useEffect(() => {
@@ -31,12 +33,15 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
         return CheckCircle2;
       case 'in-progress':
         return Loader;
+      case 'deprioritized':
+        return Circle;
       case 'not-started':
         return Circle;
     }
   };
 
-  const sortedMilestones = [...milestones].sort((a, b) => 
+  const activeMilestones = milestones.filter(m => !m.archived);
+  const sortedMilestones = [...activeMilestones].sort((a, b) => 
     new Date(a.deadline).getTime() - new Date(b.deadline).getTime()
   );
 
@@ -55,8 +60,8 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
           </p>
         </motion.div>
 
-        {/* View Toggle */}
-        <div className="flex justify-center mb-8">
+        {/* View Toggle and Archive Button */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
           <div className="inline-flex bg-card border border-border rounded-xl p-1 shadow-sm">
             <button
               onClick={() => setView('timeline')}
@@ -79,6 +84,16 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
               Cards
             </button>
           </div>
+          
+          {milestones.some(m => m.archived) && (
+            <button
+              onClick={() => setShowArchivedModal(true)}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg hover:border-primary transition-all text-muted-foreground hover:text-foreground"
+            >
+              <Archive className="w-4 h-4" />
+              <span className="text-sm">Arquivados ({milestones.filter(m => m.archived).length})</span>
+            </button>
+          )}
         </div>
 
         {view === 'timeline' ? (
@@ -161,6 +176,20 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
                         progress={milestone.progress} 
                         colorClass={milestone.status === 'in-progress' ? 'bg-blue-500' : 'bg-primary'}
                       />
+                      
+                      {milestone.metrics && milestone.metrics.length > 0 && (
+                        <div className="mt-4 pt-4 border-t border-border/50">
+                          <p className="text-xs font-semibold text-muted-foreground mb-2">Métricas:</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            {milestone.metrics.map((metric, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <span className="text-primary mt-0.5">•</span>
+                                <span>{metric}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </motion.button>
                   </motion.div>
                 );
@@ -235,6 +264,23 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
                         <span className="text-primary">{daysRemaining} dias</span>
                       )}
                     </div>
+
+                    {milestone.metrics && milestone.metrics.length > 0 && (
+                      <div className="pt-3 border-t border-border/50">
+                        <p className="text-xs font-semibold text-muted-foreground mb-2">Métricas:</p>
+                        <ul className="text-xs text-muted-foreground space-y-1">
+                          {milestone.metrics.slice(0, 2).map((metric, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-primary mt-0.5">•</span>
+                              <span className="line-clamp-1">{metric}</span>
+                            </li>
+                          ))}
+                          {milestone.metrics.length > 2 && (
+                            <li className="text-primary text-xs">+{milestone.metrics.length - 2} mais</li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </motion.button>
               );
@@ -242,6 +288,13 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
           </div>
         )}
       </div>
+
+      {/* Archived Milestones Modal */}
+      <ArchivedMilestonesModal
+        isOpen={showArchivedModal}
+        onClose={() => setShowArchivedModal(false)}
+        milestones={milestones}
+      />
     </section>
   );
 }

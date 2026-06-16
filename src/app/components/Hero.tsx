@@ -3,23 +3,15 @@ import { motion } from 'motion/react';
 import { ArrowRight, Briefcase, Shield, Clock } from 'lucide-react';
 import { PersonalInfo } from '@/types/pdi';
 import { calculateAge, calculateDaysRemaining, calculateTimeDifference } from '@/app/utils/helpers';
+import { CareerTimeline } from './CareerTimeline';
 
 interface HeroProps {
   info: PersonalInfo;
 }
 
 export function Hero({ info }: HeroProps) {
+  // Placeholder for future use if needed
   const age = calculateAge(info.birthDate);
-  const startDate = new Date(info.timelineTarget || '2026-06-01');
-  startDate.setMonth(startDate.getMonth() - info.targetTimelineMonths);
-  const endDate = new Date(info.timelineTarget || '2026-06-01');
-  const daysRemaining = calculateDaysRemaining(endDate.toISOString());
-  
-  // Calcular progresso do timeline
-  const totalMs = endDate.getTime() - startDate.getTime();
-  const currentMs = new Date().getTime() - startDate.getTime();
-  const progressPercent = Math.min(Math.max((currentMs / totalMs) * 100, 0), 100);
-  
   const experienceTime = info.experienceStartDate ? calculateTimeDifference(info.experienceStartDate) : null;
   const bankTime = info.bankStartDate ? calculateTimeDifference(info.bankStartDate) : null;
 
@@ -105,7 +97,7 @@ export function Hero({ info }: HeroProps) {
               transition={{ delay: 0.4 }}
               className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border shadow-lg"
             >
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
                 <div className="text-left">
                   <p className="text-sm text-muted-foreground mb-1">Cargo Atual</p>
                   <p className="font-medium text-lg">{info.currentRole}</p>
@@ -121,28 +113,9 @@ export function Hero({ info }: HeroProps) {
                 </div>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-border">
-                <div className="flex items-center justify-between text-sm mb-3">
-                  <span className="text-muted-foreground">
-                    Target de {info.targetTimelineMonths} meses
-                  </span>
-                  <span className="font-medium text-primary">
-                    {daysRemaining > 0 ? `${daysRemaining} dias restantes` : 'Concluído!'}
-                  </span>
-                </div>
-                {/* Progress Bar */}
-                <div className="w-full bg-card/50 rounded-full h-2.5 overflow-hidden border border-border">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-primary to-primary-light rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progressPercent}%` }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  />
-                </div>
-                <div className="flex justify-between items-center text-xs text-muted-foreground mt-2">
-                  <span>{Math.round(progressPercent)}% concluído</span>
-                  <span>Início: {startDate.toLocaleDateString('pt-BR')}</span>
-                </div>
+              <div className="pt-6 border-t border-border">
+                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira</p>
+                <CareerTimeline info={info} />
               </div>
             </motion.div>
           </div>

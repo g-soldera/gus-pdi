@@ -54,29 +54,32 @@ export function formatDate(dateStr: string): string {
   });
 }
 
-export function getStatusColor(status: 'completed' | 'in-progress' | 'not-started'): string {
+export function getStatusColor(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized'): string {
   const colors = {
     'completed': 'text-[var(--completed)]',
     'in-progress': 'text-[var(--in-progress)]',
     'not-started': 'text-[var(--not-started)]',
+    'deprioritized': 'text-muted-foreground',
   };
   return colors[status];
 }
 
-export function getStatusBgColor(status: 'completed' | 'in-progress' | 'not-started'): string {
+export function getStatusBgColor(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized'): string {
   const colors = {
     'completed': 'bg-success-light text-success',
     'in-progress': 'bg-info-light text-info',
     'not-started': 'bg-muted text-muted-foreground',
+    'deprioritized': 'bg-muted/50 text-muted-foreground',
   };
   return colors[status];
 }
 
-export function getStatusLabel(status: 'completed' | 'in-progress' | 'not-started'): string {
+export function getStatusLabel(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized'): string {
   const labels = {
     'completed': 'Concluído',
     'in-progress': 'Em progresso',
     'not-started': 'Não iniciado',
+    'deprioritized': 'Despriorizado',
   };
   return labels[status];
 }
