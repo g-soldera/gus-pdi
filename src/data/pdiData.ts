@@ -104,7 +104,7 @@ export const skills: Skill[] = [
 
   // IA Generativa
   { id: 'llm', name: 'LLM (Generative AI)', level: 4, description: 'Arquitetura e implementação de soluções com IA Generativa', category: 'IA Generativa', type: 'hard' },
-  { id: 'prompt-engineering', name: 'Prompt Engineering', level: 4, description: 'Otimização de prompts para LLMs', category: 'IA Generativa', type: 'hard' },
+  { id: 'prompt-engineering', name: 'Prompt Engineering', level: 5, description: 'Otimização de prompts para LLMs e criação de patterns', category: 'IA Generativa', type: 'hard' },
   { id: 'rag', name: 'RAG', level: 4, description: 'Retrieval Augmented Generation para contexto expandido', category: 'IA Generativa', type: 'hard' },
   { id: 'agent-design', name: 'Agent Design', level: 4, description: 'Design e implementação de agentes autônomos', category: 'IA Generativa', type: 'hard' },
   { id: 'stackspot-ai', name: 'StackSpot AI', level: 4, description: 'Plataforma de desenvolvimento assistido por IA', category: 'IA Generativa', type: 'hard' },
@@ -119,6 +119,13 @@ export const skills: Skill[] = [
   { id: 'langchain', name: 'LangChain', level: 3, description: 'Framework para desenvolvimento de aplicações LLM', category: 'IA Generativa', type: 'hard' },
   { id: 'aws-bedrock', name: 'AWS Bedrock', level: 3, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
   { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 3, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
+
+  // Prompt Patterns (Novas Skills)
+  { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição clara de papel e contexto para outputs precisos', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-chain', name: 'Pattern: Chain of Thought', level: 5, description: 'Estruturação de raciocínio passo a passo para tarefas complexas', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-fewshot', name: 'Pattern: Few-Shot Prompting', level: 5, description: 'Uso de exemplos para guiar o formato e tom da resposta', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-recipe', name: 'Pattern: Prompt Recipes', level: 5, description: 'Criação de templates reutilizáveis para automação de tarefas', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-guardrail', name: 'Pattern: Negative Prompting/Guardrails', level: 5, description: 'Definição de limites e o que NÃO deve ser feito pelo modelo', category: 'Prompt Patterns', type: 'hard' },
 
   // Idiomas
   { id: 'portuguese', name: 'Português', level: 5, description: 'Fluência nativa', category: 'Idiomas', type: 'hard' },
@@ -357,15 +364,15 @@ export const milestones: Milestone[] = [
     displayName: 'Multiplicador de IA e Automação',
     description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
     status: 'in-progress',
-    progress: 30,
+    progress: 60,
     deadline: '2026-12-31',
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
       { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
       { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
-      { text: 'Criar e documentar 5 novos patterns de prompt para uso do time', completed: false }
+      { text: 'Criar e documentar 5 novos patterns de prompt para uso do time', completed: true }
     ],
-    relatedSkills: ['llm', 'prompt-engineering', 'collaboration', 'presentation'],
+    relatedSkills: ['llm', 'prompt-engineering', 'collaboration', 'presentation', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
   },
 ];
@@ -407,6 +414,10 @@ export const projects: Project[] = [
     relatedSkills: ['quicksight', 'sql', 'python', 'data-modeling', 'aws-glue', 'design-systems'],
     relatedMilestones: ['lead-projects'],
     relatedResources: ['books-comm-storytelling'],
+    objectives: [
+      { text: 'Pelo menos 50 controles implementados por terceiros seguindo o padrão criado', completed: false },
+      { text: '100% dos novos dashboards da Cyber seguindo o Design System definido', completed: false }
+    ]
   },
 ];
 
