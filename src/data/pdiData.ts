@@ -361,7 +361,8 @@ export const milestones: Milestone[] = [
     deadline: '2026-12-31',
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
-      { text: 'Realizar 3 workshops práticos sobre o uso de agentes no dia a dia', completed: false },
+      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
+      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
       { text: 'Criar e documentar 5 novos patterns de prompt para uso do time', completed: false }
     ],
     relatedSkills: ['llm', 'prompt-engineering', 'collaboration', 'presentation'],
@@ -372,7 +373,7 @@ export const milestones: Milestone[] = [
 export const projects: Project[] = [
   {
     id: 'cyberitau',
-    title: 'Cyber.itau',
+    title: 'Portal Cyber.itau',
     description: 'Portal para centralização de todas as jornadas de Cyber Security do Itaú Unibanco.',
     status: 'in-progress',
     impact: 'Centralização das jornadas de segurança da informação em um único portal disponível para todo o banco.',
@@ -388,13 +389,24 @@ export const projects: Project[] = [
     title: 'Insight Guard',
     description: 'Agente orquestrador de todo o ecossistema de agentes de cybersecurity para auxiliar na jornada do cliente.',
     status: 'in-progress',
-    impact: 'Navegação facilitada entre as jornadas do portal Cyber e auxílio na utilização das ferramentas disponíveis, tudo isso de forma conversacional.',
+    impact: 'Navegação facilitada entre as jornadas do portal Cyber e auxílio na utilização das ferramentas disponíveis, de forma conversacional.',
     technologies: ['LLM', 'RAG', 'Agent Design', 'LangGraph', 'AWS', 'Terraform', 'Angular', 'Datadog', 'API Gateway', 'Lambda', 'S3'],
     relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'aws', 'terraform', 'angular', 'datadog', 'api-gateway', 'lambda', 's3'],
     relatedMilestones: ['arch-system-design', 'ai-engineering'],
     relatedResources: ['books-arch-peaa', 'cert-security'],
     url: 'https://cyber.itau/insight-guard',
     urlTooltip: 'Apenas acessível na rede interna do banco',
+  },
+  {
+    id: 'dashboards-standardization',
+    title: 'Padronização de Dashboards e Controles',
+    description: 'Projeto unificado para padronização visual e técnica de dashboards e implementação de controles.',
+    status: 'in-progress',
+    impact: 'Consistência visual e técnica em todo o ecossistema de analytics da Cyber Security.',
+    technologies: ['QuickSight', 'SQL', 'Python', 'AWS Glue', 'Data Modeling'],
+    relatedSkills: ['quicksight', 'sql', 'python', 'data-modeling', 'aws-glue', 'design-systems'],
+    relatedMilestones: ['lead-projects'],
+    relatedResources: ['books-comm-storytelling'],
   },
 ];
 
