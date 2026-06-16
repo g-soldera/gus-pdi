@@ -1,6 +1,6 @@
 export type SkillLevel = 1 | 2 | 3 | 4 | 5;
 
-export type Status = 'completed' | 'in-progress' | 'not-started';
+export type Status = 'completed' | 'in-progress' | 'not-started' | 'deprioritized';
 
 export interface Skill {
   id: string;
@@ -22,6 +22,8 @@ export interface Milestone {
   notes?: string;
   relatedSkills: string[];
   relatedResources: string[];
+  archived?: boolean;
+  metrics?: string[];
 }
 
 export interface Project {
@@ -65,4 +67,5 @@ export interface PersonalInfo {
   targetTimelineMonths: number;
   profileImage: string;
   timelineTarget?: string;
+  seniorTargetDate?: string;
 }
