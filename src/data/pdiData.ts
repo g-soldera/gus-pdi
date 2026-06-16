@@ -278,6 +278,24 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-cloud'],
     archived: true,
   },
+  {
+    id: 'data-democratization',
+    title: 'Democratização de Dados',
+    displayName: 'Capacidade de Democratização',
+    description: 'Atuação consultiva e técnica para democratização de dados em múltiplos times e contextos.',
+    status: 'completed',
+    progress: 100,
+    deadline: '2026-06-16',
+    objectives: [
+      { 
+        text: 'Atuação em 5+ tabelas democratizadas com sucesso', 
+        completed: true,
+        completionJustification: 'Atuação em 2 tabelas do Kaizen, tabela de People, e consultoria técnica para 4 times distintos garantindo padrões de engenharia.'
+      }
+    ],
+    relatedSkills: ['sql', 'python', 'aws-glue', 'data-modeling', 'technical-docs'],
+    relatedResources: ['books-ana-ddia', 'cert-analytics'],
+  },
 
   // ==========================================
   // NOVOS MILESTONES (Foco Pleno -> Sênior)
@@ -422,16 +440,31 @@ export const projects: Project[] = [
   {
     id: 'dashboards-standardization',
     title: 'Padronização de Dashboards',
-    description: 'Projeto unificado para padronização visual e técnica de dashboards do ecossistema de analytics.',
+    description: 'Projeto unificado para padronização visual e técnica de dashboards do ecossistema de analytics, incluindo as variações de tema para IAM, Cyber Insights e Observability360.',
     status: 'in-progress',
-    impact: 'Consistência visual e técnica em todo o ecossistema de analytics da Cyber Security.',
+    impact: 'Consistência visual e técnica em todo o ecossistema de analytics da Cyber Security através de um Design System unificado.',
+    technologies: ['QuickSight', 'SQL', 'Python', 'AWS Glue', 'Data Modeling', 'Figma', 'Design Systems'],
+    relatedSkills: ['quicksight', 'sql', 'python', 'data-modeling', 'aws-glue', 'design-systems', 'figma', 'ux', 'storytelling'],
+    relatedMilestones: ['lead-projects', 'workshops-talks'],
+    relatedResources: ['books-comm-storytelling', 'books-arch-ddd'],
+    objectives: [
+      { text: '100% dos novos dashboards da Cyber seguindo o Design System definido', completed: false },
+      { text: 'Documentação: Criar o "Playbook de Analytics" com padrões técnicos e visuais', completed: false },
+      { text: 'Implementação de variações de tema: IAM, Cyber Insights e Observability360', completed: true }
+    ]
+  },
+  {
+    id: 'cyber-score',
+    title: 'Score de Cyber',
+    description: 'Construção dos dashboards e views dos indicadores do Score de Cyber, o principal direcionador de segurança da informação do banco.',
+    status: 'completed',
+    impact: 'Visibilidade executiva e técnica dos principais indicadores de risco e maturidade de segurança do banco.',
     technologies: ['QuickSight', 'SQL', 'Python', 'AWS Glue', 'Data Modeling'],
-    relatedSkills: ['quicksight', 'sql', 'python', 'data-modeling', 'aws-glue', 'design-systems'],
+    relatedSkills: ['quicksight', 'sql', 'python', 'data-modeling', 'aws-glue', 'technical-docs'],
     relatedMilestones: ['lead-projects'],
     relatedResources: ['books-comm-storytelling'],
     objectives: [
-      { text: '100% dos novos dashboards da Cyber seguindo o Design System definido', completed: false },
-      { text: 'Documentação: Criar o "Playbook de Analytics" com padrões técnicos e visuais', completed: false }
+      { text: 'Construção de 10 indicadores core do Score de Cyber', completed: true }
     ]
   },
   {
@@ -455,50 +488,6 @@ export const projects: Project[] = [
     relatedSkills: ['prompt-engineering', 'fluxo-sequencial', 'copilot-studio', 'rag', 'agent-design', 'power-automate', 'copilot-365'],
     relatedMilestones: ['lead-projects', 'workshops-talks'],
     relatedResources: ['books-comm-cnv', 'cert-analytics'],
-  },
-  {
-    id: 'data-engineering',
-    title: 'Engenharia de Dados - Producer/Consumer',
-    description: 'Desenvolvimento de tabelas em producer, consumer, e consultorias de democratização',
-    status: 'in-progress',
-    impact: '-30% no tempo de entrega de tabelas spec, -30% de custos em gluejob na consumer através de Flex Execution e +99% de sucesso dos jobs críticos',
-    technologies: ['SQL', 'Python', 'AWS Glue', 'PySpark', 'Terraform'],
-    relatedSkills: ['sql', 'python', 'aws-glue', 's3', 'pyspark', 'data-modeling', 'finops'],
-    relatedMilestones: ['finops-consumer'],
-    relatedResources: ['books-ana-ddia', 'cert-analytics', 'cert-security'],
-  },
-  {
-    id: 'iam-analytics',
-    title: 'IAM Analytics',
-    description: 'Padrão de visual para dashboards de Acessos (IAM)',
-    status: 'completed',
-    impact: 'Aderência ao Itaú Design System e -30% no tempo de construção de dashboards nos times de Acessos',
-    technologies: ['Amazon QuickSight', 'Figma', 'Design Systems'],
-    relatedSkills: ['quicksight', 'figma', 'design-systems'],
-    relatedMilestones: ['lead-projects'],
-    relatedResources: ['books-comm-storytelling'],
-  },
-  {
-    id: 'cyber-insights',
-    title: 'Cyber Insights',
-    description: 'Padrão de visual para dashboards de Cyber Defense',
-    status: 'completed',
-    impact: 'Aderência ao Itaú Design System e -30% no tempo de construção de dashboards nos times de Cyber Security',
-    technologies: ['Amazon QuickSight', 'Figma', 'Design Systems'],
-    relatedSkills: ['quicksight', 'figma', 'design-systems', 'data-observability'],
-    relatedMilestones: ['lead-projects'],
-    relatedResources: ['books-comm-storytelling'],
-  },
-  {
-    id: 'observability360',
-    title: 'Observability360',
-    description: 'Padrão de visual para dashboards de indicadores da comunidade',
-    status: 'completed',
-    impact: 'Identidade unificada e -30% no tempo de construção de dashboards nos indicadores da comunidade',
-    technologies: ['Amazon QuickSight', 'Figma', 'Design Systems'],
-    relatedSkills: ['quicksight', 'figma', 'design-systems', 'data-observability'],
-    relatedMilestones: ['mentor-colleagues'],
-    relatedResources: ['books-comm-storytelling', 'cert-security'],
   },
 ];
 

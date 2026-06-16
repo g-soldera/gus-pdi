@@ -192,7 +192,7 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
 
                         <ProgressBar 
                           progress={progress} 
-                          colorClass={status === 'in-progress' ? 'bg-green-400' : 'bg-green-600'}
+                          colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'}
                         />
                         
                         {milestone.objectives && milestone.objectives.length > 0 && (
@@ -296,7 +296,7 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
                       <ProgressBar 
                         progress={progress} 
                         showLabel 
-                        colorClass={status === 'in-progress' ? 'bg-green-400' : 'bg-green-600'}
+                        colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'}
                       />
                       
                       <div className="flex items-center justify-between text-xs text-muted-foreground">

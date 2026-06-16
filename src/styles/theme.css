@@ -40,7 +40,7 @@
   
   /* Progress States */
   --completed: #52b788;
-  --in-progress: #4a90e2;
+  --in-progress: #52b788;
   --not-started: #94a3b8;
   
   /* UI Elements */
@@ -121,7 +121,7 @@
   
   /* Progress States */
   --completed: #52b788;
-  --in-progress: #6ba4e7;
+  --in-progress: #52b788;
   --not-started: #64748b;
   
   /* UI Elements */
