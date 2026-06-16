@@ -1,0 +1,147 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { PersonalInfo } from '@/types/pdi';
+
+interface CareerTimelineProps {
+  info: PersonalInfo;
+}
+
+interface TimelineStage {
+  label: string;
+  startDate: Date;
+  endDate: Date;
+  isActive: boolean;
+  isFuture: boolean;
+  isActingAs?: boolean;
+}
+
+export function CareerTimeline({ info }: CareerTimelineProps) {
+  const now = new Date();
+  
+  // Define timeline stages
+  const stages: TimelineStage[] = [
+    {
+      label: 'Freelancer',
+      startDate: new Date('2023-03-20'),
+      endDate: new Date('2024-03-20'),
+      isActive: false,
+      isFuture: false,
+    },
+    {
+      label: 'Estagiário',
+      startDate: new Date('2024-03-20'),
+      endDate: new Date('2025-03-20'),
+      isActive: false,
+      isFuture: false,
+    },
+    {
+      label: 'Júnior',
+      startDate: new Date('2025-03-20'),
+      endDate: new Date(info.timelineTarget || '2026-06-07'),
+      isActive: now >= new Date('2025-03-20') && now < new Date(info.timelineTarget || '2026-06-07'),
+      isFuture: false,
+    },
+    {
+      label: 'Pleno',
+      startDate: new Date(info.timelineTarget || '2026-06-07'),
+      endDate: new Date(info.seniorTargetDate || '2028-01-01'),
+      isActive: now >= new Date(info.timelineTarget || '2026-06-07') && now < new Date(info.seniorTargetDate || '2028-01-01'),
+      isFuture: now < new Date(info.timelineTarget || '2026-06-07'),
+      isActingAs: now >= new Date(info.timelineTarget || '2026-06-07') && now < new Date(info.seniorTargetDate || '2028-01-01'),
+    },
+    {
+      label: 'Sênior',
+      startDate: new Date(info.seniorTargetDate || '2028-01-01'),
+      endDate: new Date('2030-01-01'),
+      isActive: false,
+      isFuture: true,
+    },
+  ];
+
+  const getStageColor = (stage: TimelineStage): string => {
+    if (stage.isFuture) return 'bg-muted';
+    if (stage.isActingAs) return 'bg-gradient-to-r from-primary to-primary-light';
+    if (stage.isActive) return 'bg-primary';
+    return 'bg-success';
+  };
+
+  const getStageTextColor = (stage: TimelineStage): string => {
+    if (stage.isFuture) return 'text-muted-foreground';
+    if (stage.isActingAs) return 'text-primary font-semibold';
+    if (stage.isActive) return 'text-primary font-semibold';
+    return 'text-success';
+  };
+
+  const getStageOpacity = (stage: TimelineStage): string => {
+    if (stage.isFuture) return 'opacity-50';
+    if (stage.isActingAs) return 'opacity-100';
+    return 'opacity-100';
+  };
+
+  return (
+    <div className="w-full">
+      <div className="flex items-center justify-between gap-2 md:gap-4 lg:gap-6">
+        {stages.map((stage, index) => (
+          <motion.div
+            key={stage.label}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="flex-1 flex flex-col items-center"
+          >
+            {/* Stage Circle */}
+            <motion.div
+              className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-3 transition-all ${getStageColor(stage)} ${getStageOpacity(stage)} border-2 ${
+                stage.isActingAs ? 'border-primary shadow-lg shadow-primary/50' : 'border-border'
+              }`}
+              animate={stage.isActingAs ? { scale: [1, 1.05, 1] } : {}}
+              transition={stage.isActingAs ? { duration: 2, repeat: Infinity } : {}}
+            >
+              <span className="text-xs md:text-sm font-bold text-white">
+                {index + 1}
+              </span>
+            </motion.div>
+
+            {/* Stage Label */}
+            <div className="text-center">
+              <p className={`text-xs md:text-sm font-medium ${getStageTextColor(stage)}`}>
+                {stage.label}
+              </p>
+              {stage.isActingAs && (
+                <p className="text-xs text-primary/70 mt-1 font-semibold">
+                  Atuando como
+                </p>
+              )}
+              <p className="text-xs text-muted-foreground mt-1">
+                {stage.startDate.getFullYear()}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Timeline Bar */}
+      <div className="mt-6 relative h-2 bg-border rounded-full overflow-hidden">
+        <motion.div
+          className="h-full bg-gradient-to-r from-success via-primary to-primary-light rounded-full"
+          initial={{ width: 0 }}
+          animate={{
+            width: `${((now.getTime() - stages[0].startDate.getTime()) / (stages[stages.length - 1].endDate.getTime() - stages[0].startDate.getTime())) * 100}%`,
+          }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        />
+      </div>
+
+      {/* Status Text */}
+      <div className="mt-4 text-center">
+        <p className="text-sm text-muted-foreground">
+          {stages.find(s => s.isActive)?.isActingAs
+            ? 'Você já é Pleno tecnicamente, avançando para Sênior'
+            : stages.find(s => s.isActive)
+            ? `Buscando Pleno • ${Math.ceil((new Date(info.timelineTarget || '2026-06-07').getTime() - now.getTime()) / (1000 * 60 * 60 * 24))} dias restantes`
+            : 'Objetivo: Sênior em Janeiro de 2028'}
+        </p>
+      </div>
+    </div>
+  );
+}
