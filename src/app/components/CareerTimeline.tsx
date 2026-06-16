@@ -18,11 +18,11 @@ interface TimelineStage {
 export function CareerTimeline({ info }: CareerTimelineProps) {
   const now = new Date();
   
-  // Define timeline stages - sem Freelancer, começando com Estagiário em 2023
+  // Define timeline stages com datas corretas
   const stages: TimelineStage[] = [
     {
       label: 'Estagiário',
-      startDate: new Date('2023-03-20'),
+      startDate: new Date('2023-06-07'),
       endDate: new Date('2024-05-05'),
       isActive: false,
       isFuture: false,
@@ -65,8 +65,8 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
     return 'text-success font-medium';
   };
 
-  // Calcular progresso total da jornada
-  const totalStart = stages[0].startDate.getTime();
+  // Calcular progresso total da jornada (desde Jan/2023)
+  const totalStart = new Date('2023-01-01').getTime();
   const totalEnd = stages[stages.length - 1].endDate.getTime();
   const currentTime = now.getTime();
   const progressPercent = Math.min(Math.max(((currentTime - totalStart) / (totalEnd - totalStart)) * 100, 0), 100);
@@ -108,7 +108,7 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
         ))}
       </div>
 
-      {/* Timeline Bar - sincronizada com os marcos */}
+      {/* Timeline Bar - sincronizada com os marcos (desde Jan/2023) */}
       <div className="mt-6 relative h-2 bg-border rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-success via-primary to-primary-light rounded-full"
