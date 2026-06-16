@@ -71,3 +71,8 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--primary-light);
 }
+
+/* Remove text cursor/caret globally */
+* {
+  caret-color: transparent !important;
+}

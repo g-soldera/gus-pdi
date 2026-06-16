@@ -69,12 +69,6 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
             const isPast = marker.date <= now;
             const isMain = marker.type === 'main';
             
-            // Lógica de cores conforme solicitado
-            // Concluídos: Verde
-            // Etapa Atual: Verde Diferente (destaque)
-            // Futuro: Muted
-            
-            // Encontrar qual é o próximo marco para definir se este é o "atual"
             const nextMarker = markers.find(m => m.date > now);
             const isCurrentStage = nextMarker ? (markers[markers.indexOf(nextMarker) - 1] === marker) : (marker === markers[markers.length - 1]);
 
@@ -98,7 +92,8 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
                           }`}
                         />
                       ) : (
-                        <div className="w-0.5 h-8 bg-primary/40 -translate-y-1/2 mt-4" />
+                        /* Marco Itaú alinhado verticalmente com os círculos */
+                        <div className={`w-1 h-6 rounded-full ${isPast ? 'bg-green-600' : 'bg-muted-foreground'}`} />
                       )}
                     </div>
                   </TooltipTrigger>
@@ -118,8 +113,8 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
                   </div>
                 )}
 
-                {/* Label Inferior */}
-                <div className={`absolute ${isMain ? 'top-8' : 'top-6'} left-1/2 -translate-x-1/2 w-max text-center`}>
+                {/* Label Inferior - Alinhado para todos os tipos */}
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-max text-center">
                   <p className={`text-xs font-bold whitespace-nowrap ${isCurrentStage ? 'text-green-600' : isPast ? 'text-foreground' : 'text-muted-foreground'}`}>
                     {marker.label}
                   </p>

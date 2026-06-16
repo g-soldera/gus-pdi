@@ -120,7 +120,7 @@ export const skills: Skill[] = [
   { id: 'aws-bedrock', name: 'AWS Bedrock', level: 3, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
   { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 3, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
 
-  // Prompt Patterns (Novas Skills)
+  // Prompt Patterns
   { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição clara de papel e contexto para outputs precisos', category: 'Prompt Patterns', type: 'hard' },
   { id: 'prompt-pattern-chain', name: 'Pattern: Chain of Thought', level: 5, description: 'Estruturação de raciocínio passo a passo para tarefas complexas', category: 'Prompt Patterns', type: 'hard' },
   { id: 'prompt-pattern-fewshot', name: 'Pattern: Few-Shot Prompting', level: 5, description: 'Uso de exemplos para guiar o formato e tom da resposta', category: 'Prompt Patterns', type: 'hard' },
@@ -160,7 +160,7 @@ export const skills: Skill[] = [
 
 export const milestones: Milestone[] = [
   // ==========================================
-  // ARQUIVADOS (Concluídos ou Despriorizados)
+  // ARQUIVADOS
   // ==========================================
   {
     id: 'certification-pro',
@@ -265,22 +265,31 @@ export const milestones: Milestone[] = [
     relatedResources: ['books-comm-storytelling'],
     archived: true,
   },
-  {
-    id: 'cert-aws-cloud',
-    title: 'Certificação AWS Cloud Practitioner',
-    displayName: 'AWS Cloud Practitioner',
-    description: 'Avançar em certificações AWS Cloud Practitioner',
-    status: 'deprioritized',
-    progress: 40,
-    deadline: '2026-05-31',
-    relatedSkills: ['aws-glue', 's3', 'lambda', 'ecs', 'emr', 'terraform'],
-    relatedResources: ['cert-cloud'],
-    archived: true,
-  },
 
   // ==========================================
   // NOVOS MILESTONES (Foco Pleno -> Sênior)
   // ==========================================
+  {
+    id: 'ai-fomentation',
+    title: 'Fomento ao Consumo de IA',
+    displayName: 'Multiplicador de IA e Automação',
+    description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
+    status: 'in-progress',
+    progress: 0, // Será calculado dinamicamente pelo componente
+    deadline: '2026-12-31',
+    objectives: [
+      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
+      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
+      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
+      { 
+        text: 'Criar e documentar 5 novos patterns de prompt para uso do time', 
+        completed: true,
+        completionJustification: 'Criei skills voltadas à democratização de dados em fluxo ponta a ponta, contendo 13 skills. Além disso, apoiei na criação de um módulo de 18 skills de documentação e outro com 15 de design.'
+      }
+    ],
+    relatedSkills: ['llm', 'prompt-engineering', 'collaboration', 'presentation'],
+    relatedResources: ['llm-course'],
+  },
   {
     id: 'arch-system-design',
     title: 'System Design e Arquitetura',
@@ -313,68 +322,6 @@ export const milestones: Milestone[] = [
     relatedSkills: ['leadership', 'collaboration', 'conflict-management', 'verbal-communication'],
     relatedResources: ['mentoring'],
   },
-  {
-    id: 'ai-engineering',
-    title: 'Engenharia de IA Generativa',
-    displayName: 'Especialista em Engenharia de IA',
-    description: 'Desenvolver recursos agênticos (skills) para auxiliar no processo e otimização de modelos.',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-06-30',
-    objectives: [
-      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
-      { text: 'Implementação de técnicas avançadas de RAG e otimização de prompts', completed: false }
-    ],
-    relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'prompt-engineering'],
-    relatedResources: ['llm-course'],
-  },
-  {
-    id: 'mlops-governance',
-    title: 'MLOps e Governança',
-    displayName: 'Excelência em MLOps',
-    description: 'Implementar pipelines de MLOps com observabilidade e governança.',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-09-30',
-    objectives: [
-      { text: 'Implementação de 1+ pipeline MLOps completo com monitoramento', completed: false },
-      { text: 'Redução de 20%+ no tempo de deploy de modelos', completed: false },
-      { text: 'Definição de padrões de governança de dados em projetos de ML', completed: false }
-    ],
-    relatedSkills: ['mlops', 'data-observability', 'data-governance', 'github-actions', 'terraform'],
-    relatedResources: ['devops-course'],
-  },
-  {
-    id: 'cert-aws-sa-pro',
-    title: 'AWS Solutions Architect Pro',
-    displayName: 'AWS SA Professional',
-    description: 'Obter a certificação AWS Solutions Architect Professional.',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-12-31',
-    objectives: [
-      { text: 'Aprovação no exame de certificação AWS SA Pro', completed: false }
-    ],
-    relatedSkills: ['aws', 'terraform', 'api-architecture', 'cost-optimization'],
-    relatedResources: ['cert-cloud'],
-  },
-  {
-    id: 'ai-fomentation',
-    title: 'Fomento ao Consumo de IA',
-    displayName: 'Multiplicador de IA e Automação',
-    description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
-    status: 'in-progress',
-    progress: 60,
-    deadline: '2026-12-31',
-    objectives: [
-      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
-      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
-      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
-      { text: 'Criar e documentar 5 novos patterns de prompt para uso do time', completed: true }
-    ],
-    relatedSkills: ['llm', 'prompt-engineering', 'collaboration', 'presentation', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
-    relatedResources: ['llm-course'],
-  },
 ];
 
 export const projects: Project[] = [
@@ -390,6 +337,11 @@ export const projects: Project[] = [
     relatedResources: ['books-arch-peaa', 'cert-security'],
     url: 'https://cyber.itau',
     urlTooltip: 'Apenas acessível na rede interna do banco',
+    objectives: [
+      { text: 'Adoção: Alcançar X usuários ativos mensais', completed: false },
+      { text: 'Disponibilidade: Manter o portal acessível conforme os SLAs internos', completed: false },
+      { text: 'Feedback: Coletar e documentar 3 feedbacks positivos de áreas distintas', completed: false }
+    ]
   },
   {
     id: 'insightguard',
@@ -403,6 +355,11 @@ export const projects: Project[] = [
     relatedResources: ['books-arch-peaa', 'cert-security'],
     url: 'https://cyber.itau/insight-guard',
     urlTooltip: 'Apenas acessível na rede interna do banco',
+    objectives: [
+      { text: 'Acurácia: Atingir > 92% de taxa de acerto nas intenções do usuário', completed: false },
+      { text: 'Orquestração: Tempo médio de resposta do agente orquestrador < 2s', completed: false },
+      { text: 'Integração: Pelo menos 3 agentes de cybersecurity orquestrados', completed: false }
+    ]
   },
   {
     id: 'dashboards-standardization',
@@ -416,13 +373,14 @@ export const projects: Project[] = [
     relatedResources: ['books-comm-storytelling'],
     objectives: [
       { text: 'Pelo menos 50 controles implementados por terceiros seguindo o padrão criado', completed: false },
-      { text: '100% dos novos dashboards da Cyber seguindo o Design System definido', completed: false }
+      { text: '100% dos novos dashboards da Cyber seguindo o Design System definido', completed: false },
+      { text: 'Documentação: Criar o "Playbook de Analytics" com padrões técnicos e visuais', completed: false }
     ]
   },
 ];
 
 export const resources: Resource[] = [
-  // Livros - Comunicação
+  // Livros
   {
     id: 'books-comm-cnv',
     name: 'Comunicação Não-Violenta',
@@ -434,55 +392,6 @@ export const resources: Resource[] = [
     image: '/assets/img/books/cnv.jpg',
     relatedSkills: ['nvc', 'active-listening', 'empathy'],
     relatedMilestones: ['soft-skills'],
-  },
-  {
-    id: 'books-comm-storytelling',
-    name: 'Storytelling with Data',
-    description: 'Cole Nussbaumer Knaflic - Um guia para apresentação de dados.',
-    status: 'completed',
-    parentCategory: 'Livros',
-    category: 'Livros de Comunicação',
-    subCategory: 'Storytelling',
-    image: '/assets/img/books/swd.jpg',
-    relatedSkills: ['storytelling', 'presentation', 'data-modeling'],
-    relatedMilestones: ['soft-skills', 'workshops-talks'],
-  },
-  {
-    id: 'books-comm-cfaip',
-    name: 'Como Fazer Amigos e Influenciar Pessoas',
-    description: 'Robert Cialdini - Clássico sobre habilidades sociais',
-    status: 'completed',
-    parentCategory: 'Livros',
-    category: 'Livros de Comunicação',
-    subCategory: 'Comunicação',
-    image: '/assets/img/books/cfaip.jpg',
-    relatedSkills: ['presentation', 'verbal-communication', 'storytelling'],
-    relatedMilestones: ['soft-skills'],
-  },
-  // Livros - Analytics
-  {
-    id: 'books-ana-ddia',
-    name: 'Designing Data-Intensive Applications',
-    description: 'Martin Kleppmann - Um guia para aplicações intensivas em dados.',
-    status: 'not-started',
-    parentCategory: 'Livros',
-    category: 'Livros de Analytics',
-    subCategory: 'Analytics',
-    image: '/assets/img/books/ddia.jpg',
-    relatedSkills: ['data-modeling', 'aws-glue', 'kafka'],
-    relatedMilestones: [],
-  },
-  {
-    id: 'books-arch-peaa',
-    name: 'Patterns of Enterprise Application Architecture',
-    description: 'Martin Fowler - Padrões de arquitetura para aplicações empresariais.',
-    status: 'not-started',
-    parentCategory: 'Livros',
-    category: 'Livros de Arquitetura',
-    subCategory: 'Arquitetura',
-    image: '/assets/img/books/peaa.jpg',
-    relatedSkills: ['data-modeling', 'technical-docs'],
-    relatedMilestones: [],
   },
   {
     id: 'books-arch-ddd',
@@ -509,65 +418,6 @@ export const resources: Resource[] = [
     image: '/assets/img/professionalea.webp',
     relatedSkills: ['data-modeling', 'pyspark', 'aws-glue', 'quicksight'],
     relatedMilestones: ['certification-pro'],
-  },
-  {
-    id: 'cert-cloud',
-    name: 'AWS Solutions Architect - Professional',
-    description: 'Certificação profissional de arquitetura na AWS',
-    status: 'not-started',
-    parentCategory: 'Certificação',
-    category: 'AWS',
-    subCategory: 'Arquitetura',
-    image: '/assets/img/aws.png',
-    relatedSkills: ['aws-glue', 's3', 'lambda', 'ecs', 'emr', 'terraform'],
-    relatedMilestones: ['cert-aws-sa-pro'],
-  },
-  {
-    id: 'cert-cloud-practitioner',
-    name: 'AWS Cloud Practitioner',
-    description: 'Certificação foundational da AWS focada em fundamentos de nuvem e serviços core',
-    status: 'in-progress',
-    parentCategory: 'Certificação',
-    category: 'AWS',
-    subCategory: 'Fundamentos',
-    image: '/assets/img/awspractitioner.webp',
-    relatedSkills: ['s3', 'lambda', 'terraform', 'cloudfront'],
-    relatedMilestones: ['cert-aws-cloud'],
-  },
-  {
-    id: 'cert-security-comptia',
-    name: 'CompTIA Security+',
-    description: 'Certificação em segurança da informação',
-    status: 'in-progress',
-    parentCategory: 'Certificação',
-    category: 'Segurança',
-    subCategory: 'Segurança',
-    image: '/assets/img/comptiasec.png',
-    relatedSkills: ['critical-thinking', 'technical-docs', 'iam'],
-    relatedMilestones: ['cert-security'],
-  },
-  // Cursos
-  {
-    id: 'devops-course',
-    name: 'Curso Completo de DevOps',
-    description: 'Fundamentos de DevOps, CI/CD, Docker e Kubernetes',
-    status: 'in-progress',
-    parentCategory: 'Curso',
-    category: 'DevOps',
-    subCategory: 'DevOps',
-    relatedSkills: ['docker', 'kubernetes', 'github-actions', 'terraform'],
-    relatedMilestones: ['cert-aws-cloud'],
-  },
-  {
-    id: 'llm-course',
-    name: 'Prompt Engineering e LLMs',
-    description: 'Design de prompts e arquitetura de agentes com LLMs',
-    status: 'in-progress',
-    parentCategory: 'Curso',
-    category: 'LLM',
-    subCategory: 'LLM',
-    relatedSkills: ['prompt-engineering', 'rag', 'agent-design', 'mas'],
-    relatedMilestones: [],
   },
   // Mentoria
   {

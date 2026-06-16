@@ -14,6 +14,7 @@ export interface Skill {
 export interface MilestoneObjective {
   text: string;
   completed: boolean;
+  completionJustification?: string; // Comentário obrigatório para fechar o item
 }
 
 export interface Milestone {
@@ -43,6 +44,7 @@ export interface Project {
   relatedResources: string[];
   url?: string;
   urlTooltip?: string;
+  objectives?: MilestoneObjective[];
 }
 
 export interface Resource {
