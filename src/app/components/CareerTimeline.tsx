@@ -16,12 +16,17 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
   const now = new Date();
   
   // Datas base conforme solicitado
-  const startDate = new Date('2023-06-07'); // Início estágio
+  const internshipStartDate = new Date('2023-06-07'); // Início estágio
+  
+  // Criar folga de 1 mês antes do estágio
+  const startDate = new Date(internshipStartDate);
+  startDate.setMonth(startDate.getMonth() - 1);
+
   const seniorDate = new Date('2028-01-01'); // Objetivo Sênior
   const endDate = new Date('2028-02-01'); // Sobra no final para não ficar estranho
 
   const markers: CareerMarker[] = [
-    { label: 'Início Estágio', date: new Date('2023-06-07'), type: 'career' },
+    { label: 'Início Estágio', date: internshipStartDate, type: 'career' },
     { label: 'Entrada Itaú', date: new Date('2024-05-05'), type: 'career' },
     { label: 'Efetivado Júnior', date: new Date('2025-05-05'), type: 'career' },
     { label: 'Feedback Pleno', date: new Date('2026-06-07'), type: 'career' },
