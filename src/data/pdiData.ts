@@ -279,11 +279,11 @@ export const milestones: Milestone[] = [
     title: 'System Design e Arquitetura',
     displayName: 'System Design Avançado',
     description: 'Liderar o desenho de arquitetura de soluções complexas e distribuídas.',
-    status: 'in-progress',
-    progress: 33,
+    status: 'not-started',
+    progress: 0,
     deadline: '2026-12-31',
     objectives: [
-      { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: true },
+      { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: false },
       { text: 'Participação ativa em 5+ discussões de arquitetura de alto nível', completed: false },
       { text: 'Feedback positivo de pares sobre a qualidade dos designs', completed: false }
     ],
@@ -295,12 +295,12 @@ export const milestones: Milestone[] = [
     title: 'Liderança Técnica de Projetos',
     displayName: 'Tech Lead de Projetos na Squad',
     description: 'Assumir liderança técnica de projetos estratégicos em colaboração com o líder atual.',
-    status: 'in-progress',
-    progress: 66,
+    status: 'not-started',
+    progress: 0,
     deadline: '2027-03-31',
     objectives: [
-      { text: 'Liderança técnica em 2-3 projetos com entregas bem-sucedidas', completed: true },
-      { text: '10+ code reviews construtivos realizados', completed: true },
+      { text: 'Liderança técnica em 2-3 projetos com entregas bem-sucedidas', completed: false },
+      { text: '10+ code reviews construtivos realizados', completed: false },
       { text: 'Feedback formal do líder sobre contribuição técnica', completed: false }
     ],
     relatedSkills: ['leadership', 'collaboration', 'conflict-management', 'verbal-communication'],
@@ -311,11 +311,11 @@ export const milestones: Milestone[] = [
     title: 'Engenharia de IA Generativa',
     displayName: 'Especialista em Engenharia de IA',
     description: 'Desenvolver recursos agênticos (skills) para auxiliar no processo e otimização de modelos.',
-    status: 'in-progress',
-    progress: 50,
+    status: 'not-started',
+    progress: 0,
     deadline: '2027-06-30',
     objectives: [
-      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: true },
+      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
       { text: 'Implementação de técnicas avançadas de RAG e otimização de prompts', completed: false }
     ],
     relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'prompt-engineering'],

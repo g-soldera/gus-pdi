@@ -4,7 +4,7 @@ import { Modal } from './Modal';
 import { StatusBadge } from '../StatusBadge';
 import { ProgressBar } from '../ProgressBar';
 import { calculateDaysRemaining, formatDate } from '@/app/utils/helpers';
-import { Calendar, Clock, Target, BookOpen, Code, FileText } from 'lucide-react';
+import { Calendar, Clock, Target, BookOpen, Code, FileText, CheckSquare, Square } from 'lucide-react';
 
 interface MilestoneModalProps {
   milestone: Milestone | null;
@@ -60,6 +60,30 @@ export function MilestoneModal({
           </h3>
           <p className="text-foreground">{milestone.description}</p>
         </div>
+
+        {/* Objectives Checklist */}
+        {milestone.objectives && milestone.objectives.length > 0 && (
+          <div>
+            <h3 className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+              <CheckSquare className="w-4 h-4" />
+              Objetivos de Evolução
+            </h3>
+            <div className="space-y-3">
+              {milestone.objectives.map((obj, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-3 bg-muted/30 rounded-lg border border-border/50">
+                  {obj.completed ? (
+                    <CheckSquare className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  ) : (
+                    <Square className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
+                  )}
+                  <span className={obj.completed ? 'text-foreground font-medium' : 'text-muted-foreground'}>
+                    {obj.text}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Deadline */}
         <div className="flex items-center gap-2 p-4 bg-muted/50 rounded-lg">
