@@ -3,16 +3,16 @@ import { PersonalInfo, Skill, Milestone, Project, Resource } from '@/types/pdi';
 export const personalInfo: PersonalInfo = {
   name: 'Gustavo Soldera',
   birthDate: '2002-05-30',
-  startDate: '2025-06-02',
+  startDate: '2025-05-05', // Efetivado como Júnior
   company: 'Itaú Unibanco',
   department: 'Cyber Security',
   currentRole: 'Engenheiro de Analytics JR',
   targetRole: 'Engenheiro de Analytics PL',
   targetTimelineMonths: 12,
-  timelineTarget: '2026-06-07',
-  seniorTargetDate: '2028-01-01',
-  experienceStartDate: '2023-01-01',
-  bankStartDate: '2024-05-05',
+  timelineTarget: '2026-06-07', // Feedback de Pleno
+  seniorTargetDate: '2028-01-01', // Desejo estar como Sênior
+  experienceStartDate: '2023-06-07', // Início como Estagiário
+  bankStartDate: '2024-05-05', // Entro no Itaú
   profileImage: '/assets/img/profile.jpg',
 };
 

@@ -6,128 +6,101 @@ interface CareerTimelineProps {
   info: PersonalInfo;
 }
 
-interface TimelineStage {
+interface CareerMarker {
   label: string;
-  startDate: Date;
-  endDate: Date;
-  isActive: boolean;
-  isFuture: boolean;
-  isActingAs?: boolean;
+  date: Date;
+  type: 'career' | 'goal';
 }
 
 export function CareerTimeline({ info }: CareerTimelineProps) {
   const now = new Date();
   
-  // Define timeline stages com datas corretas
-  const stages: TimelineStage[] = [
-    {
-      label: 'Estagiário',
-      startDate: new Date('2023-06-07'),
-      endDate: new Date('2024-05-05'),
-      isActive: false,
-      isFuture: false,
-    },
-    {
-      label: 'Júnior',
-      startDate: new Date('2024-05-05'),
-      endDate: new Date(info.timelineTarget || '2026-06-07'),
-      isActive: now >= new Date('2024-05-05') && now < new Date(info.timelineTarget || '2026-06-07'),
-      isFuture: false,
-    },
-    {
-      label: 'Pleno',
-      startDate: new Date(info.timelineTarget || '2026-06-07'),
-      endDate: new Date(info.seniorTargetDate || '2028-01-01'),
-      isActive: now >= new Date(info.timelineTarget || '2026-06-07') && now < new Date(info.seniorTargetDate || '2028-01-01'),
-      isFuture: now < new Date(info.timelineTarget || '2026-06-07'),
-      isActingAs: now >= new Date(info.timelineTarget || '2026-06-07') && now < new Date(info.seniorTargetDate || '2028-01-01'),
-    },
-    {
-      label: 'Sênior',
-      startDate: new Date(info.seniorTargetDate || '2028-01-01'),
-      endDate: new Date('2030-01-01'),
-      isActive: false,
-      isFuture: true,
-    },
+  // Datas base conforme solicitado
+  const startDate = new Date('2023-06-07'); // Início estágio
+  const seniorDate = new Date('2028-01-01'); // Objetivo Sênior
+  const endDate = new Date('2028-02-01'); // Sobra no final para não ficar estranho
+
+  const markers: CareerMarker[] = [
+    { label: 'Início Estágio', date: new Date('2023-06-07'), type: 'career' },
+    { label: 'Entrada Itaú', date: new Date('2024-05-05'), type: 'career' },
+    { label: 'Efetivado Júnior', date: new Date('2025-05-05'), type: 'career' },
+    { label: 'Feedback Pleno', date: new Date('2026-06-07'), type: 'career' },
+    { label: 'Objetivo Sênior', date: new Date('2028-01-01'), type: 'goal' },
   ];
 
-  const getStageColor = (stage: TimelineStage): string => {
-    if (stage.isFuture) return 'bg-muted';
-    if (stage.isActingAs) return 'bg-gradient-to-r from-primary to-primary-light';
-    if (stage.isActive) return 'bg-primary';
-    return 'bg-success';
-  };
+  // Cálculo de progresso total na barra
+  const totalDuration = endDate.getTime() - startDate.getTime();
+  const currentProgress = Math.min(Math.max(((now.getTime() - startDate.getTime()) / totalDuration) * 100, 0), 100);
 
-  const getStageTextColor = (stage: TimelineStage): string => {
-    if (stage.isFuture) return 'text-muted-foreground';
-    if (stage.isActingAs) return 'text-primary font-bold';
-    if (stage.isActive) return 'text-primary font-bold';
-    return 'text-success font-medium';
+  const getMarkerPosition = (date: Date) => {
+    return ((date.getTime() - startDate.getTime()) / totalDuration) * 100;
   };
-
-  // Calcular progresso total da jornada (desde Jan/2023)
-  const totalStart = new Date('2023-01-01').getTime();
-  const totalEnd = stages[stages.length - 1].endDate.getTime();
-  const currentTime = now.getTime();
-  const progressPercent = Math.min(Math.max(((currentTime - totalStart) / (totalEnd - totalStart)) * 100, 0), 100);
 
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-between gap-2 md:gap-4 lg:gap-6">
-        {stages.map((stage, index) => (
-          <motion.div
-            key={stage.label}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="flex-1 flex flex-col items-center"
-          >
-            {/* Stage Circle */}
-            <motion.div
-              className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-3 transition-all ${getStageColor(stage)} border-2 ${
-                stage.isActingAs ? 'border-primary shadow-lg shadow-primary/30' : 'border-border'
-              }`}
-              animate={stage.isActingAs ? { scale: [1, 1.05, 1] } : {}}
-              transition={stage.isActingAs ? { duration: 2, repeat: Infinity } : {}}
-            >
-              <span className={`text-xs md:text-sm font-black ${stage.isFuture ? 'text-muted-foreground' : 'text-white'}`}>
-                {index + 1}
-              </span>
-            </motion.div>
-
-            {/* Stage Label */}
-            <div className="text-center">
-              <p className={`text-xs md:text-sm ${getStageTextColor(stage)}`}>
-                {stage.label}
-              </p>
-              <p className="text-[10px] md:text-xs text-muted-foreground mt-1">
-                {stage.startDate.getFullYear()}
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Timeline Bar - sincronizada com os marcos (desde Jan/2023) */}
-      <div className="mt-6 relative h-2 bg-border rounded-full overflow-hidden">
+    <div className="w-full py-12 px-2">
+      <div className="relative h-3 bg-muted rounded-full mb-16">
+        {/* Barra de Progresso Principal */}
         <motion.div
-          className="h-full bg-gradient-to-r from-success via-primary to-primary-light rounded-full"
+          className="absolute h-full bg-gradient-to-r from-orange-500 via-primary to-primary-light rounded-full z-10"
           initial={{ width: 0 }}
-          animate={{
-            width: `${progressPercent}%`,
-          }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          animate={{ width: `${currentProgress}%` }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
         />
+
+        {/* Marcadores na Barra */}
+        {markers.map((marker, index) => {
+          const position = getMarkerPosition(marker.date);
+          const isPast = marker.date <= now;
+          const isSenior = marker.type === 'goal';
+          
+          return (
+            <div
+              key={index}
+              className="absolute top-1/2 -translate-y-1/2 z-20"
+              style={{ left: `${position}%` }}
+            >
+              {/* Ponto na barra */}
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: index * 0.1 + 0.5 }}
+                className={`w-4 h-4 rounded-full border-2 border-background shadow-md transition-colors ${
+                  isSenior 
+                    ? 'bg-yellow-500 ring-2 ring-yellow-500/20' 
+                    : isPast ? 'bg-orange-600' : 'bg-muted-foreground'
+                }`}
+                title={`${marker.label}: ${marker.date.toLocaleDateString('pt-BR')}`}
+              />
+
+              {/* Label e Data */}
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-max text-center">
+                <p className={`text-[10px] md:text-xs font-bold whitespace-nowrap ${isPast ? 'text-foreground' : 'text-muted-foreground'}`}>
+                  {marker.label}
+                </p>
+                <p className="text-[9px] md:text-[10px] text-muted-foreground font-medium">
+                  {marker.date.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' })}
+                </p>
+              </div>
+
+              {/* Marcação especial para o momento atual se estiver próximo */}
+              {isPast && index < markers.length - 1 && markers[index+1].date > now && (
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2">
+                   <div className="bg-primary/10 text-primary text-[9px] px-2 py-0.5 rounded-full border border-primary/20 whitespace-nowrap">
+                      Você está aqui
+                   </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
-      {/* Status Text */}
-      <div className="mt-4 text-center">
-        <p className="text-sm text-muted-foreground">
-          {stages.find(s => s.isActive)?.isActingAs
-            ? 'Foco: Evolução para Sênior (Janeiro de 2028)'
-            : stages.find(s => s.isActive)
-            ? `Buscando Pleno • ${Math.ceil((new Date(info.timelineTarget || '2026-06-07').getTime() - now.getTime()) / (1000 * 60 * 60 * 24))} dias restantes`
-            : 'Objetivo: Sênior em Janeiro de 2028'}
+      {/* Status Final */}
+      <div className="text-center mt-8">
+        <p className="text-sm font-medium text-muted-foreground bg-muted/30 py-2 px-4 rounded-full inline-block">
+          {now < seniorDate 
+            ? `Jornada para Sênior: ${Math.ceil((seniorDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))} dias restantes`
+            : 'Objetivo Sênior alcançado! 🚀'}
         </p>
       </div>
     </div>
