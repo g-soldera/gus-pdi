@@ -18,27 +18,20 @@ interface TimelineStage {
 export function CareerTimeline({ info }: CareerTimelineProps) {
   const now = new Date();
   
-  // Define timeline stages
+  // Define timeline stages - sem Freelancer, começando com Estagiário em 2023
   const stages: TimelineStage[] = [
     {
-      label: 'Freelancer',
-      startDate: new Date('2023-03-20'),
-      endDate: new Date('2024-03-20'),
-      isActive: false,
-      isFuture: false,
-    },
-    {
       label: 'Estagiário',
-      startDate: new Date('2024-03-20'),
-      endDate: new Date('2025-03-20'),
+      startDate: new Date('2023-03-20'),
+      endDate: new Date('2024-05-05'),
       isActive: false,
       isFuture: false,
     },
     {
       label: 'Júnior',
-      startDate: new Date('2025-03-20'),
+      startDate: new Date('2024-05-05'),
       endDate: new Date(info.timelineTarget || '2026-06-07'),
-      isActive: now >= new Date('2025-03-20') && now < new Date(info.timelineTarget || '2026-06-07'),
+      isActive: now >= new Date('2024-05-05') && now < new Date(info.timelineTarget || '2026-06-07'),
       isFuture: false,
     },
     {
@@ -71,6 +64,12 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
     if (stage.isActive) return 'text-primary font-bold';
     return 'text-success font-medium';
   };
+
+  // Calcular progresso total da jornada
+  const totalStart = stages[0].startDate.getTime();
+  const totalEnd = stages[stages.length - 1].endDate.getTime();
+  const currentTime = now.getTime();
+  const progressPercent = Math.min(Math.max(((currentTime - totalStart) / (totalEnd - totalStart)) * 100, 0), 100);
 
   return (
     <div className="w-full">
@@ -109,13 +108,13 @@ export function CareerTimeline({ info }: CareerTimelineProps) {
         ))}
       </div>
 
-      {/* Timeline Bar */}
+      {/* Timeline Bar - sincronizada com os marcos */}
       <div className="mt-6 relative h-2 bg-border rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-success via-primary to-primary-light rounded-full"
           initial={{ width: 0 }}
           animate={{
-            width: `${((now.getTime() - stages[0].startDate.getTime()) / (stages[stages.length - 1].endDate.getTime() - stages[0].startDate.getTime())) * 100}%`,
+            width: `${progressPercent}%`,
           }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         />
