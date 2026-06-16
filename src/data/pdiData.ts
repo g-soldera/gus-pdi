@@ -11,7 +11,7 @@ export const personalInfo: PersonalInfo = {
   targetTimelineMonths: 12,
   timelineTarget: '2026-06-07',
   seniorTargetDate: '2028-01-01',
-  experienceStartDate: '2023-03-20',
+  experienceStartDate: '2023-01-01',
   bankStartDate: '2024-05-05',
   profileImage: '/assets/img/profile.jpg',
 };
