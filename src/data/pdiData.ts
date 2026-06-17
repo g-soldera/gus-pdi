@@ -64,6 +64,10 @@ export const skills: Skill[] = [
 
   // Comunicação Técnica
   { id: 'technical-docs', name: 'Documentação Técnica', level: 5, description: 'Elaboração de documentação clara e completa', category: 'Comunicação Técnica', type: 'hard' },
+  { id: 'sdd', name: 'SDD (Software Design Document)', level: 4, description: 'Escrita de documentos de design de software detalhando arquitetura, decisões e fluxos.', category: 'Comunicação Técnica', type: 'hard' },
+  { id: 'bmad', name: 'BMAD (Business Metric Architecture Document)', level: 4, description: 'Documentação de métricas de negócio, garantindo alinhamento entre indicadores e objetivos estratégicos.', category: 'Comunicação Técnica', type: 'hard' },
+  { id: 'gsd', name: 'GSD (General Solution Design)', level: 4, description: 'Desenvolvimento de visões gerais de solução integrando múltiplos componentes e sistemas.', category: 'Comunicação Técnica', type: 'hard' },
+  { id: 'harness', name: 'Harness', level: 3, description: 'Documentação e configuração de esteiras de entrega contínua e experimentação.', category: 'Comunicação Técnica', type: 'hard' },
 
   // Data Quality
   { id: 'glue-dq', name: 'Glue Data Quality', level: 4, description: 'Implementação de regras de qualidade de dados', category: 'Data Quality', type: 'hard' },
@@ -121,11 +125,13 @@ export const skills: Skill[] = [
   { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 3, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
 
   // Prompt Patterns
-  { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição clara de papel e contexto para outputs precisos', category: 'Prompt Patterns', type: 'hard' },
-  { id: 'prompt-pattern-chain', name: 'Pattern: Chain of Thought', level: 5, description: 'Estruturação de raciocínio passo a passo para tarefas complexas', category: 'Prompt Patterns', type: 'hard' },
-  { id: 'prompt-pattern-fewshot', name: 'Pattern: Few-Shot Prompting', level: 5, description: 'Uso de exemplos para guiar o formato e tom da resposta', category: 'Prompt Patterns', type: 'hard' },
-  { id: 'prompt-pattern-recipe', name: 'Pattern: Prompt Recipes', level: 5, description: 'Criação de templates reutilizáveis para automação de tarefas', category: 'Prompt Patterns', type: 'hard' },
-  { id: 'prompt-pattern-guardrail', name: 'Pattern: Negative Prompting/Guardrails', level: 5, description: 'Definição de limites e o que NÃO deve ser feito pelo modelo', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição profunda de papel, tom de voz e contexto situacional para eliminar ambiguidades no output.', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-chain', name: 'Pattern: Chain of Thought (CoT)', level: 5, description: 'Indução de raciocínio sequencial e decomposição de problemas complexos em etapas lógicas antes da resposta final.', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-fewshot', name: 'Pattern: Few-Shot Prompting', level: 5, description: 'Fornecimento de exemplos estruturados de entrada/saída para condicionar o modelo a padrões específicos de resposta.', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-recipe', name: 'Pattern: Prompt Recipes', level: 5, description: 'Desenvolvimento de templates modulares e reutilizáveis (Blueprints) para automação de fluxos de trabalho recorrentes.', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-guardrail', name: 'Pattern: Negative Prompting & Guardrails', level: 5, description: 'Estabelecimento de restrições explícitas e limites éticos/técnicos para mitigar alucinações e garantir conformidade.', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-reflection', name: 'Pattern: Self-Reflection/Critique', level: 4, description: 'Técnica onde o modelo revisa seu próprio output para identificar erros e sugerir melhorias antes da entrega.', category: 'Prompt Patterns', type: 'hard' },
+  { id: 'prompt-pattern-skeleton', name: 'Pattern: Skeleton-of-Thought', level: 4, description: 'Geração de uma estrutura (outline) primeiro para garantir coerência em textos longos e complexos.', category: 'Prompt Patterns', type: 'hard' },
 
   // Idiomas
   { id: 'portuguese', name: 'Português', level: 5, description: 'Fluência nativa', category: 'Idiomas', type: 'hard' },

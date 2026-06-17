@@ -19,10 +19,16 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   }, {} as Record<string, { sum: number; count: number }>);
 
   const strengths = Object.entries(categories)
-    .map(([name, data]) => ({ name, avg: data.sum / data.count }))
+    .map(([name, data]) => {
+      const categorySkills = skills.filter(s => s.category === name);
+      const type = categorySkills[0]?.type || 'hard';
+      return { name, avg: data.sum / data.count, type };
+    })
     .filter(cat => cat.avg >= 4)
-    .sort((a, b) => b.avg - a.avg)
-    .slice(0, 3);
+    .sort((a, b) => b.avg - a.avg);
+
+  const hardStrengths = strengths.filter(s => s.type === 'hard').slice(0, 3);
+  const softStrengths = strengths.filter(s => s.type === 'soft').slice(0, 3);
 
   // Afinidades (Cruzamento de Projetos Concluídos e Skills de Nível 5)
   const topSkills = skills.filter(s => s.level === 5).map(s => s.name);
@@ -75,9 +81,9 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex gap-4 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
                 >
-                  <div className={`p-3 rounded-lg shrink-0 ${affinity.bgColor}`}>
+                  <div className={`p-3 rounded-lg shrink-0 flex items-center justify-center ${affinity.bgColor}`}>
                     <affinity.icon className={`w-5 h-5 ${affinity.color}`} />
                   </div>
                   <div>
@@ -94,13 +100,31 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
               <Brain className="w-5 h-5 text-primary" />
               <h3 className="text-xl font-bold">Domínios de Especialidade</h3>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {strengths.map((s, i) => (
-                <div key={i} className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full flex items-center gap-2">
-                  <span className="text-sm font-bold text-primary">{s.name}</span>
-                  <span className="text-xs bg-primary text-white px-2 py-0.5 rounded-full">{s.avg.toFixed(1)}</span>
+            
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Hard Skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  {hardStrengths.map((s, i) => (
+                    <div key={i} className="px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full flex items-center gap-2">
+                      <span className="text-xs font-bold text-primary">{s.name}</span>
+                      <span className="text-[10px] bg-primary text-white px-1.5 py-0.5 rounded-full">{s.avg.toFixed(1)}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Soft Skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  {softStrengths.map((s, i) => (
+                    <div key={i} className="px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full flex items-center gap-2">
+                      <span className="text-xs font-bold text-green-700 dark:text-green-400">{s.name}</span>
+                      <span className="text-[10px] bg-green-600 text-white px-1.5 py-0.5 rounded-full">{s.avg.toFixed(1)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
