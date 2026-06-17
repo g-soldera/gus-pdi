@@ -27,9 +27,9 @@ export const skills: Skill[] = [
   { id: 'data-modeling', name: 'Modelagem de Dados', level: 5, description: 'Design de schemas dimensionais e otimização de queries', category: 'Analytics & BI', type: 'hard' },
 
   // APIs
-  { id: 'openapi', name: 'OpenAPI', level: 3, description: 'Especificação e versionamento de contratos REST', category: 'APIs', type: 'hard' },
+  { id: 'openapi', name: 'OpenAPI', level: 4, description: 'Especificação e versionamento de contratos REST', category: 'APIs', type: 'hard' },
   { id: 'api-design', name: 'Design de APIs', level: 4, description: 'Padrões de design, consistência e governança', category: 'APIs', type: 'hard' },
-  { id: 'api-architecture', name: 'Arquitetura de APIs', level: 3, description: 'Topologias, gateways e observabilidade de interfaces', category: 'APIs', type: 'hard' },
+  { id: 'api-architecture', name: 'Arquitetura de APIs', level: 4, description: 'Topologias, gateways e observabilidade de interfaces', category: 'APIs', type: 'hard' },
   { id: 'api-contracts', name: 'Contratos de API', level: 4, description: 'Lifecycle de contratos, breaking changes e testes', category: 'APIs', type: 'hard' },
 
   // CI/CD & Testes
@@ -43,14 +43,14 @@ export const skills: Skill[] = [
   { id: 'testes-unitarios', name: 'Testes Unitários', level: 4, description: 'Testes de componentes individuais', category: 'CI/CD & Testes', type: 'hard' },
 
   // Cloud & Data
-  { id: 'aws', name: 'AWS Cloud', level: 4, description: 'Arquitetura e serviços core da AWS', category: 'Cloud & Data', type: 'hard' },
+  { id: 'aws', name: 'AWS', level: 4, description: 'Arquitetura e serviços core da AWS', category: 'Cloud & Data', type: 'hard' },
   { id: 'aws-glue', name: 'AWS Glue', level: 5, description: 'ETL serverless e catalogação de dados', category: 'Cloud & Data', type: 'hard' },
   { id: 's3', name: 'S3', level: 5, description: 'Armazenamento de dados em data lake', category: 'Cloud & Data', type: 'hard' },
   { id: 'lambda', name: 'Lambda', level: 4, description: 'Funções serverless para processamento de eventos', category: 'Cloud & Data', type: 'hard' },
   { id: 'api-gateway', name: 'Amazon API Gateway', level: 4, description: 'Gerenciamento e publicação de APIs em escala', category: 'Cloud & Data', type: 'hard' },
   { id: 'ecs', name: 'ECS', level: 4, description: 'Orquestração de containers para aplicações', category: 'Cloud & Data', type: 'hard' },
   { id: 'emr', name: 'EMR', level: 4, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
-  { id: 'cloudfront', name: 'CloudFront', level: 3, description: 'CDN para distribuição de conteúdo', category: 'Cloud & Data', type: 'hard' },
+  { id: 'cloudfront', name: 'CloudFront', level: 4, description: 'CDN para distribuição de conteúdo', category: 'Cloud & Data', type: 'hard' },
   { id: 'terraform', name: 'Terraform', level: 4, description: 'Infrastructure as Code para provisionamento cloud', category: 'Cloud & Data', type: 'hard' },
   { id: 'kafka', name: 'Kafka', level: 3, description: 'Streaming de dados em tempo real', category: 'Cloud & Data', type: 'hard' },
   { id: 'athena', name: 'Athena', level: 4, description: 'Queries SQL serverless em data lakes', category: 'Cloud & Data', type: 'hard' },
