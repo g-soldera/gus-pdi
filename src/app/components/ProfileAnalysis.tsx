@@ -189,7 +189,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-medium">{gap.name}</span>
                         <span className="text-[10px] font-bold text-purple-600 bg-purple-100 dark:bg-purple-900/30 px-2 py-0.5 rounded-full">
-                          GAP: {targetLevel - gap.level} pts
+                          Evoluir: {targetLevel - gap.level} pts
                         </span>
                       </div>
                       <div className="h-1.5 bg-muted rounded-full overflow-hidden">
