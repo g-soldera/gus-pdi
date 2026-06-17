@@ -111,7 +111,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
             
             <div className="space-y-6">
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Hard Skills (Fortalezas)</h4>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Hard Skills (Pontos Fortes)</h4>
                 <div className="flex flex-wrap gap-2">
                   {hardStrengths.map((s, i) => (
                     <div key={i} className="px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full flex items-center gap-2">
@@ -123,7 +123,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
               </div>
 
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Soft Skills (Fortalezas)</h4>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Soft Skills (Pontos Fortes)</h4>
                 <div className="flex flex-wrap gap-2">
                   {softStrengths.map((s, i) => (
                     <div key={i} className="px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full flex items-center gap-2">
@@ -162,7 +162,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-medium">{gap.name}</span>
                         <span className="text-[10px] font-bold text-orange-600 bg-orange-100 dark:bg-orange-900/30 px-2 py-0.5 rounded-full">
-                          GAP: {targetLevel - gap.level} pts
+                          Evoluir: {targetLevel - gap.level} pts
                         </span>
                       </div>
                       <div className="h-1.5 bg-muted rounded-full overflow-hidden">
