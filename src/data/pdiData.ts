@@ -306,13 +306,23 @@ export const milestones: Milestone[] = [
   },
   {
     id: 'ai-fomentation',
-    title: 'Fomento de IA no Time',
-    displayName: 'IA & Automação (Fomento)',
-    description: 'Implementar e fomentar o uso de IA generativa no dia a dia do time',
+    title: 'Fomento ao Consumo de IA',
+    displayName: 'Multiplicador de IA e Automação',
+    description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
     status: 'in-progress',
     progress: 45,
-    deadline: '2026-03-31',
+    deadline: '2026-12-31',
     notes: 'Criação de prompts padrão e automação de tarefas repetitivas.',
+    objectives: [
+      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
+      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
+      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
+      { 
+        text: 'Criar e documentar 5 novos patterns de prompt para uso do time', 
+        completed: true,
+        completionJustification: 'Criei skills voltadas à democratização de dados em fluxo ponta a ponta, contendo 13 skills. Além disso, apoiei na criação de um módulo de 18 skills de documentação e outro com 15 de design.'
+      }
+    ],
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
   },
@@ -337,6 +347,9 @@ export const milestones: Milestone[] = [
     progress: 0,
     deadline: '2026-12-31',
     notes: 'Aprofundamento em arquiteturas complexas e resilientes.',
+    objectives: [
+      { text: 'Aprovação no exame de certificação AWS SA Pro', completed: false }
+    ],
     relatedSkills: ['aws', 'api-architecture', 'ecs', 'terraform', 'vpc'],
     relatedResources: ['cert-cloud'],
   },
@@ -349,6 +362,10 @@ export const milestones: Milestone[] = [
     progress: 0,
     deadline: '2026-10-31',
     notes: 'Foco em LangGraph, RAG avançado e orquestração de MAS.',
+    objectives: [
+      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
+      { text: 'Implementação de técnicas avançadas de RAG e otimização de prompts', completed: false }
+    ],
     relatedSkills: ['langgraph', 'rag', 'mas', 'agent-design', 'mcp-tools'],
     relatedResources: ['llm-course'],
   },
@@ -361,6 +378,11 @@ export const milestones: Milestone[] = [
     progress: 0,
     deadline: '2026-11-30',
     notes: 'Uso de Bedrock Guardrails e monitoramento de modelos.',
+    objectives: [
+      { text: 'Implementação de 1+ pipeline MLOps completo com monitoramento', completed: false },
+      { text: 'Redução de 20%+ no tempo de deploy de modelos', completed: false },
+      { text: 'Definição de padrões de governança de dados em projetos de ML', completed: false }
+    ],
     relatedSkills: ['mlops', 'bedrock-guardrails', 'aws-bedrock', 'datadog'],
     relatedResources: [],
   },
@@ -373,6 +395,11 @@ export const milestones: Milestone[] = [
     progress: 0,
     deadline: '2026-09-30',
     notes: 'Foco em microfrontends e escalabilidade.',
+    objectives: [
+      { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: false },
+      { text: 'Participação ativa em 5+ discussões de arquitetura de alto nível', completed: false },
+      { text: 'Feedback positivo de pares sobre a qualidade dos designs', completed: false }
+    ],
     relatedSkills: ['microfrontends', 'api-architecture', 'data-modeling', 'kafka'],
     relatedResources: ['books-ana-ddia', 'books-arch-peaa'],
   },
