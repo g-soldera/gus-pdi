@@ -649,3 +649,4 @@ export const resources: Resource[] = [
     relatedMilestones: ['cert-api-owner'],
   },
 ];
+// Sync trigger
