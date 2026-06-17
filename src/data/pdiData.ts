@@ -335,6 +335,11 @@ export const milestones: Milestone[] = [
     progress: 0,
     deadline: '2026-08-31',
     notes: 'Uso de Glue Data Quality e Deequ.',
+    objectives: [
+      { text: 'Implementação de regras de Glue Data Quality em 3 pipelines críticos', completed: false },
+      { text: 'Definição e documentação de 5 Data Contracts para produtores de dados', completed: false },
+      { text: 'Configuração de monitoramento de volumetria e schema drift com Deequ', completed: false }
+    ],
     relatedSkills: ['glue-dq', 'deequ', 'data-observability', 'data-contracts', 'data-lineage'],
     relatedResources: [],
   },
@@ -348,6 +353,10 @@ export const milestones: Milestone[] = [
     deadline: '2026-12-31',
     notes: 'Aprofundamento em arquiteturas complexas e resilientes.',
     objectives: [
+      { text: 'Concluir curso preparatório oficial (Adrian Cantrill ou Stephane Maarek)', completed: false },
+      { text: 'Realizar 3 simulados com pontuação superior a 80%', completed: false },
+      { text: 'Aprofundamento em Networking Avançado (Direct Connect, Transit Gateway)', completed: false },
+      { text: 'Estudo de estratégias de migração e arquiteturas multi-account', completed: false },
       { text: 'Aprovação no exame de certificação AWS SA Pro', completed: false }
     ],
     relatedSkills: ['aws', 'api-architecture', 'ecs', 'terraform', 'vpc'],
@@ -402,18 +411,6 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['microfrontends', 'api-architecture', 'data-modeling', 'kafka'],
     relatedResources: ['books-ana-ddia', 'books-arch-peaa'],
-  },
-  {
-    id: 'democratizacao-dados',
-    title: 'Capacidade de Democratização de Dados',
-    displayName: 'Democratização de Dados',
-    description: 'Atuação em 5+ tabelas democratizadas e consultoria técnica para 4+ times distintos.',
-    status: 'completed',
-    progress: 100,
-    deadline: '2026-01-15',
-    notes: 'Atuação na tabela de People, 2 tabelas do Kaizen e suporte técnico para diversas áreas.',
-    relatedSkills: ['sql', 'python', 'data-modeling', 'aws-glue', 'athena'],
-    relatedResources: [],
   },
 ];
 
