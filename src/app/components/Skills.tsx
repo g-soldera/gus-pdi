@@ -43,19 +43,7 @@ export function Skills({ skills, projects, milestones, onSkillClick }: SkillsPro
     });
   };
 
-  // Expand all categories when switching to soft skills tab to show all 20+ skills
-  useEffect(() => {
-    if (activeTab === 'soft') {
-      const softCategories = skills
-        .filter(s => s.type === 'soft')
-        .map(s => s.category);
-      setExpandedCategories(prev => {
-        const next = new Set(prev);
-        softCategories.forEach(cat => next.add(cat));
-        return next;
-      });
-    }
-  }, [activeTab, skills]);
+
 
   // Handle deep linking
   useEffect(() => {
