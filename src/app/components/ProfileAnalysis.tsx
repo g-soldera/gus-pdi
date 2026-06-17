@@ -58,9 +58,17 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
     }
   ];
 
-  // Gaps de Evolução (Skills de nível < 4 em categorias críticas para Sênior/Pleno)
-  const gaps = skills
-    .filter(s => s.level < 4 && ['Cloud & Data', 'DevOps', 'APIs', 'Governança de Dados'].includes(s.category))
+  // Gaps de Evolução Dinâmicos (Hard e Soft)
+  // Alvo: Nível 5 para Sênior/Tech Lead
+  const targetLevel = 5;
+  
+  const hardGaps = skills
+    .filter(s => s.type === 'hard' && s.level < targetLevel && ['Cloud & Data', 'DevOps', 'APIs', 'Governança de Dados', 'IA Generativa'].includes(s.category))
+    .sort((a, b) => a.level - b.level)
+    .slice(0, 4);
+
+  const softGaps = skills
+    .filter(s => s.type === 'soft' && s.level < targetLevel)
     .sort((a, b) => a.level - b.level)
     .slice(0, 4);
 
@@ -103,7 +111,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
             
             <div className="space-y-6">
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Hard Skills</h4>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Hard Skills (Fortalezas)</h4>
                 <div className="flex flex-wrap gap-2">
                   {hardStrengths.map((s, i) => (
                     <div key={i} className="px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full flex items-center gap-2">
@@ -115,7 +123,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
               </div>
 
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Soft Skills</h4>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Soft Skills (Fortalezas)</h4>
                 <div className="flex flex-wrap gap-2">
                   {softStrengths.map((s, i) => (
                     <div key={i} className="px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full flex items-center gap-2">
@@ -134,39 +142,77 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm h-full">
             <div className="flex items-center gap-2 mb-6">
               <AlertCircle className="w-5 h-5 text-orange-500" />
-              <h3 className="text-xl font-bold">Oportunidades de Evolução (Gaps)</h3>
+              <h3 className="text-xl font-bold text-orange-600 dark:text-orange-400">Análise de Gaps Dinâmica</h3>
             </div>
+            
             <p className="text-sm text-muted-foreground mb-6">
-              Identificadas com base no objetivo de <span className="font-bold text-foreground">Sênior / Tech Lead</span>, focando em autonomia técnica e infraestrutura.
+              Prioridades de desenvolvimento calculadas para o patamar de <span className="font-bold text-foreground">Sênior / Tech Lead</span>.
             </p>
-            <div className="space-y-4">
-              {gaps.map((gap, i) => (
-                <div key={i} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium">{gap.name}</span>
-                    <span className="text-xs text-muted-foreground">Nível Atual: {gap.level}/5</span>
-                  </div>
-                  <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: `${(gap.level / 5) * 100}%` }}
-                      className="h-full bg-orange-400"
-                    />
-                  </div>
+
+            <div className="space-y-8">
+              {/* Hard Gaps */}
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                  Prioridades Técnicas (Hard)
+                </h4>
+                <div className="space-y-4">
+                  {hardGaps.map((gap, i) => (
+                    <div key={i} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium">{gap.name}</span>
+                        <span className="text-[10px] font-bold text-orange-600 bg-orange-100 dark:bg-orange-900/30 px-2 py-0.5 rounded-full">
+                          GAP: {targetLevel - gap.level} pts
+                        </span>
+                      </div>
+                      <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: `${(gap.level / targetLevel) * 100}%` }}
+                          className="h-full bg-orange-500"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Soft Gaps */}
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+                  Desenvolvimento Comportamental (Soft)
+                </h4>
+                <div className="space-y-4">
+                  {softGaps.map((gap, i) => (
+                    <div key={i} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium">{gap.name}</span>
+                        <span className="text-[10px] font-bold text-purple-600 bg-purple-100 dark:bg-purple-900/30 px-2 py-0.5 rounded-full">
+                          GAP: {targetLevel - gap.level} pts
+                        </span>
+                      </div>
+                      <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: `${(gap.level / targetLevel) * 100}%` }}
+                          className="h-full bg-purple-500"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="mt-8 p-4 bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-900/30 rounded-xl">
-              <div className="flex items-center gap-2 mb-2 text-orange-700 dark:text-orange-400">
+            <div className="mt-8 p-4 bg-primary/5 border border-primary/10 rounded-xl">
+              <div className="flex items-center gap-2 mb-3 text-primary">
                 <Target className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Plano de Ação Imediato</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Foco Estratégico Atual</span>
               </div>
-              <ul className="text-xs space-y-2 text-orange-800 dark:text-orange-300/80">
-                <li>• Aprofundar em <span className="font-bold">Kubernetes & ECS</span> para suporte a arquiteturas de larga escala.</li>
-                <li>• Elevar nível de <span className="font-bold">Arquitetura de APIs</span> visando governança de contratos.</li>
-                <li>• Consolidar práticas de <span className="font-bold">MLOps</span> no projeto User Behavior.</li>
-              </ul>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Para atingir o nível de Sênior, o foco deve ser na redução dos gaps de <span className="font-bold text-foreground">Liderança Situacional</span> e <span className="font-bold text-foreground">Arquitetura de Sistemas</span>, movendo-se de executor para orquestrador de soluções.
+              </p>
             </div>
           </div>
         </div>
