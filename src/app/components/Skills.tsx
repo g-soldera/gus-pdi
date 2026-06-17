@@ -3,15 +3,19 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import { Skill } from '@/types/pdi';
 import { SkillRating } from './SkillRating';
+import { ProfileAnalysis } from './ProfileAnalysis';
+import { Project, Milestone } from '@/types/pdi';
 
 interface SkillsProps {
   skills: Skill[];
+  projects: Project[];
+  milestones: Milestone[];
   onSkillClick: (skill: Skill) => void;
 }
 
-export function Skills({ skills, onSkillClick }: SkillsProps) {
+export function Skills({ skills, projects, milestones, onSkillClick }: SkillsProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
-  const [activeTab, setActiveTab] = useState<'hard' | 'soft'>('hard');
+  const [activeTab, setActiveTab] = useState<'analysis' | 'hard' | 'soft'>('analysis');
 
   const hardSkills = skills.filter(s => s.type === 'hard');
   const softSkills = skills.filter(s => s.type === 'soft');
@@ -76,10 +80,20 @@ export function Skills({ skills, onSkillClick }: SkillsProps) {
 
         {/* Tabs */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-card border border-border rounded-xl p-1 shadow-sm">
+          <div className="inline-flex bg-card border border-border rounded-xl p-1 shadow-sm overflow-x-auto max-w-full">
+            <button
+              onClick={() => setActiveTab('analysis')}
+              className={`px-6 py-2 rounded-lg transition-all whitespace-nowrap font-bold ${
+                activeTab === 'analysis'
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Análise de Perfil
+            </button>
             <button
               onClick={() => setActiveTab('hard')}
-              className={`px-6 py-2 rounded-lg transition-all ${
+              className={`px-6 py-2 rounded-lg transition-all whitespace-nowrap font-bold ${
                 activeTab === 'hard'
                   ? 'bg-primary text-primary-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
@@ -89,7 +103,7 @@ export function Skills({ skills, onSkillClick }: SkillsProps) {
             </button>
             <button
               onClick={() => setActiveTab('soft')}
-              className={`px-6 py-2 rounded-lg transition-all ${
+              className={`px-6 py-2 rounded-lg transition-all whitespace-nowrap font-bold ${
                 activeTab === 'soft'
                   ? 'bg-primary text-primary-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
@@ -100,8 +114,11 @@ export function Skills({ skills, onSkillClick }: SkillsProps) {
           </div>
         </div>
 
-        {/* Categories Accordion */}
-        <div className="space-y-4">
+        {/* Tab Content */}
+        {activeTab === 'analysis' ? (
+          <ProfileAnalysis skills={skills} projects={projects} milestones={milestones} />
+        ) : (
+          <div className="space-y-4">
           {Object.entries(categories).map(([category, categorySkills], index) => (
             <motion.div
               key={category}
@@ -161,7 +178,8 @@ export function Skills({ skills, onSkillClick }: SkillsProps) {
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

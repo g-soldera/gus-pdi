@@ -70,7 +70,12 @@ function AppContent() {
         <Navigation />
         <Hero info={personalInfo} />
         <Stats milestones={milestones} skills={skills} projects={projects} resources={resources} />
-        <Skills skills={skills} onSkillClick={handleSkillClick} />
+        <Skills 
+          skills={skills} 
+          projects={projects} 
+          milestones={milestones} 
+          onSkillClick={handleSkillClick} 
+        />
         <Milestones milestones={milestones} onMilestoneClick={handleMilestoneClick} />
         <Portfolio 
           projects={projects} 
