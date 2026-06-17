@@ -321,7 +321,7 @@ export const milestones: Milestone[] = [
     description: 'Obter certificação AWS Solutions Architect Professional',
     status: 'not-started',
     progress: 0,
-    deadline: '2026-12-31',
+    deadline: '2027-12-31',
     notes: 'Aprofundamento em arquiteturas complexas e resilientes.',
     objectives: [
       { text: 'Concluir curso preparatório oficial (Adrian Cantrill ou Stephane Maarek)', completed: false },
@@ -340,7 +340,7 @@ export const milestones: Milestone[] = [
     description: 'Especialização em arquiteturas de agentes e MAS',
     status: 'not-started',
     progress: 0,
-    deadline: '2026-10-31',
+    deadline: '2027-06-30',
     notes: 'Foco em LangGraph, RAG avançado e orquestração de MAS.',
     objectives: [
       { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
@@ -356,7 +356,7 @@ export const milestones: Milestone[] = [
     description: 'Implementar esteiras de MLOps e governança de modelos',
     status: 'not-started',
     progress: 0,
-    deadline: '2026-11-30',
+    deadline: '2027-06-30',
     notes: 'Uso de Bedrock Guardrails e monitoramento de modelos.',
     objectives: [
       { text: 'Implementação de 1+ pipeline MLOps completo com monitoramento', completed: false },
@@ -373,7 +373,7 @@ export const milestones: Milestone[] = [
     description: 'Aprofundar em design de sistemas distribuídos e arquitetura de dados',
     status: 'not-started',
     progress: 0,
-    deadline: '2026-09-30',
+    deadline: '2027-03-30',
     notes: 'Foco em microfrontends e escalabilidade.',
     objectives: [
       { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: false },
