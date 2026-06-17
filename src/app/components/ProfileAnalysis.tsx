@@ -27,8 +27,8 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
     .filter(cat => cat.avg >= 4)
     .sort((a, b) => b.avg - a.avg);
 
-  const hardStrengths = strengths.filter(s => s.type === 'hard').slice(0, 3);
-  const softStrengths = strengths.filter(s => s.type === 'soft').slice(0, 3);
+  const hardStrengths = strengths.filter(s => s.type === 'hard').slice(0, 4);
+  const softStrengths = strengths.filter(s => s.type === 'soft').slice(0, 4);
 
   // Afinidades (Cruzamento de Projetos Concluídos e Skills de Nível 5)
   const topSkills = skills.filter(s => s.level === 5).map(s => s.name);
@@ -65,12 +65,12 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   const hardGaps = skills
     .filter(s => s.type === 'hard' && s.level < targetLevel && ['Cloud & Data', 'DevOps', 'APIs', 'Governança de Dados', 'IA Generativa'].includes(s.category))
     .sort((a, b) => a.level - b.level)
-    .slice(0, 4);
+    .slice(0, 3);
 
   const softGaps = skills
     .filter(s => s.type === 'soft' && s.level < targetLevel)
     .sort((a, b) => a.level - b.level)
-    .slice(0, 4);
+    .slice(0, 3);
 
   return (
     <div className="space-y-8 py-4">
