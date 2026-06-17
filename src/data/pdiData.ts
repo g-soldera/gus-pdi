@@ -278,24 +278,7 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-cloud'],
     archived: true,
   },
-  {
-    id: 'data-democratization',
-    title: 'Democratização de Dados',
-    displayName: 'Capacidade de Democratização',
-    description: 'Atuação consultiva e técnica para democratização de dados em múltiplos times e contextos.',
-    status: 'completed',
-    progress: 100,
-    deadline: '2026-06-16',
-    objectives: [
-      { 
-        text: 'Atuação em 5+ tabelas democratizadas com sucesso', 
-        completed: true,
-        completionJustification: 'Atuação em 2 tabelas do Kaizen, tabela de People, e consultoria técnica para 4 times distintos garantindo padrões de engenharia.'
-      }
-    ],
-    relatedSkills: ['sql', 'python', 'aws-glue', 'data-modeling', 'technical-docs'],
-    relatedResources: ['books-ana-ddia', 'cert-analytics'],
-  },
+
 
   // ==========================================
   // NOVOS MILESTONES (Foco Pleno -> Sênior)
@@ -488,6 +471,24 @@ export const projects: Project[] = [
     relatedSkills: ['prompt-engineering', 'fluxo-sequencial', 'copilot-studio', 'rag', 'agent-design', 'power-automate', 'copilot-365'],
     relatedMilestones: ['lead-projects', 'workshops-talks'],
     relatedResources: ['books-comm-cnv', 'cert-analytics'],
+  },
+  {
+    id: 'data-democratization',
+    title: 'Democratização de Dados',
+    description: 'Atuação consultiva e técnica para democratização de dados em múltiplos times e contextos.',
+    status: 'completed',
+    impact: 'Atuação em 5+ tabelas democratizadas com sucesso, garantindo padrões de engenharia e governança.',
+    technologies: ['SQL', 'Python', 'AWS Glue', 'Data Modeling'],
+    relatedSkills: ['sql', 'python', 'aws-glue', 'data-modeling', 'technical-docs'],
+    relatedMilestones: ['lead-projects'],
+    relatedResources: ['books-ana-ddia', 'cert-analytics'],
+    objectives: [
+      { 
+        text: 'Atuação em 5+ tabelas democratizadas', 
+        completed: true,
+        completionJustification: 'Atuação em 2 tabelas do Kaizen, tabela de People, e consultoria técnica para 4 times distintos.'
+      }
+    ]
   },
 ];
 
