@@ -113,7 +113,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
               <h3 className="text-xl font-bold">Oportunidades de Evolução (Gaps)</h3>
             </div>
             <p className="text-sm text-muted-foreground mb-6">
-              Identificadas com base no objetivo de **Sênior/Tech Lead**, focando em autonomia técnica e infraestrutura.
+              Identificadas com base no objetivo de <span className="font-bold text-foreground">Sênior / Tech Lead</span>, focando em autonomia técnica e infraestrutura.
             </p>
             <div className="space-y-4">
               {gaps.map((gap, i) => (
@@ -139,9 +139,9 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                 <span className="text-xs font-bold uppercase tracking-wider">Plano de Ação Imediato</span>
               </div>
               <ul className="text-xs space-y-2 text-orange-800 dark:text-orange-300/80">
-                <li>• Aprofundar em **Kubernetes & ECS** para suporte a arquiteturas de larga escala.</li>
-                <li>• Elevar nível de **Arquitetura de APIs** visando governança de contratos.</li>
-                <li>• Consolidar práticas de **MLOps** no projeto User Behavior.</li>
+                <li>• Aprofundar em <span className="font-bold">Kubernetes & ECS</span> para suporte a arquiteturas de larga escala.</li>
+                <li>• Elevar nível de <span className="font-bold">Arquitetura de APIs</span> visando governança de contratos.</li>
+                <li>• Consolidar práticas de <span className="font-bold">MLOps</span> no projeto User Behavior.</li>
               </ul>
             </div>
           </div>
