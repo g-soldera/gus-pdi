@@ -389,6 +389,32 @@ export const milestones: Milestone[] = [
 
 export const projects: Project[] = [
   {
+    id: 'cyberitau',
+    title: 'Portal Cyber.itau',
+    description: 'Portal para centralização de todas as jornadas de Cyber Security do Itaú Unibanco.',
+    status: 'in-progress',
+    impact: 'Centralização das jornadas de segurança da informação em um único portal disponível para todo o banco.',
+    technologies: ['HTML/CSS', 'JavaScript', 'Sass', 'AWS', 'Terraform', 'Angular', 'CloudFront', 'Datadog', 'Microfrontends'],
+    relatedSkills: ['html-css', 'javascript', 'typescript', 'angular', 'cloudfront', 'microfrontends', 'terraform', 'data-observability', 'technical-docs', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube', 'sass', 'datadog', 'aws'],
+    relatedMilestones: ['lead-projects', 'workshops-talks'],
+    relatedResources: ['books-arch-peaa', 'cert-security'],
+    url: 'https://cyber.itau',
+    urlTooltip: 'Apenas acessível na rede interna do banco',
+  },
+  {
+    id: 'insightguard',
+    title: 'Insight Guard',
+    description: 'Agente orquestrador de todo o ecossistema de agentes de cybersecurity para auxiliar na jornada do cliente.',
+    status: 'in-progress',
+    impact: 'Navegação facilitada entre as jornadas do portal Cyber e auxílio na utilização das ferramentas disponíveis, de forma conversacional.',
+    technologies: ['LLM', 'RAG', 'Agent Design', 'LangGraph', 'AWS', 'Terraform', 'Angular', 'Datadog', 'API Gateway', 'Lambda', 'S3'],
+    relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'aws', 'terraform', 'angular', 'datadog', 'api-gateway', 'lambda', 's3'],
+    relatedMilestones: ['arch-system-design', 'ai-engineering'],
+    relatedResources: ['books-arch-peaa', 'cert-security'],
+    url: 'https://cyber.itau/insight-guard',
+    urlTooltip: 'Apenas acessível na rede interna do banco',
+  },
+  {
     id: 'dashboards-standardization',
     title: 'Padronização de Dashboards',
     description: 'Criação de um Playbook e Design System para dashboards no QuickSight, garantindo consistência visual e técnica. Integrando temas de IAM, Cyber Insights e Observability360 como variações do padrão.',
