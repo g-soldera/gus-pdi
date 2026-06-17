@@ -292,18 +292,7 @@ export const milestones: Milestone[] = [
   // ==========================================
   // ATIVOS
   // ==========================================
-  {
-    id: 'promotion-pleno',
-    title: 'Promoção para Pleno',
-    displayName: 'Feedback Pleno (Jun/26)',
-    description: 'Alcançar maturidade técnica e comportamental para o nível pleno',
-    status: 'in-progress',
-    progress: 65,
-    deadline: '2026-06-07',
-    notes: 'Foco em autonomia técnica e liderança em projetos médios.',
-    relatedSkills: ['critical-thinking', 'leadership', 'technical-docs', 'aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python', 'openapi', 'api-design', 'api-contracts', 'api-architecture'],
-    relatedResources: ['mentoring'],
-  },
+
   {
     id: 'ai-fomentation',
     title: 'Fomento ao Consumo de IA',
@@ -326,23 +315,7 @@ export const milestones: Milestone[] = [
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
   },
-  {
-    id: 'data-quality-governance',
-    title: 'Qualidade e Governança',
-    displayName: 'Data Quality & Governance',
-    description: 'Implementar padrões de qualidade e governança nos pipelines de dados',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2026-08-31',
-    notes: 'Uso de Glue Data Quality e Deequ.',
-    objectives: [
-      { text: 'Implementação de regras de Glue Data Quality em 3 pipelines críticos', completed: false },
-      { text: 'Definição e documentação de 5 Data Contracts para produtores de dados', completed: false },
-      { text: 'Configuração de monitoramento de volumetria e schema drift com Deequ', completed: false }
-    ],
-    relatedSkills: ['glue-dq', 'deequ', 'data-observability', 'data-contracts', 'data-lineage'],
-    relatedResources: [],
-  },
+
   {
     id: 'cert-aws-sa-pro',
     title: 'AWS Solutions Architect Pro',
