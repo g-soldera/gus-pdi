@@ -63,6 +63,16 @@ export interface Resource {
   relatedMilestones: string[];
 }
 
+export interface StudyTopic {
+  id: string;
+  category: string;
+  name: string;
+  description: string;
+  progress: number;
+  resources: string[]; // IDs de Resource
+  relatedMilestones: string[]; // IDs de Milestone
+}
+
 export interface PersonalInfo {
   name: string;
   birthDate: string;

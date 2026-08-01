@@ -19,6 +19,7 @@ export function Navigation() {
     { icon: User, label: 'Sobre', href: '#' },
     { icon: Award, label: 'Estatísticas', href: '#stats' },
     { icon: Code, label: 'Skills', href: '#skills' },
+    { icon: Target, label: 'Trilha SecMLOps', href: '#study-path' },
     { icon: Target, label: 'Marcos', href: '#milestones' },
     { icon: Briefcase, label: 'Portfolio', href: '#portfolio' },
     { icon: BookOpen, label: 'Recursos', href: '#resources' },

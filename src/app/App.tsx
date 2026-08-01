@@ -12,7 +12,9 @@ import { Resources } from './components/Resources';
 import { SkillModal } from './components/modals/SkillModal';
 import { MilestoneModal } from './components/modals/MilestoneModal';
 import { ResourceModal } from './components/modals/ResourceModal';
+import { StudyPath } from './components/StudyPath';
 import { personalInfo, skills, milestones, projects, resources } from '@/data/pdiData';
+import { secmlopsPath } from '@/data/secmlopsPath';
 import { Skill, Milestone, Resource } from '@/types/pdi';
 
 function AppContent() {
@@ -76,6 +78,7 @@ function AppContent() {
           milestones={milestones} 
           onSkillClick={handleSkillClick} 
         />
+        <StudyPath studyPath={secmlopsPath} />
         <Milestones milestones={milestones} onMilestoneClick={handleMilestoneClick} />
         <Portfolio 
           projects={projects} 
