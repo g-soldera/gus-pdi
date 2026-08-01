@@ -183,7 +183,19 @@ export const skills: Skill[] = [
 
 export const milestones: Milestone[] = [
   // ==========================================
-  // ARQUIVADOS
+  // PLANO DE 8 ANOS: 2026-2033
+  // ==========================================
+  // Fase 1: Pleno Ano 1 (2026-2027)
+  // Fase 2: Pleno Ano 2 (2027-2028) - Promoção Pleno→Sênior em mai/2027
+  // Fase 3: Sênior Ano 1 (2028-2029)
+  // Fase 4: Sênior Ano 2 (2029-2030)
+  // Fase 5: Transição Sênior→Specialist (2030-2031)
+  // Fase 6: Specialist Ano 1 (2031-2032)
+  // Fase 7: Specialist Ano 2 (2032-2033)
+  // ==========================================
+
+  // ==========================================
+  // ARQUIVADOS (Milestones anteriores ao plano de 8 anos)
   // ==========================================
   {
     id: 'certification-pro',
@@ -290,8 +302,68 @@ export const milestones: Milestone[] = [
   },
 
   // ==========================================
-  // ATIVOS
+  // ATIVOS - FASE 1: PLENO ANO 1 (2026-2027)
   // ==========================================
+  {
+    id: 'pdi-structure-2026',
+    title: 'Estruturação do PDI 8 Anos',
+    displayName: 'PDI 2026-2033: Pleno → Specialist',
+    description: 'Estruturar o planejamento completo de 8 anos com milestones, referências e trilha de estudos SecMLOps',
+    status: 'in-progress',
+    progress: 15,
+    deadline: '2026-09-30',
+    startPosition: 0,
+    endPosition: 12.5,
+    notes: 'Base para acompanhamento estruturado da evolução de carreira',
+    objectives: [
+      { text: 'Definir todas as 7 fases do roadmap com objetivos claros', completed: false },
+      { text: 'Mapear 20+ referências de estudo em SecMLOps/AI Security', completed: false },
+      { text: 'Criar visualização interativa do PDI no React', completed: false },
+      { text: 'Validar com Aline em 1:1 os marcos e KPIs', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
+    relatedResources: [],
+  },
+  {
+    id: 'ai-defense-foundations',
+    title: 'Fundamentos de AI Defense Architecture',
+    displayName: 'AI Defense & Runtime Guardrails',
+    description: 'Estabelecer conhecimento em arquitetura de defesa para IA: guardrails, prompt injection, OWASP LLM Top 10',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-03-31',
+    startPosition: 0,
+    endPosition: 12.5,
+    notes: 'Primeiro passo para TECH-DEFENSE (ROADMAP Phase 1)',
+    objectives: [
+      { text: 'Estudar OWASP LLM Top 10 e mapear mitigações', completed: false },
+      { text: 'Prototipar guardrail de runtime para prompt injection', completed: false },
+      { text: 'Documentar arquitetura de defesa inicial', completed: false },
+      { text: 'Apresentar em 1:1 com Aline evidências técnicas', completed: false }
+    ],
+    relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering'],
+    relatedResources: [],
+  },
+  {
+    id: 'model-supply-chain',
+    title: 'Model Supply Chain Security',
+    displayName: 'Supply Chain & Model Integrity',
+    description: 'Implementar validação de integridade de modelos e rastreamento de proveniência',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-05-31',
+    startPosition: 0,
+    endPosition: 12.5,
+    notes: 'Uso de .safetensors e MLflow para governança',
+    objectives: [
+      { text: 'Estudar .safetensors vs pickle e riscos de segurança', completed: false },
+      { text: 'Implementar validação de hash SHA256 em modelos', completed: false },
+      { text: 'Configurar MLflow para tracking de proveniência', completed: false },
+      { text: 'Documentar padrão de supply chain seguro', completed: false }
+    ],
+    relatedSkills: ['mlops', 'security', 'python'],
+    relatedResources: [],
+  },
   {
     id: 'ai-fomentation',
     title: 'Fomento ao Consumo de IA',
@@ -300,8 +372,9 @@ export const milestones: Milestone[] = [
     status: 'in-progress',
     progress: 45,
     deadline: '2026-12-31',
+    startPosition: 0,
+    endPosition: 12.5,
     notes: 'Criação de prompts padrão e automação de tarefas repetitivas.',
-    archived: true,
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
       { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
@@ -314,6 +387,270 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
+  },
+
+  // ==========================================
+  // FASE 3: SÊNIOR ANO 1 (2028-2029)
+  // ==========================================
+  {
+    id: 'corporate-architecture-design',
+    title: 'Arquitetura Corporativa de Validação',
+    displayName: 'Corporate AI Validation Architecture',
+    description: 'Projetar arquitetura corporativa para validação de custos/segurança de IA',
+    status: 'planned',
+    progress: 0,
+    deadline: '2028-12-31',
+    startPosition: 25,
+    endPosition: 37.5,
+    notes: 'SENIOR-01 (ROADMAP Phase 3)',
+    objectives: [
+      { text: 'Projetar arquitetura corporativa aprovada pela liderança', completed: false },
+      { text: 'Colocar arquitetura em produção com métricas de adoção', completed: false },
+      { text: 'Documentar impacto mensurável em projetos', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2029', completed: false }
+    ],
+    relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
+    relatedResources: [],
+  },
+  {
+    id: 'tech-leadership-critical',
+    title: 'Liderança Técnica em Projeto Crítico',
+    displayName: 'Tech Lead - Critical Project',
+    description: 'Liderar tecnicamente 1 projeto crítico end-to-end com mentoria',
+    status: 'planned',
+    progress: 0,
+    deadline: '2029-06-30',
+    startPosition: 25,
+    endPosition: 37.5,
+    notes: 'SENIOR-02 parcial (ROADMAP Phase 3)',
+    objectives: [
+      { text: 'Liderança técnica de projeto crítico completo', completed: false },
+      { text: 'Mentorar 1 analista júnior/pleno durante execução', completed: false },
+      { text: 'Impacto técnico mensurável transcendendo a squad', completed: false },
+      { text: 'Feedback positivo de liderança sobre mentoria', completed: false }
+    ],
+    relatedSkills: ['leadership', 'mentoring', 'stakeholder-management', 'technical-docs'],
+    relatedResources: [],
+  },
+
+  // ==========================================
+  // FASE 4: SÊNIOR ANO 2 (2029-2030)
+  // ==========================================
+  {
+    id: 'cloud-security-certification',
+    title: 'Certificação Cloud Security',
+    displayName: 'CCSP ou AWS Security Specialty',
+    description: 'Obter certificação de mercado em Cloud Security ou AI Security',
+    status: 'planned',
+    progress: 0,
+    deadline: '2030-06-30',
+    startPosition: 37.5,
+    endPosition: 50,
+    notes: 'SENIOR-02 completo + SENIOR-03 (ROADMAP Phase 4)',
+    objectives: [
+      { text: 'Concluir curso preparatório oficial', completed: false },
+      { text: 'Realizar simulados com 85%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame de certificação', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2030', completed: false }
+    ],
+    relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
+    relatedResources: [],
+  },
+  {
+    id: 'architectural-influence',
+    title: 'Influência Arquitetural Multi-Squad',
+    displayName: 'Cross-Squad Architecture Influence',
+    description: 'Influenciar decisões arquiteturais em múltiplas squads',
+    status: 'planned',
+    progress: 0,
+    deadline: '2030-12-31',
+    startPosition: 37.5,
+    endPosition: 50,
+    notes: 'SENIOR-03 (ROADMAP Phase 4)',
+    objectives: [
+      { text: 'Participar de 10+ discussões arquiteturais inter-squads', completed: false },
+      { text: 'Propor 3+ padrões adotados por outras squads', completed: false },
+      { text: 'Evidências de liderança técnica reconhecida em avaliações', completed: false },
+      { text: 'Consolidar padrão de mentoria e ownership', completed: false }
+    ],
+    relatedSkills: ['influence', 'leadership', 'api-architecture', 'stakeholder-management'],
+    relatedResources: [],
+  },
+
+  // ==========================================
+  // FASE 5: TRANSIÇÃO SÊNIOR→SPECIALIST (2030-2031)
+  // ==========================================
+  {
+    id: 'red-teaming-framework',
+    title: 'Red Teaming AI Framework',
+    displayName: 'Adversarial ML & Red Teaming',
+    description: 'Desenvolver framework de Red Teaming em IA (Adversarial ML, evasão, extração)',
+    status: 'planned',
+    progress: 0,
+    deadline: '2031-06-30',
+    startPosition: 50,
+    endPosition: 62.5,
+    notes: 'SPEC-01 (ROADMAP Phase 5)',
+    objectives: [
+      { text: 'Projetar framework tático de Red Teaming adaptado ao Itaú', completed: false },
+      { text: 'Testar e mitigar métodos de Evasão/Inversão em modelos', completed: false },
+      { text: 'Documentar playbook com casos reais do banco', completed: false },
+      { text: 'Aprovação da liderança executiva para implementação', completed: false }
+    ],
+    relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
+    relatedResources: [],
+  },
+  {
+    id: 'specialist-promotion-prep',
+    title: 'Preparação Promoção Specialist',
+    displayName: 'Evidências para Specialist',
+    description: 'Consolidar evidências de impacto organizacional e expertise avançada',
+    status: 'planned',
+    progress: 0,
+    deadline: '2031-05-31',
+    startPosition: 50,
+    endPosition: 62.5,
+    notes: 'Target: promoção Sênior→Specialist 2030-2031',
+    objectives: [
+      { text: 'Framework Red Teaming reconhecido como padrão corporativo', completed: false },
+      { text: 'Evidências de impacto organizacional amplo', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2031', completed: false },
+      { text: 'Alinhamento com critérios de Specialist do Itaú', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'influence', 'leadership', 'technical-docs'],
+    relatedResources: [],
+  },
+
+  // ==========================================
+  // FASE 6: SPECIALIST ANO 1 (2031-2032)
+  // ==========================================
+  {
+    id: 'nist-ai-rmf-implementation',
+    title: 'NIST AI RMF Corporate Implementation',
+    displayName: 'NIST AI RMF Framework',
+    description: 'Liderar adequação arquitetural baseada no NIST AI RMF',
+    status: 'planned',
+    progress: 0,
+    deadline: '2032-06-30',
+    startPosition: 62.5,
+    endPosition: 75,
+    notes: 'SPEC-02 (ROADMAP Phase 6)',
+    objectives: [
+      { text: 'Liderar adequação arquitetural corporativa NIST AI RMF', completed: false },
+      { text: 'Transformar framework em padrão oficial do Itaú', completed: false },
+      { text: 'Ditar diretrizes arquiteturais estratégicas', completed: false },
+      { text: 'Impacto reconhecido pela diretoria de Cyber Security', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
+    relatedResources: [],
+  },
+  {
+    id: 'advanced-governance',
+    title: 'Governança Técnica Avançada',
+    displayName: 'Advanced AI Security Governance',
+    description: 'Consolidar governança técnica avançada como padrão corporativo',
+    status: 'planned',
+    progress: 0,
+    deadline: '2032-12-31',
+    startPosition: 62.5,
+    endPosition: 75,
+    notes: 'SPEC-02 (ROADMAP Phase 6)',
+    objectives: [
+      { text: 'Padrões de governança adotados em 5+ squads', completed: false },
+      { text: 'Métricas de impacto documentadas', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2032', completed: false },
+      { text: 'Apresentação para diretoria executiva', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'influence', 'leadership', 'presentation'],
+    relatedResources: [],
+  },
+
+  // ==========================================
+  // FASE 7: SPECIALIST ANO 2 (2032-2033)
+  // ==========================================
+  {
+    id: 'executive-presence',
+    title: 'Impacto Executivo e Reconhecimento',
+    displayName: 'Executive Impact & Recognition',
+    description: 'Consolidar reconhecimento como referência técnica através de impacto executivo',
+    status: 'planned',
+    progress: 0,
+    deadline: '2033-06-30',
+    startPosition: 75,
+    endPosition: 87.5,
+    notes: 'SPEC-03 (ROADMAP Phase 7)',
+    objectives: [
+      { text: 'Realizar 3+ apresentações executivas/técnicas', completed: false },
+      { text: 'Demonstrar resiliência das políticas com métricas', completed: false },
+      { text: 'Consolidar reconhecimento interno como referência AI Security', completed: false },
+      { text: 'Estabelecer presença externa (palestras, artigos)', completed: false }
+    ],
+    relatedSkills: ['presentation', 'influence', 'strategic-vision', 'storytelling'],
+    relatedResources: [],
+  },
+  {
+    id: 'specialist-consolidation',
+    title: 'Consolidação como Specialist',
+    displayName: 'AI Security Specialist - Consolidation',
+    description: 'Consolidar posição como AI Security Specialist no Itaú e no mercado',
+    status: 'planned',
+    progress: 0,
+    deadline: '2033-12-31',
+    startPosition: 75,
+    endPosition: 100,
+    notes: 'SPEC-03 (ROADMAP Phase 7)',
+    objectives: [
+      { text: 'Impacto executivo consolidado', completed: false },
+      { text: 'Reconhecimento externo estabelecido', completed: false },
+      { text: 'PRAD/Mérito 2033: consolidação final', completed: false },
+      { text: 'Meta de 8 anos alcançada', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'presentation'],
+    relatedResources: [],
+  },
+
+  // ==========================================
+  // MILESTONES ATIVOS ANTERIORES (mantidos para continuidade)
+  // ==========================================
+  {
+    id: 'governance-ai-pipelines',
+    title: 'Governança de IA em Pipelines Core',
+    displayName: 'AI Governance in Production',
+    description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    startPosition: 12.5,
+    endPosition: 25,
+    notes: 'TECH-02 + PLENO-01 (ROADMAP Phase 2)',
+    objectives: [
+      { text: 'Implementar governança em 2 pipelines/projetos core', completed: false },
+      { text: 'Gerar relatórios de conformidade automatizados', completed: false },
+      { text: 'Validar cadeia de suprimentos com .safetensors', completed: false },
+      { text: 'Estruturar arquitetura segura cobrindo OWASP Top 10 LLM', completed: false }
+    ],
+    relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
+    relatedResources: [],
+  },
+  {
+    id: 'pleno-to-senior-prep',
+    title: 'Preparação Promoção Sênior',
+    displayName: 'Evidências para Promoção Sênior',
+    description: 'Consolidar KPIs e evidências tangíveis para promoção Pleno→Sênior',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-05-31',
+    startPosition: 12.5,
+    endPosition: 25,
+    notes: 'Target: mai/2027',
+    objectives: [
+      { text: 'Registro estruturado de KPIs (entregas + comportamentos)', completed: false },
+      { text: 'Feedback formal de liderança sobre autonomia técnica', completed: false },
+      { text: 'Apresentação de evidências em 1:1 com Aline', completed: false },
+      { text: 'Alinhamento com critérios de Sênior do Itaú', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'technical-docs'],
+    relatedResources: [],
   },
   {
     id: 'cert-aws-sa-pro',

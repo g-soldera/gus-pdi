@@ -1,6 +1,6 @@
 export type SkillLevel = 1 | 2 | 3 | 4 | 5;
 
-export type Status = 'completed' | 'in-progress' | 'not-started' | 'deprioritized';
+export type Status = 'completed' | 'in-progress' | 'not-started' | 'deprioritized' | 'planned';
 
 export interface Skill {
   id: string;
@@ -30,6 +30,8 @@ export interface Milestone {
   relatedResources: string[];
   archived?: boolean; // Milestones com progresso < 50% podem ser marcados como despriorizados
   objectives?: MilestoneObjective[];
+  startPosition?: number; // Posição de início na timeline em %
+  endPosition?: number; // Posição de fim na timeline em %
 }
 
 export interface Project {
