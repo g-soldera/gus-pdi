@@ -114,19 +114,47 @@ export function Hero({ info }: HeroProps) {
               </div>
 
               <div className="pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira (Target Sênior: {info.seniorTargetDate})</p>
-                <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                  <span>Freela</span>
-                  <span>Estágio</span>
-                  <span>Júnior</span>
-                  <span className="font-bold text-primary">Pleno (Atuando)</span>
-                  <span>Sênior</span>
-                </div>
-                <div className="h-2 w-full bg-border rounded-full flex overflow-hidden">
-                    <div className="h-full w-1/4 bg-muted"></div>
-                    <div className="h-full w-1/4 bg-muted"></div>
-                    <div className="h-full w-1/4 bg-muted"></div>
-                    <div className="h-full w-1/4 bg-primary border-l-2 border-dashed border-white"></div>
+                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira 2023-2033 (8 Anos)</p>
+                <div className="space-y-3">
+                  {/* Timeline Visual */}
+                  <div className="relative">
+                    <div className="flex items-center justify-between text-xs mb-2">
+                      <span className="text-muted-foreground">2023</span>
+                      <span className="text-muted-foreground">2026</span>
+                      <span className="font-bold text-primary">Pleno (Atuando)</span>
+                      <span className="text-muted-foreground">2028</span>
+                      <span className="text-muted-foreground">Sênior</span>
+                      <span className="text-muted-foreground">2033</span>
+                      <span className="text-accent">Specialist</span>
+                    </div>
+                    <div className="h-3 w-full bg-border rounded-full flex overflow-hidden relative">
+                      {/* Freelancer → Estágio (2023) */}
+                      <div className="h-full w-[10%] bg-muted" title="Freelancer 2023"></div>
+                      {/* Estágio → Júnior (2023-2025) */}
+                      <div className="h-full w-[20%] bg-muted-foreground/60" title="Estágio 2023-2024"></div>
+                      {/* Júnior (2025-2026) */}
+                      <div className="h-full w-[15%] bg-muted-foreground" title="Júnior 2025-2026"></div>
+                      {/* Pleno Atuando (2026-2027) - ATUAL */}
+                      <div className="h-full w-[12.5%] bg-primary border-l-2 border-dashed border-white animate-pulse" title="Pleno Atuando (2026-2027)"></div>
+                      {/* Pleno Ano 2 (2027-2028) */}
+                      <div className="h-full w-[12.5%] bg-primary/70" title="Pleno Ano 2 (2027-2028)"></div>
+                      {/* Sênior (2028-2030) */}
+                      <div className="h-full w-[20%] bg-accent/50" title="Sênior (2028-2030)"></div>
+                      {/* Specialist (2030-2033) */}
+                      <div className="h-full w-[30%] bg-accent" title="Specialist (2030-2033)"></div>
+                    </div>
+                  </div>
+                  {/* Marcos importantes */}
+                  <div className="flex items-center justify-between text-xs pt-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                      <span className="text-muted-foreground">Target Pleno: {info.timelineTarget}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
+                      <span className="text-muted-foreground">Target Sênior: {info.seniorTargetDate}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
