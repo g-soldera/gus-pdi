@@ -31,7 +31,11 @@
   4. Gustavo apresenta em 1:1 com Aline evidências de autonomia técnica e entrega consistente
   5. **Target PRAD/Mérito 2027**: KPIs de entrega e comportamento registrados e aprovados
 
-**Plans**: TBD
+**Plans**: 2 plans
+
+**Planos:**
+- [ ] 01-01-PLAN.md — Estruturação visual e de dados do PDI (timeline, milestones arquivados, dados atualizados)
+- [ ] 01-02-PLAN.md — Trilha de estudos SecMLOps, referências materiais e dashboard de progresso
 
 ---
 
