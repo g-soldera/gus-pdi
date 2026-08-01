@@ -342,7 +342,7 @@ export const milestones: Milestone[] = [
       { text: 'Apresentar em 1:1 com Aline evidências técnicas', completed: false }
     ],
     relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering'],
-    relatedResources: [],
+    relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
   },
   {
     id: 'model-supply-chain',
@@ -362,7 +362,7 @@ export const milestones: Milestone[] = [
       { text: 'Documentar padrão de supply chain seguro', completed: false }
     ],
     relatedSkills: ['mlops', 'security', 'python'],
-    relatedResources: [],
+    relatedResources: ['tool-safetensors', 'tool-mlflow-provenance', 'course-mlops-security'],
   },
   {
     id: 'ai-fomentation',
@@ -410,7 +410,7 @@ export const milestones: Milestone[] = [
       { text: 'Reconhecimento no PRAD/Mérito 2029', completed: false }
     ],
     relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
-    relatedResources: [],
+    relatedResources: ['books-arch-peaa', 'books-ana-ddia'],
   },
   {
     id: 'tech-leadership-critical',
@@ -454,7 +454,7 @@ export const milestones: Milestone[] = [
       { text: 'Reconhecimento no PRAD/Mérito 2030', completed: false }
     ],
     relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
-    relatedResources: [],
+    relatedResources: ['cert-aws-security-specialty'],
   },
   {
     id: 'architectural-influence',
@@ -498,7 +498,7 @@ export const milestones: Milestone[] = [
       { text: 'Aprovação da liderança executiva para implementação', completed: false }
     ],
     relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
-    relatedResources: [],
+    relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
   },
   {
     id: 'specialist-promotion-prep',
@@ -542,7 +542,7 @@ export const milestones: Milestone[] = [
       { text: 'Impacto reconhecido pela diretoria de Cyber Security', completed: false }
     ],
     relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
-    relatedResources: [],
+    relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
   },
   {
     id: 'advanced-governance',
@@ -562,7 +562,7 @@ export const milestones: Milestone[] = [
       { text: 'Apresentação para diretoria executiva', completed: false }
     ],
     relatedSkills: ['strategic-vision', 'influence', 'leadership', 'presentation'],
-    relatedResources: [],
+    relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
   },
 
   // ==========================================
@@ -630,7 +630,7 @@ export const milestones: Milestone[] = [
       { text: 'Estruturar arquitetura segura cobrindo OWASP Top 10 LLM', completed: false }
     ],
     relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
-    relatedResources: [],
+    relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'course-bedrock-guardrails', 'tool-mlflow-provenance'],
   },
   {
     id: 'pleno-to-senior-prep',
@@ -1130,5 +1130,143 @@ export const resources: Resource[] = [
     image: '/assets/img/mentor-henrique.png',
     relatedSkills: ['sql', 'python', 'data-modeling', 'aws-glue', 'terraform', 'leadership', 'critical-thinking', 'collaboration'],
     relatedMilestones: [],
+  },
+
+  // ==========================================
+  // REFERÊNCIAS SECMLOPS / AI SECURITY
+  // ==========================================
+
+  // Livros - AI Security
+  {
+    id: 'books-sec-practical-llm-security',
+    name: 'Not With A Bug, But With A Sticker',
+    description: 'Ram Shankar Siva Kumar & Hyrum Anderson - Ataques adversariais em ML e defesas práticas',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Livros de AI Security',
+    subCategory: 'AI Security',
+    image: '',
+    relatedSkills: ['security', 'mlops', 'critical-thinking'],
+    relatedMilestones: ['ai-defense-foundations', 'red-teaming-framework'],
+  },
+  {
+    id: 'books-sec-ai-risk',
+    name: 'AI Risk Management',
+    description: 'NIST AI 100-1 companion guide - Gerenciamento de riscos em sistemas de IA',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Livros de AI Security',
+    subCategory: 'AI Governance',
+    image: '',
+    relatedSkills: ['security', 'strategic-vision'],
+    relatedMilestones: ['nist-ai-rmf-implementation', 'advanced-governance'],
+  },
+
+  // Frameworks & Standards
+  {
+    id: 'ref-owasp-llm-top10',
+    name: 'OWASP Top 10 for LLMs',
+    description: 'Top 10 vulnerabilidades em aplicações LLM - guia de referência para mitigações',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Frameworks',
+    relatedSkills: ['security', 'llm', 'bedrock-guardrails'],
+    relatedMilestones: ['ai-defense-foundations', 'governance-ai-pipelines'],
+  },
+  {
+    id: 'ref-mitre-atlas',
+    name: 'MITRE ATLAS Framework',
+    description: 'Adversarial Threat Landscape for AI Systems - taxonomia de ataques contra ML',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Frameworks',
+    relatedSkills: ['security', 'mlops', 'critical-thinking'],
+    relatedMilestones: ['ai-defense-foundations', 'red-teaming-framework'],
+  },
+  {
+    id: 'ref-nist-ai-rmf',
+    name: 'NIST AI Risk Management Framework',
+    description: 'AI 100-1 - Framework oficial de gestão de riscos de IA do NIST',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Frameworks',
+    relatedSkills: ['security', 'strategic-vision', 'stakeholder-management'],
+    relatedMilestones: ['nist-ai-rmf-implementation', 'advanced-governance'],
+  },
+
+  // Certificações - AI Security
+  {
+    id: 'cert-aws-security-specialty',
+    name: 'AWS Security Specialty',
+    description: 'Certificação avançada em segurança AWS para workloads de produção',
+    status: 'not-started',
+    parentCategory: 'Certificação',
+    category: 'AWS',
+    subCategory: 'Segurança',
+    image: '/assets/img/aws.png',
+    relatedSkills: ['security', 'iam', 'vpc', 'aws'],
+    relatedMilestones: ['cloud-security-certification'],
+  },
+
+  // Cursos - AI Security
+  {
+    id: 'course-adversarial-ml',
+    name: 'Adversarial Machine Learning',
+    description: 'Técnicas de evasão, inversão e extração de modelos ML',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Red Teaming',
+    relatedSkills: ['security', 'mlops', 'critical-thinking'],
+    relatedMilestones: ['red-teaming-framework'],
+  },
+  {
+    id: 'course-mlops-security',
+    name: 'Secure MLOps Pipeline Design',
+    description: 'Design de pipelines MLOps seguros: supply chain, model signing, runtime guardrails',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'MLOps Security',
+    relatedSkills: ['mlops', 'security', 'bedrock-guardrails'],
+    relatedMilestones: ['model-supply-chain', 'governance-ai-pipelines'],
+  },
+  {
+    id: 'course-bedrock-guardrails',
+    name: 'AWS Bedrock Guardrails Workshop',
+    description: 'Workshop prático de configuração de guardrails para LLMs com AWS Bedrock',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Runtime Guardrails',
+    relatedSkills: ['bedrock-guardrails', 'aws-bedrock', 'llm'],
+    relatedMilestones: ['ai-defense-foundations', 'governance-ai-pipelines'],
+  },
+
+  // Ferramentas
+  {
+    id: 'tool-safetensors',
+    name: '.safetensors & Model Signing',
+    description: 'Validação de integridade de modelos ML com formato seguro e assinatura criptográfica',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Supply Chain',
+    relatedSkills: ['mlops', 'security', 'python'],
+    relatedMilestones: ['model-supply-chain'],
+  },
+  {
+    id: 'tool-mlflow-provenance',
+    name: 'MLflow Model Registry & Provenance',
+    description: 'Rastreamento de proveniência de modelos: autor, dataset, HPO, métricas',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Supply Chain',
+    relatedSkills: ['mlops', 'data-observability'],
+    relatedMilestones: ['model-supply-chain', 'governance-ai-pipelines'],
   },
 ];
