@@ -36,6 +36,8 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
         return Loader;
       case 'deprioritized':
         return Circle;
+      case 'planned':
+        return Circle;
       case 'not-started':
         return Circle;
     }
@@ -71,7 +73,7 @@ export function Milestones({ milestones, onMilestoneClick }: MilestonesProps) {
         >
           <h2 className="text-3xl md:text-4xl mb-3 font-black tracking-tight">Marcos de Desenvolvimento</h2>
           <p className="text-muted-foreground">
-            Objetivos estratégicos e seu progresso ao longo da jornada
+            Jornada de 8 anos: Pleno → Sênior → AI Security Specialist (2026-2033)
           </p>
         </motion.div>
 
