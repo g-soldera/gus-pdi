@@ -114,8 +114,20 @@ export function Hero({ info }: HeroProps) {
               </div>
 
               <div className="pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira</p>
-                <CareerTimeline info={info} />
+                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira (Target Sênior: {info.seniorTargetDate})</p>
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+                  <span>Freela</span>
+                  <span>Estágio</span>
+                  <span>Júnior</span>
+                  <span className="font-bold text-primary">Pleno (Atuando)</span>
+                  <span>Sênior</span>
+                </div>
+                <div className="h-2 w-full bg-border rounded-full flex overflow-hidden">
+                    <div className="h-full w-1/4 bg-muted"></div>
+                    <div className="h-full w-1/4 bg-muted"></div>
+                    <div className="h-full w-1/4 bg-muted"></div>
+                    <div className="h-full w-1/4 bg-primary border-l-2 border-dashed border-white"></div>
+                </div>
               </div>
             </motion.div>
           </div>

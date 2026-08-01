@@ -28,7 +28,7 @@ export interface Milestone {
   notes?: string;
   relatedSkills: string[];
   relatedResources: string[];
-  archived?: boolean;
+  archived?: boolean; // Milestones com progresso < 50% podem ser marcados como despriorizados
   objectives?: MilestoneObjective[];
 }
 

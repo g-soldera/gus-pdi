@@ -301,6 +301,7 @@ export const milestones: Milestone[] = [
     progress: 45,
     deadline: '2026-12-31',
     notes: 'Criação de prompts padrão e automação de tarefas repetitivas.',
+    archived: true,
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
       { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
@@ -382,6 +383,55 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['microfrontends', 'api-architecture', 'data-modeling', 'kafka'],
     relatedResources: ['books-ana-ddia', 'books-arch-peaa'],
+  },
+  {
+    id: 'tech-lead-projects',
+    title: 'Liderança Técnica de Projetos',
+    displayName: 'Tech Lead Projects',
+    description: 'Liderança técnica em projetos estratégicos da squad.',
+    status: 'not-started',
+    progress: 0,
+    deadline: '2027-03-30',
+    notes: 'Foco em definição técnica e mentoria.',
+    objectives: [
+        { text: 'Liderança técnica em 2-3 projetos com entregas bem-sucedidas.', completed: false },
+        { text: 'Feedback formal do líder sobre a contribuição.', completed: false },
+        { text: '10+ code reviews realizados.', completed: false }
+    ],
+    relatedSkills: ['leadership', 'critical-thinking', 'collaboration'],
+    relatedResources: ['mentoring'],
+  },
+  {
+    id: 'cross-team-impact',
+    title: 'Projetos de Impacto Cross',
+    displayName: 'Impacto Cross-Team',
+    description: 'Projeto adotado por múltiplas comunidades.',
+    status: 'not-started',
+    progress: 0,
+    deadline: '2028-03-30',
+    notes: 'Impacto além da squad.',
+    objectives: [
+        { text: 'Projeto adotado por 2+ comunidades.', completed: false },
+        { text: 'Feedback positivo de stakeholders externos.', completed: false }
+    ],
+    relatedSkills: ['influence', 'leadership', 'technical-docs'],
+    relatedResources: [],
+  },
+  {
+    id: 'advanced-mentorship',
+    title: 'Mentoria Estratégica',
+    displayName: 'Mentoria Estruturada',
+    description: 'Programa de capacitação para Juniores e Plenos.',
+    status: 'not-started',
+    progress: 0,
+    deadline: '2028-06-30',
+    notes: 'Escalar mentoria.',
+    objectives: [
+        { text: 'Criação de programa de capacitação.', completed: false },
+        { text: '3+ mentorados com PDI.', completed: false }
+    ],
+    relatedSkills: ['mentoring', 'leadership'],
+    relatedResources: ['mentoring'],
   },
 ];
 
