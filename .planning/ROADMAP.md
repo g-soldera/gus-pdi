@@ -7,7 +7,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Pleno Ano 1 (2026-2027)** - Fundamentos de Arquitetura de Defesa + Autonomia Técnica [Target: PRAD/Mérito 2027]
+- [x] **Phase 1: Pleno Ano 1 (2026-2027)** - Estruturação do PDI e Gestão de Conhecimento [Target: PRAD/Mérito 2027]
 - [ ] **Phase 2: Pleno Ano 2 (2027-2028)** - Governança Aplicada + Entregas Core [Target: Promoção Pleno → Sênior mai/2027 + PRAD/Mérito 2028]
 - [ ] **Phase 3: Sênior Ano 1 (2028-2029)** - Arquitetura Corporativa + Liderança Técnica [Target: PRAD/Mérito 2029]
 - [ ] **Phase 4: Sênior Ano 2 (2029-2030)** - Mentoria + Design de Sistemas Complexos [Target: PRAD/Mérito 2030 + Certificação]
@@ -153,7 +153,7 @@
 
 | Phase | Plans Complete | Status | Target Year | Completed |
 |-------|----------------|--------|-------------|-----------|
-| 1. Pleno Ano 1 | 0/0 | Not started | 2027 | - |
+| 1. Pleno Ano 1 | 0/2 | Not started | 2027 | - |
 | 2. Pleno Ano 2 | 0/0 | Not started | 2028 | - |
 | 3. Sênior Ano 1 | 0/0 | Not started | 2029 | - |
 | 4. Sênior Ano 2 | 0/0 | Not started | 2030 | - |
