@@ -78,8 +78,7 @@ function AppContent() {
           milestones={milestones} 
           onSkillClick={handleSkillClick} 
         />
-        <StudyPath studyPath={secmlopsPath} />
-        <Milestones milestones={milestones} onMilestoneClick={handleMilestoneClick} />
+        <Milestones milestones={milestones} studyPath={secmlopsPath} onMilestoneClick={handleMilestoneClick} />
         <Portfolio 
           projects={projects} 
           skills={skills}

@@ -32,6 +32,7 @@ export interface Milestone {
   objectives?: MilestoneObjective[];
   startPosition?: number; // Posição de início na timeline em %
   endPosition?: number; // Posição de fim na timeline em %
+  phase?: number | 'secmlops'; // Fase do roadmap associada
 }
 
 export interface Project {

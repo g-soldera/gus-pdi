@@ -210,6 +210,7 @@ export const milestones: Milestone[] = [
     notes: 'Aprovação em 11/09/2025 e aplicação nos fluxos do cyber.itau (arquitetura).',
     relatedSkills: ['aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python', 'openapi', 'api-design', 'api-contracts', 'api-architecture'],
     relatedResources: ['cert-analytics', 'cert-api-owner'],
+    phase: 1,
     archived: true,
   },
   {
@@ -223,6 +224,7 @@ export const milestones: Milestone[] = [
     notes: 'Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.',
     relatedSkills: ['presentation', 'verbal-communication', 'nvc', 'storytelling', 'empathy'],
     relatedResources: ['books-comm-cnv'],
+    phase: 1,
     archived: true,
   },
   {
@@ -236,6 +238,7 @@ export const milestones: Milestone[] = [
     notes: 'Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila.',
     relatedSkills: ['leadership', 'critical-thinking', 'collaboration', 'technical-docs'],
     relatedResources: ['mentoring'],
+    phase: 1,
     archived: true,
   },
   {
@@ -249,6 +252,7 @@ export const milestones: Milestone[] = [
     notes: 'Concluí os três níveis da certificação API Owner, e apliquei padrões de contrato, versionamento e governança de APIs no planejamento do backend do Insight Guard.',
     relatedSkills: ['openapi', 'api-design', 'api-architecture', 'api-contracts'],
     relatedResources: ['cert-api-owner'],
+    phase: 1,
     archived: true,
   },
   {
@@ -262,6 +266,7 @@ export const milestones: Milestone[] = [
     notes: 'Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos.',
     relatedSkills: ['cost-optimization', 'terraform', 'aws-glue', 's3'],
     relatedResources: [],
+    phase: 1,
     archived: true,
   },
   {
@@ -274,6 +279,7 @@ export const milestones: Milestone[] = [
     deadline: '2026-04-30',
     relatedSkills: ['critical-thinking', 'technical-docs', 'security'],
     relatedResources: [],
+    phase: 1,
     archived: true,
   },
   {
@@ -287,6 +293,7 @@ export const milestones: Milestone[] = [
     notes: 'Mentoria ativa para 2 estagiários em SQL e Python.',
     relatedSkills: ['mentoring', 'technical-docs', 'collaboration'],
     relatedResources: ['mentoring'],
+    phase: 1,
     archived: true,
   },
   {
@@ -300,6 +307,7 @@ export const milestones: Milestone[] = [
     notes: 'Certificação obtida em Dezembro/2024.',
     relatedSkills: ['aws', 's3', 'lambda'],
     relatedResources: ['cert-cloud-practitioner'],
+    phase: 1,
     archived: true,
   },
 
@@ -325,6 +333,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
     relatedResources: [],
+    phase: 1,
   },
   {
     id: 'ai-defense-foundations',
@@ -338,13 +347,14 @@ export const milestones: Milestone[] = [
     endPosition: 12.5,
     notes: 'Primeiro passo para TECH-DEFENSE (ROADMAP Phase 1)',
     objectives: [
-      { text: 'Estudar OWASP LLM Top 10 e mapear mitigações', completed: false },
-      { text: 'Prototipar guardrail de runtime para prompt injection', completed: false },
-      { text: 'Documentar arquitetura de defesa inicial', completed: false },
-      { text: 'Apresentar em 1:1 com Aline evidências técnicas', completed: false }
+      { text: 'Prototipar 1 guardrail funcional detectando >= 3 tipos de prompt injection (jailbreak, role confusion, context overflow)', completed: false },
+      { text: 'Documentar arquitetura de defesa mapeando 5+ vulnerabilidades OWASP LLM Top 10 para mitigações específicas', completed: false },
+      { text: 'Apresentar em 1:1 com Aline: demo técnica + documento de arquitetura revisado', completed: false },
+      { text: 'KPI: Guardrail bloqueia >= 80% dos ataques em dataset de teste adversarial', completed: false }
     ],
     relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering'],
     relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
+    phase: 1,
   },
   {
     id: 'model-supply-chain',
@@ -358,13 +368,14 @@ export const milestones: Milestone[] = [
     endPosition: 12.5,
     notes: 'Uso de .safetensors e MLflow para governança',
     objectives: [
-      { text: 'Estudar .safetensors vs pickle e riscos de segurança', completed: false },
-      { text: 'Implementar validação de hash SHA256 em modelos', completed: false },
-      { text: 'Configurar MLflow para tracking de proveniência', completed: false },
-      { text: 'Documentar padrão de supply chain seguro', completed: false }
+      { text: 'Implementar validação de hash SHA256 em 2+ modelos .safetensors com verificação automática no CI/CD', completed: false },
+      { text: 'Configurar MLflow Model Registry para 1+ projeto tracking autor, dataset, HPO, métricas (accuracy, F1)', completed: false },
+      { text: 'Documentar padrão de supply chain seguro com checklist de 10 itens para deploy de modelos em produção', completed: false },
+      { text: 'KPI: 100% dos modelos em produção têm proveniência registrada e hash validado', completed: false }
     ],
     relatedSkills: ['mlops', 'security', 'python'],
     relatedResources: ['tool-safetensors', 'tool-mlflow-provenance', 'course-mlops-security'],
+    phase: 1,
   },
   {
     id: 'ai-fomentation',
@@ -389,6 +400,55 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
+    phase: 1,
+    phase: 1,
+  },
+
+
+  // ==========================================
+  // FASE 2: PLENO ANO 2 (2027-2028) - Promoção Pleno→Sênior mai/2027
+  // ==========================================
+  {
+    id: 'governance-ai-pipelines',
+    title: 'Governança de IA em Pipelines Core',
+    displayName: 'AI Governance in Production',
+    description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    startPosition: 12.5,
+    endPosition: 25,
+    notes: 'TECH-02 + PLENO-01 (ROADMAP Phase 2)',
+    objectives: [
+      { text: 'Implementar governança em 2 pipelines/projetos core', completed: false },
+      { text: 'Gerar relatórios de conformidade automatizados', completed: false },
+      { text: 'Validar cadeia de suprimentos com .safetensors', completed: false },
+      { text: 'Estruturar arquitetura segura cobrindo OWASP Top 10 LLM', completed: false }
+    ],
+    relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
+    relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'course-bedrock-guardrails', 'tool-mlflow-provenance'],
+    phase: 2,
+  },
+  {
+    id: 'pleno-to-senior-prep',
+    title: 'Preparação Promoção Sênior',
+    displayName: 'Evidências para Promoção Sênior',
+    description: 'Consolidar KPIs e evidências tangíveis para promoção Pleno→Sênior',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-05-31',
+    startPosition: 12.5,
+    endPosition: 25,
+    notes: 'Target: mai/2027',
+    objectives: [
+      { text: 'Registro estruturado de KPIs (entregas + comportamentos)', completed: false },
+      { text: 'Feedback formal de liderança sobre autonomia técnica', completed: false },
+      { text: 'Apresentação de evidências em 1:1 com Aline', completed: false },
+      { text: 'Alinhamento com critérios de Sênior do Itaú', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'technical-docs'],
+    relatedResources: [],
+    phase: 2,
   },
 
   // ==========================================
@@ -413,6 +473,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
     relatedResources: ['books-arch-peaa', 'books-ana-ddia'],
+    phase: 3,
   },
   {
     id: 'tech-leadership-critical',
@@ -433,6 +494,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['leadership', 'mentoring', 'stakeholder-management', 'technical-docs'],
     relatedResources: [],
+    phase: 3,
   },
 
   // ==========================================
@@ -457,6 +519,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
     relatedResources: ['cert-aws-security-specialty'],
+    phase: 4,
   },
   {
     id: 'architectural-influence',
@@ -477,6 +540,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['influence', 'leadership', 'api-architecture', 'stakeholder-management'],
     relatedResources: [],
+    phase: 4,
   },
 
   // ==========================================
@@ -501,6 +565,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
     relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
+    phase: 5,
   },
   {
     id: 'specialist-promotion-prep',
@@ -521,6 +586,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['strategic-vision', 'influence', 'leadership', 'technical-docs'],
     relatedResources: [],
+    phase: 5,
   },
 
   // ==========================================
@@ -545,6 +611,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
+    phase: 6,
   },
   {
     id: 'advanced-governance',
@@ -565,6 +632,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['strategic-vision', 'influence', 'leadership', 'presentation'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
+    phase: 6,
   },
 
   // ==========================================
@@ -589,6 +657,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['presentation', 'influence', 'strategic-vision', 'storytelling'],
     relatedResources: [],
+    phase: 7,
   },
   {
     id: 'specialist-consolidation',
@@ -609,169 +678,9 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['strategic-vision', 'leadership', 'influence', 'presentation'],
     relatedResources: [],
+    phase: 7,
   },
 
-  // ==========================================
-  // MILESTONES ATIVOS ANTERIORES (mantidos para continuidade)
-  // ==========================================
-  {
-    id: 'governance-ai-pipelines',
-    title: 'Governança de IA em Pipelines Core',
-    displayName: 'AI Governance in Production',
-    description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade',
-    status: 'planned',
-    progress: 0,
-    deadline: '2027-12-31',
-    startPosition: 12.5,
-    endPosition: 25,
-    notes: 'TECH-02 + PLENO-01 (ROADMAP Phase 2)',
-    objectives: [
-      { text: 'Implementar governança em 2 pipelines/projetos core', completed: false },
-      { text: 'Gerar relatórios de conformidade automatizados', completed: false },
-      { text: 'Validar cadeia de suprimentos com .safetensors', completed: false },
-      { text: 'Estruturar arquitetura segura cobrindo OWASP Top 10 LLM', completed: false }
-    ],
-    relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
-    relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'course-bedrock-guardrails', 'tool-mlflow-provenance'],
-  },
-  {
-    id: 'pleno-to-senior-prep',
-    title: 'Preparação Promoção Sênior',
-    displayName: 'Evidências para Promoção Sênior',
-    description: 'Consolidar KPIs e evidências tangíveis para promoção Pleno→Sênior',
-    status: 'planned',
-    progress: 0,
-    deadline: '2027-05-31',
-    startPosition: 12.5,
-    endPosition: 25,
-    notes: 'Target: mai/2027',
-    objectives: [
-      { text: 'Registro estruturado de KPIs (entregas + comportamentos)', completed: false },
-      { text: 'Feedback formal de liderança sobre autonomia técnica', completed: false },
-      { text: 'Apresentação de evidências em 1:1 com Aline', completed: false },
-      { text: 'Alinhamento com critérios de Sênior do Itaú', completed: false }
-    ],
-    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'technical-docs'],
-    relatedResources: [],
-  },
-  {
-    id: 'cert-aws-sa-pro',
-    title: 'AWS Solutions Architect Pro',
-    displayName: 'AWS SA Professional',
-    description: 'Obter certificação AWS Solutions Architect Professional',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-12-31',
-    notes: 'Aprofundamento em arquiteturas complexas e resilientes.',
-    objectives: [
-      { text: 'Concluir curso preparatório oficial (Adrian Cantrill ou Stephane Maarek)', completed: false },
-      { text: 'Realizar 3 simulados com pontuação superior a 80%', completed: false },
-      { text: 'Aprofundamento em Networking Avançado (Direct Connect, Transit Gateway)', completed: false },
-      { text: 'Estudo de estratégias de migração e arquiteturas multi-account', completed: false },
-      { text: 'Aprovação no exame de certificação AWS SA Pro', completed: false }
-    ],
-    relatedSkills: ['aws', 'api-architecture', 'ecs', 'terraform', 'vpc'],
-    relatedResources: ['cert-cloud'],
-  },
-  {
-    id: 'ai-engineering',
-    title: 'Engenharia de IA Generativa',
-    displayName: 'AI Engineering Specialist',
-    description: 'Especialização em arquiteturas de agentes e MAS',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-06-30',
-    notes: 'Foco em LangGraph, RAG avançado e orquestração de MAS.',
-    objectives: [
-      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
-      { text: 'Implementação de técnicas avançadas de RAG e otimização de prompts', completed: false }
-    ],
-    relatedSkills: ['langgraph', 'rag', 'mas', 'agent-design', 'mcp-tools'],
-    relatedResources: ['llm-course'],
-  },
-  {
-    id: 'mlops-governance',
-    title: 'MLOps e Governança',
-    displayName: 'MLOps & AI Governance',
-    description: 'Implementar esteiras de MLOps e governança de modelos',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-06-30',
-    notes: 'Uso de Bedrock Guardrails e monitoramento de modelos.',
-    objectives: [
-      { text: 'Implementação de 1+ pipeline MLOps completo com monitoramento', completed: false },
-      { text: 'Redução de 20%+ no tempo de deploy de modelos', completed: false },
-      { text: 'Definição de padrões de governança de dados em projetos de ML', completed: false }
-    ],
-    relatedSkills: ['mlops', 'bedrock-guardrails', 'aws-bedrock', 'datadog'],
-    relatedResources: [],
-  },
-  {
-    id: 'arch-system-design',
-    title: 'System Design & Architecture',
-    displayName: 'System Design & Arch',
-    description: 'Aprofundar em design de sistemas distribuídos e arquitetura de dados',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-03-30',
-    notes: 'Foco em microfrontends e escalabilidade.',
-    objectives: [
-      { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: false },
-      { text: 'Participação ativa em 5+ discussões de arquitetura de alto nível', completed: false },
-      { text: 'Feedback positivo de pares sobre a qualidade dos designs', completed: false }
-    ],
-    relatedSkills: ['microfrontends', 'api-architecture', 'data-modeling', 'kafka'],
-    relatedResources: ['books-ana-ddia', 'books-arch-peaa'],
-  },
-  {
-    id: 'tech-lead-projects',
-    title: 'Liderança Técnica de Projetos',
-    displayName: 'Tech Lead Projects',
-    description: 'Liderança técnica em projetos estratégicos da squad.',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-03-30',
-    notes: 'Foco em definição técnica e mentoria.',
-    objectives: [
-        { text: 'Liderança técnica em 2-3 projetos com entregas bem-sucedidas.', completed: false },
-        { text: 'Feedback formal do líder sobre a contribuição.', completed: false },
-        { text: '10+ code reviews realizados.', completed: false }
-    ],
-    relatedSkills: ['leadership', 'critical-thinking', 'collaboration'],
-    relatedResources: ['mentoring'],
-  },
-  {
-    id: 'cross-team-impact',
-    title: 'Projetos de Impacto Cross',
-    displayName: 'Impacto Cross-Team',
-    description: 'Projeto adotado por múltiplas comunidades.',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2028-03-30',
-    notes: 'Impacto além da squad.',
-    objectives: [
-        { text: 'Projeto adotado por 2+ comunidades.', completed: false },
-        { text: 'Feedback positivo de stakeholders externos.', completed: false }
-    ],
-    relatedSkills: ['influence', 'leadership', 'technical-docs'],
-    relatedResources: [],
-  },
-  {
-    id: 'advanced-mentorship',
-    title: 'Mentoria Estratégica',
-    displayName: 'Mentoria Estruturada',
-    description: 'Programa de capacitação para Juniores e Plenos.',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2028-06-30',
-    notes: 'Escalar mentoria.',
-    objectives: [
-        { text: 'Criação de programa de capacitação.', completed: false },
-        { text: '3+ mentorados com PDI.', completed: false }
-    ],
-    relatedSkills: ['mentoring', 'leadership'],
-    relatedResources: ['mentoring'],
-  },
 ];
 
 export const projects: Project[] = [

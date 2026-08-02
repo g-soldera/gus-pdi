@@ -29,22 +29,9 @@ export function StudyPath({ studyPath }: StudyPathProps) {
   };
 
   return (
-    <section id="study-path" className="py-16 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl mb-3 font-black tracking-tight">Trilha de Estudos: AI Security</h2>
-          <p className="text-muted-foreground">
-            Caminho de aprendizado para a especialização em SecMLOps e AI Security
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {Object.values(studyPath.reduce((acc, topic) => {
+    <div className="w-full">
+      <div className="space-y-6">
+        {Object.values(studyPath.reduce((acc, topic) => {
             if (!acc[topic.category]) {
               acc[topic.category] = { category: topic.category, topics: [] };
             }
@@ -103,8 +90,7 @@ export function StudyPath({ studyPath }: StudyPathProps) {
               )}
             </motion.div>
           ))}
-        </div>
       </div>
-    </section>
+    </div>
   );
 }
