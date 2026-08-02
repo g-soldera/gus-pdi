@@ -7,9 +7,9 @@ export const personalInfo: PersonalInfo = {
   company: 'Itaú Unibanco',
   department: 'Cyber Security',
   currentRole: 'Engenheiro de Analytics JR',
-  targetRole: 'Engenheiro de Analytics PL',
+  targetRole: 'Engenheiro de Analytics PL (a mapear gap)',
   targetTimelineMonths: 12,
-  timelineTarget: '2026-06-07', // Feedback de Pleno
+  timelineTarget: 'A definir em 1:1', // Alterado para refletir a incógnita
   seniorTargetDate: '2028-01-01', // Desejo estar como Sênior
   experienceStartDate: '2023-06-07', // Início como Estagiário
   bankStartDate: '2024-05-05', // Entro no Itaú
@@ -49,13 +49,13 @@ export const skills: Skill[] = [
   { id: 'lambda', name: 'Lambda', level: 4, description: 'Funções serverless para processamento de eventos', category: 'Cloud & Data', type: 'hard' },
   { id: 'api-gateway', name: 'Amazon API Gateway', level: 4, description: 'Gerenciamento e publicação de APIs em escala', category: 'Cloud & Data', type: 'hard' },
   { id: 'ecs', name: 'ECS', level: 4, description: 'Orquestração de containers para aplicações', category: 'Cloud & Data', type: 'hard' },
-  { id: 'emr', name: 'EMR', level: 4, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
+  { id: 'emr', name: 'EMR', level: 3, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudfront', name: 'CloudFront', level: 4, description: 'CDN para distribuição de conteúdo', category: 'Cloud & Data', type: 'hard' },
   { id: 'terraform', name: 'Terraform', level: 4, description: 'Infrastructure as Code para provisionamento cloud', category: 'Cloud & Data', type: 'hard' },
-  { id: 'kafka', name: 'Kafka', level: 3, description: 'Streaming de dados em tempo real', category: 'Cloud & Data', type: 'hard' },
+  { id: 'kafka', name: 'Kafka', level: 2, description: 'Streaming de dados em tempo real', category: 'Cloud & Data', type: 'hard' },
   { id: 'athena', name: 'Athena', level: 4, description: 'Queries SQL serverless em data lakes', category: 'Cloud & Data', type: 'hard' },
-  { id: 'redshift', name: 'Redshift', level: 3, description: 'Data warehouse para analytics em escala', category: 'Cloud & Data', type: 'hard' },
-  { id: 'dynamodb', name: 'DynamoDB', level: 3, description: 'Banco de dados NoSQL serverless', category: 'Cloud & Data', type: 'hard' },
+  { id: 'redshift', name: 'Redshift', level: 2, description: 'Data warehouse para analytics em escala', category: 'Cloud & Data', type: 'hard' },
+  { id: 'dynamodb', name: 'DynamoDB', level: 2, description: 'Banco de dados NoSQL serverless', category: 'Cloud & Data', type: 'hard' },
   { id: 'stepfunctions', name: 'Step Functions', level: 3, description: 'Orquestração de workflows serverless', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudwatch', name: 'CloudWatch', level: 4, description: 'Monitoramento e logs de aplicações', category: 'Cloud & Data', type: 'hard' },
   { id: 'iam', name: 'IAM', level: 4, description: 'Gestão de identidades e acessos', category: 'Cloud & Data', type: 'hard' },
@@ -105,7 +105,7 @@ export const skills: Skill[] = [
 
   // Governança de Dados
   { id: 'data-contracts', name: 'Data Contracts', level: 4, description: 'Definição e implementação de contratos de dados', category: 'Governança de Dados', type: 'hard' },
-  { id: 'data-lineage', name: 'Data Lineage', level: 4, description: 'Rastreamento da origem e transformação de dados', category: 'Governança de Dados', type: 'hard' },
+  { id: 'data-lineage', name: 'Data Lineage', level: 3, description: 'Rastreamento da origem e transformação de dados', category: 'Governança de Dados', type: 'hard' },
 
   // IA Generativa
   { id: 'llm', name: 'LLM (Generative AI)', level: 4, description: 'Arquitetura e implementação de soluções com IA Generativa', category: 'IA Generativa', type: 'hard' },
@@ -115,15 +115,15 @@ export const skills: Skill[] = [
   { id: 'stackspot-ai', name: 'StackSpot AI', level: 4, description: 'Plataforma de desenvolvimento assistido por IA', category: 'IA Generativa', type: 'hard' },
   { id: 'devin', name: 'Devin', level: 4, description: 'Agente autônomo de desenvolvimento de software', category: 'IA Generativa', type: 'hard' },
   { id: 'github-copilot', name: 'GitHub Copilot', level: 4, description: 'Assistente de código baseado em IA', category: 'IA Generativa', type: 'hard' },
-  { id: 'mas', name: 'MAS', level: 3, description: 'Multi-Agent Systems para orquestração de agentes', category: 'IA Generativa', type: 'hard' },
-  { id: 'mcp-tools', name: 'MCP Tools', level: 3, description: 'Model Context Protocol para integração de ferramentas', category: 'IA Generativa', type: 'hard' },
+  { id: 'mas', name: 'MAS', level: 2, description: 'Multi-Agent Systems para orquestração de agentes', category: 'IA Generativa', type: 'hard' },
+  { id: 'mcp-tools', name: 'MCP Tools', level: 2, description: 'Model Context Protocol para integração de ferramentas', category: 'IA Generativa', type: 'hard' },
   { id: 'copilot-studio', name: 'Copilot Studio', level: 3, description: 'Criação de copilotos e agentes especializados', category: 'IA Generativa', type: 'hard' },
   { id: 'copilot-365', name: 'Microsoft 365 Copilot', level: 3, description: 'Extensibilidade e integração com M365 Copilot', category: 'IA Generativa', type: 'hard' },
-  { id: 'fluxo-sequencial', name: 'Fluxo Sequencial', level: 3, description: 'Orquestração de pipelines de LLM em etapas', category: 'IA Generativa', type: 'hard' },
+  { id: 'fluxo-sequencial', name: 'Fluxo Sequencial', level: 4, description: 'Orquestração de pipelines de LLM em etapas', category: 'IA Generativa', type: 'hard' },
   { id: 'langgraph', name: 'LangGraph', level: 3, description: 'Orquestração de agentes com grafos', category: 'IA Generativa', type: 'hard' },
   { id: 'langchain', name: 'LangChain', level: 3, description: 'Framework para desenvolvimento de aplicações LLM', category: 'IA Generativa', type: 'hard' },
-  { id: 'aws-bedrock', name: 'AWS Bedrock', level: 3, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
-  { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 3, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
+  { id: 'aws-bedrock', name: 'AWS Bedrock', level: 4, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
+  { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 4, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
 
   // Prompt Patterns
   { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição profunda de papel, tom de voz e contexto situacional para eliminar ambiguidades no output.', category: 'Prompt Patterns', type: 'hard' },
@@ -141,6 +141,8 @@ export const skills: Skill[] = [
 
   // Segurança
   { id: 'security', name: 'Cyber Security', level: 3, description: 'Fundamentos de Segurança da Informação', category: 'Segurança', type: 'hard' },
+  { id: 'sec-nist', name: 'NIST AI RMF', level: 2, description: 'Framework de governança e mitigação de risco de IA', category: 'Segurança', type: 'hard' },
+  { id: 'sec-atlas', name: 'MITRE ATLAS', level: 2, description: 'Modelagem de ameaças e TTPs para ML', category: 'Segurança', type: 'hard' },
 
   // ==========================================
   // SOFT SKILLS
@@ -148,11 +150,11 @@ export const skills: Skill[] = [
 
   // Cognitivas
   { id: 'critical-thinking', name: 'Pensamento Crítico', level: 4, description: 'Análise profunda de problemas e tomada de decisão baseada em dados.', category: 'Cognitivas', type: 'soft' },
-  { id: 'complex-problem-solving', name: 'Resolução de Problemas Complexos', level: 5, description: 'Capacidade de abordar desafios multifacetados e desenvolver soluções inovadoras e eficazes.', category: 'Cognitivas', type: 'soft' },
+  { id: 'complex-problem-solving', name: 'Resolução de Problemas Complexos', level: 4, description: 'Capacidade de abordar desafios multifacetados e desenvolver soluções inovadoras e eficazes.', category: 'Cognitivas', type: 'soft' },
   { id: 'adaptability', name: 'Adaptabilidade e Flexibilidade', level: 5, description: 'Ajuste rápido a novas situações, tecnologias ou prioridades, mantendo a eficácia.', category: 'Cognitivas', type: 'soft' },
   { id: 'proactivity', name: 'Proatividade e Iniciativa', level: 5, description: 'Antecipação de necessidades e busca constante por melhorias sem ser solicitado.', category: 'Cognitivas', type: 'soft' },
   { id: 'strategic-vision', name: 'Visão Estratégica', level: 4, description: 'Compreensão do cenário geral e alinhamento das ações diárias aos objetivos de longo prazo.', category: 'Cognitivas', type: 'soft' },
-  { id: 'resilience', name: 'Resiliência', level: 3, description: 'Capacidade de se recuperar de adversidades e persistir diante de obstáculos.', category: 'Cognitivas', type: 'soft' },
+  { id: 'resilience', name: 'Resiliência', level: 4, description: 'Capacidade de se recuperar de adversidades e persistir diante de obstáculos.', category: 'Cognitivas', type: 'soft' },
 
   // Comunicação
   { id: 'assertive-communication', name: 'Comunicação Assertiva', level: 4, description: 'Expressão de ideias e opiniões de forma clara, direta e respeitosa.', category: 'Comunicação', type: 'soft' },
