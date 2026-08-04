@@ -7,9 +7,9 @@ export const personalInfo: PersonalInfo = {
   company: 'Itaú Unibanco',
   department: 'Cyber Security',
   currentRole: 'Engenheiro de Analytics JR',
-  targetRole: 'Engenheiro de Analytics PL',
+  targetRole: 'Engenheiro de Analytics PL (a mapear gap)',
   targetTimelineMonths: 12,
-  timelineTarget: '2026-06-07', // Feedback de Pleno
+  timelineTarget: 'A definir em 1:1', // Alterado para refletir a incógnita
   seniorTargetDate: '2028-01-01', // Desejo estar como Sênior
   experienceStartDate: '2023-06-07', // Início como Estagiário
   bankStartDate: '2024-05-05', // Entro no Itaú
@@ -49,13 +49,13 @@ export const skills: Skill[] = [
   { id: 'lambda', name: 'Lambda', level: 4, description: 'Funções serverless para processamento de eventos', category: 'Cloud & Data', type: 'hard' },
   { id: 'api-gateway', name: 'Amazon API Gateway', level: 4, description: 'Gerenciamento e publicação de APIs em escala', category: 'Cloud & Data', type: 'hard' },
   { id: 'ecs', name: 'ECS', level: 4, description: 'Orquestração de containers para aplicações', category: 'Cloud & Data', type: 'hard' },
-  { id: 'emr', name: 'EMR', level: 4, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
+  { id: 'emr', name: 'EMR', level: 3, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudfront', name: 'CloudFront', level: 4, description: 'CDN para distribuição de conteúdo', category: 'Cloud & Data', type: 'hard' },
   { id: 'terraform', name: 'Terraform', level: 4, description: 'Infrastructure as Code para provisionamento cloud', category: 'Cloud & Data', type: 'hard' },
-  { id: 'kafka', name: 'Kafka', level: 3, description: 'Streaming de dados em tempo real', category: 'Cloud & Data', type: 'hard' },
+  { id: 'kafka', name: 'Kafka', level: 2, description: 'Streaming de dados em tempo real', category: 'Cloud & Data', type: 'hard' },
   { id: 'athena', name: 'Athena', level: 4, description: 'Queries SQL serverless em data lakes', category: 'Cloud & Data', type: 'hard' },
-  { id: 'redshift', name: 'Redshift', level: 3, description: 'Data warehouse para analytics em escala', category: 'Cloud & Data', type: 'hard' },
-  { id: 'dynamodb', name: 'DynamoDB', level: 3, description: 'Banco de dados NoSQL serverless', category: 'Cloud & Data', type: 'hard' },
+  { id: 'redshift', name: 'Redshift', level: 2, description: 'Data warehouse para analytics em escala', category: 'Cloud & Data', type: 'hard' },
+  { id: 'dynamodb', name: 'DynamoDB', level: 2, description: 'Banco de dados NoSQL serverless', category: 'Cloud & Data', type: 'hard' },
   { id: 'stepfunctions', name: 'Step Functions', level: 3, description: 'Orquestração de workflows serverless', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudwatch', name: 'CloudWatch', level: 4, description: 'Monitoramento e logs de aplicações', category: 'Cloud & Data', type: 'hard' },
   { id: 'iam', name: 'IAM', level: 4, description: 'Gestão de identidades e acessos', category: 'Cloud & Data', type: 'hard' },
@@ -105,7 +105,7 @@ export const skills: Skill[] = [
 
   // Governança de Dados
   { id: 'data-contracts', name: 'Data Contracts', level: 4, description: 'Definição e implementação de contratos de dados', category: 'Governança de Dados', type: 'hard' },
-  { id: 'data-lineage', name: 'Data Lineage', level: 4, description: 'Rastreamento da origem e transformação de dados', category: 'Governança de Dados', type: 'hard' },
+  { id: 'data-lineage', name: 'Data Lineage', level: 3, description: 'Rastreamento da origem e transformação de dados', category: 'Governança de Dados', type: 'hard' },
 
   // IA Generativa
   { id: 'llm', name: 'LLM (Generative AI)', level: 4, description: 'Arquitetura e implementação de soluções com IA Generativa', category: 'IA Generativa', type: 'hard' },
@@ -115,15 +115,15 @@ export const skills: Skill[] = [
   { id: 'stackspot-ai', name: 'StackSpot AI', level: 4, description: 'Plataforma de desenvolvimento assistido por IA', category: 'IA Generativa', type: 'hard' },
   { id: 'devin', name: 'Devin', level: 4, description: 'Agente autônomo de desenvolvimento de software', category: 'IA Generativa', type: 'hard' },
   { id: 'github-copilot', name: 'GitHub Copilot', level: 4, description: 'Assistente de código baseado em IA', category: 'IA Generativa', type: 'hard' },
-  { id: 'mas', name: 'MAS', level: 3, description: 'Multi-Agent Systems para orquestração de agentes', category: 'IA Generativa', type: 'hard' },
-  { id: 'mcp-tools', name: 'MCP Tools', level: 3, description: 'Model Context Protocol para integração de ferramentas', category: 'IA Generativa', type: 'hard' },
+  { id: 'mas', name: 'MAS', level: 2, description: 'Multi-Agent Systems para orquestração de agentes', category: 'IA Generativa', type: 'hard' },
+  { id: 'mcp-tools', name: 'MCP Tools', level: 2, description: 'Model Context Protocol para integração de ferramentas', category: 'IA Generativa', type: 'hard' },
   { id: 'copilot-studio', name: 'Copilot Studio', level: 3, description: 'Criação de copilotos e agentes especializados', category: 'IA Generativa', type: 'hard' },
   { id: 'copilot-365', name: 'Microsoft 365 Copilot', level: 3, description: 'Extensibilidade e integração com M365 Copilot', category: 'IA Generativa', type: 'hard' },
-  { id: 'fluxo-sequencial', name: 'Fluxo Sequencial', level: 3, description: 'Orquestração de pipelines de LLM em etapas', category: 'IA Generativa', type: 'hard' },
+  { id: 'fluxo-sequencial', name: 'Fluxo Sequencial', level: 4, description: 'Orquestração de pipelines de LLM em etapas', category: 'IA Generativa', type: 'hard' },
   { id: 'langgraph', name: 'LangGraph', level: 3, description: 'Orquestração de agentes com grafos', category: 'IA Generativa', type: 'hard' },
   { id: 'langchain', name: 'LangChain', level: 3, description: 'Framework para desenvolvimento de aplicações LLM', category: 'IA Generativa', type: 'hard' },
-  { id: 'aws-bedrock', name: 'AWS Bedrock', level: 3, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
-  { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 3, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
+  { id: 'aws-bedrock', name: 'AWS Bedrock', level: 4, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
+  { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 4, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
 
   // Prompt Patterns
   { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição profunda de papel, tom de voz e contexto situacional para eliminar ambiguidades no output.', category: 'Prompt Patterns', type: 'hard' },
@@ -141,6 +141,8 @@ export const skills: Skill[] = [
 
   // Segurança
   { id: 'security', name: 'Cyber Security', level: 3, description: 'Fundamentos de Segurança da Informação', category: 'Segurança', type: 'hard' },
+  { id: 'sec-nist', name: 'NIST AI RMF', level: 2, description: 'Framework de governança e mitigação de risco de IA', category: 'Segurança', type: 'hard' },
+  { id: 'sec-atlas', name: 'MITRE ATLAS', level: 2, description: 'Modelagem de ameaças e TTPs para ML', category: 'Segurança', type: 'hard' },
 
   // ==========================================
   // SOFT SKILLS
@@ -148,11 +150,11 @@ export const skills: Skill[] = [
 
   // Cognitivas
   { id: 'critical-thinking', name: 'Pensamento Crítico', level: 4, description: 'Análise profunda de problemas e tomada de decisão baseada em dados.', category: 'Cognitivas', type: 'soft' },
-  { id: 'complex-problem-solving', name: 'Resolução de Problemas Complexos', level: 5, description: 'Capacidade de abordar desafios multifacetados e desenvolver soluções inovadoras e eficazes.', category: 'Cognitivas', type: 'soft' },
+  { id: 'complex-problem-solving', name: 'Resolução de Problemas Complexos', level: 4, description: 'Capacidade de abordar desafios multifacetados e desenvolver soluções inovadoras e eficazes.', category: 'Cognitivas', type: 'soft' },
   { id: 'adaptability', name: 'Adaptabilidade e Flexibilidade', level: 5, description: 'Ajuste rápido a novas situações, tecnologias ou prioridades, mantendo a eficácia.', category: 'Cognitivas', type: 'soft' },
   { id: 'proactivity', name: 'Proatividade e Iniciativa', level: 5, description: 'Antecipação de necessidades e busca constante por melhorias sem ser solicitado.', category: 'Cognitivas', type: 'soft' },
   { id: 'strategic-vision', name: 'Visão Estratégica', level: 4, description: 'Compreensão do cenário geral e alinhamento das ações diárias aos objetivos de longo prazo.', category: 'Cognitivas', type: 'soft' },
-  { id: 'resilience', name: 'Resiliência', level: 3, description: 'Capacidade de se recuperar de adversidades e persistir diante de obstáculos.', category: 'Cognitivas', type: 'soft' },
+  { id: 'resilience', name: 'Resiliência', level: 4, description: 'Capacidade de se recuperar de adversidades e persistir diante de obstáculos.', category: 'Cognitivas', type: 'soft' },
 
   // Comunicação
   { id: 'assertive-communication', name: 'Comunicação Assertiva', level: 4, description: 'Expressão de ideias e opiniões de forma clara, direta e respeitosa.', category: 'Comunicação', type: 'soft' },
@@ -183,7 +185,19 @@ export const skills: Skill[] = [
 
 export const milestones: Milestone[] = [
   // ==========================================
-  // ARQUIVADOS
+  // PLANO DE 8 ANOS: 2026-2033
+  // ==========================================
+  // Fase 1: Pleno Ano 1 (2026-2027)
+  // Fase 2: Pleno Ano 2 (2027-2028) - Promoção Pleno→Sênior em mai/2027
+  // Fase 3: Sênior Ano 1 (2028-2029)
+  // Fase 4: Sênior Ano 2 (2029-2030)
+  // Fase 5: Transição Sênior→Specialist (2030-2031)
+  // Fase 6: Specialist Ano 1 (2031-2032)
+  // Fase 7: Specialist Ano 2 (2032-2033)
+  // ==========================================
+
+  // ==========================================
+  // ARQUIVADOS (Milestones anteriores ao plano de 8 anos)
   // ==========================================
   {
     id: 'certification-pro',
@@ -196,6 +210,7 @@ export const milestones: Milestone[] = [
     notes: 'Aprovação em 11/09/2025 e aplicação nos fluxos do cyber.itau (arquitetura).',
     relatedSkills: ['aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python', 'openapi', 'api-design', 'api-contracts', 'api-architecture'],
     relatedResources: ['cert-analytics', 'cert-api-owner'],
+    phase: 1,
     archived: true,
   },
   {
@@ -209,6 +224,7 @@ export const milestones: Milestone[] = [
     notes: 'Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.',
     relatedSkills: ['presentation', 'verbal-communication', 'nvc', 'storytelling', 'empathy'],
     relatedResources: ['books-comm-cnv'],
+    phase: 1,
     archived: true,
   },
   {
@@ -222,6 +238,7 @@ export const milestones: Milestone[] = [
     notes: 'Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila.',
     relatedSkills: ['leadership', 'critical-thinking', 'collaboration', 'technical-docs'],
     relatedResources: ['mentoring'],
+    phase: 1,
     archived: true,
   },
   {
@@ -235,6 +252,7 @@ export const milestones: Milestone[] = [
     notes: 'Concluí os três níveis da certificação API Owner, e apliquei padrões de contrato, versionamento e governança de APIs no planejamento do backend do Insight Guard.',
     relatedSkills: ['openapi', 'api-design', 'api-architecture', 'api-contracts'],
     relatedResources: ['cert-api-owner'],
+    phase: 1,
     archived: true,
   },
   {
@@ -248,6 +266,7 @@ export const milestones: Milestone[] = [
     notes: 'Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos.',
     relatedSkills: ['cost-optimization', 'terraform', 'aws-glue', 's3'],
     relatedResources: [],
+    phase: 1,
     archived: true,
   },
   {
@@ -260,6 +279,7 @@ export const milestones: Milestone[] = [
     deadline: '2026-04-30',
     relatedSkills: ['critical-thinking', 'technical-docs', 'security'],
     relatedResources: [],
+    phase: 1,
     archived: true,
   },
   {
@@ -273,6 +293,7 @@ export const milestones: Milestone[] = [
     notes: 'Mentoria ativa para 2 estagiários em SQL e Python.',
     relatedSkills: ['mentoring', 'technical-docs', 'collaboration'],
     relatedResources: ['mentoring'],
+    phase: 1,
     archived: true,
   },
   {
@@ -286,12 +307,76 @@ export const milestones: Milestone[] = [
     notes: 'Certificação obtida em Dezembro/2024.',
     relatedSkills: ['aws', 's3', 'lambda'],
     relatedResources: ['cert-cloud-practitioner'],
+    phase: 1,
     archived: true,
   },
 
   // ==========================================
-  // ATIVOS
+  // ATIVOS - FASE 1: PLENO ANO 1 (2026-2027)
   // ==========================================
+  {
+    id: 'pdi-structure-2026',
+    title: 'Estruturação do PDI 8 Anos',
+    displayName: 'PDI 2026-2033: Pleno → Specialist',
+    description: 'Estruturar o planejamento completo de 8 anos com milestones, referências e trilha de estudos SecMLOps',
+    status: 'in-progress',
+    progress: 15,
+    deadline: '2026-09-30',
+    startPosition: 0,
+    endPosition: 12.5,
+    notes: 'Base para acompanhamento estruturado da evolução de carreira',
+    objectives: [
+      { text: 'Definir todas as 7 fases do roadmap com objetivos claros', completed: false },
+      { text: 'Mapear 20+ referências de estudo em SecMLOps/AI Security', completed: false },
+      { text: 'Criar visualização interativa do PDI no React', completed: false },
+      { text: 'Validar com Aline em 1:1 os marcos e KPIs', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
+    relatedResources: [],
+    phase: 1,
+  },
+  {
+    id: 'ai-defense-foundations',
+    title: 'Fundamentos de AI Defense Architecture',
+    displayName: 'AI Defense & Runtime Guardrails',
+    description: 'Estabelecer conhecimento em arquitetura de defesa para IA: guardrails, prompt injection, OWASP LLM Top 10',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-03-31',
+    startPosition: 0,
+    endPosition: 12.5,
+    notes: 'Primeiro passo para TECH-DEFENSE (ROADMAP Phase 1)',
+    objectives: [
+      { text: 'Prototipar 1 guardrail funcional detectando >= 3 tipos de prompt injection (jailbreak, role confusion, context overflow)', completed: false },
+      { text: 'Documentar arquitetura de defesa mapeando 5+ vulnerabilidades OWASP LLM Top 10 para mitigações específicas', completed: false },
+      { text: 'Apresentar em 1:1 com Aline: demo técnica + documento de arquitetura revisado', completed: false },
+      { text: 'KPI: Guardrail bloqueia >= 80% dos ataques em dataset de teste adversarial', completed: false }
+    ],
+    relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering'],
+    relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
+    phase: 1,
+  },
+  {
+    id: 'model-supply-chain',
+    title: 'Model Supply Chain Security',
+    displayName: 'Supply Chain & Model Integrity',
+    description: 'Implementar validação de integridade de modelos e rastreamento de proveniência',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-05-31',
+    startPosition: 0,
+    endPosition: 12.5,
+    notes: 'Uso de .safetensors e MLflow para governança',
+    objectives: [
+      { text: 'Implementar validação de hash SHA256 em 2+ modelos .safetensors com verificação automática no CI/CD', completed: false },
+      { text: 'Configurar MLflow Model Registry para 1+ projeto tracking autor, dataset, HPO, métricas (accuracy, F1)', completed: false },
+      { text: 'Documentar padrão de supply chain seguro com checklist de 10 itens para deploy de modelos em produção', completed: false },
+      { text: 'KPI: 100% dos modelos em produção têm proveniência registrada e hash validado', completed: false }
+    ],
+    relatedSkills: ['mlops', 'security', 'python'],
+    relatedResources: ['tool-safetensors', 'tool-mlflow-provenance', 'course-mlops-security'],
+    phase: 1,
+  },
   {
     id: 'ai-fomentation',
     title: 'Fomento ao Consumo de IA',
@@ -300,6 +385,8 @@ export const milestones: Milestone[] = [
     status: 'in-progress',
     progress: 45,
     deadline: '2026-12-31',
+    startPosition: 0,
+    endPosition: 12.5,
     notes: 'Criação de prompts padrão e automação de tarefas repetitivas.',
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
@@ -313,76 +400,287 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
+    phase: 1,
+    phase: 1,
   },
+
+
+  // ==========================================
+  // FASE 2: PLENO ANO 2 (2027-2028) - Promoção Pleno→Sênior mai/2027
+  // ==========================================
   {
-    id: 'cert-aws-sa-pro',
-    title: 'AWS Solutions Architect Pro',
-    displayName: 'AWS SA Professional',
-    description: 'Obter certificação AWS Solutions Architect Professional',
-    status: 'not-started',
+    id: 'governance-ai-pipelines',
+    title: 'Governança de IA em Pipelines Core',
+    displayName: 'AI Governance in Production',
+    description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade',
+    status: 'planned',
     progress: 0,
     deadline: '2027-12-31',
-    notes: 'Aprofundamento em arquiteturas complexas e resilientes.',
+    startPosition: 12.5,
+    endPosition: 25,
+    notes: 'TECH-02 + PLENO-01 (ROADMAP Phase 2)',
     objectives: [
-      { text: 'Concluir curso preparatório oficial (Adrian Cantrill ou Stephane Maarek)', completed: false },
-      { text: 'Realizar 3 simulados com pontuação superior a 80%', completed: false },
-      { text: 'Aprofundamento em Networking Avançado (Direct Connect, Transit Gateway)', completed: false },
-      { text: 'Estudo de estratégias de migração e arquiteturas multi-account', completed: false },
-      { text: 'Aprovação no exame de certificação AWS SA Pro', completed: false }
+      { text: 'Implementar governança em 2 pipelines/projetos core', completed: false },
+      { text: 'Gerar relatórios de conformidade automatizados', completed: false },
+      { text: 'Validar cadeia de suprimentos com .safetensors', completed: false },
+      { text: 'Estruturar arquitetura segura cobrindo OWASP Top 10 LLM', completed: false }
     ],
-    relatedSkills: ['aws', 'api-architecture', 'ecs', 'terraform', 'vpc'],
-    relatedResources: ['cert-cloud'],
+    relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
+    relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'course-bedrock-guardrails', 'tool-mlflow-provenance'],
+    phase: 2,
   },
   {
-    id: 'ai-engineering',
-    title: 'Engenharia de IA Generativa',
-    displayName: 'AI Engineering Specialist',
-    description: 'Especialização em arquiteturas de agentes e MAS',
-    status: 'not-started',
+    id: 'pleno-to-senior-prep',
+    title: 'Preparação Promoção Sênior',
+    displayName: 'Evidências para Promoção Sênior',
+    description: 'Consolidar KPIs e evidências tangíveis para promoção Pleno→Sênior',
+    status: 'planned',
     progress: 0,
-    deadline: '2027-06-30',
-    notes: 'Foco em LangGraph, RAG avançado e orquestração de MAS.',
+    deadline: '2027-05-31',
+    startPosition: 12.5,
+    endPosition: 25,
+    notes: 'Target: mai/2027',
     objectives: [
-      { text: 'Desenvolver recursos agênticos (skills) para auxiliar no processo', completed: false },
-      { text: 'Implementação de técnicas avançadas de RAG e otimização de prompts', completed: false }
+      { text: 'Registro estruturado de KPIs (entregas + comportamentos)', completed: false },
+      { text: 'Feedback formal de liderança sobre autonomia técnica', completed: false },
+      { text: 'Apresentação de evidências em 1:1 com Aline', completed: false },
+      { text: 'Alinhamento com critérios de Sênior do Itaú', completed: false }
     ],
-    relatedSkills: ['langgraph', 'rag', 'mas', 'agent-design', 'mcp-tools'],
-    relatedResources: ['llm-course'],
-  },
-  {
-    id: 'mlops-governance',
-    title: 'MLOps e Governança',
-    displayName: 'MLOps & AI Governance',
-    description: 'Implementar esteiras de MLOps e governança de modelos',
-    status: 'not-started',
-    progress: 0,
-    deadline: '2027-06-30',
-    notes: 'Uso de Bedrock Guardrails e monitoramento de modelos.',
-    objectives: [
-      { text: 'Implementação de 1+ pipeline MLOps completo com monitoramento', completed: false },
-      { text: 'Redução de 20%+ no tempo de deploy de modelos', completed: false },
-      { text: 'Definição de padrões de governança de dados em projetos de ML', completed: false }
-    ],
-    relatedSkills: ['mlops', 'bedrock-guardrails', 'aws-bedrock', 'datadog'],
+    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'technical-docs'],
     relatedResources: [],
+    phase: 2,
+  },
+
+  // ==========================================
+  // FASE 3: SÊNIOR ANO 1 (2028-2029)
+  // ==========================================
+  {
+    id: 'corporate-architecture-design',
+    title: 'Arquitetura Corporativa de Validação',
+    displayName: 'Corporate AI Validation Architecture',
+    description: 'Projetar arquitetura corporativa para validação de custos/segurança de IA',
+    status: 'planned',
+    progress: 0,
+    deadline: '2028-12-31',
+    startPosition: 25,
+    endPosition: 37.5,
+    notes: 'SENIOR-01 (ROADMAP Phase 3)',
+    objectives: [
+      { text: 'Projetar arquitetura corporativa aprovada pela liderança', completed: false },
+      { text: 'Colocar arquitetura em produção com métricas de adoção', completed: false },
+      { text: 'Documentar impacto mensurável em projetos', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2029', completed: false }
+    ],
+    relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
+    relatedResources: ['books-arch-peaa', 'books-ana-ddia'],
+    phase: 3,
   },
   {
-    id: 'arch-system-design',
-    title: 'System Design & Architecture',
-    displayName: 'System Design & Arch',
-    description: 'Aprofundar em design de sistemas distribuídos e arquitetura de dados',
-    status: 'not-started',
+    id: 'tech-leadership-critical',
+    title: 'Liderança Técnica em Projeto Crítico',
+    displayName: 'Tech Lead - Critical Project',
+    description: 'Liderar tecnicamente 1 projeto crítico end-to-end com mentoria',
+    status: 'planned',
     progress: 0,
-    deadline: '2027-03-30',
-    notes: 'Foco em microfrontends e escalabilidade.',
+    deadline: '2029-06-30',
+    startPosition: 25,
+    endPosition: 37.5,
+    notes: 'SENIOR-02 parcial (ROADMAP Phase 3)',
     objectives: [
-      { text: '2 arquiteturas de soluções complexas documentadas e aprovadas', completed: false },
-      { text: 'Participação ativa em 5+ discussões de arquitetura de alto nível', completed: false },
-      { text: 'Feedback positivo de pares sobre a qualidade dos designs', completed: false }
+      { text: 'Liderança técnica de projeto crítico completo', completed: false },
+      { text: 'Mentorar 1 analista júnior/pleno durante execução', completed: false },
+      { text: 'Impacto técnico mensurável transcendendo a squad', completed: false },
+      { text: 'Feedback positivo de liderança sobre mentoria', completed: false }
     ],
-    relatedSkills: ['microfrontends', 'api-architecture', 'data-modeling', 'kafka'],
-    relatedResources: ['books-ana-ddia', 'books-arch-peaa'],
+    relatedSkills: ['leadership', 'mentoring', 'stakeholder-management', 'technical-docs'],
+    relatedResources: [],
+    phase: 3,
   },
+
+  // ==========================================
+  // FASE 4: SÊNIOR ANO 2 (2029-2030)
+  // ==========================================
+  {
+    id: 'cloud-security-certification',
+    title: 'Certificação Cloud Security',
+    displayName: 'CCSP ou AWS Security Specialty',
+    description: 'Obter certificação de mercado em Cloud Security ou AI Security',
+    status: 'planned',
+    progress: 0,
+    deadline: '2030-06-30',
+    startPosition: 37.5,
+    endPosition: 50,
+    notes: 'SENIOR-02 completo + SENIOR-03 (ROADMAP Phase 4)',
+    objectives: [
+      { text: 'Concluir curso preparatório oficial', completed: false },
+      { text: 'Realizar simulados com 85%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame de certificação', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2030', completed: false }
+    ],
+    relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
+    relatedResources: ['cert-aws-security-specialty'],
+    phase: 4,
+  },
+  {
+    id: 'architectural-influence',
+    title: 'Influência Arquitetural Multi-Squad',
+    displayName: 'Cross-Squad Architecture Influence',
+    description: 'Influenciar decisões arquiteturais em múltiplas squads',
+    status: 'planned',
+    progress: 0,
+    deadline: '2030-12-31',
+    startPosition: 37.5,
+    endPosition: 50,
+    notes: 'SENIOR-03 (ROADMAP Phase 4)',
+    objectives: [
+      { text: 'Participar de 10+ discussões arquiteturais inter-squads', completed: false },
+      { text: 'Propor 3+ padrões adotados por outras squads', completed: false },
+      { text: 'Evidências de liderança técnica reconhecida em avaliações', completed: false },
+      { text: 'Consolidar padrão de mentoria e ownership', completed: false }
+    ],
+    relatedSkills: ['influence', 'leadership', 'api-architecture', 'stakeholder-management'],
+    relatedResources: [],
+    phase: 4,
+  },
+
+  // ==========================================
+  // FASE 5: TRANSIÇÃO SÊNIOR→SPECIALIST (2030-2031)
+  // ==========================================
+  {
+    id: 'red-teaming-framework',
+    title: 'Red Teaming AI Framework',
+    displayName: 'Adversarial ML & Red Teaming',
+    description: 'Desenvolver framework de Red Teaming em IA (Adversarial ML, evasão, extração)',
+    status: 'planned',
+    progress: 0,
+    deadline: '2031-06-30',
+    startPosition: 50,
+    endPosition: 62.5,
+    notes: 'SPEC-01 (ROADMAP Phase 5)',
+    objectives: [
+      { text: 'Projetar framework tático de Red Teaming adaptado ao Itaú', completed: false },
+      { text: 'Testar e mitigar métodos de Evasão/Inversão em modelos', completed: false },
+      { text: 'Documentar playbook com casos reais do banco', completed: false },
+      { text: 'Aprovação da liderança executiva para implementação', completed: false }
+    ],
+    relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
+    relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
+    phase: 5,
+  },
+  {
+    id: 'specialist-promotion-prep',
+    title: 'Preparação Promoção Specialist',
+    displayName: 'Evidências para Specialist',
+    description: 'Consolidar evidências de impacto organizacional e expertise avançada',
+    status: 'planned',
+    progress: 0,
+    deadline: '2031-05-31',
+    startPosition: 50,
+    endPosition: 62.5,
+    notes: 'Target: promoção Sênior→Specialist 2030-2031',
+    objectives: [
+      { text: 'Framework Red Teaming reconhecido como padrão corporativo', completed: false },
+      { text: 'Evidências de impacto organizacional amplo', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2031', completed: false },
+      { text: 'Alinhamento com critérios de Specialist do Itaú', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'influence', 'leadership', 'technical-docs'],
+    relatedResources: [],
+    phase: 5,
+  },
+
+  // ==========================================
+  // FASE 6: SPECIALIST ANO 1 (2031-2032)
+  // ==========================================
+  {
+    id: 'nist-ai-rmf-implementation',
+    title: 'NIST AI RMF Corporate Implementation',
+    displayName: 'NIST AI RMF Framework',
+    description: 'Liderar adequação arquitetural baseada no NIST AI RMF',
+    status: 'planned',
+    progress: 0,
+    deadline: '2032-06-30',
+    startPosition: 62.5,
+    endPosition: 75,
+    notes: 'SPEC-02 (ROADMAP Phase 6)',
+    objectives: [
+      { text: 'Liderar adequação arquitetural corporativa NIST AI RMF', completed: false },
+      { text: 'Transformar framework em padrão oficial do Itaú', completed: false },
+      { text: 'Ditar diretrizes arquiteturais estratégicas', completed: false },
+      { text: 'Impacto reconhecido pela diretoria de Cyber Security', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
+    relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
+    phase: 6,
+  },
+  {
+    id: 'advanced-governance',
+    title: 'Governança Técnica Avançada',
+    displayName: 'Advanced AI Security Governance',
+    description: 'Consolidar governança técnica avançada como padrão corporativo',
+    status: 'planned',
+    progress: 0,
+    deadline: '2032-12-31',
+    startPosition: 62.5,
+    endPosition: 75,
+    notes: 'SPEC-02 (ROADMAP Phase 6)',
+    objectives: [
+      { text: 'Padrões de governança adotados em 5+ squads', completed: false },
+      { text: 'Métricas de impacto documentadas', completed: false },
+      { text: 'Reconhecimento no PRAD/Mérito 2032', completed: false },
+      { text: 'Apresentação para diretoria executiva', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'influence', 'leadership', 'presentation'],
+    relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
+    phase: 6,
+  },
+
+  // ==========================================
+  // FASE 7: SPECIALIST ANO 2 (2032-2033)
+  // ==========================================
+  {
+    id: 'executive-presence',
+    title: 'Impacto Executivo e Reconhecimento',
+    displayName: 'Executive Impact & Recognition',
+    description: 'Consolidar reconhecimento como referência técnica através de impacto executivo',
+    status: 'planned',
+    progress: 0,
+    deadline: '2033-06-30',
+    startPosition: 75,
+    endPosition: 87.5,
+    notes: 'SPEC-03 (ROADMAP Phase 7)',
+    objectives: [
+      { text: 'Realizar 3+ apresentações executivas/técnicas', completed: false },
+      { text: 'Demonstrar resiliência das políticas com métricas', completed: false },
+      { text: 'Consolidar reconhecimento interno como referência AI Security', completed: false },
+      { text: 'Estabelecer presença externa (palestras, artigos)', completed: false }
+    ],
+    relatedSkills: ['presentation', 'influence', 'strategic-vision', 'storytelling'],
+    relatedResources: [],
+    phase: 7,
+  },
+  {
+    id: 'specialist-consolidation',
+    title: 'Consolidação como Specialist',
+    displayName: 'AI Security Specialist - Consolidation',
+    description: 'Consolidar posição como AI Security Specialist no Itaú e no mercado',
+    status: 'planned',
+    progress: 0,
+    deadline: '2033-12-31',
+    startPosition: 75,
+    endPosition: 100,
+    notes: 'SPEC-03 (ROADMAP Phase 7)',
+    objectives: [
+      { text: 'Impacto executivo consolidado', completed: false },
+      { text: 'Reconhecimento externo estabelecido', completed: false },
+      { text: 'PRAD/Mérito 2033: consolidação final', completed: false },
+      { text: 'Meta de 8 anos alcançada', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'presentation'],
+    relatedResources: [],
+    phase: 7,
+  },
+
 ];
 
 export const projects: Project[] = [
@@ -743,5 +1041,143 @@ export const resources: Resource[] = [
     image: '/assets/img/mentor-henrique.png',
     relatedSkills: ['sql', 'python', 'data-modeling', 'aws-glue', 'terraform', 'leadership', 'critical-thinking', 'collaboration'],
     relatedMilestones: [],
+  },
+
+  // ==========================================
+  // REFERÊNCIAS SECMLOPS / AI SECURITY
+  // ==========================================
+
+  // Livros - AI Security
+  {
+    id: 'books-sec-practical-llm-security',
+    name: 'Not With A Bug, But With A Sticker',
+    description: 'Ram Shankar Siva Kumar & Hyrum Anderson - Ataques adversariais em ML e defesas práticas',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Livros de AI Security',
+    subCategory: 'AI Security',
+    image: '',
+    relatedSkills: ['security', 'mlops', 'critical-thinking'],
+    relatedMilestones: ['ai-defense-foundations', 'red-teaming-framework'],
+  },
+  {
+    id: 'books-sec-ai-risk',
+    name: 'AI Risk Management',
+    description: 'NIST AI 100-1 companion guide - Gerenciamento de riscos em sistemas de IA',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Livros de AI Security',
+    subCategory: 'AI Governance',
+    image: '',
+    relatedSkills: ['security', 'strategic-vision'],
+    relatedMilestones: ['nist-ai-rmf-implementation', 'advanced-governance'],
+  },
+
+  // Frameworks & Standards
+  {
+    id: 'ref-owasp-llm-top10',
+    name: 'OWASP Top 10 for LLMs',
+    description: 'Top 10 vulnerabilidades em aplicações LLM - guia de referência para mitigações',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Frameworks',
+    relatedSkills: ['security', 'llm', 'bedrock-guardrails'],
+    relatedMilestones: ['ai-defense-foundations', 'governance-ai-pipelines'],
+  },
+  {
+    id: 'ref-mitre-atlas',
+    name: 'MITRE ATLAS Framework',
+    description: 'Adversarial Threat Landscape for AI Systems - taxonomia de ataques contra ML',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Frameworks',
+    relatedSkills: ['security', 'mlops', 'critical-thinking'],
+    relatedMilestones: ['ai-defense-foundations', 'red-teaming-framework'],
+  },
+  {
+    id: 'ref-nist-ai-rmf',
+    name: 'NIST AI Risk Management Framework',
+    description: 'AI 100-1 - Framework oficial de gestão de riscos de IA do NIST',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Frameworks',
+    relatedSkills: ['security', 'strategic-vision', 'stakeholder-management'],
+    relatedMilestones: ['nist-ai-rmf-implementation', 'advanced-governance'],
+  },
+
+  // Certificações - AI Security
+  {
+    id: 'cert-aws-security-specialty',
+    name: 'AWS Security Specialty',
+    description: 'Certificação avançada em segurança AWS para workloads de produção',
+    status: 'not-started',
+    parentCategory: 'Certificação',
+    category: 'AWS',
+    subCategory: 'Segurança',
+    image: '/assets/img/aws.png',
+    relatedSkills: ['security', 'iam', 'vpc', 'aws'],
+    relatedMilestones: ['cloud-security-certification'],
+  },
+
+  // Cursos - AI Security
+  {
+    id: 'course-adversarial-ml',
+    name: 'Adversarial Machine Learning',
+    description: 'Técnicas de evasão, inversão e extração de modelos ML',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Red Teaming',
+    relatedSkills: ['security', 'mlops', 'critical-thinking'],
+    relatedMilestones: ['red-teaming-framework'],
+  },
+  {
+    id: 'course-mlops-security',
+    name: 'Secure MLOps Pipeline Design',
+    description: 'Design de pipelines MLOps seguros: supply chain, model signing, runtime guardrails',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'MLOps Security',
+    relatedSkills: ['mlops', 'security', 'bedrock-guardrails'],
+    relatedMilestones: ['model-supply-chain', 'governance-ai-pipelines'],
+  },
+  {
+    id: 'course-bedrock-guardrails',
+    name: 'AWS Bedrock Guardrails Workshop',
+    description: 'Workshop prático de configuração de guardrails para LLMs com AWS Bedrock',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Runtime Guardrails',
+    relatedSkills: ['bedrock-guardrails', 'aws-bedrock', 'llm'],
+    relatedMilestones: ['ai-defense-foundations', 'governance-ai-pipelines'],
+  },
+
+  // Ferramentas
+  {
+    id: 'tool-safetensors',
+    name: '.safetensors & Model Signing',
+    description: 'Validação de integridade de modelos ML com formato seguro e assinatura criptográfica',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Supply Chain',
+    relatedSkills: ['mlops', 'security', 'python'],
+    relatedMilestones: ['model-supply-chain'],
+  },
+  {
+    id: 'tool-mlflow-provenance',
+    name: 'MLflow Model Registry & Provenance',
+    description: 'Rastreamento de proveniência de modelos: autor, dataset, HPO, métricas',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'AI Security',
+    subCategory: 'Supply Chain',
+    relatedSkills: ['mlops', 'data-observability'],
+    relatedMilestones: ['model-supply-chain', 'governance-ai-pipelines'],
   },
 ];

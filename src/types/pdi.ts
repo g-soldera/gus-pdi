@@ -1,6 +1,6 @@
 export type SkillLevel = 1 | 2 | 3 | 4 | 5;
 
-export type Status = 'completed' | 'in-progress' | 'not-started' | 'deprioritized';
+export type Status = 'completed' | 'in-progress' | 'not-started' | 'deprioritized' | 'planned';
 
 export interface Skill {
   id: string;
@@ -28,8 +28,11 @@ export interface Milestone {
   notes?: string;
   relatedSkills: string[];
   relatedResources: string[];
-  archived?: boolean;
+  archived?: boolean; // Milestones com progresso < 50% podem ser marcados como despriorizados
   objectives?: MilestoneObjective[];
+  startPosition?: number; // Posição de início na timeline em %
+  endPosition?: number; // Posição de fim na timeline em %
+  phase?: number | 'secmlops'; // Fase do roadmap associada
 }
 
 export interface Project {
@@ -59,6 +62,16 @@ export interface Resource {
   isSpecialization?: boolean;
   relatedSkills: string[];
   relatedMilestones: string[];
+}
+
+export interface StudyTopic {
+  id: string;
+  category: string;
+  name: string;
+  description: string;
+  progress: number;
+  resources: string[]; // IDs de Resource
+  relatedMilestones: string[]; // IDs de Milestone
 }
 
 export interface PersonalInfo {

@@ -114,8 +114,34 @@ export function Hero({ info }: HeroProps) {
               </div>
 
               <div className="pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira</p>
-                <CareerTimeline info={info} />
+                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira (Histórico)</p>
+                <div className="space-y-3">
+                  {/* Timeline Visual */}
+                  <div className="relative">
+                    <div className="flex items-center justify-between text-xs mb-2">
+                      <span className="text-muted-foreground">Freelancer</span>
+                      <span className="text-muted-foreground">Estágio</span>
+                      <span className="font-bold text-primary">Júnior (Atual)</span>
+                      <span className="text-muted-foreground">Pleno</span>
+                      <span className="text-muted-foreground">Sênior</span>
+                      <span className="text-muted-foreground">Specialist</span>
+                    </div>
+                    <div className="h-3 w-full bg-border rounded-full flex overflow-hidden relative">
+                      {/* Freelancer */}
+                      <div className="h-full w-[16.6%] bg-muted" title="Freelancer"></div>
+                      {/* Estágio */}
+                      <div className="h-full w-[16.6%] bg-muted-foreground/60" title="Estágio"></div>
+                      {/* Júnior - ATUAL */}
+                      <div className="h-full w-[16.8%] bg-primary border-l-2 border-dashed border-white animate-pulse" title="Júnior"></div>
+                      {/* Pleno */}
+                      <div className="h-full w-[16.6%] bg-primary/40" title="Pleno"></div>
+                      {/* Sênior */}
+                      <div className="h-full w-[16.6%] bg-accent/50" title="Sênior"></div>
+                      {/* Specialist */}
+                      <div className="h-full w-[16.6%] bg-accent" title="Specialist"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
