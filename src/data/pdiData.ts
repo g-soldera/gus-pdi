@@ -487,29 +487,6 @@ export const milestones: Milestone[] = [
     phase: 'L3',
   },
   {
-    id: 'ai-fomentation',
-    title: 'Fomento ao Consumo de IA',
-    displayName: 'Multiplicador de IA e Automação',
-    description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
-    status: 'in-progress',
-    progress: 45,
-    deadline: '2026-12-31',
-    notes: 'KPI L3: Colaboração técnica e impacto cross-squad',
-    objectives: [
-      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: true, completionJustification: 'Repositório cyber-prompts-and-skills alcançou 10+ estrelas com skills de democratização de dados, documentação e design.' },
-      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: true, completionJustification: 'Hugo e Thalita colaboraram ativamente no repositório, em processo de reestruturação com a chegada do ORKA.' },
-      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
-      { 
-        text: 'Criar e documentar 5 novos patterns de prompt para uso do time', 
-        completed: true,
-        completionJustification: 'Criei skills voltadas à democratização de dados em fluxo ponta a ponta, contendo 13 skills. Além disso, apoiei na criação de um módulo de 18 skills de documentação e outro com 15 de design.'
-      }
-    ],
-    relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
-    relatedResources: ['llm-course'],
-    phase: 'L2',
-  },
-  {
     id: 'pdi-structure-2026',
     title: 'Estruturação do PDI por Níveis',
     displayName: 'PDI L1-L7: Career Ladder',
