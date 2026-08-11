@@ -507,7 +507,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
-    phase: 'L3',
+    phase: 'L2',
   },
   {
     id: 'pdi-structure-2026',
@@ -526,7 +526,7 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
     relatedResources: [],
-    phase: 'L3',
+    phase: 'L2',
   },
   {
     id: 'cert-oscp',
