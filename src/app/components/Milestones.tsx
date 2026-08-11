@@ -10,14 +10,13 @@ import { calculateDaysRemaining, formatDate } from '@/app/utils/helpers';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/ui/tooltip';
 
 const PHASE_LABELS: Record<string, string> = {
-  '1': 'Pleno Ano 1',
-  '2': 'Pleno Ano 2',
-  '3': 'Sênior Ano 1',
-  '4': 'Sênior Ano 2',
-  '5': 'Sênior → Specialist',
-  '6': 'Specialist Ano 1',
-  '7': 'Specialist Ano 2',
-  'secmlops': 'Trilha SecMLOps',
+  'L1': 'L1 (Intern)',
+  'L2': 'L2 (Entry)',
+  'L3': 'L3 (Mid)',
+  'L4': 'L4 (Senior)',
+  'L5': 'L5 (Staff)',
+  'L6': 'L6 (Principal)',
+  'L7': 'L7 (Distinguished)',
 };
 
 interface MilestonesProps {
@@ -29,7 +28,7 @@ interface MilestonesProps {
 export function Milestones({ milestones, studyPath, onMilestoneClick }: MilestonesProps) {
   const [view, setView] = useState<'timeline' | 'cards'>('timeline');
   const [showArchivedModal, setShowArchivedModal] = useState(false);
-  const [selectedPhase, setSelectedPhase] = useState<number | 'secmlops'>(1);
+  const [selectedPhase, setSelectedPhase] = useState<string>('L2');
 
   const filteredMilestones = milestones.filter(m => !m.archived && m.phase === selectedPhase);
   const sortedMilestones = [...filteredMilestones].sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
@@ -40,44 +39,53 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl mb-3 font-black tracking-tight">Marcos de Desenvolvimento</h2>
           <div className="flex justify-center gap-2 mt-4 flex-wrap">
-            {([1, 2, 3, 4, 5, 6, 7, 'secmlops'] as const).map((p) => (
-              <button
-                key={p}
-                onClick={() => setSelectedPhase(p)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  selectedPhase === p ? 'bg-primary text-primary-foreground' : 'bg-card border border-border hover:border-primary text-muted-foreground'
-                }`}
-              >
-                {PHASE_LABELS[String(p)]}
-              </button>
-            ))}
+            {(['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7'] as const).map((p) => {
+              const isCompleted = p === 'L1';
+              return (
+                <button
+                  key={p}
+                  onClick={() => setSelectedPhase(p)}
+                  disabled={isCompleted}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all relative ${
+                    isCompleted 
+                      ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-500 cursor-not-allowed' 
+                      : selectedPhase === p 
+                        ? 'bg-primary text-primary-foreground' 
+                        : 'bg-card border border-border hover:border-primary text-muted-foreground'
+                  }`}
+                >
+                  {isCompleted && (
+                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                  )}
+                  {PHASE_LABELS[p]}
+                </button>
+              );
+            })}
           </div>
-          {selectedPhase !== 'secmlops' && (
-            <p className="text-sm text-muted-foreground mt-3">Roadmap de Carreira: {PHASE_LABELS[String(selectedPhase)]}</p>
-          )}
+          <p className="text-sm text-muted-foreground mt-3">Roadmap de Carreira: {PHASE_LABELS[selectedPhase]}</p>
         </motion.div>
 
-        {selectedPhase === 'secmlops' ? (
-          <StudyPath studyPath={studyPath} />
-        ) : (
-          <TooltipProvider>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-              <div className="inline-flex bg-card border border-border rounded-xl p-1 shadow-sm">
-                <button onClick={() => setView('timeline')} className={`px-6 py-2 rounded-lg transition-all font-bold ${view === 'timeline' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>Timeline</button>
-                <button onClick={() => setView('cards')} className={`px-6 py-2 rounded-lg transition-all font-bold ${view === 'cards' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>Cards</button>
-              </div>
+        <TooltipProvider>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+            <div className="inline-flex bg-card border border-border rounded-xl p-1 shadow-sm">
+              <button onClick={() => setView('timeline')} className={`px-6 py-2 rounded-lg transition-all font-bold ${view === 'timeline' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>Timeline</button>
+              <button onClick={() => setView('cards')} className={`px-6 py-2 rounded-lg transition-all font-bold ${view === 'cards' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>Cards</button>
             </div>
-            {view === 'timeline' ? (
-              <div className="relative">
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
-                <div className="space-y-8">{sortedMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{sortedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
-            )}
-            {sortedMilestones.length === 0 && <p className="text-center py-12 text-muted-foreground">Nenhum marco nesta fase.</p>}
-          </TooltipProvider>
-        )}
+          </div>
+          {view === 'timeline' ? (
+            <div className="relative">
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+              <div className="space-y-8">{sortedMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{sortedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
+          )}
+          {sortedMilestones.length === 0 && <p className="text-center py-12 text-muted-foreground">Nenhum marco nesta fase.</p>}
+        </TooltipProvider>
       </div>
     </section>
   );

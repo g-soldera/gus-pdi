@@ -37,16 +37,49 @@ Construir senioridade técnica real e mensurável através de:
 - [ ] **L5-L6**: Liderar arquitetura corporativa e transformação organizacional
 - [ ] **L6-L7**: Consolidar reconhecimento como referência técnica global
 
-### Out of Scope
+## KPIs por Nível
 
-- Transição para AppSec clássico (WAF, Web Hacking puro, SQLi) — foco deve se manter na interseção de Engenharia de Dados/ML e IA Security.
-- Título rápido sem senioridade prática real.
+### L1 (Estagiário)
+- 5+ tarefas com supervisão próxima
+- 80%+ PRs sem bloqueios críticos
+- 3+ code reviews como observador
 
-## Context
+### L2 (Júnior)
+- 10+ features/bugfixes autônomos
+- Taxa de retrabalho < 20%
+- 5+ discussões técnicas com propostas
 
-- Gustavo trabalha na área de Cyber Security do Itaú Unibanco, focando em governança e custos de IA.
-- Aline (gerente) atua como mentora principal, trazendo background substancial de Specialist 2 em Engenharia de Dados.
-- A trilha deve conectar as necessidades práticas do banco (custos, segurança, governança) com a evolução técnica profunda de segurança ofensiva e defensiva em IA.
+### L3 (Pleno) **[ATUAL]**
+- 3+ projetos medium (>1 mês cada)
+- Design técnico aprovado em 2+ features complexas
+- Redução -15%+ em débito técnico
+- 1+ apresentação (20+ pessoas)
+- 2+ juniores mentorados
+
+### L4 (Sênior)
+- 2+ sistemas complexos em produção
+- Impacto: -30%+ custo OU +40%+ performance
+- Liderança de 3+ projetos críticos
+- 3+ plenos promovidos
+- Influência cross-squad (5+ decisões)
+
+### L5 (Specialist 1)
+- Framework corporativo (5+ squads)
+- Impacto: -40%+ tempo de entrega
+- Domínio estratégico (AI Security)
+- 3+ palestras nacionais OU open source (500+ stars)
+
+### L6 (Specialist 2)
+- Arquitetura corporativa oficial
+- Apresentação para C-level
+- Framework em 10+ squads
+- 100+ membros em comunidade
+
+### L7 (Specialist 3)
+- Impacto transformador
+- Patente OU framework adotado
+- Keynote Tier-1 (Black Hat, DEF CON)
+- Influência em padrões de mercado
 
 ## Constraints
 
@@ -59,21 +92,24 @@ Construir senioridade técnica real e mensurável através de:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Abordagem Baseada em Dados | Alavancar o background de dados/MLOps em vez de pivotar para segurança tradicional de rede/web. | ✓ Good |
-| Mapeamento com MITRE ATLAS | Usar framework de mercado padrão para modelagem de ameaças no banco. | ✓ Good |
-| Níveis L1-L7 (FAANG-style) | Alinhar com mercado global, linearidade clara, KPIs objetivos | ✓ Good |
-| Certificações mapeadas por nível | Garantir que cada certificação valide competências do nível | ✓ Good |
-| Progressão baseada em KPIs | Não basear em tempo de cadeira, mas em entrega real | ✓ Good |
+| Níveis L1-L7 (FAANG-style) | Alinhar com mercado global, linearidade clara, KPIs objetivos | ✓ Adequado para seniorização mensurável |
+| Certificações mapeadas por nível | Garantir que cada certificação valide competências do nível | ✓ Trilha clara (CRTP→OSCP→CAISP→CISSP→AAISM) |
+| Progressão baseada em KPIs | Não basear em tempo de cadeira, mas em entrega real | ✓ Promoções justas e meritocráticas |
+| Portfólio documentado | Evidências tangíveis para promoções | ✓ Auditável e transparente |
 
 ## Evolution
 
-This document evolves at level transitions and milestone boundaries.
+This document evolves at phase transitions and milestone boundaries.
 
-**After each level transition:**
+**After each level promotion** (via `/gsd-level-promotion`):
 1. KPIs do nível atual atingidos? → Move to Validated with evidence
 2. Novos KPIs do próximo nível demonstrados? → Atualizar em "Active"
 3. Novas certificações mapeadas? → Add to roadmap
-4. "What This Is" still accurate? → Update if drifted
+4. Impacto organizacional mensurável? → Documentar em "Active"
 
 ---
-*Last updated: 2026-08-10 after Level-based PDI restructure*
+
+**Last updated:** 2026-08-10  
+**Current Level:** L2 (Júnior)  
+**Target Level:** L3 (Pleno)  
+**Next Review:** 2026-11-10 (3 meses)

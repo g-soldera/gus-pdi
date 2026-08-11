@@ -49,6 +49,55 @@
 - [ ] **L6-L7-STANDARDS**: Influência em padrões de mercado: autor RFC, NIST guidance, OWASP project lead
 - [ ] **L6-L7-CERT**: Obter ISACA AAISM
 
+---
+
+## Trilha de Certificações por Nível
+
+### L1-L2 (Fundação)
+- [x] **AWS Cloud Practitioner** — obtida em Dez/2024 ✓
+- [x] **CompTIA Security+** — obtida em Abr/2026 ✓
+- [x] **Certificação interna Analytics Engineer** — obtida em Set/2025 ✓
+- [x] **Certificação interna API Owner** — obtida em Dez/2025 ✓
+
+### L3 (Pleno)
+- [ ] **CRTP** — Certified Red Team Professional
+- [ ] **AWS Solutions Architect Associate**
+
+### L4 (Sênior)
+- [ ] **OSCP** — PEN-200 (OffSec)
+- [ ] **iSAQB CPSA-F** — Foundation Level
+- [ ] **AWS Solutions Architect Professional**
+
+### L5 (Specialist 1)
+- [ ] **CAISP** — Certified AI Security Professional
+- [ ] **CMCPSE** — Certified MCP Security Expert (opcional)
+- [ ] **CISSP** (ISC2)
+
+### L6 (Specialist 2)
+- [ ] **ISO/IEC 42001 Lead Implementer**
+- [ ] **iSAQB CPSA-A** — Advanced Level
+- [ ] **GIAC GOAA / GASAE** (SANS)
+
+### L7 (Specialist 3)
+- [ ] **ISACA AAISM** — Advanced in AI Security Management
+
+---
+
+## Critérios de Promoção
+
+1. **Tempo mínimo cumprido** (pré-requisito, não garantia)
+2. **100% dos KPIs do nível atual atingidos** com evidências documentadas
+3. **50%+ dos KPIs do próximo nível demonstrados** em situações reais
+4. **Feedback 360° positivo** de pares, liderança e mentorados
+5. **Alinhamento com liderança** em 1:1 sobre prontidão
+
+**Validação:**
+- Revisão trimestral de KPIs com gestor
+- Portfólio de evidências (projetos, métricas, artefatos)
+- Banca técnica (a partir de L4) com Staff+ engineers
+
+---
+
 ## Out of Scope (Mantido)
 
 | Feature | Reason |
@@ -58,6 +107,16 @@
 
 ---
 
-**Defined:** 2026-08-10  
-**Last updated:** 2026-08-10  
-**Status:** L2 (Júnior) → L3 (Pleno) em progresso
+## Benefícios do Novo Modelo
+
+✅ **Mensurável:** KPIs objetivos por nível  
+✅ **Agnóstico a tempo:** Progressão baseada em entrega, não calendário  
+✅ **Certificações integradas:** Cada nível tem certs mapeadas  
+✅ **Linearidade clara:** Cada nível é pré-requisito conceitual do próximo  
+✅ **Alinhado ao mercado:** Modelo L1-L7 reconhecido globalmente  
+✅ **Evidências reais:** Portfólio documentado de entregas e impacto  
+
+---
+
+**Última atualização:** 2026-08-10  
+**Status atual:** L2 (Júnior) → L3 (Pleno) em progresso

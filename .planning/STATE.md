@@ -1,43 +1,42 @@
 ---
-milestone: "v2.0"
-milestone_name: "PDI Estruturado — Pleno → AI Security Specialist"
+milestone: "v3.0"
+milestone_name: "PDI Baseado em Níveis (L1-L7)"
 status: planning
 ---
-gsd_state_version: 1.0
-milestone: v2.0
-milestone_name: milestone
-current_phase: 01
-current_phase_name: pleno-ano-1-2026-2027
-status: planning
-stopped_at: Phase 1 planning complete
-last_updated: "2026-08-01T19:08:48.264Z"
-last_activity: 2026-08-01
-last_activity_desc: Phase 01 planning complete - career management focus
+gsd_state_version: 2.0
+milestone: v3.0
+milestone_name: pdi-levels
+current_phase: 02
+current_phase_name: L2-to-L3-pleno
+status: execution
+last_updated: "2026-08-10T12:00:00.000Z"
+last_activity: 2026-08-10
+last_activity_desc: Migração para o modelo L1-L7 (FAANG-style) com KPIs
 progress:
   total_phases: 7
-  completed_phases: 0
-  total_plans: 2
+  completed_phases: 2
+  total_plans: 0
   completed_plans: 0
-  percent: 0
+  percent: 28
 ---
 # Project State
 
 ## Project Reference
-**Core Value:** Construir senioridade técnica real e mensurável através da translação de governança de IA em arquitetura de defesa e SecMLOps prático, tornando a evolução de carreira previsível, auditável e alinhada com as expectativas de liderança técnica no Itaú.
+**Core Value:** Construir senioridade técnica real e mensurável através de um framework de níveis (L1-L7) com KPIs objetivos, progressão baseada em entrega, e trilha certificada de AI Security.
 
 ## Current Position
 
-Phase: 01 (pleno-ano-1-2026-2027) — PLANNING
-Plan: 1 of 2
-Status: Phase planning complete
-Last activity: 2026-08-01 — Phase 01 planning complete (career management focus)
+Phase: 02 (L2-to-L3-pleno) — EXECUTION
+Status: In progress
+Last activity: 2026-08-10 — Migração para framework L1-L7 e integração de certificações.
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██████░░░░░░░░░░░░░░] 28% (L1, L2 concluídos/em andamento)
 
 ## Accumulated Context
-- Foco em alavancar conhecimento de governança e rastreabilidade para impor 'security gates' nos pipelines de CI/CD.
-- Abordagem shift-left: ModelScan/Giskard.
-- Abordagem shields-right: NeMo Guardrails/Llama Guard.
+- Modelo antigo baseado em "anos" descartado. Adotado modelo de Engineering Ladder (L1-L7).
+- KPIs quantificáveis criados para cada nível (entrega, impacto, arquitetura, liderança).
+- Trilha de certificações AI Security (CRTP, OSCP, CAISP, CISSP, ISO 42001, AAISM) mapeada nos níveis L3 a L7.
+- Dados TypeScript refatorados para dar suporte a este modelo.
 
 ## Session Continuity
-Fase 1 (Base em SecMLOps) completa em 2025-07-31. CI/CD workflow com ModelScan criado, threat model MITRE ATLAS documentado, rastreabilidade de artefatos definida. Próximo: Fase 2 (Arquitetura de Defesa).
+Fase de migração do planejamento concluída. Os arquivos TypeScript estão com a nova estrutura, PROJECT.md, REQUIREMENTS.md e ROADMAP.md foram atualizados. Próximo passo: atualizar os componentes React (`Hero`, `Milestones`) para refletir visualmente o modelo de níveis (L1-L7) em vez da timeline antiga.

@@ -6,14 +6,16 @@ export const personalInfo: PersonalInfo = {
   startDate: '2025-05-05', // Efetivado como Júnior
   company: 'Itaú Unibanco',
   department: 'Cyber Security',
-  currentRole: 'Engenheiro de Analytics JR',
-  targetRole: 'Engenheiro de Analytics PL (a mapear gap)',
-  targetTimelineMonths: 12,
-  timelineTarget: 'A definir em 1:1', // Alterado para refletir a incógnita
+  currentRole: 'Engenheiro de Analytics PL',
+  targetRole: 'Engenheiro de Dados Sênior',
+  targetTimelineMonths: 18,
+  timelineTarget: '2026-06-07', // Início como Pleno
   seniorTargetDate: '2028-01-01', // Desejo estar como Sênior
   experienceStartDate: '2023-06-07', // Início como Estagiário
   bankStartDate: '2024-05-05', // Entro no Itaú
   profileImage: '/assets/img/profile.jpg',
+  currentLevel: 'L2',
+  targetLevel: 'L3',
 };
 
 export const skills: Skill[] = [
@@ -125,6 +127,14 @@ export const skills: Skill[] = [
   { id: 'aws-bedrock', name: 'AWS Bedrock', level: 4, description: 'Serviço gerenciado para modelos de IA generativa', category: 'IA Generativa', type: 'hard' },
   { id: 'bedrock-guardrails', name: 'Bedrock Guardrails', level: 4, description: 'Governança e segurança para modelos de IA', category: 'IA Generativa', type: 'hard' },
 
+  // AI Development Lifecycle (AI DLC)
+  { id: 'gsd-framework', name: 'GSD Framework', level: 5, description: 'Get Shit Done - Framework de desenvolvimento ágil assistido por IA com foco em execução', category: 'AI DLC', type: 'hard' },
+  { id: 'hermes-agent', name: 'Hermes Agent', level: 4, description: 'Agente autônomo para automação de workflows complexos e orquestração de tarefas', category: 'AI DLC', type: 'hard' },
+  { id: 'bmad-method', name: 'BMAD Method', level: 4, description: 'Build More, Architect Dreams - Metodologia de arquitetura e elicitação de requisitos complexos', category: 'AI DLC', type: 'hard' },
+  { id: 'spec-kit', name: 'Spec-Kit', level: 4, description: 'Kit de ferramentas para especificação técnica estruturada e documentação dirigida por IA', category: 'AI DLC', type: 'hard' },
+  { id: 'aws-aidlc', name: 'AWS AI DLC', level: 3, description: 'AWS AI Development Lifecycle - Práticas e ferramentas para ciclo de vida de IA na AWS', category: 'AI DLC', type: 'hard' },
+  { id: 'mcp-integration', name: 'MCP Integration', level: 3, description: 'Integração e consumo de Model Context Protocol servers para extensibilidade de agentes', category: 'AI DLC', type: 'hard' },
+
   // Prompt Patterns
   { id: 'prompt-pattern-persona', name: 'Pattern: Persona & Context', level: 5, description: 'Definição profunda de papel, tom de voz e contexto situacional para eliminar ambiguidades no output.', category: 'Prompt Patterns', type: 'hard' },
   { id: 'prompt-pattern-chain', name: 'Pattern: Chain of Thought (CoT)', level: 5, description: 'Indução de raciocínio sequencial e decomposição de problemas complexos em etapas lógicas antes da resposta final.', category: 'Prompt Patterns', type: 'hard' },
@@ -197,7 +207,7 @@ export const milestones: Milestone[] = [
   // ==========================================
 
   // ==========================================
-  // ARQUIVADOS (Milestones anteriores ao plano de 8 anos)
+  // ARQUIVADOS (Concluídos em L1 - Intern)
   // ==========================================
   {
     id: 'certification-pro',
@@ -210,7 +220,7 @@ export const milestones: Milestone[] = [
     notes: 'Aprovação em 11/09/2025 e aplicação nos fluxos do cyber.itau (arquitetura).',
     relatedSkills: ['aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python', 'openapi', 'api-design', 'api-contracts', 'api-architecture'],
     relatedResources: ['cert-analytics', 'cert-api-owner'],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -224,7 +234,7 @@ export const milestones: Milestone[] = [
     notes: 'Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.',
     relatedSkills: ['presentation', 'verbal-communication', 'nvc', 'storytelling', 'empathy'],
     relatedResources: ['books-comm-cnv'],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -238,7 +248,7 @@ export const milestones: Milestone[] = [
     notes: 'Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila.',
     relatedSkills: ['leadership', 'critical-thinking', 'collaboration', 'technical-docs'],
     relatedResources: ['mentoring'],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -252,7 +262,7 @@ export const milestones: Milestone[] = [
     notes: 'Concluí os três níveis da certificação API Owner, e apliquei padrões de contrato, versionamento e governança de APIs no planejamento do backend do Insight Guard.',
     relatedSkills: ['openapi', 'api-design', 'api-architecture', 'api-contracts'],
     relatedResources: ['cert-api-owner'],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -266,7 +276,7 @@ export const milestones: Milestone[] = [
     notes: 'Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos.',
     relatedSkills: ['cost-optimization', 'terraform', 'aws-glue', 's3'],
     relatedResources: [],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -279,7 +289,7 @@ export const milestones: Milestone[] = [
     deadline: '2026-04-30',
     relatedSkills: ['critical-thinking', 'technical-docs', 'security'],
     relatedResources: [],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -293,7 +303,7 @@ export const milestones: Milestone[] = [
     notes: 'Mentoria ativa para 2 estagiários em SQL e Python.',
     relatedSkills: ['mentoring', 'technical-docs', 'collaboration'],
     relatedResources: ['mentoring'],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
   {
@@ -307,76 +317,13 @@ export const milestones: Milestone[] = [
     notes: 'Certificação obtida em Dezembro/2024.',
     relatedSkills: ['aws', 's3', 'lambda'],
     relatedResources: ['cert-cloud-practitioner'],
-    phase: 1,
+    phase: 'L1',
     archived: true,
   },
 
   // ==========================================
-  // ATIVOS - FASE 1: PLENO ANO 1 (2026-2027)
+  // L2 (Entry / Júnior) — Autonomia + Entrega
   // ==========================================
-  {
-    id: 'pdi-structure-2026',
-    title: 'Estruturação do PDI 8 Anos',
-    displayName: 'PDI 2026-2033: Pleno → Specialist',
-    description: 'Estruturar o planejamento completo de 8 anos com milestones, referências e trilha de estudos SecMLOps',
-    status: 'in-progress',
-    progress: 15,
-    deadline: '2026-09-30',
-    startPosition: 0,
-    endPosition: 12.5,
-    notes: 'Base para acompanhamento estruturado da evolução de carreira',
-    objectives: [
-      { text: 'Definir todas as 7 fases do roadmap com objetivos claros', completed: false },
-      { text: 'Mapear 20+ referências de estudo em SecMLOps/AI Security', completed: false },
-      { text: 'Criar visualização interativa do PDI no React', completed: false },
-      { text: 'Validar com Aline em 1:1 os marcos e KPIs', completed: false }
-    ],
-    relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
-    relatedResources: [],
-    phase: 1,
-  },
-  {
-    id: 'ai-defense-foundations',
-    title: 'Fundamentos de AI Defense Architecture',
-    displayName: 'AI Defense & Runtime Guardrails',
-    description: 'Estabelecer conhecimento em arquitetura de defesa para IA: guardrails, prompt injection, OWASP LLM Top 10',
-    status: 'planned',
-    progress: 0,
-    deadline: '2027-03-31',
-    startPosition: 0,
-    endPosition: 12.5,
-    notes: 'Primeiro passo para TECH-DEFENSE (ROADMAP Phase 1)',
-    objectives: [
-      { text: 'Prototipar 1 guardrail funcional detectando >= 3 tipos de prompt injection (jailbreak, role confusion, context overflow)', completed: false },
-      { text: 'Documentar arquitetura de defesa mapeando 5+ vulnerabilidades OWASP LLM Top 10 para mitigações específicas', completed: false },
-      { text: 'Apresentar em 1:1 com Aline: demo técnica + documento de arquitetura revisado', completed: false },
-      { text: 'KPI: Guardrail bloqueia >= 80% dos ataques em dataset de teste adversarial', completed: false }
-    ],
-    relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering'],
-    relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
-    phase: 1,
-  },
-  {
-    id: 'model-supply-chain',
-    title: 'Model Supply Chain Security',
-    displayName: 'Supply Chain & Model Integrity',
-    description: 'Implementar validação de integridade de modelos e rastreamento de proveniência',
-    status: 'planned',
-    progress: 0,
-    deadline: '2027-05-31',
-    startPosition: 0,
-    endPosition: 12.5,
-    notes: 'Uso de .safetensors e MLflow para governança',
-    objectives: [
-      { text: 'Implementar validação de hash SHA256 em 2+ modelos .safetensors com verificação automática no CI/CD', completed: false },
-      { text: 'Configurar MLflow Model Registry para 1+ projeto tracking autor, dataset, HPO, métricas (accuracy, F1)', completed: false },
-      { text: 'Documentar padrão de supply chain seguro com checklist de 10 itens para deploy de modelos em produção', completed: false },
-      { text: 'KPI: 100% dos modelos em produção têm proveniência registrada e hash validado', completed: false }
-    ],
-    relatedSkills: ['mlops', 'security', 'python'],
-    relatedResources: ['tool-safetensors', 'tool-mlflow-provenance', 'course-mlops-security'],
-    phase: 1,
-  },
   {
     id: 'ai-fomentation',
     title: 'Fomento ao Consumo de IA',
@@ -385,12 +332,10 @@ export const milestones: Milestone[] = [
     status: 'in-progress',
     progress: 45,
     deadline: '2026-12-31',
-    startPosition: 0,
-    endPosition: 12.5,
-    notes: 'Criação de prompts padrão e automação de tarefas repetitivas.',
+    notes: 'KPI L2: Entrega autônoma e colaboração técnica',
     objectives: [
-      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: false },
-      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: false },
+      { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: true, completionJustification: 'Repositório cyber-prompts-and-skills alcançou 10+ estrelas com skills de democratização de dados, documentação e design.' },
+      { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: true, completionJustification: 'Hugo e Thalita colaboraram ativamente no repositório, em processo de reestruturação com a chegada do ORKA.' },
       { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
       { 
         text: 'Criar e documentar 5 novos patterns de prompt para uso do time', 
@@ -400,285 +345,531 @@ export const milestones: Milestone[] = [
     ],
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
-    phase: 1,
-    phase: 1,
+    phase: 'L2',
+  },
+  {
+    id: 'model-supply-chain',
+    title: 'Segurança na Cadeia de Suprimentos de Modelos (Model Supply Chain)',
+    displayName: 'SecMLOps: Model Supply Chain',
+    description: 'Implementar controles de segurança no ciclo de vida de modelos de IA, garantindo a integridade, proveniência e o versionamento seguro dos artefatos.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-06-30',
+    notes: 'KPI L2→L3: Fundamentos de SecMLOps e segurança no CI/CD de modelos.',
+    objectives: [
+      { text: 'Estudar e aplicar o formato .safetensors para mitigar riscos de execução de código arbitrário.', completed: false },
+      { text: 'Implementar assinatura e verificação de modelos (ex: hash SHA256) no pipeline de CI/CD para garantir a integridade.', completed: false },
+      { text: 'Utilizar MLflow para rastrear a proveniência dos modelos, incluindo dados de treinamento e hiperparâmetros.', completed: false }
+    ],
+    relatedSkills: ['mlflow', 'safetensors', 'ci-cd-security', 'python', 'docker'],
+    relatedResources: ['tool-safetensors', 'course-mlops-security', 'tool-mlflow-provenance'],
+    phase: 'L2',
+  },
+  {
+    id: 'autonomous-delivery',
+    title: 'Entrega Autônoma de Features Complexas',
+    displayName: 'Autonomous Delivery',
+    description: 'Entregar 10+ features/bugfixes de forma autônoma com taxa de retrabalho < 20% e aprovação formal de qualidade.',
+    status: 'completed',
+    progress: 100,
+    deadline: '2027-03-31',
+    notes: 'KPI L2: Demonstração de autonomia técnica baseada em entregas core no Portal de Cyber.',
+    objectives: [
+      { text: 'Completar 5+ entregas em projetos críticos', completed: true, completionJustification: 'Entregues: Modelagem de dados Cyber Itaú, Modelagem de dados Cyber Itaú Agents, Frontend Cyber Itaú, Silent login quicksight Cyber Itaú, Gestão de Custos Cyber Itaú, e Métricas de Cyber Cyber Itaú.' },
+      { text: 'Manter taxa de retrabalho in PRs abaixo de 20%', completed: true, completionJustification: 'Registrados apenas 3 PR reverts em DEV nos últimos 6 meses e 4 itens do tipo BUG nos últimos 12 meses, frente a mais de 100 PRs e dezenas de Histórias entregues no período.' },
+      { text: 'Obter aprovação de qualidade em 100% das entregas (SonarQube, linters, testes)', completed: true, completionJustification: 'Estabelecidas green build guarantees no ciclo de desenvolvimento assistido por IA e cobertura mínima de 95% de testes nos projetos.' },
+      { text: 'Feedback positivo de sênior sobre autonomia técnica documentado in 1:1', completed: true, completionJustification: 'Feedbacks formais na plataforma de performance 2025, feedbacks estruturados de Odair e Henrique, além de alinhamentos positivos com gestão direta.' }
+    ],
+    relatedSkills: ['technical-docs', 'testing', 'sonarqube', 'linters'],
+    relatedResources: [],
+    phase: 'L2',
+  },
+  {
+    id: 'technical-discussions',
+    title: 'Participação em Discussões Técnicas Estratégicas',
+    displayName: 'Strategic Technical Discussions',
+    description: 'Contribuir em 5+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad.',
+    status: 'in-progress',
+    progress: 20,
+    deadline: '2027-06-30',
+    notes: 'KPI L2: Influência técnica e proatividade',
+    objectives: [
+      { text: 'Participar ativamente de 5+ discussões arquiteturais ou de design', completed: false },
+      { text: 'Propor 2+ soluções técnicas adotadas pela squad', completed: false },
+      { text: 'Documentar decisões técnicas e trade-offs para referência futura', completed: false },
+      { text: 'Feedback de pares sobre contribuição técnica positiva', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'critical-thinking', 'influence', 'verbal-communication'],
+    relatedResources: [],
+    phase: 'L2',
+  },
+  {
+    id: 'mentoring-interns',
+    title: 'Mentoria de Estagiários',
+    displayName: 'Intern Mentoring',
+    description: 'Suportar o desenvolvimento técnico de 1+ estagiário com acompanhamento estruturado e feedback construtivo.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-09-30',
+    notes: 'KPI L2: Desenvolvimento de habilidades de mentoria',
+    objectives: [
+      { text: 'Acompanhar 1+ estagiário em tarefas técnicas semanais', completed: false },
+      { text: 'Fornecer feedback técnico construtivo em code reviews', completed: false },
+      { text: 'Documentar plano de desenvolvimento para o estagiário', completed: false },
+      { text: 'Feedback positivo do estagiário sobre apoio técnico', completed: false }
+    ],
+    relatedSkills: ['mentoring', 'feedback', 'collaboration'],
+    relatedResources: [],
+    phase: 'L2',
+  },
+  {
+    id: 'cert-crtp',
+    title: 'CRTP — Certified Red Team Professional',
+    displayName: 'CRTP (Active Directory)',
+    description: 'Obter certificação CRTP focada em Red Team para Active Directory. Fundação ofensiva para entender ataques antes de defesa.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    notes: 'L2: Fundação técnica de segurança ofensiva',
+    objectives: [
+      { text: 'Completar labs práticos de Active Directory', completed: false },
+      { text: 'Dominar Kerberoasting, AS-REP Roasting e movimento lateral', completed: false },
+      { text: 'Praticar persistência AD (golden/silver ticket)', completed: false },
+      { text: 'Aprovação no exame prático de 24h', completed: false }
+    ],
+    relatedSkills: ['security', 'critical-thinking'],
+    relatedResources: ['cert-crtp'],
+    phase: 'L2',
   },
 
 
   // ==========================================
-  // FASE 2: PLENO ANO 2 (2027-2028) - Promoção Pleno→Sênior mai/2027
+  // L3 (Mid / Pleno) — Ownership de features + OSCP + CPSA-F
+  // Atividades de Senior devem ser demonstradas aqui para alcançar L4
   // ==========================================
+  {
+    id: 'ai-defense-architecture',
+    title: 'Design de Arquitetura de Defesa em IA',
+    displayName: 'AI Defense Architecture Design',
+    description: 'Projetar e documentar arquitetura completa de defesa para sistemas de IA com guardrails, threat model e supply chain security.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-06-30',
+    notes: 'KPI L3→L4: Design técnico aprovado por sênior em feature complexa',
+    objectives: [
+      { text: 'Projetar arquitetura de guardrails para LLMs cobrindo OWASP LLM Top 10', completed: false },
+      { text: 'Documentar threat model com MITRE ATLAS mapeando 5+ TTPs relevantes', completed: false },
+      { text: 'Implementar validação de supply chain (.safetensors + hash SHA256) no CI/CD', completed: false },
+      { text: 'Apresentação técnica do design para squad + liderança (20+ pessoas)', completed: false }
+    ],
+    relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering', 'mlops'],
+    relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
+    phase: 'L3',
+  },
   {
     id: 'governance-ai-pipelines',
     title: 'Governança de IA em Pipelines Core',
     displayName: 'AI Governance in Production',
-    description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade',
+    description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade automatizados.',
     status: 'planned',
     progress: 0,
     deadline: '2027-12-31',
-    startPosition: 12.5,
-    endPosition: 25,
-    notes: 'TECH-02 + PLENO-01 (ROADMAP Phase 2)',
+    notes: 'KPI L3→L4: Ownership completo de projeto médio (>1 mês)',
     objectives: [
       { text: 'Implementar governança em 2 pipelines/projetos core', completed: false },
       { text: 'Gerar relatórios de conformidade automatizados', completed: false },
-      { text: 'Validar cadeia de suprimentos com .safetensors', completed: false },
-      { text: 'Estruturar arquitetura segura cobrindo OWASP Top 10 LLM', completed: false }
+      { text: 'Redução mensurável de débito técnico (-15%+ em métricas de qualidade)', completed: false },
+      { text: 'KPI: 100% dos modelos em produção têm proveniência registrada', completed: false }
     ],
     relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
-    relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'course-bedrock-guardrails', 'tool-mlflow-provenance'],
-    phase: 2,
+    relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'tool-mlflow-provenance'],
+    phase: 'L3',
   },
   {
-    id: 'pleno-to-senior-prep',
-    title: 'Preparação Promoção Sênior',
-    displayName: 'Evidências para Promoção Sênior',
-    description: 'Consolidar KPIs e evidências tangíveis para promoção Pleno→Sênior',
+    id: 'mentoring-juniors',
+    title: 'Mentoria Ativa de Juniores',
+    displayName: 'Junior Mentoring Program',
+    description: 'Mentorar 2+ juniores com PDI estruturado, code reviews construtivos e acompanhamento de evolução.',
     status: 'planned',
     progress: 0,
-    deadline: '2027-05-31',
-    startPosition: 12.5,
-    endPosition: 25,
-    notes: 'Target: mai/2027',
+    deadline: '2028-06-30',
+    notes: 'KPI L3→L4: Mentoria ativa com PDI estruturado para 2+ juniores',
     objectives: [
-      { text: 'Registro estruturado de KPIs (entregas + comportamentos)', completed: false },
-      { text: 'Feedback formal de liderança sobre autonomia técnica', completed: false },
-      { text: 'Apresentação de evidências em 1:1 com Aline', completed: false },
-      { text: 'Alinhamento com critérios de Sênior do Itaú', completed: false }
+      { text: 'Estruturar PDI para 2+ juniores com metas trimestrais', completed: false },
+      { text: 'Realizar 10+ code reviews construtivos por trimestre', completed: false },
+      { text: 'Feedback positivo dos mentorados sobre evolução técnica', completed: false },
+      { text: 'KPI: 1+ mentorado promovido ou atingindo metas do PDI', completed: false }
     ],
-    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'technical-docs'],
+    relatedSkills: ['mentoring', 'feedback', 'leadership', 'collaboration'],
     relatedResources: [],
-    phase: 2,
+    phase: 'L3',
   },
-
-  // ==========================================
-  // FASE 3: SÊNIOR ANO 1 (2028-2029)
-  // ==========================================
   {
-    id: 'corporate-architecture-design',
-    title: 'Arquitetura Corporativa de Validação',
-    displayName: 'Corporate AI Validation Architecture',
-    description: 'Projetar arquitetura corporativa para validação de custos/segurança de IA',
+    id: 'pdi-structure-2026',
+    title: 'Estruturação do PDI por Níveis',
+    displayName: 'PDI L1-L7: Career Ladder',
+    description: 'Estruturar o planejamento completo com níveis técnicos L1-L7, KPIs mensuráveis e trilha de certificações',
+    status: 'in-progress',
+    progress: 75,
+    deadline: '2026-09-30',
+    notes: 'KPI L3: Visão estratégica e planejamento de carreira',
+    objectives: [
+      { text: 'Definir todos os 7 níveis do roadmap (L1-L7) com KPIs claros', completed: true, completionJustification: 'Framework L1-L7 completo documentado em career-levels-framework.md com KPIs mensuráveis por nível.' },
+      { text: 'Mapear 20+ referências de estudo em AI Security', completed: true, completionJustification: 'Trilha completa de certificações (CRTP, OSCP, CAISP, CMCPSE, CISSP, ISO 42001, AAISM) + livros e cursos mapeados em resources.' },
+      { text: 'Criar visualização interativa do PDI no React', completed: true, completionJustification: 'Aplicação React completa com timeline L1-L7, milestones interativos, filtros por nível e KPIs visualizados.' },
+      { text: 'Validar com Aline em 1:1 os marcos e KPIs', completed: false }
+    ],
+    relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
+    relatedResources: [],
+    phase: 'L2',
+  },
+  {
+    id: 'ai-defense-foundations',
+    title: 'Fundamentos de Defesa e Guardrails em IA',
+    displayName: 'SecMLOps: Defesa & Guardrails',
+    description: 'Implementar mitigação contra ameaças (OWASP LLM Top 10) no runtime utilizando guardrails (ex: AWS Bedrock Guardrails) e entender ataques adversários através do MITRE ATLAS.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    notes: 'KPI L3: Implementação prática de controles de segurança para sistemas baseados em LLMs',
+    objectives: [
+      { text: 'Estudar mitigações do OWASP LLM Top 10 aplicadas ao contexto do banco.', completed: false },
+      { text: 'Implementar e configurar AWS Bedrock Guardrails em uma aplicação piloto.', completed: false },
+      { text: 'Realizar mapeamento de ameaças focado em Adversarial ML utilizando a base do MITRE ATLAS.', completed: false }
+    ],
+    relatedSkills: ['aws-bedrock', 'guardrails', 'owasp', 'threat-modeling'],
+    relatedResources: ['ref-owasp-llm-top10', 'course-bedrock-guardrails', 'ref-mitre-atlas'],
+    phase: 'L3',
+  },
+  {
+    id: 'cert-oscp',
+    title: 'OSCP — PEN-200 (OffSec)',
+    displayName: 'OSCP (Pentest)',
+    description: 'Selo ofensivo mais reconhecido do mercado. Valida capacidade de encontrar e explorar vulnerabilidades de forma autônoma.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2028-06-30',
+    notes: 'KPI L3→L4: Certificação avançada de segurança ofensiva',
+    objectives: [
+      { text: 'Concluir labs PEN-200 (Web, Linux privesc, Windows privesc, AD)', completed: false },
+      { text: 'Realizar 3+ simulados com 70%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame prático de 24h + relatório', completed: false }
+    ],
+    relatedSkills: ['security', 'critical-thinking', 'python', 'bash'],
+    relatedResources: ['cert-oscp'],
+    phase: 'L3',
+  },
+  {
+    id: 'cert-cpsaf',
+    title: 'iSAQB CPSA-F — Foundation Level',
+    displayName: 'iSAQB CPSA-F (Arquitetura)',
+    description: 'Certificação internacional de arquitetura de software. Fundamento para liderar decisões arquiteturais como Senior.',
     status: 'planned',
     progress: 0,
     deadline: '2028-12-31',
-    startPosition: 25,
-    endPosition: 37.5,
-    notes: 'SENIOR-01 (ROADMAP Phase 3)',
+    notes: 'KPI L3→L4: Base formal de arquitetura para liderança técnica',
     objectives: [
-      { text: 'Projetar arquitetura corporativa aprovada pela liderança', completed: false },
-      { text: 'Colocar arquitetura em produção com métricas de adoção', completed: false },
-      { text: 'Documentar impacto mensurável em projetos', completed: false },
-      { text: 'Reconhecimento no PRAD/Mérito 2029', completed: false }
+      { text: 'Estudar os 5 capítulos do currículo CPSA-F', completed: false },
+      { text: 'Praticar documentação de arquitetura via views (UML)', completed: false },
+      { text: 'Aprovação no exame escrito', completed: false }
     ],
-    relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
-    relatedResources: ['books-arch-peaa', 'books-ana-ddia'],
-    phase: 3,
-  },
-  {
-    id: 'tech-leadership-critical',
-    title: 'Liderança Técnica em Projeto Crítico',
-    displayName: 'Tech Lead - Critical Project',
-    description: 'Liderar tecnicamente 1 projeto crítico end-to-end com mentoria',
-    status: 'planned',
-    progress: 0,
-    deadline: '2029-06-30',
-    startPosition: 25,
-    endPosition: 37.5,
-    notes: 'SENIOR-02 parcial (ROADMAP Phase 3)',
-    objectives: [
-      { text: 'Liderança técnica de projeto crítico completo', completed: false },
-      { text: 'Mentorar 1 analista júnior/pleno durante execução', completed: false },
-      { text: 'Impacto técnico mensurável transcendendo a squad', completed: false },
-      { text: 'Feedback positivo de liderança sobre mentoria', completed: false }
-    ],
-    relatedSkills: ['leadership', 'mentoring', 'stakeholder-management', 'technical-docs'],
-    relatedResources: [],
-    phase: 3,
+    relatedSkills: ['api-architecture', 'technical-docs', 'critical-thinking'],
+    relatedResources: ['cert-cpsaf'],
+    phase: 'L3',
   },
 
   // ==========================================
-  // FASE 4: SÊNIOR ANO 2 (2029-2030)
+  // L4 (Senior / Sênior) — Arquitetura cross-squad + Liderança Técnica + Impacto
+  // Atividades de Staff devem ser demonstradas aqui para alcançar L5
+  // ==========================================
+  {
+    id: 'corporate-architecture-design',
+    title: 'Arquitetura Corporativa de AI Security',
+    displayName: 'Corporate AI Security Architecture',
+    description: 'Projetar do zero arquitetura corporativa de validação de segurança/custos de IA, aprovada pela liderança e adotada cross-squad.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2028-12-31',
+    notes: 'KPI L4→L5: 2+ sistemas complexos em produção com adoção cross-squad',
+    objectives: [
+      { text: 'Projetar arquitetura corporativa aprovada pela liderança', completed: false },
+      { text: 'Colocar arquitetura em produção com métricas de adoção', completed: false },
+      { text: 'KPI: -30%+ custo OU +40%+ performance em sistemas impactados', completed: false },
+      { text: 'Adoção por 2+ squads fora do time original', completed: false }
+    ],
+    relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
+    relatedResources: ['books-arch-peaa', 'books-ana-ddia'],
+    phase: 'L4',
+  },
+  {
+    id: 'tech-leadership-critical',
+    title: 'Liderança Técnica de Projetos Críticos',
+    displayName: 'Tech Lead — Critical Projects',
+    description: 'Liderar tecnicamente 3+ projetos críticos end-to-end com 5+ pessoas, mentorando plenos e juniores durante a execução.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2029-06-30',
+    notes: 'KPI L4→L5: Liderança técnica + mentoria estratégica',
+    objectives: [
+      { text: 'Liderança técnica end-to-end de 3+ projetos críticos', completed: false },
+      { text: 'Mentorar 3+ plenos com acompanhamento documentado', completed: false },
+      { text: 'Influência arquitetural: 5+ decisões técnicas adotadas por múltiplas squads', completed: false },
+      { text: 'Feedback de pares e liderança reconhecendo autoridade técnica', completed: false }
+    ],
+    relatedSkills: ['leadership', 'mentoring', 'stakeholder-management', 'technical-docs'],
+    relatedResources: [],
+    phase: 'L4',
+  },
+  {
+    id: 'red-teaming-foundation',
+    title: 'Red Teaming Tático em IA',
+    displayName: 'Adversarial ML & Red Teaming',
+    description: 'Projetar framework tático de Red Teaming em IA (Adversarial ML, evasão, extração de modelo) adaptado ao Itaú.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2029-12-31',
+    notes: 'KPI L4→L5: Framework tático testado internamente',
+    objectives: [
+      { text: 'Projetar framework de Red Teaming para AI adaptado ao contexto do banco', completed: false },
+      { text: 'Testar e mitigar métodos de evasão/inversão em modelos em produção', completed: false },
+      { text: 'Documentar playbook com casos reais do banco', completed: false },
+      { text: '2+ palestras técnicas (BSides, H2HC, ROADSEC) sobre resultados', completed: false }
+    ],
+    relatedSkills: ['security', 'mlops', 'critical-thinking', 'presentation'],
+    relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
+    phase: 'L4',
+  },
+  {
+    id: 'cert-caisp',
+    title: 'CAISP — Certified AI Security Professional',
+    displayName: 'CAISP (AI Security)',
+    description: 'Certificação mais rigorosa do mercado em AI Security. 40+ labs, exame prático 6h contra sistemas vulneráveis.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2029-12-31',
+    notes: 'KPI L4→L5: Especialização formal em AI Security',
+    objectives: [
+      { text: 'Concluir 40+ labs práticos (OWASP LLM Top 10, MITRE ATLAS)', completed: false },
+      { text: 'Dominar threat modeling de IA com STRIDE', completed: false },
+      { text: 'Aprovação no exame: 5 desafios práticos em 6h + relatório', completed: false }
+    ],
+    relatedSkills: ['security', 'llm', 'prompt-engineering', 'mlops'],
+    relatedResources: ['cert-caisp'],
+    phase: 'L4',
+  },
+  {
+    id: 'cert-cmcpse',
+    title: 'CMCPSE — Certified MCP Security Expert',
+    displayName: 'CMCPSE (MCP Security)',
+    description: 'Única certificação do mercado focada em segurança de servidores MCP e IA agêntica.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2029-12-31',
+    notes: 'KPI L4: Diferencial em segurança de agentes (opcional)',
+    objectives: [
+      { text: 'Threat modeling de arquiteturas MCP com STRIDE e MITRE ATLAS', completed: false },
+      { text: 'Dominar tool poisoning, prompt injection em agentes, rug-pull attacks', completed: false },
+      { text: 'Aprovação no exame prático', completed: false }
+    ],
+    relatedSkills: ['security', 'agent-design', 'mcp-tools', 'langgraph'],
+    relatedResources: ['cert-cmcpse'],
+    phase: 'L4',
+  },
+  {
+    id: 'cert-awssap',
+    title: 'AWS Solutions Architect — Professional',
+    displayName: 'AWS SA Pro',
+    description: 'Formalizar conhecimento em nível de arquitetura cloud. Sinergia direta com design de sistemas de IA seguros na AWS.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2029-06-30',
+    notes: 'KPI L4: Certificação de arquitetura cloud avançada',
+    objectives: [
+      { text: 'Estudar design de soluções multi-conta e HA', completed: false },
+      { text: 'Realizar 5+ simulados com 80%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame', completed: false }
+    ],
+    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 'ecs'],
+    relatedResources: ['cert-awssap'],
+    phase: 'L4',
+  },
+
+  // ==========================================
+  // L5 (Staff / Specialist 1) — Framework Corporativo + CISSP
   // ==========================================
   {
     id: 'cloud-security-certification',
-    title: 'Certificação Cloud Security',
-    displayName: 'CCSP ou AWS Security Specialty',
-    description: 'Obter certificação de mercado em Cloud Security ou AI Security',
+    title: 'CISSP — Certified Information Systems Security Professional',
+    displayName: 'CISSP (ISC2)',
+    description: 'Certificação abrangente em segurança: 8 domínios incluindo NIST AI RMF, ISO 42001 e EU AI Act. Pré-requisito para AAISM.',
     status: 'planned',
     progress: 0,
     deadline: '2030-06-30',
-    startPosition: 37.5,
-    endPosition: 50,
-    notes: 'SENIOR-02 completo + SENIOR-03 (ROADMAP Phase 4)',
+    notes: 'ISC2 · 8 domínios CBK · Exige 5 anos de experiência',
     objectives: [
-      { text: 'Concluir curso preparatório oficial', completed: false },
+      { text: 'Estudar os 8 domínios do CBK (Security & Risk, Architecture, IAM, etc.)', completed: false },
+      { text: 'Concluir curso preparatório oficial (100h+)', completed: false },
       { text: 'Realizar simulados com 85%+ de aproveitamento', completed: false },
-      { text: 'Aprovação no exame de certificação', completed: false },
-      { text: 'Reconhecimento no PRAD/Mérito 2030', completed: false }
+      { text: 'Aprovação no exame CISSP', completed: false }
     ],
     relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
-    relatedResources: ['cert-aws-security-specialty'],
-    phase: 4,
+    relatedResources: ['cert-cissp'],
+    phase: 'L5',
   },
   {
     id: 'architectural-influence',
     title: 'Influência Arquitetural Multi-Squad',
     displayName: 'Cross-Squad Architecture Influence',
-    description: 'Influenciar decisões arquiteturais em múltiplas squads',
+    description: 'Definir framework/plataforma corporativa adotada por 5+ squads. Tornar-se referência de domínio em AI Security.',
     status: 'planned',
     progress: 0,
     deadline: '2030-12-31',
-    startPosition: 37.5,
-    endPosition: 50,
-    notes: 'SENIOR-03 (ROADMAP Phase 4)',
+    notes: 'KPI L5: Framework corporativo + impacto -40%+ tempo de entrega',
     objectives: [
-      { text: 'Participar de 10+ discussões arquiteturais inter-squads', completed: false },
+      { text: 'Projetar e implantar framework de AI Security adotado por 5+ squads', completed: false },
       { text: 'Propor 3+ padrões adotados por outras squads', completed: false },
-      { text: 'Evidências de liderança técnica reconhecida em avaliações', completed: false },
-      { text: 'Consolidar padrão de mentoria e ownership', completed: false }
+      { text: 'Realizar 3+ palestras técnicas (BSides, H2HC, ROADSEC)', completed: false },
+      { text: 'Impacto em 3+ diretorias documentado com métricas', completed: false }
     ],
     relatedSkills: ['influence', 'leadership', 'api-architecture', 'stakeholder-management'],
     relatedResources: [],
-    phase: 4,
+    phase: 'L5',
   },
 
   // ==========================================
-  // FASE 5: TRANSIÇÃO SÊNIOR→SPECIALIST (2030-2031)
+  // L6 (Principal / Specialist 2) — Impacto Executivo e Governança Larga
   // ==========================================
   {
     id: 'red-teaming-framework',
-    title: 'Red Teaming AI Framework',
-    displayName: 'Adversarial ML & Red Teaming',
-    description: 'Desenvolver framework de Red Teaming em IA (Adversarial ML, evasão, extração)',
+    title: 'Red Teaming AI Framework Oficial',
+    displayName: 'Adversarial ML & Red Teaming (Corporate)',
+    description: 'Tornar o framework tático de Red Teaming em IA o padrão corporativo oficial aprovado pela liderança executiva.',
     status: 'planned',
     progress: 0,
     deadline: '2031-06-30',
-    startPosition: 50,
-    endPosition: 62.5,
-    notes: 'SPEC-01 (ROADMAP Phase 5)',
+    notes: 'KPI L6: Impacto executivo e adoção por 10+ squads',
     objectives: [
-      { text: 'Projetar framework tático de Red Teaming adaptado ao Itaú', completed: false },
-      { text: 'Testar e mitigar métodos de Evasão/Inversão em modelos', completed: false },
-      { text: 'Documentar playbook com casos reais do banco', completed: false },
-      { text: 'Aprovação da liderança executiva para implementação', completed: false }
+      { text: 'Apresentar framework para C-level e obter aprovação estratégica', completed: false },
+      { text: 'Adotar framework em 10+ squads', completed: false },
+      { text: 'Liderar comunidade técnica interna com 100+ membros ativos', completed: false },
+      { text: 'Impacto organizacional amplo documentado para PRAD', completed: false }
     ],
     relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
     relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
-    phase: 5,
+    phase: 'L6',
   },
-  {
-    id: 'specialist-promotion-prep',
-    title: 'Preparação Promoção Specialist',
-    displayName: 'Evidências para Specialist',
-    description: 'Consolidar evidências de impacto organizacional e expertise avançada',
-    status: 'planned',
-    progress: 0,
-    deadline: '2031-05-31',
-    startPosition: 50,
-    endPosition: 62.5,
-    notes: 'Target: promoção Sênior→Specialist 2030-2031',
-    objectives: [
-      { text: 'Framework Red Teaming reconhecido como padrão corporativo', completed: false },
-      { text: 'Evidências de impacto organizacional amplo', completed: false },
-      { text: 'Reconhecimento no PRAD/Mérito 2031', completed: false },
-      { text: 'Alinhamento com critérios de Specialist do Itaú', completed: false }
-    ],
-    relatedSkills: ['strategic-vision', 'influence', 'leadership', 'technical-docs'],
-    relatedResources: [],
-    phase: 5,
-  },
-
-  // ==========================================
-  // FASE 6: SPECIALIST ANO 1 (2031-2032)
-  // ==========================================
   {
     id: 'nist-ai-rmf-implementation',
     title: 'NIST AI RMF Corporate Implementation',
     displayName: 'NIST AI RMF Framework',
-    description: 'Liderar adequação arquitetural baseada no NIST AI RMF',
+    description: 'Liderar adequação arquitetural baseada no NIST AI RMF, transformando no padrão oficial de mitigação e compliance de IA.',
     status: 'planned',
     progress: 0,
     deadline: '2032-06-30',
-    startPosition: 62.5,
-    endPosition: 75,
-    notes: 'SPEC-02 (ROADMAP Phase 6)',
+    notes: 'KPI L6: Influência normativa e compliance',
     objectives: [
       { text: 'Liderar adequação arquitetural corporativa NIST AI RMF', completed: false },
-      { text: 'Transformar framework em padrão oficial do Itaú', completed: false },
-      { text: 'Ditar diretrizes arquiteturais estratégicas', completed: false },
-      { text: 'Impacto reconhecido pela diretoria de Cyber Security', completed: false }
+      { text: 'Ditar diretrizes arquiteturais estratégicas adotadas', completed: false },
+      { text: 'Participação ativa em grupos de trabalho (OWASP, NIST)', completed: false },
+      { text: 'Impacto reconhecido pela diretoria executiva', completed: false }
     ],
     relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
-    phase: 6,
+    phase: 'L6',
   },
   {
     id: 'advanced-governance',
-    title: 'Governança Técnica Avançada',
-    displayName: 'Advanced AI Security Governance',
-    description: 'Consolidar governança técnica avançada como padrão corporativo',
+    title: 'Governança Corporativa e Avançada de IA',
+    displayName: 'SecMLOps: Advanced Governance',
+    description: 'Estabelecer a governança corporativa de IA e o score de maturidade em segurança de IA utilizando as diretrizes avançadas e as políticas arquiteturais baseadas no NIST AI RMF.',
     status: 'planned',
     progress: 0,
     deadline: '2032-12-31',
-    startPosition: 62.5,
-    endPosition: 75,
-    notes: 'SPEC-02 (ROADMAP Phase 6)',
+    notes: 'KPI L6: Governança regulatória de alto nível no ecossistema do banco',
     objectives: [
-      { text: 'Padrões de governança adotados em 5+ squads', completed: false },
-      { text: 'Métricas de impacto documentadas', completed: false },
-      { text: 'Reconhecimento no PRAD/Mérito 2032', completed: false },
-      { text: 'Apresentação para diretoria executiva', completed: false }
+      { text: 'Definir as políticas arquiteturais e diretrizes de IA corporativa.', completed: false },
+      { text: 'Implementar a métrica de score de maturidade em segurança de IA para todos os squads.', completed: false }
     ],
-    relatedSkills: ['strategic-vision', 'influence', 'leadership', 'presentation'],
+    relatedSkills: ['influence', 'governance', 'risk-management'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
-    phase: 6,
+    phase: 'L6',
+  },
+  {
+    id: 'cert-iso42001',
+    title: 'ISO/IEC 42001 Lead Implementer',
+    displayName: 'ISO 42001 (Governança IA)',
+    description: 'Obter certificação na 1ª norma internacional de sistemas de gestão de IA. Essencial para compliance em instituições financeiras.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2031-12-31',
+    notes: 'PECB/InfosecTrain · Prova escrita',
+    objectives: [
+      { text: 'Compreender contexto organizacional e política de IA', completed: false },
+      { text: 'Estudar estrutura do AIMS e ciclo de vida de sistemas de IA', completed: false },
+      { text: 'Aprovação no exame oficial', completed: false }
+    ],
+    relatedSkills: ['security', 'strategic-vision'],
+    relatedResources: ['cert-iso42001'],
+    phase: 'L6',
+  },
+  {
+    id: 'cert-cpsaa',
+    title: 'iSAQB CPSA-A — Advanced Level',
+    displayName: 'iSAQB CPSA-A (Arquitetura)',
+    description: 'Certificação arquitetural avançada com módulos modulares em tecnologia, metodologia e comunicação.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2032-12-31',
+    notes: 'iSAQB · 70 créditos em treinos modulares',
+    objectives: [
+      { text: 'Acumular créditos nos módulos metodológicos', completed: false },
+      { text: 'Acumular créditos nos módulos tecnológicos e de comunicação', completed: false },
+      { text: 'Aprovação no trabalho final CPSA-A', completed: false }
+    ],
+    relatedSkills: ['api-architecture', 'influence', 'technical-docs'],
+    relatedResources: ['cert-cpsaa'],
+    phase: 'L6',
   },
 
   // ==========================================
-  // FASE 7: SPECIALIST ANO 2 (2032-2033)
+  // L7 (Distinguished / Specialist 3) — Líder de Indústria
   // ==========================================
   {
     id: 'executive-presence',
-    title: 'Impacto Executivo e Reconhecimento',
-    displayName: 'Executive Impact & Recognition',
-    description: 'Consolidar reconhecimento como referência técnica através de impacto executivo',
+    title: 'Impacto Executivo e Padrões Globais',
+    displayName: 'Executive Presence & Standards',
+    description: 'Consolidar reconhecimento como referência técnica global através de impacto executivo e influência em frameworks de mercado.',
     status: 'planned',
     progress: 0,
     deadline: '2033-06-30',
-    startPosition: 75,
-    endPosition: 87.5,
-    notes: 'SPEC-03 (ROADMAP Phase 7)',
+    notes: 'KPI L7: Inovação e reconhecimento internacional',
     objectives: [
-      { text: 'Realizar 3+ apresentações executivas/técnicas', completed: false },
-      { text: 'Demonstrar resiliência das políticas com métricas', completed: false },
-      { text: 'Consolidar reconhecimento interno como referência AI Security', completed: false },
-      { text: 'Estabelecer presença externa (palestras, artigos)', completed: false }
+      { text: 'Realizar 3+ apresentações executivas/técnicas para C-level', completed: false },
+      { text: 'Participar como autor em RFC, NIST guidance ou OWASP lead', completed: false },
+      { text: 'Estabelecer presença externa (palestras em Black Hat, DEF CON)', completed: false },
+      { text: 'Impacto corporativo transformador documentado no Itaú', completed: false }
     ],
     relatedSkills: ['presentation', 'influence', 'strategic-vision', 'storytelling'],
     relatedResources: [],
-    phase: 7,
+    phase: 'L7',
   },
   {
-    id: 'specialist-consolidation',
-    title: 'Consolidação como Specialist',
-    displayName: 'AI Security Specialist - Consolidation',
-    description: 'Consolidar posição como AI Security Specialist no Itaú e no mercado',
+    id: 'cert-aaism',
+    title: 'ISACA AAISM — Advanced in AI Security Management',
+    displayName: 'ISACA AAISM (Expert)',
+    description: 'Credencial gated de elite para líderes de segurança em IA. Mapeia diretamente para NIST AI RMF, ISO 42001 e MITRE ATLAS.',
     status: 'planned',
     progress: 0,
     deadline: '2033-12-31',
-    startPosition: 75,
-    endPosition: 100,
-    notes: 'SPEC-03 (ROADMAP Phase 7)',
+    notes: 'ISACA · Pré-requisito: CISSP ativo · 90 questões',
     objectives: [
-      { text: 'Impacto executivo consolidado', completed: false },
-      { text: 'Reconhecimento externo estabelecido', completed: false },
-      { text: 'PRAD/Mérito 2033: consolidação final', completed: false },
-      { text: 'Meta de 8 anos alcançada', completed: false }
+      { text: 'Estudar governança de programa de AI security corporativo', completed: false },
+      { text: 'Compreender gestão de risco integrada de múltiplos frameworks', completed: false },
+      { text: 'Aprovação no exame oficial', completed: false }
     ],
-    relatedSkills: ['strategic-vision', 'leadership', 'influence', 'presentation'],
-    relatedResources: [],
-    phase: 7,
+    relatedSkills: ['security', 'strategic-vision', 'leadership'],
+    relatedResources: ['cert-aaism'],
+    phase: 'L7',
   },
 
 ];
@@ -686,7 +877,7 @@ export const milestones: Milestone[] = [
 export const projects: Project[] = [
   {
     id: 'cyberitau',
-    title: 'Portal Cyber.itau',
+    title: 'Portal de Cyber',
     description: 'Portal para centralização de todas as jornadas de Cyber Security do Itaú Unibanco.',
     status: 'in-progress',
     impact: 'Centralização das jornadas de segurança da informação em um único portal disponível para todo o banco.',
@@ -699,8 +890,8 @@ export const projects: Project[] = [
   },
   {
     id: 'insightguard',
-    title: 'Insight Guard',
-    description: 'Agente orquestrador de todo o ecossistema de agentes de cybersecurity para auxiliar na jornada do cliente.',
+    title: 'Multi Agent System',
+    description: 'Sistema multi-agente orquestrador de todo o ecossistema de agentes de cybersecurity para auxiliar na jornada do cliente.',
     status: 'in-progress',
     impact: 'Navegação facilitada entre as jornadas do portal Cyber e auxílio na utilização das ferramentas disponíveis, de forma conversacional.',
     technologies: ['LLM', 'RAG', 'Agent Design', 'LangGraph', 'AWS', 'Terraform', 'Angular', 'Datadog', 'API Gateway', 'Lambda', 'S3'],
@@ -725,7 +916,7 @@ export const projects: Project[] = [
     id: 'user-behavior',
     title: 'User Behavior (Comportamento Anômalo)',
     description: 'Engenharia de ML com Lambda para detecção de comportamentos anômalos em acessos.',
-    status: 'in-progress',
+    status: 'completed',
     impact: 'Identificação proativa de riscos de segurança.',
     technologies: ['AWS Lambda', 'Python', 'MLOps'],
     relatedSkills: ['lambda', 'python', 'mlops'],
@@ -771,6 +962,118 @@ export const projects: Project[] = [
 ];
 
 export const resources: Resource[] = [
+  // Certificações - Trilha de AI Security & Arquitetura
+  {
+    id: 'cert-crtp',
+    name: 'CRTP — Certified Red Team Professional',
+    description: 'Certificação prática de Active Directory da Altered Security.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Segurança Ofensiva',
+    subCategory: 'Active Directory',
+    relatedSkills: ['security', 'critical-thinking'],
+    relatedMilestones: ['cert-crtp'],
+  },
+  {
+    id: 'cert-oscp',
+    name: 'OSCP — PEN-200 (OffSec)',
+    description: 'Metodologia ofensiva e pentest prático de 24 horas.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Segurança Ofensiva',
+    subCategory: 'Pentesting',
+    relatedSkills: ['security', 'critical-thinking', 'python', 'bash'],
+    relatedMilestones: ['cert-oscp'],
+  },
+  {
+    id: 'cert-caisp',
+    name: 'CAISP — Certified AI Security Professional',
+    description: 'Segurança aplicada a IA baseado em OWASP LLM Top 10 e MITRE ATLAS.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'AI Security',
+    subCategory: 'DevSecOps para IA',
+    relatedSkills: ['security', 'llm', 'prompt-engineering', 'mlops'],
+    relatedMilestones: ['cert-caisp'],
+  },
+  {
+    id: 'cert-cmcpse',
+    name: 'CMCPSE — Certified MCP Security Expert',
+    description: 'Segurança de servidores MCP e sistemas agênticos multi-agentes.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'AI Security',
+    subCategory: 'IA Agêntica',
+    relatedSkills: ['security', 'agent-design', 'mcp-tools', 'langgraph'],
+    relatedMilestones: ['cert-cmcpse'],
+  },
+  {
+    id: 'cert-cissp',
+    name: 'CISSP (ISC2)',
+    description: 'Referência global em gestão e arquitetura de segurança da informação.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Segurança da Informação',
+    subCategory: 'Arquitetura & Risco',
+    relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
+    relatedMilestones: ['cloud-security-certification'],
+  },
+  {
+    id: 'cert-iso42001',
+    name: 'ISO/IEC 42001 Lead Implementer',
+    description: 'Norma internacional de governança e gestão de sistemas de IA (AIMS).',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Governança',
+    subCategory: 'ISO IA',
+    relatedSkills: ['security', 'strategic-vision'],
+    relatedMilestones: ['cert-iso42001'],
+  },
+  {
+    id: 'cert-aaism',
+    name: 'ISACA AAISM',
+    description: 'Advanced in AI Security Management focada em resiliência e resposta a incidentes de IA.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'AI Security',
+    subCategory: 'Gestão Executiva',
+    relatedSkills: ['security', 'strategic-vision', 'leadership'],
+    relatedMilestones: ['cert-aaism'],
+  },
+  {
+    id: 'cert-cpsaf',
+    name: 'iSAQB CPSA-F — Foundation Level',
+    description: 'Fundamentos internacionais de arquitetura de software da iSAQB.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Arquitetura',
+    subCategory: 'Arquitetura de Software',
+    relatedSkills: ['api-architecture', 'technical-docs', 'critical-thinking'],
+    relatedMilestones: ['cert-cpsaf'],
+  },
+  {
+    id: 'cert-cpsaa',
+    name: 'iSAQB CPSA-A — Advanced Level',
+    description: 'Desenvolvimento modular de competências de arquitetura avançada.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Arquitetura',
+    subCategory: 'Arquitetura de Software',
+    relatedSkills: ['api-architecture', 'influence', 'technical-docs'],
+    relatedMilestones: ['cert-cpsaa'],
+  },
+  {
+    id: 'cert-awssap',
+    name: 'AWS Solutions Architect — Professional',
+    description: 'Design avançado de sistemas complexos de grande escala na AWS.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Cloud',
+    subCategory: 'AWS Cloud',
+    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 'ecs'],
+    relatedMilestones: ['cert-awssap'],
+  },
+
   // Livros - Comunicação
   {
     id: 'books-comm-cnv',
@@ -866,10 +1169,52 @@ export const resources: Resource[] = [
     parentCategory: 'Livros',
     category: 'Livros de Arquitetura',
     subCategory: 'Arquitetura',
-    image: '/assets/img/books/ddd.jpg',
-    relatedSkills: ['technical-docs', 'data-contracts'],
+    relatedSkills: ['technical-docs'],
     relatedMilestones: [],
   },
+
+  // === CERTIFICAÇÕES ARQUIVADAS / CONCLUÍDAS ===
+  {
+    id: 'cert-analytics',
+    name: 'Certificação Analytics Engineer (Interna)',
+    description: 'Prova de engenheiro de analytics profissional do banco.',
+    status: 'completed',
+    parentCategory: 'Certificações',
+    category: 'Analytics & Dados',
+    relatedSkills: ['aws-glue', 's3', 'lambda', 'data-modeling', 'pyspark', 'sql', 'python'],
+    relatedMilestones: ['certification-pro'],
+  },
+  {
+    id: 'cert-api-owner',
+    name: 'Certificação API Owner (Interna)',
+    description: 'Três níveis de certificação em design e governança de APIs.',
+    status: 'completed',
+    parentCategory: 'Certificações',
+    category: 'APIs',
+    relatedSkills: ['openapi', 'api-design', 'api-architecture', 'api-contracts'],
+    relatedMilestones: ['cert-api-owner'],
+  },
+  {
+    id: 'cert-security-plus',
+    name: 'CompTIA Security+ Certification',
+    description: 'Fundamentos de segurança da informação, redes, criptografia e ameaças.',
+    status: 'completed',
+    parentCategory: 'Certificações',
+    category: 'Segurança da Informação',
+    relatedSkills: ['security', 'critical-thinking'],
+    relatedMilestones: ['cert-security'],
+  },
+  {
+    id: 'cert-cloud-practitioner',
+    name: 'AWS Cloud Practitioner',
+    description: 'Certificação fundamental sobre os conceitos da AWS Cloud.',
+    status: 'completed',
+    parentCategory: 'Certificações',
+    category: 'Cloud',
+    relatedSkills: ['aws', 's3', 'lambda'],
+    relatedMilestones: ['cert-aws-cloud'],
+  },
+
   {
     id: 'books-arch-microservices',
     name: 'Data Mesh',
