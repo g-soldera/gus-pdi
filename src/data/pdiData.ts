@@ -348,6 +348,24 @@ export const milestones: Milestone[] = [
     phase: 'L2',
   },
   {
+    id: 'model-supply-chain',
+    title: 'Segurança na Cadeia de Suprimentos de Modelos (Model Supply Chain)',
+    displayName: 'SecMLOps: Model Supply Chain',
+    description: 'Implementar controles de segurança no ciclo de vida de modelos de IA, garantindo a integridade, proveniência e o versionamento seguro dos artefatos.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-06-30',
+    notes: 'KPI L2→L3: Fundamentos de SecMLOps e segurança no CI/CD de modelos.',
+    objectives: [
+      { text: 'Estudar e aplicar o formato .safetensors para mitigar riscos de execução de código arbitrário.', completed: false },
+      { text: 'Implementar assinatura e verificação de modelos (ex: hash SHA256) no pipeline de CI/CD para garantir a integridade.', completed: false },
+      { text: 'Utilizar MLflow para rastrear a proveniência dos modelos, incluindo dados de treinamento e hiperparâmetros.', completed: false }
+    ],
+    relatedSkills: ['mlflow', 'safetensors', 'ci-cd-security', 'python', 'docker'],
+    relatedResources: ['tool-safetensors', 'course-mlops-security', 'tool-mlflow-provenance'],
+    phase: 'L2',
+  },
+  {
     id: 'autonomous-delivery',
     title: 'Entrega Autônoma de Features Complexas',
     displayName: 'Autonomous Delivery',
@@ -504,6 +522,24 @@ export const milestones: Milestone[] = [
     relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
     relatedResources: [],
     phase: 'L2',
+  },
+  {
+    id: 'ai-defense-foundations',
+    title: 'Fundamentos de Defesa e Guardrails em IA',
+    displayName: 'SecMLOps: Defesa & Guardrails',
+    description: 'Implementar mitigação contra ameaças (OWASP LLM Top 10) no runtime utilizando guardrails (ex: AWS Bedrock Guardrails) e entender ataques adversários através do MITRE ATLAS.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    notes: 'KPI L3: Implementação prática de controles de segurança para sistemas baseados em LLMs',
+    objectives: [
+      { text: 'Estudar mitigações do OWASP LLM Top 10 aplicadas ao contexto do banco.', completed: false },
+      { text: 'Implementar e configurar AWS Bedrock Guardrails em uma aplicação piloto.', completed: false },
+      { text: 'Realizar mapeamento de ameaças focado em Adversarial ML utilizando a base do MITRE ATLAS.', completed: false }
+    ],
+    relatedSkills: ['aws-bedrock', 'guardrails', 'owasp', 'threat-modeling'],
+    relatedResources: ['ref-owasp-llm-top10', 'course-bedrock-guardrails', 'ref-mitre-atlas'],
+    phase: 'L3',
   },
   {
     id: 'cert-oscp',
@@ -738,6 +774,23 @@ export const milestones: Milestone[] = [
       { text: 'Impacto reconhecido pela diretoria executiva', completed: false }
     ],
     relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
+    relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
+    phase: 'L6',
+  },
+  {
+    id: 'advanced-governance',
+    title: 'Governança Corporativa e Avançada de IA',
+    displayName: 'SecMLOps: Advanced Governance',
+    description: 'Estabelecer a governança corporativa de IA e o score de maturidade em segurança de IA utilizando as diretrizes avançadas e as políticas arquiteturais baseadas no NIST AI RMF.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2032-12-31',
+    notes: 'KPI L6: Governança regulatória de alto nível no ecossistema do banco',
+    objectives: [
+      { text: 'Definir as políticas arquiteturais e diretrizes de IA corporativa.', completed: false },
+      { text: 'Implementar a métrica de score de maturidade em segurança de IA para todos os squads.', completed: false }
+    ],
+    relatedSkills: ['influence', 'governance', 'risk-management'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
     phase: 'L6',
   },
