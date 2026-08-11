@@ -514,15 +514,15 @@ export const milestones: Milestone[] = [
     title: 'Estruturação do PDI por Níveis',
     displayName: 'PDI L1-L7: Career Ladder',
     description: 'Estruturar o planejamento completo com níveis técnicos L1-L7, KPIs mensuráveis e trilha de certificações',
-    status: 'completed',
-    progress: 100,
+    status: 'in-progress',
+    progress: 75,
     deadline: '2026-09-30',
     notes: 'KPI L3: Visão estratégica e planejamento de carreira',
     objectives: [
       { text: 'Definir todos os 7 níveis do roadmap (L1-L7) com KPIs claros', completed: true, completionJustification: 'Framework L1-L7 completo documentado em career-levels-framework.md com KPIs mensuráveis por nível.' },
       { text: 'Mapear 20+ referências de estudo em AI Security', completed: true, completionJustification: 'Trilha completa de certificações (CRTP, OSCP, CAISP, CMCPSE, CISSP, ISO 42001, AAISM) + livros e cursos mapeados em resources.' },
       { text: 'Criar visualização interativa do PDI no React', completed: true, completionJustification: 'Aplicação React completa com timeline L1-L7, milestones interativos, filtros por nível e KPIs visualizados.' },
-      { text: 'Validar com Aline em 1:1 os marcos e KPIs', completed: true, completionJustification: 'Revisão e alinhamento com Aline concluído em 2026-08-10.' }
+      { text: 'Validar com Aline em 1:1 os marcos e KPIs', completed: false }
     ],
     relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
     relatedResources: [],
