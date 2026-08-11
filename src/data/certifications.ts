@@ -1,0 +1,224 @@
+import { Certification } from '@/types/pdi';
+
+export const certifications: Certification[] = [
+  // ==========================================
+  // FASE 1: Fundação Ofensiva (L3-L4)
+  // ==========================================
+  {
+    id: 'crtp',
+    phase: 1,
+    title: 'CRTP — Certified Red Team Professional',
+    issuer: 'Altered Security',
+    cost: 'US$ 249',
+    examType: 'Prova prática · 24h',
+    focus: 'Active Directory',
+    note: 'Entrada mais suave que o OSCP: escopo contido em Active Directory, labs guiados, formato próximo do "assumed breach". Serve para ganhar confiança técnica antes de encarar a metodologia mais ampla do PEN-200.',
+    topics: [
+      { id: 'crtp-1', text: 'Enumeração de Active Directory com PowerView e BloodHound', completed: false },
+      { id: 'crtp-2', text: 'Escalonamento de privilégio local em máquina ingressada no domínio', completed: false },
+      { id: 'crtp-3', text: 'Movimentação lateral: pass-the-hash, overpass-the-hash', completed: false },
+      { id: 'crtp-4', text: 'Kerberoasting e AS-REP Roasting', completed: false },
+      { id: 'crtp-5', text: 'Delegação Kerberos (unconstrained/constrained) e abuso de ACL', completed: false },
+      { id: 'crtp-6', text: 'DCSync, abuso de trust keys, escalonamento child-to-parent forest', completed: false },
+      { id: 'crtp-7', text: 'Ataques a Active Directory Certificate Services (AD CS)', completed: false },
+      { id: 'crtp-8', text: 'Persistência: golden ticket, silver ticket, forja de tickets', completed: false },
+      { id: 'crtp-9', text: 'Defesa: bypass de Defender for Endpoint/Identity, LAPS, tiered admin (ESAE)', completed: false },
+      { id: 'crtp-10', text: 'Exame: comprometer domínios/florestas multi-nível em 24h + relatório', completed: false },
+    ],
+  },
+  {
+    id: 'oscp',
+    phase: 1,
+    title: 'OSCP — PEN-200',
+    issuer: 'OffSec',
+    cost: '~US$ 1.500+',
+    examType: 'Prova prática · 24h',
+    focus: 'O selo mais reconhecido do mercado',
+    note: 'Exame vale 100 pontos: 60 em três máquinas independentes (10 acesso + 10 privesc cada) e 40 em cadeia de Active Directory. Precisa de 70 pontos pra passar. "Try Harder" é o lema — mede resiliência tanto quanto técnica.',
+    topics: [
+      { id: 'oscp-1', text: 'Metodologia de enumeração: Nmap, fingerprinting de serviços', completed: false },
+      { id: 'oscp-2', text: 'Web exploitation: SQLi, LFI/RFI, XSS, command injection', completed: false },
+      { id: 'oscp-3', text: 'Ataques de senha: Hydra, John the Ripper, Hashcat', completed: false },
+      { id: 'oscp-4', text: 'Linux privilege escalation: sudo, cron jobs, SUID', completed: false },
+      { id: 'oscp-5', text: 'Windows privilege escalation: token impersonation, serviços vulneráveis', completed: false },
+      { id: 'oscp-6', text: 'Buffer overflow: fuzzing, bad chars, JMP ESP, shellcode em C/Python', completed: false },
+      { id: 'oscp-7', text: 'Ataques a Active Directory: Kerberoasting, AS-REP, exploração de trusts', completed: false },
+      { id: 'oscp-8', text: 'Tunneling e pivoting: SSH tunnels, chisel, port forwarding', completed: false },
+      { id: 'oscp-9', text: 'Client-side exploits: macros de documento, exploração básica de browser', completed: false },
+      { id: 'oscp-10', text: 'Reporting: documentação clara, ética e acionável do pentest', completed: false },
+    ],
+  },
+
+  // ==========================================
+  // FASE 2: Especialização em AI Security (L4-L5)
+  // ==========================================
+  {
+    id: 'caisp',
+    phase: 2,
+    title: 'CAISP — Certified AI Security Professional',
+    issuer: 'Practical DevSecOps',
+    cost: 'US$ 999',
+    examType: 'Exame prático · 6h · nota mín. 80%',
+    focus: 'Vitalícia',
+    note: 'A mais tecnicamente rigorosa do mercado hoje: 40+ labs práticos, exame de 5 desafios em 6h contra sistemas de IA vulneráveis de verdade. Baseada em OWASP LLM Top 10 e MITRE ATLAS — os dois frameworks que mais aparecem em vagas sênior de AI security.',
+    topics: [
+      { id: 'caisp-1', text: 'Fundamentos: Narrow AI vs. General AI, arquitetura de LLM, NLP', completed: false },
+      { id: 'caisp-2', text: 'OWASP Top 10 for LLM Applications completo', completed: false },
+      { id: 'caisp-3', text: 'AI supply chain security: pipelines de dados e treinamento', completed: false },
+      { id: 'caisp-4', text: 'MITRE ATLAS — framework de ameaças adversariais a IA', completed: false },
+      { id: 'caisp-5', text: 'Threat modeling de IA com STRIDE', completed: false },
+      { id: 'caisp-6', text: 'Governança: NIST AI RMF, ISO/IEC 42001, EU AI Act', completed: false },
+      { id: 'caisp-7', text: 'Labs: ataque a chatbots, prompt injection, data/model poisoning, model theft', completed: false },
+      { id: 'caisp-8', text: 'Exame: 5 desafios práticos em ambiente real, relatório em 24h', completed: false },
+    ],
+  },
+  {
+    id: 'cmcpse',
+    phase: 2,
+    title: 'CMCPSE — Certified MCP Security Expert',
+    issuer: 'Practical DevSecOps',
+    cost: 'Bundle com CAISP disponível',
+    examType: 'Prova prática',
+    focus: 'Foco: agentes e servidores MCP',
+    note: 'Não é essencial pro roadmap principal, mas dado que você já constrói agentes com LangGraph, essa é a única certificação do mercado focada especificamente em segurança de servidores MCP e IA agêntica. Vale como diferencial extra na Fase 2.',
+    optional: true,
+    topics: [
+      { id: 'cmcpse-1', text: 'Threat modeling de arquiteturas MCP com STRIDE e MITRE ATLAS', completed: false },
+      { id: 'cmcpse-2', text: 'Tool poisoning em servidores MCP', completed: false },
+      { id: 'cmcpse-3', text: 'Prompt injection em sistemas agênticos', completed: false },
+      { id: 'cmcpse-4', text: 'Rug-pull attacks e supply chain de MCP', completed: false },
+      { id: 'cmcpse-5', text: 'Defesas de DevSecOps para IA agêntica em produção', completed: false },
+    ],
+  },
+  {
+    id: 'giac',
+    phase: 2,
+    title: 'GIAC GOAA / GASAE (SANS)',
+    issuer: 'SANS Institute',
+    cost: 'US$ 7.000+ com curso',
+    examType: 'Prova múltipla escolha',
+    focus: 'Catálogo ainda em maturação em 2026',
+    note: 'A linha GIAC de AI security (Offensive AI, AI Security Essentials) está em estágio inicial de maturidade em 2026 — vale acompanhar o catálogo antes de comprometer o investimento alto. Prestígio SANS é real, mas o conteúdo específico de IA ainda está se consolidando.',
+    optional: true,
+    topics: [
+      { id: 'giac-1', text: 'Red teaming ofensivo contra modelos de ML', completed: false },
+      { id: 'giac-2', text: 'Adversarial examples e evasion attacks', completed: false },
+      { id: 'giac-3', text: 'Model inversion e extração de dados de treinamento', completed: false },
+      { id: 'giac-4', text: 'Data poisoning em pipelines de treinamento', completed: false },
+    ],
+  },
+
+  // ==========================================
+  // FASE 3: Arquitetura de Segurança & Governança (L5-L6)
+  // ==========================================
+  {
+    id: 'cissp',
+    phase: 3,
+    title: 'CISSP',
+    issuer: 'ISC2',
+    cost: 'US$ 749',
+    examType: '8 domínios · CBK',
+    focus: 'Exige 5 anos de experiência',
+    note: 'Em 2026 a IA já está integrada em todos os 8 domínios: NIST AI RMF, ISO 42001 e EU AI Act aparecem lado a lado com os fundamentos clássicos. Pré-requisito direto pra ISACA AAISM na Fase 4.',
+    topics: [
+      { id: 'cissp-1', text: 'Security and Risk Management', completed: false },
+      { id: 'cissp-2', text: 'Asset Security', completed: false },
+      { id: 'cissp-3', text: 'Security Architecture and Engineering', completed: false },
+      { id: 'cissp-4', text: 'Communication and Network Security', completed: false },
+      { id: 'cissp-5', text: 'Identity and Access Management (IAM)', completed: false },
+      { id: 'cissp-6', text: 'Security Assessment and Testing', completed: false },
+      { id: 'cissp-7', text: 'Security Operations', completed: false },
+      { id: 'cissp-8', text: 'Software Development Security', completed: false },
+    ],
+  },
+  {
+    id: 'iso42001',
+    phase: 3,
+    title: 'ISO/IEC 42001 Lead Implementer',
+    issuer: 'PECB/InfosecTrain',
+    cost: 'US$ 1.500-2.000',
+    examType: 'Prova escrita',
+    focus: 'Governança de IA',
+    note: 'Primeira norma internacional específica pra sistemas de gestão de IA (AIMS). Em instituições financeiras isso deixa de ser opcional rápido — vira exigência regulatória, então adianta-se bem quem já tem a credencial.',
+    topics: [
+      { id: 'iso-1', text: 'Contexto organizacional e política de IA', completed: false },
+      { id: 'iso-2', text: 'Estrutura do AI Management System (AIMS)', completed: false },
+      { id: 'iso-3', text: 'Avaliação de impacto e risco de sistemas de IA', completed: false },
+      { id: 'iso-4', text: 'Ciclo de vida de sistemas de IA (design, treino, operação, retirada)', completed: false },
+      { id: 'iso-5', text: 'Auditoria interna, melhoria contínua e implementação prática', completed: false },
+    ],
+  },
+
+  // ==========================================
+  // FASE 4: Liderança & Expert Reconhecido (L6-L7)
+  // ==========================================
+  {
+    id: 'aaism',
+    phase: 4,
+    title: 'ISACA AAISM — Advanced in AI Security Management',
+    issuer: 'ISACA',
+    cost: 'US$ 575 (membro) / US$ 760 (não-membro)',
+    examType: '90 questões · nota mín. 450',
+    focus: 'Pré-requisito: CISM ou CISSP ativo',
+    note: 'Credencial gated — só entra quem já tem CISSP/CISM. Isso naturalmente filtra o mercado e mantém o valor alto. Mapeia direto pra NIST AI RMF, ISO 42001, OWASP LLM Top 10 e MITRE ATLAS — o mesmo conjunto de frameworks que você já vem construindo desde a Fase 2.',
+    topics: [
+      { id: 'aaism-1', text: 'Governança de programa de AI security em nível corporativo', completed: false },
+      { id: 'aaism-2', text: 'Gestão de risco alinhada a NIST AI RMF, ISO 42001, OWASP LLM, MITRE ATLAS', completed: false },
+      { id: 'aaism-3', text: 'Resposta a incidentes e resiliência de sistemas de IA', completed: false },
+    ],
+  },
+
+  // ==========================================
+  // TRILHA PARALELA: Arquitetura de Software (L3-L6)
+  // ==========================================
+  {
+    id: 'cpsaf',
+    phase: 'parallel',
+    title: 'iSAQB CPSA-F — Foundation Level',
+    issuer: 'iSAQB',
+    cost: '€1.500-2.000',
+    examType: 'Prova escrita',
+    focus: 'Pré-requisito: 18 meses de dev',
+    note: 'O CPSA é a certificação de arquitetura de software mais reconhecida na Europa e crescendo globalmente — vendor-neutral, cobre os fundamentos que qualquer arquiteto precisa antes de se especializar em cloud ou domínio específico.',
+    topics: [
+      { id: 'cpsaf-1', text: 'Fundamentos e papel do arquiteto de software', completed: false },
+      { id: 'cpsaf-2', text: 'Requisitos funcionais, não-funcionais e restrições de projeto', completed: false },
+      { id: 'cpsaf-3', text: 'Táticas e heurísticas de design: padrões arquiteturais e de projeto', completed: false },
+      { id: 'cpsaf-4', text: 'Cross-cutting concerns (logging, segurança, tratamento de erro)', completed: false },
+      { id: 'cpsaf-5', text: 'Documentação de arquitetura via views (UML: classe, componente, sequência)', completed: false },
+      { id: 'cpsaf-6', text: 'Comunicação e avaliação de arquiteturas de software', completed: false },
+    ],
+  },
+  {
+    id: 'cpsaa',
+    phase: 'parallel',
+    title: 'iSAQB CPSA-A — Advanced Level',
+    issuer: 'iSAQB',
+    cost: '€3.000-5.000',
+    examType: '70 créditos em treinos modulares',
+    focus: 'Exige 3 anos + CPSA-F',
+    note: 'Estrutura modular: você escolhe módulos dentro de três áreas de competência e acumula créditos. Dá pra combinar módulos de arquitetura distribuída/cloud com os de segurança, deixando a trilha bem alinhada ao seu perfil.',
+    topics: [
+      { id: 'cpsaa-1', text: 'Metodológica: abordagem sistemática a tarefas arquiteturais', completed: false },
+      { id: 'cpsaa-2', text: 'Tecnológica: conhecimento e implementação de soluções técnicas', completed: false },
+      { id: 'cpsaa-3', text: 'Comunicativa: apresentação, argumentação, moderação com stakeholders', completed: false },
+    ],
+  },
+  {
+    id: 'awssap',
+    phase: 'parallel',
+    title: 'AWS Certified Solutions Architect – Professional',
+    issuer: 'AWS',
+    cost: 'US$ 300',
+    examType: 'Prova múltipla escolha · 180 min',
+    focus: 'Aplicação direta no seu stack atual',
+    note: 'Você já usa Glue, S3, Athena, EMR, Redshift, Lambda e ECS no dia a dia — essa certificação formaliza esse conhecimento em nível de arquitetura e é uma das mais bem pagas do mercado de cloud, com sinergia direta pra arquitetar sistemas de IA seguros na AWS/Bedrock.',
+    topics: [
+      { id: 'aws-1', text: 'Design de soluções organizacionais complexas multi-conta', completed: false },
+      { id: 'aws-2', text: 'Arquiteturas de alta disponibilidade e resiliência', completed: false },
+      { id: 'aws-3', text: 'Segurança e conformidade em escala corporativa', completed: false },
+      { id: 'aws-4', text: 'Otimização de custo e performance', completed: false },
+      { id: 'aws-5', text: 'Migração e modernização de workloads', completed: false },
+    ],
+  },
+];
