@@ -1,61 +1,63 @@
-# Requirements: PDI Estruturado
+# Requirements: PDI Baseado em Níveis Técnicos (L1-L7)
 
-**Defined:** 2026-08-01
-**Core Value:** Construir senioridade técnica real e mensurável através da translação de governança de IA em arquitetura de defesa e SecMLOps prático, tornando a evolução de carreira previsível, auditável e alinhada com as expectativas de liderança técnica no Itaú.
+**Defined:** 2026-08-10  
+**Core Value:** Construir senioridade técnica real e mensurável através de um framework de níveis (L1-L7) com KPIs objetivos, progressão baseada em entrega, e trilha certificada de AI Security.
 
-## v1 Requirements
+---
 
-Requisitos para execução deste plano (Fases de 2 a 5).
+## v2 Requirements (Nova Estrutura)
 
-### Fase Técnica 2: Arquitetura de Defesa (Retomada)
+### L2 → L3 (Júnior → Pleno)
+- [ ] **L2-L3-AUTONOMY**: Entregar autonomamente 10+ features/bugfixes sem supervisão constante (taxa de retrabalho < 20%)
+- [ ] **L2-L3-DESIGN**: Ter design técnico aprovado por sênior em 2+ features complexas
+- [ ] **L2-L3-QUALITY**: Redução mensurável de débito técnico: -15%+ em métricas de qualidade (SonarQube, cobertura de testes)
+- [ ] **L2-L3-PRESENTATION**: Realizar 1+ apresentação técnica para 20+ pessoas (interna ou externa)
+- [ ] **L2-L3-MENTORING**: Mentoria ativa com PDI estruturado para 2+ juniores
+- [ ] **L2-L3-CERT**: Obter CRTP ou AWS SA Associate
 
-- [ ] **TECH-01**: Projetar e implementar camadas de guardrails de runtime para LLMs que interceptem ataques baseados no OWASP Top 10 (ex. prompt injection).
-- [ ] **TECH-02**: Validar cadeia de suprimentos de modelos utilizando '.safetensors' e outras práticas para mitigar adulterações antes do deploy.
+### L3 → L4 (Pleno → Sênior)
+- [ ] **L3-L4-ARCHITECTURE**: Arquitetar 2+ sistemas complexos em produção com adoção cross-squad
+- [ ] **L3-L4-IMPACT**: Impacto mensurável: -30%+ custo OU +40%+ performance OU eliminação de classe de incidentes
+- [ ] **L3-L4-LEADERSHIP**: Liderança técnica de 3+ projetos críticos com 5+ pessoas envolvidas
+- [ ] **L3-L4-MENTORING**: Mentoria consolidada: 3+ plenos promovidos com acompanhamento documentado
+- [ ] **L3-L4-INFLUENCE**: Influência arquitetural: 5+ decisões técnicas adotadas por múltiplas squads
+- [ ] **L3-L4-PUBLIC**: Contribuição pública: 2+ palestras técnicas (BSides, H2HC) OU paper publicado
+- [ ] **L3-L4-CERT**: Obter OSCP, CISSP, AWS SA Pro, ou iSAQB CPSA-F
 
-### Carreira: Consolidação como Pleno (Até Maio/2027)
+### L4 → L5 (Sênior → Specialist 1)
+- [ ] **L4-L5-FRAMEWORK**: Framework/plataforma corporativa projetada e adotada por 5+ squads
+- [ ] **L4-L5-IMPACT**: Impacto organizacional: -40%+ tempo de entrega OU mitigação de classe de risco crítico
+- [ ] **L4-L5-OWNERSHIP**: Ownership de domínio técnico estratégico (AI Security, Data Governance)
+- [ ] **L4-L5-LEADERSHIP**: Liderança de iniciativa técnica com impacto em 3+ diretorias
+- [ ] **L4-L5-RECOGNITION**: Reconhecimento externo: 3+ palestras em conferências nacionais OU projeto open source (500+ stars)
+- [ ] **L4-L5-CERT**: Obter CAISP, CMCPSE (opcional), ou CISSP
+- [ ] **L4-L5-PUBLICATION**: Publicação técnica com reconhecimento da comunidade
 
-- [ ] **PLENO-01**: *KPI Mensurável (Entrega)* - Implementar governança de IA em pelo menos 2 pipelines/projetos core no time de segurança, gerando relatórios de conformidade.
-- [ ] **PLENO-02**: *KPI Mensurável (Comportamento)* - Apresentar autonomia na resolução de problemas de Analytics/MLOps sem necessidade de supervisão de micro-tasks (registrado nas sessões de 1:1).
+### L5 → L6 (Specialist 1 → Specialist 2)
+- [ ] **L5-L6-CORPORATE-ARCH**: Arquitetura corporativa estratégica adotada como padrão oficial do banco
+- [ ] **L5-L6-EXECUTIVE**: Apresentação para C-level com decisão estratégica baseada em recomendação técnica
+- [ ] **L5-L6-GOVERNANCE**: Framework de governança adotado em 10+ squads
+- [ ] **L5-L6-COMMUNITY**: Liderança de comunidade técnica interna (100+ membros ativos)
+- [ ] **L5-L6-MARKET**: Reconhecimento de mercado: keynote OU projeto open source crítico (2.000+ stars) OU paper internacional
+- [ ] **L5-L6-STANDARDS**: Participação em grupos de trabalho de padrões (OWASP, NIST, etc.)
+- [ ] **L5-L6-CERT**: Obter ISO/IEC 42001 Lead Implementer, iSAQB CPSA-A, ou GIAC GOAA/GASAE
 
-### Carreira: Construção de Sênior (Maio/2027 a Maio/2029)
+### L6 → L7 (Specialist 2 → Specialist 3)
+- [ ] **L6-L7-TRANSFORMATION**: Impacto corporativo transformador: mudança fundamental na operação técnica do banco
+- [ ] **L6-L7-INNOVATION**: Liderança de inovação: patente OU framework adotado pelo mercado OU pesquisa com ROI comprovado
+- [ ] **L6-L7-INTERNATIONAL**: Reconhecimento internacional: prêmios de indústria OU keynotes Tier-1 (Black Hat, DEF CON, OWASP Global)
+- [ ] **L6-L7-STANDARDS**: Influência em padrões de mercado: autor RFC, NIST guidance, OWASP project lead
+- [ ] **L6-L7-CERT**: Obter ISACA AAISM
 
-- [ ] **SENIOR-01**: *KPI Mensurável (Entrega)* - Projetar do zero uma arquitetura corporativa para validação de custos/segurança de IA, aprovada e em produção.
-- [ ] **SENIOR-02**: *KPI Mensurável (Comportamento)* - Liderar tecnicamente pelo menos um projeto crítico end-to-end, mentorando um analista júnior/pleno durante a execução.
-- [ ] **SENIOR-03**: *KPI Mensurável (Conhecimento)* - Obter certificação de mercado relevante em Cloud Security ou AI Security que valide as práticas desenhadas.
-
-### Técnica + Carreira: Transição para Specialist (Maio/2029 a Maio/2033)
-
-- [ ] **SPEC-01**: *KPI Mensurável (Entrega Técnica)* - Projetar um framework tático de Red Teaming em IA (Adversarial ML, evasão, extração de modelo) adaptado à infraestrutura corporativa do Itaú.
-- [ ] **SPEC-02**: *KPI Mensurável (Governança e Processo)* - Liderar a adequação arquitetural da corporação baseada no framework NIST AI RMF, transformando-o em padrão oficial de arquitetura e mitigação.
-- [ ] **SPEC-03**: *KPI Mensurável (Impacto/Influência)* - Realizar no mínimo 3 apresentações executivas/técnicas para diretores ou fóruns de tecnologia externos demonstrando a resiliência das políticas de AI Security aplicadas.
-
-## Out of Scope
+## Out of Scope (Mantido)
 
 | Feature | Reason |
 |---------|--------|
-| Transição pura para AppSec | Abordagem web clássica (WAF/SQLi) afasta Gustavo do background valioso de MLOps. |
-| Busca por "título vazio" | PDI é baseado na métrica da senioridade real através de entregas sistêmicas mensuráveis, e não tempo de cadeira. |
-
-## Traceability
-
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| TECH-01 | Phase 1 | Pending |
-| TECH-02 | Phase 1 | Pending |
-| PLENO-01 | Phase 2 | Pending |
-| PLENO-02 | Phase 2 | Pending |
-| SENIOR-01 | Phase 3 | Pending |
-| SENIOR-02 | Phase 3 | Pending |
-| SENIOR-03 | Phase 3 | Pending |
-| SPEC-01 | Phase 4 | Pending |
-| SPEC-02 | Phase 4 | Pending |
-| SPEC-03 | Phase 4 | Pending |
-
-**Coverage:**
-- v1 requirements: 10 total
-- Mapped to phases: 10
-- Unmapped: 0 ✓
+| Transição pura para AppSec | Abordagem web clássica (WAF/SQLi) afasta do background valioso de MLOps |
+| Busca por "título vazio" | PDI baseado na métrica da senioridade real através de entregas mensuráveis |
 
 ---
-*Requirements defined: 2026-08-01*
-*Last updated: 2026-08-01 after milestone setup*
+
+**Defined:** 2026-08-10  
+**Last updated:** 2026-08-10  
+**Status:** L2 (Júnior) → L3 (Pleno) em progresso

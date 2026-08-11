@@ -1,187 +1,224 @@
-# ROADMAP DO PDI: Pleno a AI Security Specialist (Milestone v2.0)
+# ROADMAP DO PDI: Níveis Técnicos (L1-L7) → AI Security Specialist
 
-**Created:** 2026-08-01  
-**Milestone:** v2.0  
-**Granularity:** Standard  
-**Coverage:** 10/10 requirements mapped ✓
+**Created:** 2026-08-10  
+**Milestone:** v3.0  
+**Model:** Engineering Ladder L1-L7  
+**Granularity:** Baseado em KPIs, não em tempo  
+**Coverage:** Todos os níveis mapeados ✓
 
-## Phases
+## Níveis
 
-- [x] **Phase 1: Pleno Ano 1 (2026-2027)** - Estruturação do PDI e Gestão de Conhecimento [Target: PRAD/Mérito 2027]
-- [ ] **Phase 2: Pleno Ano 2 (2027-2028)** - Governança Aplicada + Entregas Core [Target: Promoção Pleno → Sênior mai/2027 + PRAD/Mérito 2028]
-- [ ] **Phase 3: Sênior Ano 1 (2028-2029)** - Arquitetura Corporativa + Liderança Técnica [Target: PRAD/Mérito 2029]
-- [ ] **Phase 4: Sênior Ano 2 (2029-2030)** - Mentoria + Design de Sistemas Complexos [Target: PRAD/Mérito 2030 + Certificação]
-- [ ] **Phase 5: Transição Sênior → Specialist (2030-2031)** - Red Teaming + Frameworks de Risco [Target: Promoção Sênior → Specialist + PRAD/Mérito 2031]
-- [ ] **Phase 6: Specialist Ano 1 (2031-2032)** - NIST AI RMF + Governança Corporativa [Target: PRAD/Mérito 2032]
-- [ ] **Phase 7: Specialist Ano 2 (2032-2033)** - Impacto Executivo + Reconhecimento Externo [Target: PRAD/Mérito 2033 + Consolidação]
+- [x] **L1: Estagiário** — Fundação técnica básica [Concluído em 2024]
+- [x] **L2: Júnior** — Autonomia em tarefas definidas [Desde 2025-05-05]
+- [ ] **L3: Pleno** — Ownership de projetos médios e influência na squad
+- [ ] **L4: Sênior** — Arquitetura cross-squad e liderança técnica
+- [ ] **L5: Specialist 1** — Framework corporativo e domínio de AI Security
+- [ ] **L6: Specialist 2** — Arquitetura corporativa oficial e impacto executivo
+- [ ] **L7: Specialist 3** — Referência de indústria e padrões de mercado
 
-## Phase Details
+## Detalhes por Nível
 
-### Phase 1: Pleno Ano 1 (2026-2027)
-**Goal**: Estabelecer fundamentos de Arquitetura de Defesa em IA e demonstrar autonomia técnica em entregas de Analytics/MLOps.
-
-**Depends on**: Nothing (primeira fase do milestone v2.0)
-
-**Requirements**: TECH-01 (parcial), PLENO-02
-
-**Success Criteria** (what must be TRUE):
-  1. Gustavo implementa prototipo funcional de guardrails de runtime interceptando prompt injection básica (ex: usando biblioteca como NeMo Guardrails)
-  2. Gustavo resolve problemas de Analytics/MLOps autonomamente, sem necessidade de supervisão de micro-tasks
-  3. Gustavo documenta arquitetura de defesa inicial com rastreabilidade para governança
-  4. Gustavo apresenta em 1:1 com Aline evidências de autonomia técnica e entrega consistente
-  5. **Target PRAD/Mérito 2027**: KPIs de entrega e comportamento registrados e aprovados
-
-**Plans**: 2 plans
-
-**Planos:**
-- [ ] 01-01-PLAN.md — Estruturação visual e de dados do PDI (timeline, milestones arquivados, dados atualizados)
-- [ ] 01-02-PLAN.md — Trilha de estudos SecMLOps, referências materiais e dashboard de progresso
+### L1: Estagiário ✓
+**Goal**: Fundação técnica básica  
+**Status:** Concluído (2023-2024)  
+**KPIs Atingidos:**
+- Tarefas supervisionadas entregues
+- Ferramentas básicas dominadas
+- Certificações iniciais
 
 ---
 
-### Phase 2: Pleno Ano 2 (2027-2028)
-**Goal**: Aplicar governança de IA em projetos core do time de segurança e consolidar competências para promoção a Sênior.
+### L2: Júnior (ATUAL) — Em progresso
+**Goal**: Demonstrar autonomia em tarefas bem definidas e entregar consistentemente.  
+**Status:** Em progresso (desde 2025-05-05)
 
-**Depends on**: Phase 1
+**KPIs Mensuráveis:**
+| KPI | Meta | Status |
+|-----|------|--------|
+| Features/bugfixes autônomos | 10+ | Em progresso |
+| Taxa de retrabalho em PRs | < 20% | Em progresso |
+| Discussões técnicas com propostas | 5+ | Em progresso |
+| Melhorias de processo implementadas | 2+ | Em progresso |
+| Estagiários mentorados | 1+ | Em progresso |
 
-**Requirements**: TECH-02, PLENO-01
+**Certificações concluídas:**
+- [x] AWS Cloud Practitioner (Dez/2024)
+- [x] Analytics Engineer Interno (Set/2025)
+- [x] API Owner Interno (Dez/2025)
+- [x] CompTIA Security+ (Abr/2026)
 
-**Success Criteria** (what must be TRUE):
-  1. Gustavo implementa governança de IA em pelo menos 2 pipelines/projetos core, gerando relatórios de conformidade
-  2. Gustavo valida cadeia de suprimentos de modelos usando '.safetensors' ou práticas equivalentes antes do deploy
-  3. Gustavo estrutura arquitetura segura de inferência abordando múltiplas categorias do OWASP Top 10 LLM
-  4. Gustavo mantém registro estruturado de KPIs (entregas + comportamentos) para avaliação de carreira
-  5. **Target Promoção Pleno → Sênior (maio/2027)**: Evidências tangíveis alinhadas com critérios de Sênior do Itaú apresentadas em 1:1
-  6. **Target PRAD/Mérito 2028**: Entregas de governança reconhecidas oficialmente
-
-**Plans**: TBD
-
----
-
-### Phase 3: Sênior Ano 1 (2028-2029)
-**Goal**: Projetar arquitetura corporativa de validação de custos/segurança de IA e iniciar liderança técnica com mentoria.
-
-**Depends on**: Phase 2
-
-**Requirements**: SENIOR-01, SENIOR-02 (parcial)
-
-**Success Criteria** (what must be TRUE):
-  1. Gustavo projeta do zero uma arquitetura corporativa para validação de custos/segurança de IA, aprovada pela liderança
-  2. Gustavo coloca a arquitetura em produção, com métricas de adoção e impacto documentadas
-  3. Gustavo lidera tecnicamente 1 projeto crítico end-to-end, mentorando um analista júnior/pleno durante a execução
-  4. Gustavo demonstra impacto técnico mensurável em projetos que transcendem sua squad
-  5. **Target PRAD/Mérito 2029**: Reconhecimento de liderança técnica e arquitetura corporativa
-
-**Plans**: TBD
+**Entrega de saída:** Trabalha de forma autônoma em tarefas bem definidas; entende o domínio do negócio.
 
 ---
 
-### Phase 4: Sênior Ano 2 (2029-2030)
-**Goal**: Consolidar senioridade através de certificação de mercado e design de sistemas complexos com influência arquitetural ampla.
+### L3: Pleno
+**Goal**: Liderar tecnicamente features complexas; influenciar decisões da squad.  
+**Status:** Atuando como Pleno desde 07/06/2026 (promoção formal pendente)
 
-**Depends on**: Phase 3
+**KPIs Mensuráveis:**
+| KPI | Meta | Status |
+|-----|------|--------|
+| Ownership completo de projetos médios | 3+ projetos (>1 mês cada) | Pendente |
+| Design técnico aprovado por sênior | 2+ features complexas | Pendente |
+| Redução de débito técnico | -15%+ em métricas | Pendente |
+| Apresentação técnica para audiência | 1+ (20+ pessoas) | Pendente |
+| Mentoria ativa com PDI estruturado | 2+ juniores | Pendente |
+| Certificação técnica | CRTP ou AWS SA Associate | Pendente |
 
-**Requirements**: SENIOR-02 (completo), SENIOR-03
+**Entrega de saída:** Lidera tecnicamente features complexas; influencia decisões da squad.
 
-**Success Criteria** (what must be TRUE):
-  1. Gustavo obtém certificação de mercado relevante em Cloud Security ou AI Security (ex: CCSP, AWS Security Specialty, ou equivalente)
-  2. Gustavo lidera tecnicamente projetos críticos adicionais, consolidando padrão de mentoria e ownership
-  3. Gustavo influencia decisões arquiteturais em múltiplas squads, não apenas na sua própria
-  4. Gustavo apresenta evidências de liderança técnica reconhecida pela gerência e pares em avaliações de 1:1
-  5. **Target PRAD/Mérito 2030**: Certificação + impacto arquitetural consolidado
-
-**Plans**: TBD
-
----
-
-### Phase 5: Transição Sênior → Specialist (2030-2031)
-**Goal**: Desenvolver competências ofensivas de Red Teaming em IA e iniciar design de frameworks corporativos de risco.
-
-**Depends on**: Phase 4
-
-**Requirements**: SPEC-01
-
-**Success Criteria** (what must be TRUE):
-  1. Gustavo projeta framework tático de Red Teaming em IA (Adversarial ML, evasão, extração de modelo) adaptado ao Itaú
-  2. Gustavo testa e mitiga métodos de Evasão/Inversão em modelos utilizados na corporação
-  3. Gustavo documenta playbook de Red Teaming para AI Security com casos de uso reais do banco
-  4. Gustavo apresenta framework para liderança executiva com aprovação para implementação
-  5. **Target Promoção Sênior → Specialist (2030-2031)**: Evidências de impacto organizacional amplo e expertise técnica avançada
-  6. **Target PRAD/Mérito 2031**: Framework de Red Teaming reconhecido como padrão corporativo
-
-**Plans**: TBD
+**Marcos Concretos:**
+- [ ] Cyber.itau: ownership completo de 2+ módulos críticos end-to-end
+- [ ] Insight Guard: design de arquitetura aprovado pela liderança
+- [ ] Apresentação técnica em All Hands ou evento interno (20+ pessoas)
+- [ ] 2 juniores/estagiários com PDI estruturado
+- [ ] CRTP concluído ou AWS SA Associate obtida
 
 ---
 
-### Phase 6: Specialist Ano 1 (2031-2032)
-**Goal**: Liderar adequação arquitetural da corporação baseada no framework NIST AI RMF, transformando-o em padrão oficial.
+### L4: Sênior
+**Goal**: Autoridade técnica reconhecida; molda a direção técnica de múltiplas squads.
 
-**Depends on**: Phase 5
+**KPIs Mensuráveis:**
+| KPI | Meta | Status |
+|-----|------|--------|
+| Sistemas complexos em produção (cross-squad) | 2+ | Não iniciado |
+| Impacto mensurável | -30%+ custo OU +40%+ perf | Não iniciado |
+| Liderança técnica de projetos críticos | 3+ projetos (5+ pessoas) | Não iniciado |
+| Mentoria consolidada (plenos promovidos) | 3+ plenos | Não iniciado |
+| Influência arquitetural cross-squad | 5+ decisões adotadas | Não iniciado |
+| Contribuição pública | 2+ palestras OU paper | Não iniciado |
+| Certificação avançada | OSCP, AWS SA Pro, iSAQB CPSA-F | Não iniciado |
 
-**Requirements**: SPEC-02
+**Entrega de saída:** Autoridade técnica reconhecida; molda a direção técnica de múltiplas squads.
 
-**Success Criteria** (what must be TRUE):
-  1. Gustavo lidera a adequação arquitetural da corporação baseada no framework NIST AI RMF
-  2. Gustavo transforma o framework em padrão oficial de arquitetura e mitigação do Itaú
-  3. Gustavo dita diretrizes arquiteturais que influenciam a estratégia de segurança em IA da corporação
-  4. Gustavo demonstra impacto organizacional amplo, reconhecido pela diretoria de Cyber Security
-  5. **Target PRAD/Mérito 2032**: Governança técnica avançada consolidada como padrão corporativo
+**Marcos Concretos:**
+- [ ] Arquitetura de AI Defense (guardrails) adotada por 2+ squads
+- [ ] Liderança técnica de 3+ projetos de impacto
+- [ ] OSCP concluído
+- [ ] iSAQB CPSA-F obtida
+- [ ] Palestra em BSides BR ou H2HC
 
-**Plans**: TBD
+---
+
+### L5: Specialist 1
+**Goal**: Define padrões técnicos corporativos; referência em domínio específico.
+
+**KPIs Mensuráveis:**
+| KPI | Meta | Status |
+|-----|------|--------|
+| Framework/plataforma corporativa | 5+ squads adotando | Não iniciado |
+| Impacto organizacional | -40%+ tempo de entrega | Não iniciado |
+| Ownership de domínio estratégico | AI Security, Data Gov. | Não iniciado |
+| Liderança de iniciativa multi-diretoria | 3+ diretorias | Não iniciado |
+| Reconhecimento externo | 3+ palestras nacionais OU 500+ stars | Não iniciado |
+| Certificação especialização | CAISP, CISSP | Não iniciado |
+| Publicação técnica | Artigo citado/reconhecido | Não iniciado |
+
+**Entrega de saída:** Define padrões técnicos corporativos; referência em domínio específico.
+
+**Marcos Concretos:**
+- [ ] AI Security Framework corporativo adotado por 5+ squads
+- [ ] CAISP obtida
+- [ ] CISSP obtida
+- [ ] Contribuição ao OWASP GenAI Security Project
+- [ ] Palestra em conferência nacional (ROADSEC, H2HC)
+- [ ] CMCPSE (opcional, diferencial para agentes)
 
 ---
 
-### Phase 7: Specialist Ano 2 (2032-2033)
-**Goal**: Consolidar reconhecimento como referência técnica em AI Security através de impacto executivo e visibilidade externa.
+### L6: Specialist 2
+**Goal**: Molda estratégia técnica corporativa; reconhecido nacionalmente/internacionalmente.
 
-**Depends on**: Phase 6
+**KPIs Mensuráveis:**
+| KPI | Meta | Status |
+|-----|------|--------|
+| Arquitetura corporativa padrão oficial | Banco inteiro | Não iniciado |
+| Impacto executivo | C-level com decisão estratégica | Não iniciado |
+| Governança técnica ampla | 10+ squads | Não iniciado |
+| Comunidade técnica interna | 100+ membros | Não iniciado |
+| Reconhecimento de mercado | Keynote OU 2.000+ stars | Não iniciado |
+| Influência normativa | OWASP, NIST, etc. | Não iniciado |
+| Certificações de governança | ISO/IEC 42001, iSAQB CPSA-A | Não iniciado |
 
-**Requirements**: SPEC-03
+**Entrega de saída:** Molda estratégia técnica corporativa; reconhecido nacionalmente/internacionalmente.
 
-**Success Criteria** (what must be TRUE):
-  1. Gustavo realiza no mínimo 3 apresentações executivas/técnicas para diretores ou fóruns de tecnologia externos
-  2. Gustavo demonstra resiliência das políticas de AI Security aplicadas no Itaú com métricas concretas de impacto
-  3. Gustavo consolida reconhecimento como referência técnica em AI Security dentro do Itaú
-  4. Gustavo estabelece presença no mercado externo (palestras, artigos, comunidades técnicas) validando expertise
-  5. **Target PRAD/Mérito 2033**: Impacto executivo + reconhecimento externo consolidado
-
-**Plans**: TBD
+**Marcos Concretos:**
+- [ ] NIST AI RMF implementado como padrão oficial do Itaú
+- [ ] ISO/IEC 42001 Lead Implementer obtida
+- [ ] Red Teaming AI Framework aprovado pela liderança executiva
+- [ ] Keynote em conferência nacional OU contribuição open source reconhecida
+- [ ] Participação em grupo de trabalho OWASP ou NIST
 
 ---
+
+### L7: Specialist 3
+**Goal**: Líder técnico global; referência de indústria.
+
+**KPIs Mensuráveis:**
+| KPI | Meta | Status |
+|-----|------|--------|
+| Impacto corporativo transformador | Mudança fundamental | Não iniciado |
+| Liderança de inovação | Patente OU framework mercado | Não iniciado |
+| Reconhecimento internacional | Prêmios OU keynote Tier-1 | Não iniciado |
+| Influência em padrões de mercado | RFC, NIST guidance, OWASP lead | Não iniciado |
+| ISACA AAISM | Pré-req: CISSP ativo | Não iniciado |
+
+**Entrega de saída:** Líder técnico global; referência de indústria.
+
+**Marcos Concretos:**
+- [ ] ISACA AAISM obtida
+- [ ] Keynote em Black Hat, DEF CON, ou OWASP Global
+- [ ] Participação como autor em framework de mercado
+- [ ] Legado técnico duradouro (paper, framework, projeto reconhecido)
+
+---
+
+## Trilha de Certificações
+
+```
+L1-L2 ──► Cloud Practitioner ✓ · Security+ ✓ · Analytics Eng ✓ · API Owner ✓
+L3    ──► CRTP · AWS SA Associate
+L4    ──► OSCP · iSAQB CPSA-F · AWS SA Pro
+L5    ──► CAISP · CISSP · CMCPSE (opcional)
+L6    ──► ISO/IEC 42001 · iSAQB CPSA-A · GIAC GOAA/GASAE (opcional)
+L7    ──► ISACA AAISM
+```
 
 ## Progress
 
-| Phase | Plans Complete | Status | Target Year | Completed |
-|-------|----------------|--------|-------------|-----------|
-| 1. Pleno Ano 1 | 0/2 | Not started | 2027 | - |
-| 2. Pleno Ano 2 | 0/0 | Not started | 2028 | - |
-| 3. Sênior Ano 1 | 0/0 | Not started | 2029 | - |
-| 4. Sênior Ano 2 | 0/0 | Not started | 2030 | - |
-| 5. Transição Sênior → Specialist | 0/0 | Not started | 2031 | - |
-| 6. Specialist Ano 1 | 0/0 | Not started | 2032 | - |
-| 7. Specialist Ano 2 | 0/0 | Not started | 2033 | - |
+| Nível | Título | Status | KPIs Atingidos |
+|-------|--------|--------|----------------|
+| L1 | Estagiário | ✓ Completo | 4/4 |
+| L2 | Júnior | Em progresso | 2/5 |
+| L3 | Pleno | Atuando (promoção pendente) | 0/6 |
+| L4 | Sênior | Não iniciado | 0/7 |
+| L5 | Specialist 1 | Não iniciado | 0/7 |
+| L6 | Specialist 2 | Não iniciado | 0/6 |
+| L7 | Specialist 3 | Não iniciado | 0/4 |
 
 ## Traceability
 
-| Requirement | Phase | Status |
+| Requirement | Level | Status |
 |-------------|-------|--------|
-| TECH-01 | Phase 1 (parcial), Phase 2 (completo) | Pending |
-| TECH-02 | Phase 2 | Pending |
-| PLENO-01 | Phase 2 | Pending |
-| PLENO-02 | Phase 1 | Pending |
-| SENIOR-01 | Phase 3 | Pending |
-| SENIOR-02 | Phase 3 (parcial), Phase 4 (completo) | Pending |
-| SENIOR-03 | Phase 4 | Pending |
-| SPEC-01 | Phase 5 | Pending |
-| SPEC-02 | Phase 6 | Pending |
-| SPEC-03 | Phase 7 | Pending |
-
-**Coverage:**
-- v1 requirements: 10 total
-- Mapped to phases: 10
-- Unmapped: 0 ✓
+| L2-L3-AUTONOMY | L2 → L3 | Em progresso |
+| L2-L3-DESIGN | L2 → L3 | Pendente |
+| L2-L3-QUALITY | L2 → L3 | Pendente |
+| L2-L3-PRESENTATION | L2 → L3 | Pendente |
+| L2-L3-MENTORING | L2 → L3 | Pendente |
+| L2-L3-CERT | L2 → L3 | Pendente |
+| L3-L4-ARCHITECTURE | L3 → L4 | Não iniciado |
+| L3-L4-IMPACT | L3 → L4 | Não iniciado |
+| L3-L4-LEADERSHIP | L3 → L4 | Não iniciado |
+| L3-L4-CERT | L3 → L4 | Não iniciado |
+| L4-L5-FRAMEWORK | L4 → L5 | Não iniciado |
+| L4-L5-CERT | L4 → L5 | Não iniciado |
+| L5-L6-CORPORATE-ARCH | L5 → L6 | Não iniciado |
+| L5-L6-CERT | L5 → L6 | Não iniciado |
+| L6-L7-TRANSFORMATION | L6 → L7 | Não iniciado |
+| L6-L7-CERT | L6 → L7 | Não iniciado |
 
 ---
-*Roadmap created: 2026-08-01*  
-*Milestone: v2.0*  
-*Structure: 7 phases aligned with PRAD/Mérito cycles and career transitions*
+*Roadmap criado: 2026-08-10*  
+*Milestone: v3.0*  
+*Estrutura: Framework L1-L7 baseado em KPIs mensuráveis*

@@ -1,32 +1,41 @@
-# PDI: Analytics Engineer to AI Security Specialist
+# PDI: Níveis Técnicos (L1-L7) → AI Security Specialist
 
 ## What This Is
 
-Um Plano de Desenvolvimento Individual (PDI) estruturado de 8 anos para guiar a transição e seniorização de Gustavo no Itaú Unibanco. O plano parte da função atual de Analytics Engineer com stack cross (Front, Back, Data, MLOps) atuando em Cyber Security (governança e custos de IA) e projeta sua evolução para Pleno (maio/2027), Sênior (maio/2029) e finalmente AI Security Specialist (maio/2033), com foco em seniorização real e entregas de alto impacto arquitetural.
+Um Plano de Desenvolvimento Individual (PDI) estruturado com **níveis técnicos (L1-L7)** para guiar a evolução de Gustavo no Itaú Unibanco. O plano parte da função atual de Engenheiro de Analytics (L2 - Júnior) com stack cross (Front, Back, Data, MLOps) atuando em Cyber Security (governança e custos de IA) e projeta sua evolução através de **L3 (Pleno) → L4 (Sênior) → L5 (Specialist 1) → L6 (Specialist 2) → L7 (Specialist 3)** com foco em seniorização real, KPIs mensuráveis e trilha certificada de AI Security.
 
 ## Core Value
 
-Construir senioridade técnica real e mensurável através da translação de governança de IA em arquitetura de defesa e SecMLOps prático, tornando a evolução de carreira previsível, auditável e alinhada com as expectativas de liderança técnica no Itaú.
+Construir senioridade técnica real e mensurável através de:
+- **Níveis objetivos (L1-L7)** com KPIs quantificáveis
+- **Progressão baseada em entrega**, não em tempo de cadeira
+- **Certificações estratégicas** alinhadas ao mercado
+- **Evidências reais** (projetos, métricas, portfólio)
+- **Linearidade de carreira** clara e previsível
 
 ## Business Context
 
 - **Customer**: Gustavo (desenvolvimento de carreira) / Liderança de Cyber Security (Itaú Unibanco)
-- **Success metric**: Promoções efetivas baseadas em critérios técnicos e organizacionais claros do Itaú
-- **Strategy notes**: Alinhamento contínuo em reuniões de 1:1 com a gerente Aline (ex-Specialist 2 em Engenharia de Dados) para validação dos KPIs e comportamentos.
+- **Success metric**: Promoções efetivas baseadas em critérios técnicos e organizacionais claros do Itaú, validadas por evidências documentadas
+- **Strategy notes**: 
+  - Revisão trimestral de KPIs com gestor
+  - 1:1 semestral para validação de prontidão para próximo nível
+  - Banca técnica para promoções a partir de L4
 
 ## Requirements
 
 ### Validated
 
+- **✓ L1-L2-BASE**: Certificações internas: Analytics Engineer (2025-09), API Owner (2025-12), Security+ (2026-04), Cloud Practitioner (2024-12)
 - **✓ SECMLOPS-BASE**: Mapeamento inicial de ameaças com MITRE ATLAS e testes automatizados no CI/CD (Fase 1 completa em 2025-07-31).
 
 ### Active
 
-- [ ] **CAREER-PLENO**: Consolidar autonomia técnica e entregas como Pleno até maio/2027.
-- [ ] **CAREER-SENIOR**: Construir as bases de senioridade real (liderança técnica, mentoria, design de sistemas complexos) entre maio/2027 e maio/2029.
-- [ ] **CAREER-SPEC**: Desenvolver impacto corporativo, governança técnica avançada e segurança sistêmica de IA (SecMLOps/Red Teaming) de maio/2029 a maio/2033.
-- [ ] **TECH-DEFENSE**: Projetar arquiteturas de defesa e guardrails no runtime de LLMs (OWASP Top 10 LLMs).
-- [ ] **TECH-ADV-ML**: Desenvolver competência ofensiva de Red Teaming contra modelos de IA (Adversarial ML).
+- [ ] **L2-L3**: Consolidar autonomia técnica e entregas como Pleno (L3)
+- [ ] **L3-L4**: Construir senioridade real (liderança técnica, mentoria, design de sistemas complexos)
+- [ ] **L4-L5**: Desenvolver impacto corporativo, governança técnica avançada e segurança sistêmica de IA
+- [ ] **L5-L6**: Liderar arquitetura corporativa e transformação organizacional
+- [ ] **L6-L7**: Consolidar reconhecimento como referência técnica global
 
 ### Out of Scope
 
@@ -41,10 +50,10 @@ Construir senioridade técnica real e mensurável através da translação de go
 
 ## Constraints
 
-- **Tempo (Pleno)**: Horizonte até maio/2027 para consolidação e promoção interna.
-- **Tempo (Sênior)**: 2 anos de construção de cargo (maio/2027 a maio/2029).
-- **Tempo (Specialist)**: 4 anos de construção de cargo (maio/2029 a maio/2033).
-- **Ecosystem**: Foco na infraestrutura, políticas e arquitetura de segurança do Itaú Unibanco.
+- **Modelo L1-L7**: Progressão baseada em KPIs, não em tempo (mínimo sugerido por nível: L1=6-12mo, L2=12-18mo, L3=18-24mo, L4=24-36mo, L5=36-48mo, L6=48+mo, L7=N/A)
+- **Certificações**: Alinhadas ao roadmap de níveis (L2-L3: CRTP; L3-L4: OSCP/CISSP; L4-L5: CAISP; etc.)
+- **Evidências**: Portfólio documentado de entregas, métricas e feedback é obrigatório para promoção
+- **Ecosystem**: Foco na infraestrutura, políticas e arquitetura de segurança do Itaú Unibanco
 
 ## Key Decisions
 
@@ -52,24 +61,19 @@ Construir senioridade técnica real e mensurável através da translação de go
 |----------|-----------|---------|
 | Abordagem Baseada em Dados | Alavancar o background de dados/MLOps em vez de pivotar para segurança tradicional de rede/web. | ✓ Good |
 | Mapeamento com MITRE ATLAS | Usar framework de mercado padrão para modelagem de ameaças no banco. | ✓ Good |
-| KPIs de Comportamento + Entrega | Facilitar a avaliação de 1:1 com a Aline demonstrando atitude e impacto, não apenas código. | ✓ Good |
+| Níveis L1-L7 (FAANG-style) | Alinhar com mercado global, linearidade clara, KPIs objetivos | ✓ Good |
+| Certificações mapeadas por nível | Garantir que cada certificação valide competências do nível | ✓ Good |
+| Progressão baseada em KPIs | Não basear em tempo de cadeira, mas em entrega real | ✓ Good |
 
 ## Evolution
 
-This document evolves at phase transitions and milestone boundaries.
+This document evolves at level transitions and milestone boundaries.
 
-**After each phase transition** (via `/gsd-transition`):
-1. Requirements invalidated? → Move to Out of Scope with reason
-2. Requirements validated? → Move to Validated with phase reference
-3. New requirements emerged? → Add to Active
-4. Decisions to log? → Add to Key Decisions
-5. "What This Is" still accurate? → Update if drifted
-
-**After each milestone** (via `/gsd-complete-milestone`):
-1. Full review of all sections
-2. Core Value check — still the right priority?
-3. Audit Out of Scope — reasons still valid?
-4. Update Context with current state
+**After each level transition:**
+1. KPIs do nível atual atingidos? → Move to Validated with evidence
+2. Novos KPIs do próximo nível demonstrados? → Atualizar em "Active"
+3. Novas certificações mapeadas? → Add to roadmap
+4. "What This Is" still accurate? → Update if drifted
 
 ---
-*Last updated: 2026-08-01 after Milestone v2.0 start*
+*Last updated: 2026-08-10 after Level-based PDI restructure*

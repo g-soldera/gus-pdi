@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Briefcase, Shield, Clock } from 'lucide-react';
-import { PersonalInfo } from '@/types/pdi';
-import { calculateAge, calculateDaysRemaining, calculateTimeDifference } from '@/app/utils/helpers';
+import { PersonalInfo, CareerLevel } from '@/types/pdi';
+import { careerLevels } from '@/data/careerLevels';
+import { calculateAge, calculateTimeDifference } from '@/app/utils/helpers';
 import { CareerTimeline } from './CareerTimeline';
 
 interface HeroProps {
@@ -10,10 +11,17 @@ interface HeroProps {
 }
 
 export function Hero({ info }: HeroProps) {
-  // Placeholder for future use if needed
   const age = calculateAge(info.birthDate);
   const experienceTime = info.experienceStartDate ? calculateTimeDifference(info.experienceStartDate) : null;
   const bankTime = info.bankStartDate ? calculateTimeDifference(info.bankStartDate) : null;
+
+  const currentLevelInfo = careerLevels.find(level => level.level === info.currentLevel);
+  const targetLevelInfo = careerLevels.find(level => level.level === info.targetLevel);
+
+  const allLevels: CareerLevel[] = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7'];
+  const currentLevelIndex = allLevels.indexOf(info.currentLevel as CareerLevel);
+  const targetLevelIndex = allLevels.indexOf(info.targetLevel as CareerLevel);
+
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary-lighter via-background to-background py-16 md:py-24">
@@ -99,8 +107,8 @@ export function Hero({ info }: HeroProps) {
             >
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
                 <div className="text-left">
-                  <p className="text-sm text-muted-foreground mb-1">Cargo Atual</p>
-                  <p className="font-medium text-lg">{info.currentRole}</p>
+                  <p className="text-sm text-muted-foreground mb-1">Nível Atual</p>
+                  <p className="font-medium text-lg">{currentLevelInfo?.title || info.currentRole}</p>
                 </div>
 
                 <div className="flex items-center">
@@ -108,37 +116,42 @@ export function Hero({ info }: HeroProps) {
                 </div>
 
                 <div className="text-left">
-                  <p className="text-sm text-muted-foreground mb-1">Meta</p>
-                  <p className="font-medium text-lg text-primary">{info.targetRole}</p>
+                  <p className="text-sm text-muted-foreground mb-1">Próximo Nível</p>
+                  <p className="font-medium text-lg text-primary">{targetLevelInfo?.title || info.targetRole}</p>
                 </div>
               </div>
 
               <div className="pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira (Histórico)</p>
+                <p className="text-sm text-muted-foreground mb-4">Jornada de Carreira por Nível</p>
                 <div className="space-y-3">
-                  {/* Timeline Visual */}
                   <div className="relative">
                     <div className="flex items-center justify-between text-xs mb-2">
-                      <span className="text-muted-foreground">Freelancer</span>
-                      <span className="text-muted-foreground">Estágio</span>
-                      <span className="font-bold text-primary">Júnior (Atual)</span>
-                      <span className="text-muted-foreground">Pleno</span>
-                      <span className="text-muted-foreground">Sênior</span>
-                      <span className="text-muted-foreground">Specialist</span>
+                      {allLevels.map((level, index) => {
+                        const levelInfo = careerLevels.find(l => l.level === level);
+                        return (
+                          <span 
+                            key={level}
+                            className={`
+                              ${currentLevelIndex === index ? 'font-bold text-primary' : 'text-muted-foreground'}
+                              ${index > currentLevelIndex && 'opacity-50'}
+                            `}
+                          >
+                            {levelInfo?.titleShort || level}
+                          </span>
+                        );
+                      })}
                     </div>
                     <div className="h-3 w-full bg-border rounded-full flex overflow-hidden relative">
-                      {/* Freelancer */}
-                      <div className="h-full w-[16.6%] bg-muted" title="Freelancer"></div>
-                      {/* Estágio */}
-                      <div className="h-full w-[16.6%] bg-muted-foreground/60" title="Estágio"></div>
-                      {/* Júnior - ATUAL */}
-                      <div className="h-full w-[16.8%] bg-primary border-l-2 border-dashed border-white animate-pulse" title="Júnior"></div>
-                      {/* Pleno */}
-                      <div className="h-full w-[16.6%] bg-primary/40" title="Pleno"></div>
-                      {/* Sênior */}
-                      <div className="h-full w-[16.6%] bg-accent/50" title="Sênior"></div>
-                      {/* Specialist */}
-                      <div className="h-full w-[16.6%] bg-accent" title="Specialist"></div>
+                      {allLevels.map((level, index) => (
+                        <div
+                          key={level}
+                          className={`h-full w-[14.28%] transition-all
+                            ${index < currentLevelIndex ? 'bg-primary/50' : ''}
+                            ${index === currentLevelIndex ? 'bg-primary animate-pulse' : ''}
+                          `}
+                          title={`${level}: ${careerLevels.find(l => l.level === level)?.title}`}
+                        ></div>
+                      ))}
                     </div>
                   </div>
                 </div>
