@@ -336,7 +336,7 @@ export const milestones: Milestone[] = [
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: true, completionJustification: 'Repositório cyber-prompts-and-skills alcançou 10+ estrelas com skills de democratização de dados, documentação e design.' },
       { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: true, completionJustification: 'Hugo e Thalita colaboraram ativamente no repositório, em processo de reestruturação com a chegada do ORKA.' },
-      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
+      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: true, completionJustification: '12/08 → Guilda de Práticas de GenAI: Harness | 19/08 → Guilda de Práticas de GenAI: GSD na Prática | 26/08 → Guilda de Práticas de GenAI: Hive na Prática.' },
       { 
         text: 'Criar e documentar 5 novos patterns de prompt para uso do time', 
         completed: true,
