@@ -62,7 +62,7 @@
 | Design técnico aprovado por sênior | 2+ features complexas | Pendente |
 | Redução de débito técnico | -15%+ em métricas | Pendente |
 | Apresentação técnica para audiência | 1+ (20+ pessoas) | Pendente |
-| Mentoria ativa com PDI estruturado | 2+ juniores | Pendente |
+| Mentoria ativa com PDI estruturado | 2+ juniores<details><summary>Dependência: Termos estagiário/júnior próximo</summary>Bloqueado até que haja a alocação de pessoa júnior/estagiário para mentoria.</details> | Pendente |
 | Certificação técnica | CRTP ou AWS SA Associate | Pendente |
 
 **Entrega de saída:** Lidera tecnicamente features complexas; influencia decisões da squad.
@@ -71,7 +71,8 @@
 - [ ] Cyber.itau: ownership completo de 2+ módulos críticos end-to-end
 - [ ] Insight Guard: design de arquitetura aprovado pela liderança
 - [ ] Apresentação técnica em All Hands ou evento interno (20+ pessoas)
-- [ ] 2 juniores/estagiários com PDI estruturado
+- [ ] Mentoria com a Aline (nível spec II / gerente)
+- [ ] 2 juniores/estagiários com PDI estruturado (Bloqueado: depende de termos estagiário próximo)
 - [ ] CRTP concluído ou AWS SA Associate obtida
 
 ---
@@ -162,7 +163,7 @@
 | Liderança de inovação | Patente OU framework mercado | Não iniciado |
 | Reconhecimento internacional | Prêmios OU keynote Tier-1 | Não iniciado |
 | Influência em padrões de mercado | RFC, NIST guidance, OWASP lead | Não iniciado |
-| ISACA AAISM | Pré-req: CISSP ativo | Não iniciado |
+| ISACA AAISM <details><summary>Dependência: CISSP</summary>Bloqueado até que a certificação CISSP seja obtida.</details> | Pré-req: CISSP ativo | Não iniciado |
 
 **Entrega de saída:** Líder técnico global; referência de indústria.
 
@@ -182,7 +183,7 @@ L3    ──► CRTP · AWS SA Associate
 L4    ──► OSCP · iSAQB CPSA-F · AWS SA Pro
 L5    ──► CAISP · CISSP · CMCPSE (opcional)
 L6    ──► ISO/IEC 42001 · iSAQB CPSA-A · GIAC GOAA/GASAE (opcional)
-L7    ──► ISACA AAISM
+L7    ──► ISACA AAISM (depende: CISSP)
 ```
 
 ## Progress

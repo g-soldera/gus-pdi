@@ -33,6 +33,7 @@ export interface Milestone {
   startPosition?: number; // Posição de início na timeline em %
   endPosition?: number; // Posição de fim na timeline em %
   phase?: number | 'secmlops'; // Fase do roadmap associada
+  blockedBy?: string; // ID ou descrição da dependência que bloqueia este marco
 }
 
 export interface Project {

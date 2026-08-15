@@ -12,7 +12,8 @@
 - [ ] **L2-L3-DESIGN**: Ter design técnico aprovado por sênior em 2+ features complexas
 - [ ] **L2-L3-QUALITY**: Redução mensurável de débito técnico: -15%+ em métricas de qualidade (SonarQube, cobertura de testes)
 - [ ] **L2-L3-PRESENTATION**: Realizar 1+ apresentação técnica para 20+ pessoas (interna ou externa)
-- [ ] **L2-L3-MENTORING**: Mentoria ativa com PDI estruturado para 2+ juniores
+- [ ] **L2-L3-MENTORING**: Mentoria ativa com PDI estruturado para 2+ juniores <details><summary>Dependência</summary>Bloqueado até termos estagiário próximo</details>
+- [ ] **L2-L3-MENTORSHIP-RECV**: Receber mentoria da Aline (nível spec II / gerente)
 - [ ] **L2-L3-CERT**: Obter CRTP ou AWS SA Associate
 
 ### L3 → L4 (Pleno → Sênior)

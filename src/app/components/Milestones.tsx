@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock } from 'lucide-react';
 import { Milestone, StudyTopic } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
@@ -96,6 +96,7 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
   const status = getDynamicStatus(milestone);
   const StatusIcon = getStatusIcon(status);
   const daysRemaining = calculateDaysRemaining(milestone.deadline);
+  const isBlocked = !!milestone.blockedBy;
 
   return (
     <motion.div
@@ -106,44 +107,51 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       className="relative pl-20"
-      onClick={() => onClick(milestone)}
+      onClick={() => !isBlocked && onClick(milestone)}
     >
       <div className="absolute left-8 top-6 w-6 h-6 -translate-x-1/2">
         <motion.div
           className={`w-full h-full rounded-full flex items-center justify-center ${
-            status === 'completed' ? 'bg-[var(--completed)]'
+            isBlocked ? 'bg-muted'
+            : status === 'completed' ? 'bg-[var(--completed)]'
             : status === 'in-progress' ? 'bg-[var(--in-progress)]'
             : 'bg-[var(--not-started)]'
           }`}
-          animate={status === 'in-progress' ? { scale: [1, 1.1, 1] } : {}}
-          transition={status === 'in-progress' ? { duration: 2, repeat: Infinity } : {}}
+          animate={status === 'in-progress' && !isBlocked ? { scale: [1, 1.1, 1] } : {}}
+          transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity } : {}}
         >
           <motion.div
-            animate={status === 'in-progress' ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            animate={status === 'in-progress' && !isBlocked ? { rotate: 360 } : {}}
+            transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity, linear: true } : {}}
           >
-            <StatusIcon className="w-4 h-4 text-white" />
+            {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" /> : <StatusIcon className="w-4 h-4 text-white" />}
           </motion.div>
         </motion.div>
       </div>
 
       <motion.div
-        className="w-full bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all text-left group"
-        whileHover={{ scale: 1.01 }}
-        whileTap={{ scale: 0.99 }}
+        className={`w-full bg-card border rounded-xl p-6 shadow-sm transition-all text-left group ${isBlocked ? 'border-border opacity-60 cursor-not-allowed' : 'border-border hover:shadow-md hover:border-primary cursor-pointer'}`}
+        whileHover={isBlocked ? {} : { scale: 1.01 }}
+        whileTap={isBlocked ? {} : { scale: 0.99 }}
       >
+        {isBlocked && (
+          <div className="flex items-center gap-2 mb-3 px-3 py-2 rounded-lg bg-muted border border-border text-xs text-muted-foreground">
+            <Lock className="w-3.5 h-3.5 shrink-0" />
+            <span><strong>Bloqueado:</strong> {milestone.blockedBy}</span>
+          </div>
+        )}
         <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
           <div className="flex-1">
             <h3 className="text-xl mb-2 group-hover:text-primary transition-colors font-bold">{milestone.title}</h3>
             <p className="text-muted-foreground text-sm mb-3">{milestone.description}</p>
-            <StatusBadge status={status} />
+            <StatusBadge status={isBlocked ? 'not-started' : status} />
           </div>
           <div className="text-right text-sm">
             <div className="flex items-center gap-2 text-muted-foreground mb-1">
               <Calendar className="w-4 h-4" />
               <span>{formatDate(milestone.deadline)}</span>
             </div>
-            {daysRemaining > 0 && status !== 'completed' && (
+            {!isBlocked && daysRemaining > 0 && status !== 'completed' && (
               <div className="flex items-center gap-2 text-primary">
                 <Clock className="w-4 h-4" />
                 <span>{daysRemaining} dias restantes</span>
@@ -155,9 +163,9 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
           </div>
         </div>
 
-        <ProgressBar progress={progress} colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />
+        {!isBlocked && <ProgressBar progress={progress} colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />}
 
-        {milestone.objectives && milestone.objectives.length > 0 && (
+        {!isBlocked && milestone.objectives && milestone.objectives.length > 0 && (
           <div className="mt-4 pt-4 border-t border-border/50">
             <p className="text-xs font-bold text-muted-foreground mb-3 uppercase tracking-wider">Objetivos de Evolução:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
@@ -201,6 +209,7 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
   const status = getDynamicStatus(milestone);
   const StatusIcon = getStatusIcon(status);
   const daysRemaining = calculateDaysRemaining(milestone.deadline);
+  const isBlocked = !!milestone.blockedBy;
 
   return (
     <motion.button
@@ -210,83 +219,95 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      onClick={() => onClick(milestone)}
-      whileHover={{ y: -8 }}
-      className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all text-left group flex flex-col h-full"
+      onClick={() => !isBlocked && onClick(milestone)}
+      whileHover={isBlocked ? {} : { y: -8 }}
+      className={`bg-card border border-border rounded-xl p-6 shadow-sm transition-all text-left group flex flex-col h-full ${isBlocked ? 'opacity-60 cursor-not-allowed' : 'hover:shadow-md hover:border-primary'}`}
     >
+      {isBlocked && (
+        <div className="flex items-center gap-1.5 mb-3 px-2.5 py-1.5 rounded-lg bg-muted text-xs text-muted-foreground">
+          <Lock className="w-3 h-3 shrink-0" />
+          <span className="line-clamp-1"><strong>Bloqueado:</strong> {milestone.blockedBy}</span>
+        </div>
+      )}
       <div className="flex items-start gap-3 mb-4">
         <motion.div
           className={`p-2 rounded-lg ${
-            status === 'completed' ? 'bg-green-100 dark:bg-green-900/30'
+            isBlocked ? 'bg-muted'
+            : status === 'completed' ? 'bg-green-100 dark:bg-green-900/30'
             : status === 'in-progress' ? 'bg-green-50 dark:bg-green-900/10'
             : 'bg-muted'
           }`}
-          animate={status === 'in-progress' ? { scale: [1, 1.05, 1] } : {}}
-          transition={status === 'in-progress' ? { duration: 2, repeat: Infinity } : {}}
+          animate={status === 'in-progress' && !isBlocked ? { scale: [1, 1.05, 1] } : {}}
+          transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity } : {}}
         >
           <motion.div
-            animate={status === 'in-progress' ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            animate={status === 'in-progress' && !isBlocked ? { rotate: 360 } : {}}
+            transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity, linear: true } : {}}
           >
-            <StatusIcon className={`w-5 h-5 ${
-              status === 'completed' ? 'text-green-600'
-              : status === 'in-progress' ? 'text-green-500'
-              : 'text-muted-foreground'
-            }`} />
+            {isBlocked
+              ? <Lock className="w-5 h-5 text-muted-foreground" />
+              : <StatusIcon className={`w-5 h-5 ${
+                  status === 'completed' ? 'text-green-600'
+                  : status === 'in-progress' ? 'text-green-500'
+                  : 'text-muted-foreground'
+                }`} />
+            }
           </motion.div>
         </motion.div>
         <div className="flex-1">
           <h3 className="font-bold mb-1 group-hover:text-primary transition-colors">{milestone.title}</h3>
-          <StatusBadge status={status} />
+          <StatusBadge status={isBlocked ? 'not-started' : status} />
         </div>
       </div>
 
       <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{milestone.description}</p>
 
-      <div className="space-y-3 mt-auto">
-        <ProgressBar progress={progress} showLabel colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <span>{formatDate(milestone.deadline)}</span>
-          {daysRemaining > 0 && status !== 'completed' && (
-            <span className="text-primary font-bold">{daysRemaining} dias</span>
+      {!isBlocked && (
+        <div className="space-y-3 mt-auto">
+          <ProgressBar progress={progress} showLabel colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />
+          <div className="flex items-center justify-between text-xs text-muted-foreground">
+            <span>{formatDate(milestone.deadline)}</span>
+            {daysRemaining > 0 && status !== 'completed' && (
+              <span className="text-primary font-bold">{daysRemaining} dias</span>
+            )}
+          </div>
+
+          {milestone.objectives && milestone.objectives.length > 0 && (
+            <div className="pt-3 border-t border-border/50">
+              <p className="text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider">Objetivos:</p>
+              <div className="space-y-1.5">
+                {milestone.objectives.slice(0, 3).map((obj, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-[11px]">
+                    {obj.completed ? (
+                      <CheckSquare className="w-3 h-3 text-green-600 shrink-0 mt-0.5" />
+                    ) : (
+                      <Square className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />
+                    )}
+                    <div className="flex-1 flex items-center gap-1.5 min-w-0">
+                      <span className={obj.completed ? 'text-foreground font-semibold line-clamp-1' : 'text-muted-foreground line-clamp-1'}>
+                        {obj.text}
+                      </span>
+                      {obj.completed && obj.completionJustification && (
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div className="cursor-help text-green-600"><MessageSquare className="w-3 h-3" /></div>
+                          </TooltipTrigger>
+                          <TooltipContent className="max-w-xs">
+                            <p className="text-xs">{obj.completionJustification}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                {milestone.objectives.length > 3 && (
+                  <p className="text-primary text-[10px] font-bold">+{milestone.objectives.length - 3} mais objetivos</p>
+                )}
+              </div>
+            </div>
           )}
         </div>
-
-        {milestone.objectives && milestone.objectives.length > 0 && (
-          <div className="pt-3 border-t border-border/50">
-            <p className="text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider">Objetivos:</p>
-            <div className="space-y-1.5">
-              {milestone.objectives.slice(0, 3).map((obj, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-[11px]">
-                  {obj.completed ? (
-                    <CheckSquare className="w-3 h-3 text-green-600 shrink-0 mt-0.5" />
-                  ) : (
-                    <Square className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />
-                  )}
-                  <div className="flex-1 flex items-center gap-1.5 min-w-0">
-                    <span className={obj.completed ? 'text-foreground font-semibold line-clamp-1' : 'text-muted-foreground line-clamp-1'}>
-                      {obj.text}
-                    </span>
-                    {obj.completed && obj.completionJustification && (
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <div className="cursor-help text-green-600"><MessageSquare className="w-3 h-3" /></div>
-                        </TooltipTrigger>
-                        <TooltipContent className="max-w-xs">
-                          <p className="text-xs">{obj.completionJustification}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    )}
-                  </div>
-                </div>
-              ))}
-              {milestone.objectives.length > 3 && (
-                <p className="text-primary text-[10px] font-bold">+{milestone.objectives.length - 3} mais objetivos</p>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </motion.button>
   );
 }
