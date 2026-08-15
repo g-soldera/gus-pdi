@@ -29,9 +29,21 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
   const [view, setView] = useState<'timeline' | 'cards'>('timeline');
   const [showArchivedModal, setShowArchivedModal] = useState(false);
   const [selectedPhase, setSelectedPhase] = useState<string>('L2');
+  const [completedExpanded, setCompletedExpanded] = useState(false);
 
   const filteredMilestones = milestones.filter(m => !m.archived && m.phase === selectedPhase);
-  const sortedMilestones = [...filteredMilestones].sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
+
+  const completedMilestones = filteredMilestones
+    .filter(m => calculateDynamicProgress(m) === 100)
+    .sort((a, b) => new Date(b.deadline).getTime() - new Date(a.deadline).getTime());
+
+  const activeMilestones = filteredMilestones
+    .filter(m => calculateDynamicProgress(m) < 100)
+    .sort((a, b) => {
+      const progDiff = calculateDynamicProgress(b) - calculateDynamicProgress(a);
+      if (progDiff !== 0) return progDiff;
+      return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
+    });
 
   return (
     <section id="milestones" className="py-16 bg-background">
@@ -79,12 +91,48 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
           {view === 'timeline' ? (
             <div className="relative">
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
-              <div className="space-y-8">{sortedMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
+              <div className="space-y-8">
+                {completedMilestones.length > 0 && (
+                  <div>
+                    <button
+                      onClick={() => setCompletedExpanded(v => !v)}
+                      className="flex items-center gap-2 mb-4 pl-20 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                      {completedMilestones.length} concluído{completedMilestones.length > 1 ? 's' : ''}
+                      <span className="text-xs font-normal">({completedExpanded ? 'recolher' : 'expandir'})</span>
+                    </button>
+                    {completedExpanded && completedMilestones.map((m, i) => (
+                      <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />
+                    ))}
+                  </div>
+                )}
+                {activeMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}
+              </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{sortedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {completedMilestones.length > 0 && (
+                <div className="col-span-full">
+                  <button
+                    onClick={() => setCompletedExpanded(v => !v)}
+                    className="flex items-center gap-2 mb-4 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    {completedMilestones.length} concluído{completedMilestones.length > 1 ? 's' : ''}
+                    <span className="text-xs font-normal">({completedExpanded ? 'recolher' : 'expandir'})</span>
+                  </button>
+                  {completedExpanded && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                      {completedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}
+                    </div>
+                  )}
+                </div>
+              )}
+              {activeMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}
+            </div>
           )}
-          {sortedMilestones.length === 0 && <p className="text-center py-12 text-muted-foreground">Nenhum marco nesta fase.</p>}
+          {filteredMilestones.length === 0 && <p className="text-center py-12 text-muted-foreground">Nenhum marco nesta fase.</p>}
         </TooltipProvider>
       </div>
     </section>
