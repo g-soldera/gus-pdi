@@ -29,7 +29,6 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
   const [view, setView] = useState<'timeline' | 'cards'>('timeline');
   const [showArchivedModal, setShowArchivedModal] = useState(false);
   const [selectedPhase, setSelectedPhase] = useState<string>('L2');
-  const [completedExpanded, setCompletedExpanded] = useState(false);
 
   const filteredMilestones = milestones.filter(m => !m.archived && m.phase === selectedPhase);
 
@@ -37,13 +36,18 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
     .filter(m => calculateDynamicProgress(m) === 100)
     .sort((a, b) => new Date(b.deadline).getTime() - new Date(a.deadline).getTime());
 
+  const blockedMilestones = filteredMilestones
+    .filter(m => !!m.blockedBy && calculateDynamicProgress(m) < 100);
+
   const activeMilestones = filteredMilestones
-    .filter(m => calculateDynamicProgress(m) < 100)
+    .filter(m => !m.blockedBy && calculateDynamicProgress(m) < 100)
     .sort((a, b) => {
       const progDiff = calculateDynamicProgress(b) - calculateDynamicProgress(a);
       if (progDiff !== 0) return progDiff;
       return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
     });
+
+  const sortedMilestones = [...completedMilestones, ...activeMilestones, ...blockedMilestones];
 
   return (
     <section id="milestones" className="py-16 bg-background">
@@ -91,46 +95,10 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
           {view === 'timeline' ? (
             <div className="relative">
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
-              <div className="space-y-8">
-                {completedMilestones.length > 0 && (
-                  <div>
-                    <button
-                      onClick={() => setCompletedExpanded(v => !v)}
-                      className="flex items-center gap-2 mb-4 pl-20 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-green-600" />
-                      {completedMilestones.length} concluído{completedMilestones.length > 1 ? 's' : ''}
-                      <span className="text-xs font-normal">({completedExpanded ? 'recolher' : 'expandir'})</span>
-                    </button>
-                    {completedExpanded && completedMilestones.map((m, i) => (
-                      <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />
-                    ))}
-                  </div>
-                )}
-                {activeMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}
-              </div>
+              <div className="space-y-8">{sortedMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {completedMilestones.length > 0 && (
-                <div className="col-span-full">
-                  <button
-                    onClick={() => setCompletedExpanded(v => !v)}
-                    className="flex items-center gap-2 mb-4 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
-                    {completedMilestones.length} concluído{completedMilestones.length > 1 ? 's' : ''}
-                    <span className="text-xs font-normal">({completedExpanded ? 'recolher' : 'expandir'})</span>
-                  </button>
-                  {completedExpanded && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                      {completedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}
-                    </div>
-                  )}
-                </div>
-              )}
-              {activeMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{sortedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
           )}
           {filteredMilestones.length === 0 && <p className="text-center py-12 text-muted-foreground">Nenhum marco nesta fase.</p>}
         </TooltipProvider>
@@ -145,6 +113,8 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
   const StatusIcon = getStatusIcon(status);
   const daysRemaining = calculateDaysRemaining(milestone.deadline);
   const isBlocked = !!milestone.blockedBy;
+  const isCompleted = status === 'completed';
+  const isCollapsed = isCompleted || isBlocked;
 
   return (
     <motion.div
@@ -161,7 +131,7 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
         <motion.div
           className={`w-full h-full rounded-full flex items-center justify-center ${
             isBlocked ? 'bg-muted'
-            : status === 'completed' ? 'bg-[var(--completed)]'
+            : isCompleted ? 'bg-[var(--completed)]'
             : status === 'in-progress' ? 'bg-[var(--in-progress)]'
             : 'bg-[var(--not-started)]'
           }`}
@@ -178,74 +148,77 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
       </div>
 
       <motion.div
-        className={`w-full bg-card border rounded-xl p-6 shadow-sm transition-all text-left group ${isBlocked ? 'border-border opacity-60 cursor-not-allowed' : 'border-border hover:shadow-md hover:border-primary cursor-pointer'}`}
-        whileHover={isBlocked ? {} : { scale: 1.01 }}
-        whileTap={isBlocked ? {} : { scale: 0.99 }}
+        className={`w-full bg-card border rounded-xl px-6 py-4 shadow-sm transition-all text-left group ${
+          isBlocked ? 'border-border opacity-60 cursor-not-allowed'
+          : isCompleted ? 'border-green-500/30 opacity-70 cursor-pointer hover:opacity-90'
+          : 'border-border hover:shadow-md hover:border-primary cursor-pointer'
+        }`}
+        whileHover={isCollapsed ? {} : { scale: 1.01 }}
+        whileTap={isCollapsed ? {} : { scale: 0.99 }}
       >
-        {isBlocked && (
-          <div className="flex items-center gap-2 mb-3 px-3 py-2 rounded-lg bg-muted border border-border text-xs text-muted-foreground">
-            <Lock className="w-3.5 h-3.5 shrink-0" />
-            <span><strong>Bloqueado:</strong> {milestone.blockedBy}</span>
-          </div>
-        )}
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-          <div className="flex-1">
-            <h3 className="text-xl mb-2 group-hover:text-primary transition-colors font-bold">{milestone.title}</h3>
-            <p className="text-muted-foreground text-sm mb-3">{milestone.description}</p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <h3 className={`font-bold group-hover:text-primary transition-colors truncate ${isCollapsed ? 'text-base' : 'text-xl'}`}>{milestone.title}</h3>
             <StatusBadge status={isBlocked ? 'not-started' : status} />
           </div>
-          <div className="text-right text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground mb-1">
-              <Calendar className="w-4 h-4" />
+          <div className="flex items-center gap-3 text-sm shrink-0">
+            {isBlocked && (
+              <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted text-xs text-muted-foreground">
+                <Lock className="w-3 h-3 shrink-0" />
+                <span className="max-w-[200px] truncate">{milestone.blockedBy}</span>
+              </div>
+            )}
+            {isCompleted && <span className="text-green-600 font-bold text-xs">Concluído</span>}
+            <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+              <Calendar className="w-3.5 h-3.5" />
               <span>{formatDate(milestone.deadline)}</span>
             </div>
-            {!isBlocked && daysRemaining > 0 && status !== 'completed' && (
-              <div className="flex items-center gap-2 text-primary">
+          </div>
+        </div>
+
+        {!isCollapsed && (
+          <>
+            <p className="text-muted-foreground text-sm mt-3 mb-4">{milestone.description}</p>
+            <ProgressBar progress={progress} colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />
+            {daysRemaining > 0 && (
+              <div className="flex items-center gap-2 text-primary text-sm mt-2">
                 <Clock className="w-4 h-4" />
                 <span>{daysRemaining} dias restantes</span>
               </div>
             )}
-            {status === 'completed' && (
-              <div className="text-[var(--completed)] font-bold">Concluído</div>
-            )}
-          </div>
-        </div>
-
-        {!isBlocked && <ProgressBar progress={progress} colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />}
-
-        {!isBlocked && milestone.objectives && milestone.objectives.length > 0 && (
-          <div className="mt-4 pt-4 border-t border-border/50">
-            <p className="text-xs font-bold text-muted-foreground mb-3 uppercase tracking-wider">Objetivos de Evolução:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
-              {milestone.objectives.map((obj, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-sm">
-                  {obj.completed ? (
-                    <CheckSquare className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
-                  ) : (
-                    <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                  )}
-                  <div className="flex-1 flex items-center gap-2">
-                    <span className={obj.completed ? 'text-foreground font-semibold' : 'text-muted-foreground'}>
-                      {obj.text}
-                    </span>
-                    {obj.completed && obj.completionJustification && (
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <div className="cursor-help text-green-600 hover:text-green-700">
-                            <MessageSquare className="w-3.5 h-3.5" />
-                          </div>
-                        </TooltipTrigger>
-                        <TooltipContent className="max-w-xs">
-                          <p className="text-xs font-bold mb-1">Justificativa:</p>
-                          <p className="text-xs">{obj.completionJustification}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    )}
-                  </div>
+            {milestone.objectives && milestone.objectives.length > 0 && (
+              <div className="mt-4 pt-4 border-t border-border/50">
+                <p className="text-xs font-bold text-muted-foreground mb-3 uppercase tracking-wider">Objetivos de Evolução:</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+                  {milestone.objectives.map((obj, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-sm">
+                      {obj.completed ? (
+                        <CheckSquare className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
+                      ) : (
+                        <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                      )}
+                      <div className="flex-1 flex items-center gap-2">
+                        <span className={obj.completed ? 'text-foreground font-semibold' : 'text-muted-foreground'}>{obj.text}</span>
+                        {obj.completed && obj.completionJustification && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="cursor-help text-green-600 hover:text-green-700">
+                                <MessageSquare className="w-3.5 h-3.5" />
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p className="text-xs font-bold mb-1">Justificativa:</p>
+                              <p className="text-xs">{obj.completionJustification}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            )}
+          </>
         )}
       </motion.div>
     </motion.div>
@@ -258,6 +231,8 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
   const StatusIcon = getStatusIcon(status);
   const daysRemaining = calculateDaysRemaining(milestone.deadline);
   const isBlocked = !!milestone.blockedBy;
+  const isCompleted = status === 'completed';
+  const isCollapsed = isCompleted || isBlocked;
 
   return (
     <motion.button
@@ -268,20 +243,18 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       onClick={() => !isBlocked && onClick(milestone)}
-      whileHover={isBlocked ? {} : { y: -8 }}
-      className={`bg-card border border-border rounded-xl p-6 shadow-sm transition-all text-left group flex flex-col h-full ${isBlocked ? 'opacity-60 cursor-not-allowed' : 'hover:shadow-md hover:border-primary'}`}
+      whileHover={isCollapsed ? {} : { y: -8 }}
+      className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col ${
+        isBlocked ? 'opacity-60 cursor-not-allowed'
+        : isCompleted ? 'opacity-70 border-green-500/30 cursor-pointer hover:opacity-90'
+        : 'hover:shadow-md hover:border-primary'
+      }`}
     >
-      {isBlocked && (
-        <div className="flex items-center gap-1.5 mb-3 px-2.5 py-1.5 rounded-lg bg-muted text-xs text-muted-foreground">
-          <Lock className="w-3 h-3 shrink-0" />
-          <span className="line-clamp-1"><strong>Bloqueado:</strong> {milestone.blockedBy}</span>
-        </div>
-      )}
-      <div className="flex items-start gap-3 mb-4">
+      <div className="flex items-center gap-2 mb-2">
         <motion.div
-          className={`p-2 rounded-lg ${
+          className={`p-1.5 rounded-lg shrink-0 ${
             isBlocked ? 'bg-muted'
-            : status === 'completed' ? 'bg-green-100 dark:bg-green-900/30'
+            : isCompleted ? 'bg-green-100 dark:bg-green-900/30'
             : status === 'in-progress' ? 'bg-green-50 dark:bg-green-900/10'
             : 'bg-muted'
           }`}
@@ -293,68 +266,59 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
             transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity, linear: true } : {}}
           >
             {isBlocked
-              ? <Lock className="w-5 h-5 text-muted-foreground" />
-              : <StatusIcon className={`w-5 h-5 ${
-                  status === 'completed' ? 'text-green-600'
-                  : status === 'in-progress' ? 'text-green-500'
-                  : 'text-muted-foreground'
-                }`} />
+              ? <Lock className="w-4 h-4 text-muted-foreground" />
+              : <StatusIcon className={`w-4 h-4 ${isCompleted ? 'text-green-600' : status === 'in-progress' ? 'text-green-500' : 'text-muted-foreground'}`} />
             }
           </motion.div>
         </motion.div>
-        <div className="flex-1">
-          <h3 className="font-bold mb-1 group-hover:text-primary transition-colors">{milestone.title}</h3>
-          <StatusBadge status={isBlocked ? 'not-started' : status} />
-        </div>
+        <h3 className="font-bold text-sm group-hover:text-primary transition-colors line-clamp-1 flex-1">{milestone.title}</h3>
+        <StatusBadge status={isBlocked ? 'not-started' : status} />
       </div>
 
-      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{milestone.description}</p>
+      {isBlocked && (
+        <div className="flex items-center gap-1.5 mt-1 text-xs text-muted-foreground">
+          <Lock className="w-3 h-3 shrink-0" />
+          <span className="line-clamp-1">{milestone.blockedBy}</span>
+        </div>
+      )}
 
-      {!isBlocked && (
-        <div className="space-y-3 mt-auto">
-          <ProgressBar progress={progress} showLabel colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />
-          <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <span>{formatDate(milestone.deadline)}</span>
-            {daysRemaining > 0 && status !== 'completed' && (
-              <span className="text-primary font-bold">{daysRemaining} dias</span>
+      {!isCollapsed && (
+        <>
+          <p className="text-sm text-muted-foreground mb-4 line-clamp-2 mt-2">{milestone.description}</p>
+          <div className="space-y-3 mt-auto">
+            <ProgressBar progress={progress} showLabel colorClass={status === 'in-progress' ? 'bg-green-500' : 'bg-green-600'} />
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <span>{formatDate(milestone.deadline)}</span>
+              {daysRemaining > 0 && <span className="text-primary font-bold">{daysRemaining} dias</span>}
+            </div>
+            {milestone.objectives && milestone.objectives.length > 0 && (
+              <div className="pt-3 border-t border-border/50">
+                <p className="text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider">Objetivos:</p>
+                <div className="space-y-1.5">
+                  {milestone.objectives.slice(0, 3).map((obj, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-[11px]">
+                      {obj.completed ? <CheckSquare className="w-3 h-3 text-green-600 shrink-0 mt-0.5" /> : <Square className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />}
+                      <div className="flex-1 flex items-center gap-1.5 min-w-0">
+                        <span className={obj.completed ? 'text-foreground font-semibold line-clamp-1' : 'text-muted-foreground line-clamp-1'}>{obj.text}</span>
+                        {obj.completed && obj.completionJustification && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="cursor-help text-green-600"><MessageSquare className="w-3 h-3" /></div>
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p className="text-xs">{obj.completionJustification}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                  {milestone.objectives.length > 3 && <p className="text-primary text-[10px] font-bold">+{milestone.objectives.length - 3} mais objetivos</p>}
+                </div>
+              </div>
             )}
           </div>
-
-          {milestone.objectives && milestone.objectives.length > 0 && (
-            <div className="pt-3 border-t border-border/50">
-              <p className="text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider">Objetivos:</p>
-              <div className="space-y-1.5">
-                {milestone.objectives.slice(0, 3).map((obj, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-[11px]">
-                    {obj.completed ? (
-                      <CheckSquare className="w-3 h-3 text-green-600 shrink-0 mt-0.5" />
-                    ) : (
-                      <Square className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />
-                    )}
-                    <div className="flex-1 flex items-center gap-1.5 min-w-0">
-                      <span className={obj.completed ? 'text-foreground font-semibold line-clamp-1' : 'text-muted-foreground line-clamp-1'}>
-                        {obj.text}
-                      </span>
-                      {obj.completed && obj.completionJustification && (
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <div className="cursor-help text-green-600"><MessageSquare className="w-3 h-3" /></div>
-                          </TooltipTrigger>
-                          <TooltipContent className="max-w-xs">
-                            <p className="text-xs">{obj.completionJustification}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      )}
-                    </div>
-                  </div>
-                ))}
-                {milestone.objectives.length > 3 && (
-                  <p className="text-primary text-[10px] font-bold">+{milestone.objectives.length - 3} mais objetivos</p>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
+        </>
       )}
     </motion.button>
   );
