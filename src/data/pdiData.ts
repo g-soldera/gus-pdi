@@ -336,7 +336,7 @@ export const milestones: Milestone[] = [
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: true, completionJustification: 'Repositório cyber-prompts-and-skills alcançou 10+ estrelas com skills de democratização de dados, documentação e design.' },
       { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: true, completionJustification: 'Hugo e Thalita colaboraram ativamente no repositório, em processo de reestruturação com a chegada do ORKA.' },
-      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: false },
+      { text: 'Realizar 3 agendas de compartilhamento prático sobre o uso de agentes', completed: true, completionJustification: '12/08 → Guilda de Práticas de GenAI: Harness | 19/08 → Guilda de Práticas de GenAI: GSD na Prática | 26/08 → Guilda de Práticas de GenAI: Hive na Prática.' },
       { 
         text: 'Criar e documentar 5 novos patterns de prompt para uso do time', 
         completed: true,
@@ -359,7 +359,8 @@ export const milestones: Milestone[] = [
     objectives: [
       { text: 'Estudar e aplicar o formato .safetensors para mitigar riscos de execução de código arbitrário.', completed: false },
       { text: 'Implementar assinatura e verificação de modelos (ex: hash SHA256) no pipeline de CI/CD para garantir a integridade.', completed: false },
-      { text: 'Utilizar MLflow para rastrear a proveniência dos modelos, incluindo dados de treinamento e hiperparâmetros.', completed: false }
+      { text: 'Utilizar MLflow para rastrear a proveniência dos modelos, incluindo dados de treinamento e hiperparâmetros.', completed: false },
+      { text: 'Implementar no padrão do banco (seguir diretrizes arquiteturais internas do Itaú para supply chain de modelos).', completed: false }
     ],
     relatedSkills: ['mlflow', 'safetensors', 'ci-cd-security', 'python', 'docker'],
     relatedResources: ['tool-safetensors', 'course-mlops-security', 'tool-mlflow-provenance'],
@@ -388,16 +389,16 @@ export const milestones: Milestone[] = [
     id: 'technical-discussions',
     title: 'Participação em Discussões Técnicas Estratégicas',
     displayName: 'Strategic Technical Discussions',
-    description: 'Contribuir em 5+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad.',
+    description: 'Contribuir em 3+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad.',
     status: 'in-progress',
     progress: 20,
     deadline: '2027-06-30',
     notes: 'KPI L2: Influência técnica e proatividade',
     objectives: [
-      { text: 'Participar ativamente de 5+ discussões arquiteturais ou de design', completed: false },
-      { text: 'Propor 2+ soluções técnicas adotadas pela squad', completed: false },
-      { text: 'Documentar decisões técnicas e trade-offs para referência futura', completed: false },
-      { text: 'Feedback de pares sobre contribuição técnica positiva', completed: false }
+      { text: 'Participar ativamente de 3+ discussões arquiteturais ou de design', completed: true, completionJustification: 'Cyber.Itaú (frontend next webview + backend DDD), Sistema de orquestração de multi-agentes cross-account com orientação à intenção e construção de MCPs.' },
+      { text: 'Propor 2+ soluções técnicas adotadas pela squad', completed: true, completionJustification: 'Cyber.Itaú: frontend Next.js webview + backend DDD lambda microsservices + API Gateway.' },
+      { text: 'Documentar decisões técnicas e trade-offs para referência futura', completed: true, completionJustification: 'Registro em documentação e nos repositórios do Cyber.Itaú.' },
+      { text: 'Feedback de pares sobre contribuição técnica positiva', completed: true, completionJustification: 'Consultado proativamente por pares sobre opiniões técnicas.' }
     ],
     relatedSkills: ['strategic-vision', 'critical-thinking', 'influence', 'verbal-communication'],
     relatedResources: [],
@@ -421,6 +422,7 @@ export const milestones: Milestone[] = [
     relatedSkills: ['mentoring', 'feedback', 'collaboration'],
     relatedResources: [],
     phase: 'L2',
+    blockedBy: 'Termos estagiário próximo alocado na squad',
   },
   {
     id: 'cert-crtp',
@@ -870,6 +872,7 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'strategic-vision', 'leadership'],
     relatedResources: ['cert-aaism'],
     phase: 'L7',
+    blockedBy: 'CISSP (ISC2) — obter e manter certificação ativa como pré-requisito',
   },
 
 ];
@@ -1386,6 +1389,17 @@ export const resources: Resource[] = [
     image: '/assets/img/mentor-henrique.png',
     relatedSkills: ['sql', 'python', 'data-modeling', 'aws-glue', 'terraform', 'leadership', 'critical-thinking', 'collaboration'],
     relatedMilestones: [],
+  },
+  {
+    id: 'mentoring-aline',
+    name: 'Aline',
+    description: 'Mentoria com gerente e Specialist II em Engenharia de Dados. Suporte estratégico à evolução de carreira no Itaú, validação de marcos e KPIs do PDI, e orientação sobre posicionamento técnico e crescimento para níveis Spec I/Spec II.',
+    status: 'in-progress',
+    parentCategory: 'Mentoria',
+    category: 'Mentoria com Gestão',
+    subCategory: 'Mentoria Estratégica',
+    relatedSkills: ['strategic-vision', 'leadership', 'stakeholder-management', 'self-awareness'],
+    relatedMilestones: ['pdi-structure-2026'],
   },
 
   // ==========================================

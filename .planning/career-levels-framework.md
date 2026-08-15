@@ -56,7 +56,7 @@
 - Design técnico aprovado por sênior em 2+ features complexas
 - Redução mensurável de débito técnico: -15%+ em métricas de qualidade (SonarQube, testes)
 - Apresentação técnica para 20+ pessoas (interna ou externa)
-- Mentoria ativa: 2+ juniores com PDI estruturado
+- Mentoria ativa: 2+ juniores com PDI estruturado <details><summary>Dependência</summary>Bloqueado até termos estagiário próximo</details>
 - Certificação técnica relevante obtida (AWS, Security+, etc.)
 
 **Comportamentos esperados:**
@@ -180,7 +180,7 @@
 - **GIAC GOAA / GASAE** (SANS) — se linha GIAC de AI security amadurecer
 
 ### L7 (Specialist 3)
-- **ISACA AAISM** — Advanced in AI Security Management (requer CISSP/CISM)
+- **ISACA AAISM** — Advanced in AI Security Management (requer CISSP/CISM) <details><summary>Dependência: CISSP</summary>Bloqueado até que a certificação CISSP seja obtida.</details>
 
 ---
 
