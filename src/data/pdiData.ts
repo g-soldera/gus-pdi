@@ -397,8 +397,8 @@ export const milestones: Milestone[] = [
     objectives: [
       { text: 'Participar ativamente de 3+ discussões arquiteturais ou de design', completed: true, completionJustification: 'Cyber.Itaú (frontend next webview + backend DDD), Sistema de orquestração de multi-agentes cross-account com orientação à intenção e construção de MCPs.' },
       { text: 'Propor 2+ soluções técnicas adotadas pela squad', completed: true, completionJustification: 'Cyber.Itaú: frontend Next.js webview + backend DDD lambda microsservices + API Gateway.' },
-      { text: 'Registrar decisões técnicas e trade-offs em documentação e nos repositórios do Cyber.Itaú', completed: false },
-      { text: 'Consultado proativamente por pares sobre opiniões técnicas', completed: false }
+      { text: 'Documentar decisões técnicas e trade-offs para referência futura', completed: true, completionJustification: 'Registro em documentação e nos repositórios do Cyber.Itaú.' },
+      { text: 'Feedback de pares sobre contribuição técnica positiva', completed: true, completionJustification: 'Consultado proativamente por pares sobre opiniões técnicas.' }
     ],
     relatedSkills: ['strategic-vision', 'critical-thinking', 'influence', 'verbal-communication'],
     relatedResources: [],
