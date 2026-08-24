@@ -124,19 +124,19 @@ export const careerLevels: LevelRequirements[] = [
         target: '2+ juniores',
         achieved: false,
       },
-      {
-        id: 'l3-certification',
-        description: 'Certificação técnica relevante obtida',
-        target: '1+ cert (CRTP, AWS SA Associate)',
-        achieved: false,
-      },
+        {
+          id: 'l3-cert',
+          description: '1+ certificação técnica obtida',
+          target: '1+ cert (CRTP, AWS SA Associate opcional/recomendado)',
+          achieved: false,
+        },
     ],
     behaviors: [
       'Propõe soluções para problemas ambíguos',
       'Equilibra qualidade e pragmatismo',
       'Articula trade-offs técnicos claramente',
     ],
-    certifications: ['CRTP', 'AWS Solutions Architect Associate (recomendado)'],
+    certifications: ['CRTP', 'AWS Solutions Architect Associate (opcional/recomendado)'],
     exitCriteria: 'Lidera tecnicamente features complexas; influencia decisões da squad.',
   },
   {

@@ -57,7 +57,7 @@
 - Redução mensurável de débito técnico: -15%+ em métricas de qualidade (SonarQube, testes)
 - Apresentação técnica para 20+ pessoas (interna ou externa)
 - Mentoria ativa: 2+ juniores com PDI estruturado <details><summary>Dependência</summary>Bloqueado até termos estagiário próximo</details>
-- Certificação técnica relevante obtida (AWS, Security+, etc.)
+- Certificação técnica relevante obtida (CRTP, AWS SA Associate recomendado, etc.)
 
 **Comportamentos esperados:**
 - Propõe soluções para problemas ambíguos
@@ -162,12 +162,12 @@
 
 ### L3 (Pleno)
 - **CRTP** — Certified Red Team Professional (Active Directory)
-- AWS Solutions Architect Associate (recomendado)
+- **AWS Solutions Architect Associate** (opcional/recomendado — ponte para SA Professional)
 
 ### L4 (Sênior)
 - **OSCP** — PEN-200 (OffSec) — selo ofensivo de mercado
 - **iSAQB CPSA-F** — Foundation Level (arquitetura de software)
-- AWS Solutions Architect Professional
+- **AWS Solutions Architect Professional** — formalização de arquitetura cloud avançada
 
 ### L5 (Specialist 1)
 - **CAISP** — Certified AI Security Professional (Practical DevSecOps)
