@@ -562,6 +562,25 @@ export const milestones: Milestone[] = [
     phase: 'L3',
   },
   {
+    id: 'cert-awssaa',
+    title: 'AWS Solutions Architect — Associate',
+    displayName: 'AWS SA Associate',
+    description: 'Certificação intermediária de arquitetura AWS. Ponte entre fundacional (Cloud Practitioner) e avançado (SA Professional).',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    notes: 'KPI L3: Certificação opcional para reforçar fundamentos de arquitetura cloud',
+    objectives: [
+      { text: 'Estudar design de arquiteturas resilientes e de alta performance', completed: false },
+      { text: 'Dominar serviços core: EC2, S3, VPC, RDS, Lambda, IAM', completed: false },
+      { text: 'Realizar 3+ simulados com 75%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame', completed: false }
+    ],
+    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 's3'],
+    relatedResources: ['cert-awssaa'],
+    phase: 'L3',
+  },
+  {
     id: 'cert-cpsaf',
     title: 'iSAQB CPSA-F — Foundation Level',
     displayName: 'iSAQB CPSA-F (Arquitetura)',
@@ -1064,6 +1083,17 @@ export const resources: Resource[] = [
     subCategory: 'Arquitetura de Software',
     relatedSkills: ['api-architecture', 'influence', 'technical-docs'],
     relatedMilestones: ['cert-cpsaa'],
+  },
+  {
+    id: 'cert-awssaa',
+    name: 'AWS Solutions Architect — Associate',
+    description: 'Certificação intermediária de arquitetura AWS para nível mid-level.',
+    status: 'planned',
+    parentCategory: 'Certificações',
+    category: 'Cloud',
+    subCategory: 'AWS Cloud',
+    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 's3'],
+    relatedMilestones: ['cert-awssaa'],
   },
   {
     id: 'cert-awssap',
