@@ -9,8 +9,9 @@ export function calculateAge(birthDate: string): number {
   return age;
 }
 
-export function calculateDaysRemaining(deadline: string): number {
+export function calculateDaysRemaining(deadline: string | null): number {
   const today = new Date();
+  if (!deadline) return 0;
   const target = new Date(deadline);
   const diff = target.getTime() - today.getTime();
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
@@ -45,7 +46,8 @@ export function calculateMonthsElapsed(startDate: Date, totalMonths: number): nu
   return Math.min(monthsElapsed, totalMonths);
 }
 
-export function formatDate(dateStr: string): string {
+export function formatDate(dateStr: string | null): string {
+  if (!dateStr) return 'A definir';
   const date = new Date(dateStr);
   return date.toLocaleDateString('pt-BR', { 
     day: '2-digit', 
