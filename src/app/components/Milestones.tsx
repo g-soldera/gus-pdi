@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock, HelpCircle } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock, HelpCircle, Telescope } from 'lucide-react';
 import { Milestone, StudyTopic } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
