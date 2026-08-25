@@ -1,0 +1,633 @@
+{
+  "metadata": {
+    "export_date": "2026-08-24T20:38:26.199319",
+    "version": "2.0.0",
+    "purpose": "Validação completa do PDI",
+    "source": "pdiData.ts"
+  },
+  "personal_info": {
+    "name": "Gustavo Soldera",
+    "birth_date": "2002-05-30",
+    "company": "Itaú Unibanco",
+    "department": "Cyber Security",
+    "current_role": "Engenheiro de Analytics PL",
+    "target_role": "Engenheiro de Dados Sênior",
+    "current_level": "L2",
+    "target_level": "L3",
+    "timeline": {
+      "experience_start": "2023-06-07",
+      "bank_start": "2024-05-05",
+      "junior_start": "2025-05-05",
+      "pleno_target": "2026-06-07",
+      "senior_target": "2028-01-01"
+    }
+  },
+  "statistics": {
+    "total_milestones": 37,
+    "total_skills": 123,
+    "milestones_by_status": {
+      "completed": 9,
+      "in-progress": 3,
+      "planned": 25
+    },
+    "skills_by_category": {
+      "Analytics & BI": 3,
+      "APIs": 4,
+      "CI/CD & Testes": 8,
+      "Cloud & Data": 18,
+      "Comunicação Técnica": 6,
+      "Data Quality": 3,
+      "Design & UX": 3,
+      "Desenvolvimento": 11,
+      "DevOps": 4,
+      "FinOps": 2,
+      "Governança de Dados": 2,
+      "IA Generativa": 16,
+      "AI DLC": 6,
+      "Prompt Patterns": 7,
+      "Idiomas": 3,
+      "Segurança": 3,
+      "Cognitivas": 6,
+      "Comunicação": 8,
+      "Liderança": 4,
+      "Relacionais": 3,
+      "Autogestão": 3
+    },
+    "skills_by_level": {
+      "5": 20,
+      "4": 64,
+      "3": 29,
+      "2": 10
+    }
+  },
+  "milestones": [
+    {
+      "id": "certification-pro",
+      "title": "Certificação Profissional",
+      "displayName": "Certificação Analytics Engineer",
+      "description": "Completar prova de engenheiro de analytics profissional",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-08-15",
+      "notes": "Aprovação em 11/09/2025 e aplicação nos fluxos do cyber.itau (arquitetura).",
+      "phase": "L1"
+    },
+    {
+      "id": "soft-skills",
+      "title": "Desenvolvimento de Soft Skills",
+      "displayName": "Soft Skills - Comunicação e Colaboração",
+      "description": "Desenvolver habilidades de comunicação e colaboração",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-06-30",
+      "notes": "Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.",
+      "phase": "L1"
+    },
+    {
+      "id": "lead-projects",
+      "title": "Liderar Projetos de Impacto",
+      "displayName": "Liderança em Projetos Estratégicos",
+      "description": "Assumir liderança técnica em projetos estratégicos",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-09-30",
+      "notes": "Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila.",
+      "phase": "L1"
+    },
+    {
+      "id": "cert-api-owner",
+      "title": "Certificação API Owner",
+      "displayName": "API Owner",
+      "description": "Concluir os três níveis da certificação API Owner",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-12-20",
+      "notes": "Concluí os três níveis da certificação API Owner, e apliquei padrões de contrato, versionamento e governança de APIs no planejamento do backend do Insight Guard.",
+      "phase": "L1"
+    },
+    {
+      "id": "finops-consumer",
+      "title": "FinOps na Consumer",
+      "displayName": "Otimização de Custos (-30%)",
+      "description": "Implementar práticas de FinOps e reduzir custos operacionais",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-11-30",
+      "notes": "Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos.",
+      "phase": "L1"
+    },
+    {
+      "id": "cert-security",
+      "title": "Certificação Security+",
+      "displayName": "CompTIA Security+ Certification",
+      "description": "Obter certificação em segurança da informação",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2026-04-30",
+      "phase": "L1"
+    },
+    {
+      "id": "mentor-colleagues",
+      "title": "Mentorar Colegas",
+      "displayName": "Mentoria Técnica",
+      "description": "Apoiar o desenvolvimento técnico de colegas de equipe",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-12-31",
+      "notes": "Mentoria ativa para 2 estagiários em SQL e Python.",
+      "phase": "L1"
+    },
+    {
+      "id": "cert-aws-cloud",
+      "title": "Certificação AWS Cloud Practitioner",
+      "displayName": "AWS Cloud Practitioner",
+      "description": "Obter certificação AWS Cloud Practitioner",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2024-12-31",
+      "notes": "Certificação obtida em Dezembro/2024.",
+      "phase": "L1"
+    },
+    {
+      "id": "ai-fomentation",
+      "title": "Fomento ao Consumo de IA",
+      "displayName": "Multiplicador de IA e Automação",
+      "description": "Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.",
+      "status": "in-progress",
+      "progress": 45,
+      "deadline": "2026-12-31",
+      "notes": "KPI L2: Entrega autônoma e colaboração técnica",
+      "phase": "L2"
+    },
+    {
+      "id": "model-supply-chain",
+      "title": "Segurança na Cadeia de Suprimentos de Modelos (Model Supply Chain)",
+      "displayName": "SecMLOps: Model Supply Chain",
+      "description": "Implementar controles de segurança no ciclo de vida de modelos de IA, garantindo a integridade, proveniência e o versionamento seguro dos artefatos.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-06-30",
+      "notes": "KPI L2→L3: Fundamentos de SecMLOps e segurança no CI/CD de modelos.",
+      "phase": "L2"
+    },
+    {
+      "id": "autonomous-delivery",
+      "title": "Entrega Autônoma de Features Complexas",
+      "displayName": "Autonomous Delivery",
+      "description": "Entregar 10+ features/bugfixes de forma autônoma com taxa de retrabalho < 20% e aprovação formal de qualidade.",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2027-03-31",
+      "notes": "KPI L2: Demonstração de autonomia técnica baseada em entregas core no Portal de Cyber.",
+      "phase": "L2"
+    },
+    {
+      "id": "technical-discussions",
+      "title": "Participação em Discussões Técnicas Estratégicas",
+      "displayName": "Strategic Technical Discussions",
+      "description": "Contribuir em 3+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad.",
+      "status": "in-progress",
+      "progress": 20,
+      "deadline": "2027-06-30",
+      "notes": "KPI L2: Influência técnica e proatividade",
+      "phase": "L2"
+    },
+    {
+      "id": "mentoring-interns",
+      "title": "Mentoria de Estagiários",
+      "displayName": "Intern Mentoring",
+      "description": "Suportar o desenvolvimento técnico de 1+ estagiário com acompanhamento estruturado e feedback construtivo.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-09-30",
+      "notes": "KPI L2: Desenvolvimento de habilidades de mentoria",
+      "phase": "L2"
+    },
+    {
+      "id": "cert-crtp",
+      "title": "CRTP — Certified Red Team Professional",
+      "displayName": "CRTP (Active Directory)",
+      "description": "Obter certificação CRTP focada em Red Team para Active Directory. Fundação ofensiva para entender ataques antes de defesa.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "L2: Fundação técnica de segurança ofensiva",
+      "phase": "L2"
+    },
+    {
+      "id": "ai-defense-architecture",
+      "title": "Design de Arquitetura de Defesa em IA",
+      "displayName": "AI Defense Architecture Design",
+      "description": "Projetar e documentar arquitetura completa de defesa para sistemas de IA com guardrails, threat model e supply chain security.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-06-30",
+      "notes": "KPI L3→L4: Design técnico aprovado por sênior em feature complexa",
+      "phase": "L3"
+    },
+    {
+      "id": "governance-ai-pipelines",
+      "title": "Governança de IA em Pipelines Core",
+      "displayName": "AI Governance in Production",
+      "description": "Aplicar governança de IA em 2+ projetos core com relatórios de conformidade automatizados.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "KPI L3→L4: Ownership completo de projeto médio (>1 mês)",
+      "phase": "L3"
+    },
+    {
+      "id": "mentoring-juniors",
+      "title": "Mentoria Ativa de Juniores",
+      "displayName": "Junior Mentoring Program",
+      "description": "Mentorar 2+ juniores com PDI estruturado, code reviews construtivos e acompanhamento de evolução.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "notes": "KPI L3→L4: Mentoria ativa com PDI estruturado para 2+ juniores",
+      "phase": "L3"
+    },
+    {
+      "id": "pdi-structure-2026",
+      "title": "Estruturação do PDI por Níveis",
+      "displayName": "PDI L1-L7: Career Ladder",
+      "description": "Estruturar o planejamento completo com níveis técnicos L1-L7, KPIs mensuráveis e trilha de certificações",
+      "status": "in-progress",
+      "progress": 75,
+      "deadline": "2026-09-30",
+      "notes": "KPI L3: Visão estratégica e planejamento de carreira",
+      "phase": "L2"
+    },
+    {
+      "id": "ai-defense-foundations",
+      "title": "Fundamentos de Defesa e Guardrails em IA",
+      "displayName": "SecMLOps: Defesa & Guardrails",
+      "description": "Implementar mitigação contra ameaças (OWASP LLM Top 10) no runtime utilizando guardrails (ex: AWS Bedrock Guardrails) e entender ataques adversários através do MITRE ATLAS.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "KPI L3: Implementação prática de controles de segurança para sistemas baseados em LLMs",
+      "phase": "L3"
+    },
+    {
+      "id": "cert-oscp",
+      "title": "OSCP — PEN-200 (OffSec)",
+      "displayName": "OSCP (Pentest)",
+      "description": "Selo ofensivo mais reconhecido do mercado. Valida capacidade de encontrar e explorar vulnerabilidades de forma autônoma.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "notes": "KPI L3→L4: Certificação avançada de segurança ofensiva",
+      "phase": "L3"
+    },
+    {
+      "id": "cert-awssaa",
+      "title": "AWS Solutions Architect — Associate",
+      "displayName": "AWS SA Associate",
+      "description": "Certificação intermediária de arquitetura AWS. Ponte entre fundacional (Cloud Practitioner) e avançado (SA Professional).",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "KPI L3: Certificação opcional para reforçar fundamentos de arquitetura cloud",
+      "phase": "L3"
+    },
+    {
+      "id": "cert-cpsaf",
+      "title": "iSAQB CPSA-F — Foundation Level",
+      "displayName": "iSAQB CPSA-F (Arquitetura)",
+      "description": "Certificação internacional de arquitetura de software. Fundamento para liderar decisões arquiteturais como Senior.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-12-31",
+      "notes": "KPI L3→L4: Base formal de arquitetura para liderança técnica",
+      "phase": "L3"
+    },
+    {
+      "id": "corporate-architecture-design",
+      "title": "Arquitetura Corporativa de AI Security",
+      "displayName": "Corporate AI Security Architecture",
+      "description": "Projetar do zero arquitetura corporativa de validação de segurança/custos de IA, aprovada pela liderança e adotada cross-squad.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-12-31",
+      "notes": "KPI L4→L5: 2+ sistemas complexos em produção com adoção cross-squad",
+      "phase": "L4"
+    },
+    {
+      "id": "tech-leadership-critical",
+      "title": "Liderança Técnica de Projetos Críticos",
+      "displayName": "Tech Lead — Critical Projects",
+      "description": "Liderar tecnicamente 3+ projetos críticos end-to-end com 5+ pessoas, mentorando plenos e juniores durante a execução.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-06-30",
+      "notes": "KPI L4→L5: Liderança técnica + mentoria estratégica",
+      "phase": "L4"
+    },
+    {
+      "id": "red-teaming-foundation",
+      "title": "Red Teaming Tático em IA",
+      "displayName": "Adversarial ML & Red Teaming",
+      "description": "Projetar framework tático de Red Teaming em IA (Adversarial ML, evasão, extração de modelo) adaptado ao Itaú.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-12-31",
+      "notes": "KPI L4→L5: Framework tático testado internamente",
+      "phase": "L4"
+    },
+    {
+      "id": "cert-caisp",
+      "title": "CAISP — Certified AI Security Professional",
+      "displayName": "CAISP (AI Security)",
+      "description": "Certificação mais rigorosa do mercado em AI Security. 40+ labs, exame prático 6h contra sistemas vulneráveis.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-12-31",
+      "notes": "KPI L4→L5: Especialização formal em AI Security",
+      "phase": "L4"
+    },
+    {
+      "id": "cert-cmcpse",
+      "title": "CMCPSE — Certified MCP Security Expert",
+      "displayName": "CMCPSE (MCP Security)",
+      "description": "Única certificação do mercado focada em segurança de servidores MCP e IA agêntica.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-12-31",
+      "notes": "KPI L4: Diferencial em segurança de agentes (opcional)",
+      "phase": "L4"
+    },
+    {
+      "id": "cert-awssap",
+      "title": "AWS Solutions Architect — Professional",
+      "displayName": "AWS SA Pro",
+      "description": "Formalizar conhecimento em nível de arquitetura cloud. Sinergia direta com design de sistemas de IA seguros na AWS.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-06-30",
+      "notes": "KPI L4: Certificação de arquitetura cloud avançada",
+      "phase": "L4"
+    },
+    {
+      "id": "cloud-security-certification",
+      "title": "CISSP — Certified Information Systems Security Professional",
+      "displayName": "CISSP (ISC2)",
+      "description": "Certificação abrangente em segurança: 8 domínios incluindo NIST AI RMF, ISO 42001 e EU AI Act. Pré-requisito para AAISM.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-06-30",
+      "notes": "ISC2 · 8 domínios CBK · Exige 5 anos de experiência",
+      "phase": "L5"
+    },
+    {
+      "id": "architectural-influence",
+      "title": "Influência Arquitetural Multi-Squad",
+      "displayName": "Cross-Squad Architecture Influence",
+      "description": "Definir framework/plataforma corporativa adotada por 5+ squads. Tornar-se referência de domínio em AI Security.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-12-31",
+      "notes": "KPI L5: Framework corporativo + impacto -40%+ tempo de entrega",
+      "phase": "L5"
+    },
+    {
+      "id": "red-teaming-framework",
+      "title": "Red Teaming AI Framework Oficial",
+      "displayName": "Adversarial ML & Red Teaming (Corporate)",
+      "description": "Tornar o framework tático de Red Teaming em IA o padrão corporativo oficial aprovado pela liderança executiva.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2031-06-30",
+      "notes": "KPI L6: Impacto executivo e adoção por 10+ squads",
+      "phase": "L6"
+    },
+    {
+      "id": "nist-ai-rmf-implementation",
+      "title": "NIST AI RMF Corporate Implementation",
+      "displayName": "NIST AI RMF Framework",
+      "description": "Liderar adequação arquitetural baseada no NIST AI RMF, transformando no padrão oficial de mitigação e compliance de IA.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2032-06-30",
+      "notes": "KPI L6: Influência normativa e compliance",
+      "phase": "L6"
+    },
+    {
+      "id": "advanced-governance",
+      "title": "Governança Corporativa e Avançada de IA",
+      "displayName": "SecMLOps: Advanced Governance",
+      "description": "Estabelecer a governança corporativa de IA e o score de maturidade em segurança de IA utilizando as diretrizes avançadas e as políticas arquiteturais baseadas no NIST AI RMF.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2032-12-31",
+      "notes": "KPI L6: Governança regulatória de alto nível no ecossistema do banco",
+      "phase": "L6"
+    },
+    {
+      "id": "cert-iso42001",
+      "title": "ISO/IEC 42001 Lead Implementer",
+      "displayName": "ISO 42001 (Governança IA)",
+      "description": "Obter certificação na 1ª norma internacional de sistemas de gestão de IA. Essencial para compliance em instituições financeiras.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2031-12-31",
+      "notes": "PECB/InfosecTrain · Prova escrita",
+      "phase": "L6"
+    },
+    {
+      "id": "cert-cpsaa",
+      "title": "iSAQB CPSA-A — Advanced Level",
+      "displayName": "iSAQB CPSA-A (Arquitetura)",
+      "description": "Certificação arquitetural avançada com módulos modulares em tecnologia, metodologia e comunicação.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2032-12-31",
+      "notes": "iSAQB · 70 créditos em treinos modulares",
+      "phase": "L6"
+    },
+    {
+      "id": "executive-presence",
+      "title": "Impacto Executivo e Padrões Globais",
+      "displayName": "Executive Presence & Standards",
+      "description": "Consolidar reconhecimento como referência técnica global através de impacto executivo e influência em frameworks de mercado.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2033-06-30",
+      "notes": "KPI L7: Inovação e reconhecimento internacional",
+      "phase": "L7"
+    },
+    {
+      "id": "cert-aaism",
+      "title": "ISACA AAISM — Advanced in AI Security Management",
+      "displayName": "ISACA AAISM (Expert)",
+      "description": "Credencial gated de elite para líderes de segurança em IA. Mapeia diretamente para NIST AI RMF, ISO 42001 e MITRE ATLAS.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2033-12-31",
+      "notes": "ISACA · Pré-requisito: CISSP ativo · 90 questões",
+      "phase": "L7"
+    }
+  ],
+  "skills": [
+    {
+      "id": "quicksight",
+      "name": "Amazon QuickSight",
+      "level": 5,
+      "description": "Criação de dashboards interativos e análises visuais",
+      "category": "Analytics & BI",
+      "type": "hard"
+    },
+    {
+      "id": "pyspark",
+      "name": "PySpark",
+      "level": 4,
+      "description": "Processamento distribuído de grandes volumes de dados",
+      "category": "Analytics & BI",
+      "type": "hard"
+    },
+    {
+      "id": "data-modeling",
+      "name": "Modelagem de Dados",
+      "level": 5,
+      "description": "Design de schemas dimensionais e otimização de queries",
+      "category": "Analytics & BI",
+      "type": "hard"
+    },
+    {
+      "id": "openapi",
+      "name": "OpenAPI",
+      "level": 4,
+      "description": "Especificação e versionamento de contratos REST",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "api-design",
+      "name": "Design de APIs",
+      "level": 4,
+      "description": "Padrões de design, consistência e governança",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "api-architecture",
+      "name": "Arquitetura de APIs",
+      "level": 4,
+      "description": "Topologias, gateways e observabilidade de interfaces",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "api-contracts",
+      "name": "Contratos de API",
+      "level": 4,
+      "description": "Lifecycle de contratos, breaking changes e testes",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "codebuild",
+      "name": "CodeBuild",
+      "level": 3,
+      "description": "Build e testes automatizados",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "codepipeline",
+      "name": "Codepipeline",
+      "level": 2,
+      "description": "Pipelines de CI/CD",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "level": 4,
+      "description": "Automação de workflows",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "sonarqube",
+      "name": "SonarQube",
+      "level": 3,
+      "description": "Análise de qualidade de código",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "testing",
+      "name": "Testes",
+      "level": 4,
+      "description": "Testes unitários, integração e end-to-end",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "linters",
+      "name": "Linters",
+      "level": 4,
+      "description": "Análise estática de código e padronização",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "testes-automatizados",
+      "name": "Testes Automatizados",
+      "level": 4,
+      "description": "Automação de testes end-to-end e integração",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "testes-unitarios",
+      "name": "Testes Unitários",
+      "level": 4,
+      "description": "Testes de componentes individuais",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "level": 4,
+      "description": "Arquitetura e serviços core da AWS",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "aws-glue",
+      "name": "AWS Glue",
+      "level": 5,
+      "description": "ETL serverless e catalogação de dados",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "s3",
+      "name": "S3",
+      "level": 5,
+      "description": "Armazenamento de dados em data lake",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "lambda",
+      "name": "Lambda",
+      "level": 4,
+      "description": "Funções serverless para processamento de eventos",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "api-gateway",
+      "name": "Amazon API Gateway",
+      "level": 4,
+      "description": "Gerenciamento e publicação de APIs em escala",
+      "category": "Cloud & Data",
+      "type": "hard"
+    }
+  ]
+}

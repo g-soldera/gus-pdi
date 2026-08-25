@@ -7,10 +7,10 @@ export const personalInfo: PersonalInfo = {
   company: 'Itaú Unibanco',
   department: 'Cyber Security',
   currentRole: 'Engenheiro de Analytics PL',
-  targetRole: 'Engenheiro de Dados Sênior',
+  targetRole: 'AI Security Specialist',
   targetTimelineMonths: 18,
-  timelineTarget: '2026-06-07', // Início como Pleno
-  seniorTargetDate: '2028-01-01', // Desejo estar como Sênior
+  timelineTarget: '2027-06-07', // Início como Pleno
+  seniorTargetDate: '2029-01-01', // Desejo estar como Sênior
   experienceStartDate: '2023-06-07', // Início como Estagiário
   bankStartDate: '2024-05-05', // Entro no Itaú
   profileImage: '/assets/img/profile.jpg',
@@ -36,7 +36,7 @@ export const skills: Skill[] = [
 
   // CI/CD & Testes
   { id: 'codebuild', name: 'CodeBuild', level: 3, description: 'Build e testes automatizados', category: 'CI/CD & Testes', type: 'hard' },
-  { id: 'codepipeline', name: 'Codepipeline', level: 2, description: 'Pipelines de CI/CD', category: 'CI/CD & Testes', type: 'hard' },
+  { id: 'codepipeline', name: 'Codepipeline', level: 3, description: 'Pipelines de CI/CD — conhecimento teórico sólido, uso prático limitado', category: 'CI/CD & Testes', type: 'hard' },
   { id: 'github-actions', name: 'GitHub Actions', level: 4, description: 'Automação de workflows', category: 'CI/CD & Testes', type: 'hard' },
   { id: 'sonarqube', name: 'SonarQube', level: 3, description: 'Análise de qualidade de código', category: 'CI/CD & Testes', type: 'hard' },
   { id: 'testing', name: 'Testes', level: 4, description: 'Testes unitários, integração e end-to-end', category: 'CI/CD & Testes', type: 'hard' },
@@ -54,9 +54,9 @@ export const skills: Skill[] = [
   { id: 'emr', name: 'EMR', level: 3, description: 'Processamento de big data com Spark', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudfront', name: 'CloudFront', level: 4, description: 'CDN para distribuição de conteúdo', category: 'Cloud & Data', type: 'hard' },
   { id: 'terraform', name: 'Terraform', level: 4, description: 'Infrastructure as Code para provisionamento cloud', category: 'Cloud & Data', type: 'hard' },
-  { id: 'kafka', name: 'Kafka', level: 2, description: 'Streaming de dados em tempo real', category: 'Cloud & Data', type: 'hard' },
+  { id: 'kafka', name: 'Kafka', level: 3, description: 'Streaming de dados em tempo real — conhecimento teórico sólido, uso prático ainda limitado', category: 'Cloud & Data', type: 'hard' },
   { id: 'athena', name: 'Athena', level: 4, description: 'Queries SQL serverless em data lakes', category: 'Cloud & Data', type: 'hard' },
-  { id: 'redshift', name: 'Redshift', level: 2, description: 'Data warehouse para analytics em escala', category: 'Cloud & Data', type: 'hard' },
+  { id: 'redshift', name: 'Redshift', level: 3, description: 'Data warehouse para analytics em escala — conhecimento teórico sólido, uso prático ainda limitado', category: 'Cloud & Data', type: 'hard' },
   { id: 'dynamodb', name: 'DynamoDB', level: 2, description: 'Banco de dados NoSQL serverless', category: 'Cloud & Data', type: 'hard' },
   { id: 'stepfunctions', name: 'Step Functions', level: 3, description: 'Orquestração de workflows serverless', category: 'Cloud & Data', type: 'hard' },
   { id: 'cloudwatch', name: 'CloudWatch', level: 4, description: 'Monitoramento e logs de aplicações', category: 'Cloud & Data', type: 'hard' },
@@ -222,6 +222,11 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-analytics', 'cert-api-owner'],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'aws-glue', delta: 1, rationale: 'Certificação validou domínio de ETL serverless' },
+      { skillId: 'data-modeling', delta: 1, rationale: 'Certificação validou design de schemas dimensionais' },
+      { skillId: 'sql', delta: 1, rationale: 'Certificação cobriu otimização avançada de queries' },
+    ],
   },
   {
     id: 'soft-skills',
@@ -236,6 +241,11 @@ export const milestones: Milestone[] = [
     relatedResources: ['books-comm-cnv'],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'empathy', delta: 1, rationale: 'Feedback formal registrou evolução em empatia' },
+      { skillId: 'active-listening', delta: 1, rationale: 'Feedback explícito de evolução em escuta ativa' },
+      { skillId: 'assertive-communication', delta: 1, rationale: 'Comunicação empática validada por pares' },
+    ],
   },
   {
     id: 'lead-projects',
@@ -245,11 +255,16 @@ export const milestones: Milestone[] = [
     status: 'completed',
     progress: 100,
     deadline: '2025-09-30',
-    notes: 'Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila.',
+    notes: 'Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila. ADRs de arquitetura frontend (Next.js webview), backend (DDD + Lambda microsserviços + API Gateway) e sistemas agênticos (MAS, MCP) foram lideradas e adotadas pela squad.',
     relatedSkills: ['leadership', 'critical-thinking', 'collaboration', 'technical-docs'],
     relatedResources: ['mentoring'],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'leadership', delta: 1, rationale: 'Liderança técnica comprovada no Insight Guard e Leila' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Decisões arquiteturais impactaram roadmap do projeto' },
+      { skillId: 'influence', delta: 1, rationale: 'Propostas técnicas adotadas pela squad' },
+    ],
   },
   {
     id: 'cert-api-owner',
@@ -264,6 +279,11 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-api-owner'],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'openapi', delta: 1, rationale: 'Certificação validou domínio de especificação e versionamento' },
+      { skillId: 'api-design', delta: 1, rationale: 'Padrões de design aplicados no Insight Guard' },
+      { skillId: 'api-contracts', delta: 1, rationale: 'Lifecycle de contratos e breaking changes dominados' },
+    ],
   },
   {
     id: 'finops-consumer',
@@ -273,11 +293,16 @@ export const milestones: Milestone[] = [
     status: 'completed',
     progress: 100,
     deadline: '2025-11-30',
-    notes: 'Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos.',
+    notes: 'Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos. Métrica de sucesso: redução percentual de custo por execução. Valor monetário exato não rastreado à época.',
     relatedSkills: ['cost-optimization', 'terraform', 'aws-glue', 's3'],
     relatedResources: [],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'cost-optimization', delta: 1, rationale: 'Implementação prática de FinOps com resultado mensurável' },
+      { skillId: 'aws-glue', delta: 0, rationale: 'Conhecimento já em nível 5; otimização reforçou expertise' },
+      { skillId: 'finops', delta: 1, rationale: 'Primeiro projeto prático end-to-end de FinOps em cloud' },
+    ],
   },
   {
     id: 'cert-security',
@@ -291,6 +316,10 @@ export const milestones: Milestone[] = [
     relatedResources: [],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'security', delta: 1, rationale: 'Certificação validou fundamentos de segurança da informação' },
+      { skillId: 'critical-thinking', delta: 1, rationale: 'Análise de ameaças e tomada de decisão em segurança' },
+    ],
   },
   {
     id: 'mentor-colleagues',
@@ -305,6 +334,11 @@ export const milestones: Milestone[] = [
     relatedResources: ['mentoring'],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'mentoring', delta: 1, rationale: 'Mentoria ativa com 2 estagiários documentada' },
+      { skillId: 'feedback', delta: 1, rationale: 'Prática de feedback construtivo em contexto real' },
+      { skillId: 'collaboration', delta: 1, rationale: 'Trabalho colaborativo em desenvolvimento de pessoas' },
+    ],
   },
   {
     id: 'cert-aws-cloud',
@@ -319,6 +353,11 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-cloud-practitioner'],
     phase: 'L1',
     archived: true,
+    skillsImprovement: [
+      { skillId: 'aws', delta: 1, rationale: 'Certificação validou base de serviços e arquitetura AWS' },
+      { skillId: 's3', delta: 0, rationale: 'Já em nível 5; certificação reforçou conhecimento' },
+      { skillId: 'lambda', delta: 1, rationale: 'Fundamentos de serverless formalizados' },
+    ],
   },
 
   // ==========================================
@@ -330,9 +369,9 @@ export const milestones: Milestone[] = [
     displayName: 'Multiplicador de IA e Automação',
     description: 'Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.',
     status: 'in-progress',
-    progress: 45,
-    deadline: '2026-12-31',
-    notes: 'KPI L2: Entrega autônoma e colaboração técnica',
+    progress: 85,
+    deadline: '2026-09-30',
+    notes: 'KPI L2: Entrega autônoma e colaboração técnica. Em processo de conclusão final — Guilda de Práticas de GenAI em andamento, repositório cyber-prompts-and-skills com 10+ estrelas e 3+ contribuidores.',
     objectives: [
       { text: 'Alcançar 10 estrelas no repositório de compartilhamento de skills e prompts', completed: true, completionJustification: 'Repositório cyber-prompts-and-skills alcançou 10+ estrelas com skills de democratização de dados, documentação e design.' },
       { text: 'Mínimo de 3 contribuidores diferentes no repositório de compartilhamento', completed: true, completionJustification: 'Hugo e Thalita colaboraram ativamente no repositório, em processo de reestruturação com a chegada do ORKA.' },
@@ -346,25 +385,35 @@ export const milestones: Milestone[] = [
     relatedSkills: ['llm', 'prompt-engineering', 'agent-design', 'stackspot-ai', 'devin', 'github-copilot', 'prompt-pattern-persona', 'prompt-pattern-chain', 'prompt-pattern-fewshot', 'prompt-pattern-recipe', 'prompt-pattern-guardrail'],
     relatedResources: ['llm-course'],
     phase: 'L2',
+    skillsImprovement: [
+      { skillId: 'prompt-engineering', delta: 1, rationale: 'Criação de 13+ skills e patterns de prompt documentados' },
+      { skillId: 'agent-design', delta: 1, rationale: 'Compartilhamento de práticas de agentes em guilda' },
+      { skillId: 'influence', delta: 1, rationale: 'Fomento técnico com adoção pela comunidade' },
+    ],
   },
   {
     id: 'model-supply-chain',
     title: 'Segurança na Cadeia de Suprimentos de Modelos (Model Supply Chain)',
     displayName: 'SecMLOps: Model Supply Chain',
     description: 'Implementar controles de segurança no ciclo de vida de modelos de IA, garantindo a integridade, proveniência e o versionamento seguro dos artefatos.',
-    status: 'planned',
-    progress: 0,
+    status: 'in-progress',
+    progress: 10,
     deadline: '2027-06-30',
-    notes: 'KPI L2→L3: Fundamentos de SecMLOps e segurança no CI/CD de modelos.',
+    notes: 'KPI L2→L3: Fundamentos de SecMLOps e segurança no CI/CD de modelos. Estudo em andamento.',
     objectives: [
       { text: 'Estudar e aplicar o formato .safetensors para mitigar riscos de execução de código arbitrário.', completed: false },
       { text: 'Implementar assinatura e verificação de modelos (ex: hash SHA256) no pipeline de CI/CD para garantir a integridade.', completed: false },
       { text: 'Utilizar MLflow para rastrear a proveniência dos modelos, incluindo dados de treinamento e hiperparâmetros.', completed: false },
       { text: 'Implementar no padrão do banco (seguir diretrizes arquiteturais internas do Itaú para supply chain de modelos).', completed: false }
     ],
-    relatedSkills: ['mlflow', 'safetensors', 'ci-cd-security', 'python', 'docker'],
+    relatedSkills: ['mlops', 'python', 'docker'],
     relatedResources: ['tool-safetensors', 'course-mlops-security', 'tool-mlflow-provenance'],
     phase: 'L2',
+    skillsImprovement: [
+      { skillId: 'mlops', delta: 2, rationale: 'Implementação completa de pipeline seguro com MLflow e verificação de integridade' },
+      { skillId: 'security', delta: 1, rationale: 'Aplicação de controles de segurança em CI/CD de modelos' },
+      { skillId: 'sec-atlas', delta: 1, rationale: 'Mapeamento de TTPs de supply chain no MITRE ATLAS' },
+    ],
   },
   {
     id: 'autonomous-delivery',
@@ -373,8 +422,8 @@ export const milestones: Milestone[] = [
     description: 'Entregar 10+ features/bugfixes de forma autônoma com taxa de retrabalho < 20% e aprovação formal de qualidade.',
     status: 'completed',
     progress: 100,
-    deadline: '2027-03-31',
-    notes: 'KPI L2: Demonstração de autonomia técnica baseada em entregas core no Portal de Cyber.',
+    deadline: '2026-12-31',
+    notes: 'KPI L2: Demonstração de autonomia técnica baseada em entregas core no Portal de Cyber. ADRs lideradas: frontend (Next.js webview), backend DDD (Lambda microsserviços + API Gateway), sistemas agênticos (MAS, MCP). Volume de acessos ao Cyber.Itaú em coleta — KPI de adoção por superintendentes e diretores.',
     objectives: [
       { text: 'Completar 5+ entregas em projetos críticos', completed: true, completionJustification: 'Entregues: Modelagem de dados Cyber Itaú, Modelagem de dados Cyber Itaú Agents, Frontend Cyber Itaú, Silent login quicksight Cyber Itaú, Gestão de Custos Cyber Itaú, e Métricas de Cyber Cyber Itaú.' },
       { text: 'Manter taxa de retrabalho in PRs abaixo de 20%', completed: true, completionJustification: 'Registrados apenas 3 PR reverts em DEV nos últimos 6 meses e 4 itens do tipo BUG nos últimos 12 meses, frente a mais de 100 PRs e dezenas de Histórias entregues no período.' },
@@ -384,16 +433,21 @@ export const milestones: Milestone[] = [
     relatedSkills: ['technical-docs', 'testing', 'sonarqube', 'linters'],
     relatedResources: [],
     phase: 'L2',
+    skillsImprovement: [
+      { skillId: 'technical-docs', delta: 1, rationale: 'Documentação de decisões técnicas e trade-offs em ADRs' },
+      { skillId: 'testing', delta: 1, rationale: '95%+ cobertura de testes nos projetos entregues' },
+      { skillId: 'critical-thinking', delta: 1, rationale: 'Análise de trade-offs arquiteturais em múltiplos contextos' },
+    ],
   },
   {
     id: 'technical-discussions',
     title: 'Participação em Discussões Técnicas Estratégicas',
     displayName: 'Strategic Technical Discussions',
-    description: 'Contribuir em 3+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad.',
+    description: 'Contribuir em 3+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad. Inclui ADRs formais de arquitetura.',
     status: 'in-progress',
-    progress: 20,
-    deadline: '2027-06-30',
-    notes: 'KPI L2: Influência técnica e proatividade',
+    progress: 70,
+    deadline: '2027-03-31',
+    notes: 'KPI L2: Influência técnica e proatividade. ADRs lideradas: Cyber.Itaú (frontend Next.js webview + backend DDD), Sistema de orquestração multi-agentes cross-account com orientação à intenção, construção de MCPs.',
     objectives: [
       { text: 'Participar ativamente de 3+ discussões arquiteturais ou de design', completed: true, completionJustification: 'Cyber.Itaú (frontend next webview + backend DDD), Sistema de orquestração de multi-agentes cross-account com orientação à intenção e construção de MCPs.' },
       { text: 'Propor 2+ soluções técnicas adotadas pela squad', completed: true, completionJustification: 'Cyber.Itaú: frontend Next.js webview + backend DDD lambda microsservices + API Gateway.' },
@@ -403,26 +457,35 @@ export const milestones: Milestone[] = [
     relatedSkills: ['strategic-vision', 'critical-thinking', 'influence', 'verbal-communication'],
     relatedResources: [],
     phase: 'L2',
+    skillsImprovement: [
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Propostas técnicas com visão de longo prazo adotadas' },
+      { skillId: 'influence', delta: 1, rationale: 'Decisões arquiteturais lideradas e adotadas pela squad' },
+      { skillId: 'stakeholder-management', delta: 1, rationale: 'Engajamento de pares em decisões técnicas críticas' },
+    ],
   },
   {
     id: 'mentoring-interns',
-    title: 'Mentoria de Estagiários',
-    displayName: 'Intern Mentoring',
-    description: 'Suportar o desenvolvimento técnico de 1+ estagiário com acompanhamento estruturado e feedback construtivo.',
+    title: 'Liderança de Onboarding e Desenvolvimento Técnico',
+    displayName: 'Onboarding & Technical Mentoring',
+    description: 'Liderar o onboarding técnico e suportar o desenvolvimento de 1+ novo membro da squad (estagiário, analista ou engenheiro) com acompanhamento estruturado e feedback construtivo.',
     status: 'planned',
     progress: 0,
-    deadline: '2027-09-30',
-    notes: 'KPI L2: Desenvolvimento de habilidades de mentoria',
+    deadline: '2027-12-31',
+    notes: 'KPI L2: Desenvolvimento de habilidades de mentoria e liderança situacional. Critério desacoplado de headcount: qualquer novo membro da squad conta (estagiário, analista, engenheiro júnior). Não depende de alocação específica.',
     objectives: [
-      { text: 'Acompanhar 1+ estagiário em tarefas técnicas semanais', completed: false },
+      { text: 'Acompanhar 1+ novo membro da squad em tarefas técnicas semanais', completed: false },
       { text: 'Fornecer feedback técnico construtivo em code reviews', completed: false },
-      { text: 'Documentar plano de desenvolvimento para o estagiário', completed: false },
-      { text: 'Feedback positivo do estagiário sobre apoio técnico', completed: false }
+      { text: 'Documentar plano de desenvolvimento para o novo membro', completed: false },
+      { text: 'Feedback positivo sobre apoio técnico recebido', completed: false }
     ],
     relatedSkills: ['mentoring', 'feedback', 'collaboration'],
     relatedResources: [],
     phase: 'L2',
-    blockedBy: 'Termos estagiário próximo alocado na squad',
+    skillsImprovement: [
+      { skillId: 'mentoring', delta: 1, rationale: 'Mentoria estruturada com PDI e feedback formal' },
+      { skillId: 'situational-leadership', delta: 1, rationale: 'Adaptação do estilo de liderança ao nível do novo membro' },
+      { skillId: 'feedback', delta: 1, rationale: 'Prática contínua de feedback construtivo em code reviews' },
+    ],
   },
   {
     id: 'cert-crtp',
@@ -431,8 +494,8 @@ export const milestones: Milestone[] = [
     description: 'Obter certificação CRTP focada em Red Team para Active Directory. Fundação ofensiva para entender ataques antes de defesa.',
     status: 'planned',
     progress: 0,
-    deadline: '2027-12-31',
-    notes: 'L2: Fundação técnica de segurança ofensiva',
+    deadline: '2028-06-30',
+    notes: 'L2→L3: Fundação técnica de segurança ofensiva. Iniciar após validação formal de transição L2→L3 (jun/2027). Investimento: US$ 249.',
     objectives: [
       { text: 'Completar labs práticos de Active Directory', completed: false },
       { text: 'Dominar Kerberoasting, AS-REP Roasting e movimento lateral', completed: false },
@@ -442,6 +505,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'critical-thinking'],
     relatedResources: ['cert-crtp'],
     phase: 'L2',
+    skillsImprovement: [
+      { skillId: 'security', delta: 2, rationale: 'Certificação prática de segurança ofensiva (Active Directory)' },
+      { skillId: 'critical-thinking', delta: 1, rationale: 'Mentalidade adversarial aplicada a defesa' },
+      { skillId: 'sec-atlas', delta: 1, rationale: 'TTPs de AD mapeados no MITRE ATLAS' },
+    ],
   },
 
 
@@ -456,8 +524,8 @@ export const milestones: Milestone[] = [
     description: 'Projetar e documentar arquitetura completa de defesa para sistemas de IA com guardrails, threat model e supply chain security.',
     status: 'planned',
     progress: 0,
-    deadline: '2027-06-30',
-    notes: 'KPI L3→L4: Design técnico aprovado por sênior em feature complexa',
+    deadline: '2028-06-30',
+    notes: 'KPI L3→L4: Design técnico aprovado por sênior em feature complexa. Construído sobre as evidências práticas do milestone agentic-security-cyber.',
     objectives: [
       { text: 'Projetar arquitetura de guardrails para LLMs cobrindo OWASP LLM Top 10', completed: false },
       { text: 'Documentar threat model com MITRE ATLAS mapeando 5+ TTPs relevantes', completed: false },
@@ -467,6 +535,12 @@ export const milestones: Milestone[] = [
     relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'prompt-engineering', 'mlops'],
     relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
     phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'bedrock-guardrails', delta: 1, rationale: 'Arquitetura formal de guardrails para LLMs (OWASP LLM Top 10)' },
+      { skillId: 'sec-nist', delta: 2, rationale: 'Alinhamento da arquitetura ao NIST AI RMF' },
+      { skillId: 'sec-atlas', delta: 1, rationale: 'Threat model com 5+ TTPs MITRE ATLAS mapeados' },
+      { skillId: 'technical-docs', delta: 1, rationale: 'Documentação de arquitetura apresentada para squad e liderança' },
+    ],
   },
   {
     id: 'governance-ai-pipelines',
@@ -475,8 +549,8 @@ export const milestones: Milestone[] = [
     description: 'Aplicar governança de IA em 2+ projetos core com relatórios de conformidade automatizados.',
     status: 'planned',
     progress: 0,
-    deadline: '2027-12-31',
-    notes: 'KPI L3→L4: Ownership completo de projeto médio (>1 mês)',
+    deadline: '2028-06-30',
+    notes: 'KPI L3→L4: Ownership completo de projeto médio (>1 mês). Meta: 100% dos modelos em produção com proveniência registrada no MLflow.',
     objectives: [
       { text: 'Implementar governança em 2 pipelines/projetos core', completed: false },
       { text: 'Gerar relatórios de conformidade automatizados', completed: false },
@@ -486,6 +560,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['mlops', 'bedrock-guardrails', 'data-observability', 'security'],
     relatedResources: ['ref-owasp-llm-top10', 'course-mlops-security', 'tool-mlflow-provenance'],
     phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'mlops', delta: 1, rationale: 'Governança de ML em produção com relatórios automatizados' },
+      { skillId: 'data-observability', delta: 1, rationale: 'Monitoramento de conformidade e drift em pipelines' },
+      { skillId: 'sec-nist', delta: 1, rationale: 'Conformidade com NIST AI RMF em 2+ projetos' },
+    ],
   },
   {
     id: 'mentoring-juniors',
@@ -494,7 +573,7 @@ export const milestones: Milestone[] = [
     description: 'Mentorar 2+ juniores com PDI estruturado, code reviews construtivos e acompanhamento de evolução.',
     status: 'planned',
     progress: 0,
-    deadline: '2028-06-30',
+    deadline: '2029-06-30',
     notes: 'KPI L3→L4: Mentoria ativa com PDI estruturado para 2+ juniores',
     objectives: [
       { text: 'Estruturar PDI para 2+ juniores com metas trimestrais', completed: false },
@@ -505,6 +584,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['mentoring', 'feedback', 'leadership', 'collaboration'],
     relatedResources: [],
     phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'mentoring', delta: 1, rationale: 'PDI estruturado e acompanhamento formal de 2+ juniores' },
+      { skillId: 'situational-leadership', delta: 2, rationale: 'Adaptação de estilo de liderança para diferentes perfis e maturidades' },
+      { skillId: 'feedback', delta: 1, rationale: 'Code reviews construtivos e feedback de evolução documentados' },
+    ],
   },
   {
     id: 'pdi-structure-2026',
@@ -512,9 +596,9 @@ export const milestones: Milestone[] = [
     displayName: 'PDI L1-L7: Career Ladder',
     description: 'Estruturar o planejamento completo com níveis técnicos L1-L7, KPIs mensuráveis e trilha de certificações',
     status: 'in-progress',
-    progress: 75,
+    progress: 85,
     deadline: '2026-09-30',
-    notes: 'KPI L3: Visão estratégica e planejamento de carreira',
+    notes: 'KPI L3: Visão estratégica e planejamento de carreira. v2.2 em andamento — target_role unificado como AI Security Specialist, OSCP marcado como a_decidir, milestones aspiracionais L5-L7.',
     objectives: [
       { text: 'Definir todos os 7 níveis do roadmap (L1-L7) com KPIs claros', completed: true, completionJustification: 'Framework L1-L7 completo documentado em career-levels-framework.md com KPIs mensuráveis por nível.' },
       { text: 'Mapear 20+ referências de estudo em AI Security', completed: true, completionJustification: 'Trilha completa de certificações (CRTP, OSCP, CAISP, CMCPSE, CISSP, ISO 42001, AAISM) + livros e cursos mapeados em resources.' },
@@ -524,6 +608,115 @@ export const milestones: Milestone[] = [
     relatedSkills: ['strategic-vision', 'time-management', 'self-awareness', 'technical-docs'],
     relatedResources: [],
     phase: 'L2',
+    skillsImprovement: [
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Planejamento de carreira L1→L7 com KPIs mensuráveis' },
+      { skillId: 'self-awareness', delta: 1, rationale: 'Análise crítica de gaps, pontos fortes e fracos' },
+    ],
+  },
+
+  // ==========================================
+  // L3 (Mid / Pleno)
+  // ==========================================
+  {
+    id: 'agentic-security-cyber',
+    title: 'Segurança do Ecossistema Agêntico do Cyber.Itaú',
+    displayName: 'Agentic Security: Threat Model & Guardrails',
+    description: 'Projetar e implementar segurança end-to-end no ecossistema de IA agêntica do Cyber.Itaú: threat model, guardrails, implementação em produção e coleta de métricas de segurança.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-06-30',
+    notes: 'KPI L3: Implementação prática de controles de segurança para o sistema multi-agente (Insight Guard + MCP servers) em produção. Métrica de sucesso: P95 de latência do Insight Guard < 5s; 100% dos outputs com guardrail ativo.',
+    objectives: [
+      { text: 'Elaborar threat model completo do ecossistema agêntico (STRIDE + MITRE ATLAS, mínimo 5 TTPs mapeados)', completed: false },
+      { text: 'Implementar guardrails no runtime do Insight Guard (AWS Bedrock Guardrails: PII detection, prompt injection, grounding)', completed: false },
+      { text: 'Aplicar controles de supply chain nos modelos consumidos pelos agentes (.safetensors + hash SHA256 no CI/CD)', completed: false },
+      { text: 'Coletar métricas de segurança em produção: latência P95, taxa de bloqueio de guardrails, alertas de anomalia', completed: false },
+      { text: 'Apresentar relatório de segurança para a squad e liderança com evidências e recomendações', completed: false },
+    ],
+    relatedSkills: ['bedrock-guardrails', 'security', 'llm', 'mas', 'mcp-tools', 'sec-atlas', 'sec-nist'],
+    relatedResources: ['ref-owasp-llm-top10', 'ref-mitre-atlas', 'course-bedrock-guardrails'],
+    phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'bedrock-guardrails', delta: 1, rationale: 'Implementação prática de guardrails em produção' },
+      { skillId: 'mas', delta: 2, rationale: 'Ownership técnico do ecossistema multi-agente' },
+      { skillId: 'sec-atlas', delta: 2, rationale: 'Mapeamento completo de TTPs adversariais no ecossistema agêntico' },
+      { skillId: 'sec-nist', delta: 1, rationale: 'Aplicação de controles alinhados ao NIST AI RMF' },
+      { skillId: 'mcp-tools', delta: 2, rationale: 'Segurança end-to-end de servidores MCP implementada' },
+    ],
+  },
+  {
+    id: 'situational-leadership-development',
+    title: 'Desenvolvimento de Liderança Situacional',
+    displayName: 'Liderança Situacional: Teoria & Prática',
+    description: 'Desenvolver habilidade de adaptar o estilo de liderança ao contexto e maturidade do liderado, passando de liderança centrada em controle para liderança adaptativa.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    notes: 'KPI L3: Gap identificado — Liderança level 4 mas Liderança Situacional level 2. Leitura + aplicação prática em code reviews e pair programming.',
+    objectives: [
+      { text: "Ler 'Leadership and the One Minute Manager' (Blanchard) e mapear os 4 estilos situacionais", completed: false },
+      { text: 'Identificar o estilo dominante atual e os contextos onde ele falha', completed: false },
+      { text: 'Praticar os 4 estilos em situações reais: pair programming (D1→S1), code review (D2→S2), delegação (D3→S3), autonomia (D4→S4)', completed: false },
+      { text: 'Obter feedback de 2+ pares sobre flexibilidade de liderança em projetos multi-perfil', completed: false },
+    ],
+    relatedSkills: ['situational-leadership', 'mentoring', 'emotional-intelligence'],
+    relatedResources: [],
+    phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'situational-leadership', delta: 2, rationale: 'Leitura + prática deliberada dos 4 estilos situacionais' },
+      { skillId: 'mentoring', delta: 1, rationale: 'Adaptação do estilo de apoio ao nível de competência do liderado' },
+      { skillId: 'emotional-intelligence', delta: 1, rationale: 'Reconhecimento de sinais de maturidade e ajuste de abordagem' },
+    ],
+  },
+  {
+    id: 'finops-continuous',
+    title: 'FinOps Contínuo e Cultura de Custo',
+    displayName: 'FinOps Contínuo: Tagueamento, Anomalias e Rightsizing',
+    description: 'Institucionalizar práticas de FinOps contínuo no projeto: tagueamento sistemático, detecção de anomalias de custo, análise mensal por recurso e propostas de rightsizing.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2027-12-31',
+    notes: 'KPI L3: FinOps como cultura, não evento isolado. Já aplicado informalmente: tagueamento, revisão mensal de custos. Formalizar em processo documentado.',
+    objectives: [
+      { text: 'Documentar política de tagueamento de recursos AWS (cost center, squad, ambiente, projeto)', completed: false },
+      { text: 'Configurar AWS Cost Anomaly Detection com alertas para a squad', completed: false },
+      { text: 'Criar dashboard de FinOps no QuickSight ou CloudWatch: custo por recurso, tendências e alertas', completed: false },
+      { text: 'Propor e implementar rightsizing automático para 2+ recursos (Lambda memory, Glue DPUs, ECS tasks)', completed: false },
+      { text: 'Usar agente para análise automatizada de custos: identificar top 5 recursos mais caros mensalmente', completed: false },
+    ],
+    relatedSkills: ['finops', 'cost-optimization', 'cloudwatch', 'agent-design'],
+    relatedResources: [],
+    phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'finops', delta: 2, rationale: 'FinOps institucionalizado como processo contínuo com KPIs' },
+      { skillId: 'cost-optimization', delta: 1, rationale: 'Rightsizing automático e dashboards de custo por recurso' },
+      { skillId: 'cloudwatch', delta: 1, rationale: 'Dashboards de custo e anomaly detection configurados' },
+      { skillId: 'agent-design', delta: 1, rationale: 'Agente para análise automatizada de custos implementado' },
+    ],
+  },
+  {
+    id: 'community-networking-sp',
+    title: 'Comunidade Técnica e Networking em São Paulo',
+    displayName: 'Community: Talks & Networking (SP)',
+    description: 'Construir presença técnica externa através de participação em eventos de segurança e IA em São Paulo, publicação de artigos e networking com referências do mercado.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2028-12-31',
+    notes: 'KPI L3→L4: Reconhecimento técnico externo. Foco em eventos presenciais em SP (BSides SP, OWASP São Paulo Chapter, AWS Community Day SP). Publicação de 2+ artigos/ano sobre projetos reais a partir de 2027.',
+    objectives: [
+      { text: 'Participar de 2+ eventos técnicos em SP em 2027 (BSides SP, OWASP SP Chapter, AWS Community Day SP)', completed: false },
+      { text: "Submeter 1 talk em evento SP sobre 'Segurança em IA Agêntica no setor financeiro'", completed: false },
+      { text: 'Publicar 2+ artigos técnicos (Medium/Dev.to) sobre projetos reais do Cyber.Itaú', completed: false },
+      { text: 'Conectar-se com 10+ profissionais de AI Security/MLSecOps via LinkedIn com interação técnica real', completed: false },
+    ],
+    relatedSkills: ['presentation', 'storytelling', 'influence'],
+    relatedResources: [],
+    phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'presentation', delta: 1, rationale: 'Talk técnico para audiência externa' },
+      { skillId: 'storytelling', delta: 1, rationale: 'Artigos técnicos que transformam experiência prática em narrativa útil' },
+      { skillId: 'influence', delta: 1, rationale: 'Reconhecimento externo amplia influência além da squad' },
+    ],
   },
   {
     id: 'ai-defense-foundations',
@@ -532,16 +725,70 @@ export const milestones: Milestone[] = [
     description: 'Implementar mitigação contra ameaças (OWASP LLM Top 10) no runtime utilizando guardrails (ex: AWS Bedrock Guardrails) e entender ataques adversários através do MITRE ATLAS.',
     status: 'planned',
     progress: 0,
-    deadline: '2027-12-31',
+    deadline: '2028-06-30',
     notes: 'KPI L3: Implementação prática de controles de segurança para sistemas baseados em LLMs',
     objectives: [
       { text: 'Estudar mitigações do OWASP LLM Top 10 aplicadas ao contexto do banco.', completed: false },
       { text: 'Implementar e configurar AWS Bedrock Guardrails em uma aplicação piloto.', completed: false },
       { text: 'Realizar mapeamento de ameaças focado em Adversarial ML utilizando a base do MITRE ATLAS.', completed: false }
     ],
-    relatedSkills: ['aws-bedrock', 'guardrails', 'owasp', 'threat-modeling'],
+    relatedSkills: ['aws-bedrock', 'bedrock-guardrails', 'security'],
     relatedResources: ['ref-owasp-llm-top10', 'course-bedrock-guardrails', 'ref-mitre-atlas'],
     phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'bedrock-guardrails', delta: 1, rationale: 'Implementação de guardrails em runtime contra OWASP LLM Top 10' },
+      { skillId: 'sec-atlas', delta: 2, rationale: 'Domínio de ataques adversariais mapeados no MITRE ATLAS' },
+      { skillId: 'security', delta: 1, rationale: 'Controles defensivos aplicados em sistemas de IA' },
+    ],
+  },
+  {
+    id: 'cert-oscp',
+    title: 'OSCP — PEN-200 (OffSec)',
+    displayName: 'OSCP (Pentest) — A Decidir',
+    description: 'Selo ofensivo mais reconhecido do mercado. Valida capacidade de encontrar e explorar vulnerabilidades de forma autônoma.',
+    status: 'planned',
+    progress: 0,
+    deadline: null,
+    optional: true,
+    decision_status: 'a_decidir',
+    notes: 'A DECIDIR após conclusão do CRTP. Estimativa real de esforço: 300-600h de lab prático para quem não tem base ofensiva prévia. Investimento: ~US$ 1.500+. Reavaliar em 2028: se o CRTP mostrar apetite real pela trilha ofensiva e o calendário L3 permitir, incluir; caso contrário, espinha dorsal é AI Security + governança.',
+    objectives: [
+      { text: 'Concluir labs PEN-200 (Web, Linux privesc, Windows privesc, AD)', completed: false },
+      { text: 'Realizar 3+ simulados com 70%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame prático de 24h + relatório', completed: false }
+    ],
+    relatedSkills: ['security', 'critical-thinking', 'python', 'bash'],
+    relatedResources: ['cert-oscp'],
+    phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'security', delta: 2, rationale: 'Certificação mais reconhecida do mercado em pentest' },
+      { skillId: 'critical-thinking', delta: 1, rationale: 'Metodologia de enumeração e exploração sistemática' },
+      { skillId: 'resilience', delta: 1, rationale: 'Try harder mindset — resiliência frente a bloqueios' },
+    ],
+  },
+  {
+    id: 'cert-awssaa',
+    title: 'AWS Solutions Architect — Associate',
+    displayName: 'AWS SA Associate (Opcional)',
+    description: 'Certificação intermediária de arquitetura AWS. Ponte entre fundacional (Cloud Practitioner) e avançado (SA Professional).',
+    status: 'planned',
+    progress: 0,
+    deadline: '2028-06-30',
+    optional: true,
+    notes: 'OPCIONAL: Considerar somente se sentir necessidade de formalização antes do SAP. ATENÇÃO: sem o SAA consolidado, o preparo para o SAP exige esforço adicional significativo. Investimento: US$ 150.',
+    objectives: [
+      { text: 'Estudar design de arquiteturas resilientes e de alta performance', completed: false },
+      { text: 'Dominar serviços core: EC2, S3, VPC, RDS, Lambda, IAM', completed: false },
+      { text: 'Realizar 3+ simulados com 75%+ de aproveitamento', completed: false },
+      { text: 'Aprovação no exame', completed: false }
+    ],
+    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 's3'],
+    relatedResources: ['cert-awssaa'],
+    phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'aws', delta: 1, rationale: 'Arquitetura AWS formalizada em nível associate' },
+      { skillId: 'vpc', delta: 1, rationale: 'Redes virtuais e security groups aprofundados' },
+    ],
   },
   {
     id: 'cert-oscp',
@@ -587,8 +834,8 @@ export const milestones: Milestone[] = [
     description: 'Certificação internacional de arquitetura de software. Fundamento para liderar decisões arquiteturais como Senior.',
     status: 'planned',
     progress: 0,
-    deadline: '2028-12-31',
-    notes: 'KPI L3→L4: Base formal de arquitetura para liderança técnica',
+    deadline: '2029-06-30',
+    notes: 'KPI L3→L4: Base formal de arquitetura para liderança técnica. Investimento: €1.500-2.000.',
     objectives: [
       { text: 'Estudar os 5 capítulos do currículo CPSA-F', completed: false },
       { text: 'Praticar documentação de arquitetura via views (UML)', completed: false },
@@ -597,6 +844,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['api-architecture', 'technical-docs', 'critical-thinking'],
     relatedResources: ['cert-cpsaf'],
     phase: 'L3',
+    skillsImprovement: [
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Requisitos funcionais, não-funcionais e restrições arquiteturais formalizados' },
+      { skillId: 'technical-docs', delta: 1, rationale: 'Documentação via views (UML, componentes, sequência)' },
+      { skillId: 'influence', delta: 1, rationale: 'Comunicação e avaliação de arquiteturas com stakeholders' },
+    ],
   },
 
   // ==========================================
@@ -610,7 +862,7 @@ export const milestones: Milestone[] = [
     description: 'Projetar do zero arquitetura corporativa de validação de segurança/custos de IA, aprovada pela liderança e adotada cross-squad.',
     status: 'planned',
     progress: 0,
-    deadline: '2028-12-31',
+    deadline: '2030-06-30',
     notes: 'KPI L4→L5: 2+ sistemas complexos em produção com adoção cross-squad',
     objectives: [
       { text: 'Projetar arquitetura corporativa aprovada pela liderança', completed: false },
@@ -621,6 +873,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['api-architecture', 'mlops', 'strategic-vision', 'technical-docs'],
     relatedResources: ['books-arch-peaa', 'books-ana-ddia'],
     phase: 'L4',
+    skillsImprovement: [
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Arquitetura corporativa com visão de longo prazo adotada cross-squad' },
+      { skillId: 'stakeholder-management', delta: 2, rationale: 'Aprovação pela liderança executiva requer gestão de stakeholders avançada' },
+      { skillId: 'sec-nist', delta: 1, rationale: 'Arquitetura alinhada ao NIST AI RMF como padrão corporativo' },
+    ],
   },
   {
     id: 'tech-leadership-critical',
@@ -629,7 +886,7 @@ export const milestones: Milestone[] = [
     description: 'Liderar tecnicamente 3+ projetos críticos end-to-end com 5+ pessoas, mentorando plenos e juniores durante a execução.',
     status: 'planned',
     progress: 0,
-    deadline: '2029-06-30',
+    deadline: '2030-12-31',
     notes: 'KPI L4→L5: Liderança técnica + mentoria estratégica',
     objectives: [
       { text: 'Liderança técnica end-to-end de 3+ projetos críticos', completed: false },
@@ -640,6 +897,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['leadership', 'mentoring', 'stakeholder-management', 'technical-docs'],
     relatedResources: [],
     phase: 'L4',
+    skillsImprovement: [
+      { skillId: 'leadership', delta: 1, rationale: 'Liderança técnica end-to-end de projetos com 5+ pessoas' },
+      { skillId: 'situational-leadership', delta: 1, rationale: 'Diferentes estilos para plenos vs. juniores no mesmo projeto' },
+      { skillId: 'stakeholder-management', delta: 1, rationale: 'Gestão de expectativas de múltiplos stakeholders em projetos críticos' },
+    ],
   },
   {
     id: 'red-teaming-foundation',
@@ -648,7 +910,7 @@ export const milestones: Milestone[] = [
     description: 'Projetar framework tático de Red Teaming em IA (Adversarial ML, evasão, extração de modelo) adaptado ao Itaú.',
     status: 'planned',
     progress: 0,
-    deadline: '2029-12-31',
+    deadline: '2030-12-31',
     notes: 'KPI L4→L5: Framework tático testado internamente',
     objectives: [
       { text: 'Projetar framework de Red Teaming para AI adaptado ao contexto do banco', completed: false },
@@ -659,6 +921,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'mlops', 'critical-thinking', 'presentation'],
     relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
     phase: 'L4',
+    skillsImprovement: [
+      { skillId: 'sec-atlas', delta: 1, rationale: 'Framework de Red Teaming baseado em MITRE ATLAS' },
+      { skillId: 'security', delta: 1, rationale: 'Adversarial ML: evasão, extração de modelo, poisoning' },
+      { skillId: 'mlops', delta: 1, rationale: 'Integração do Red Teaming no pipeline de ML' },
+    ],
   },
   {
     id: 'cert-caisp',
@@ -667,8 +934,8 @@ export const milestones: Milestone[] = [
     description: 'Certificação mais rigorosa do mercado em AI Security. 40+ labs, exame prático 6h contra sistemas vulneráveis.',
     status: 'planned',
     progress: 0,
-    deadline: '2029-12-31',
-    notes: 'KPI L4→L5: Especialização formal em AI Security',
+    deadline: '2030-06-30',
+    notes: 'KPI L4→L5: Especialização formal em AI Security. Pré-requisito recomendado: CRTP + experiência prática com guardrails. Investimento: US$ 999.',
     objectives: [
       { text: 'Concluir 40+ labs práticos (OWASP LLM Top 10, MITRE ATLAS)', completed: false },
       { text: 'Dominar threat modeling de IA com STRIDE', completed: false },
@@ -677,16 +944,22 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'llm', 'prompt-engineering', 'mlops'],
     relatedResources: ['cert-caisp'],
     phase: 'L4',
+    skillsImprovement: [
+      { skillId: 'security', delta: 2, rationale: '40+ labs práticos — domínio de AI Security end-to-end' },
+      { skillId: 'sec-atlas', delta: 1, rationale: 'MITRE ATLAS integrado ao currículo da certificação' },
+      { skillId: 'sec-nist', delta: 2, rationale: 'NIST AI RMF, ISO 42001 e EU AI Act cobertos na certificação' },
+    ],
   },
   {
     id: 'cert-cmcpse',
     title: 'CMCPSE — Certified MCP Security Expert',
-    displayName: 'CMCPSE (MCP Security)',
+    displayName: 'CMCPSE (MCP Security) — Opcional',
     description: 'Única certificação do mercado focada em segurança de servidores MCP e IA agêntica.',
     status: 'planned',
     progress: 0,
-    deadline: '2029-12-31',
-    notes: 'KPI L4: Diferencial em segurança de agentes (opcional)',
+    deadline: '2030-12-31',
+    optional: true,
+    notes: 'OPCIONAL: Diferencial em segurança de agentes MCP. Avaliar disponibilidade do bundle com CAISP. Recomendado dado o contexto de atuação com MCP servers no Cyber.Itaú.',
     objectives: [
       { text: 'Threat modeling de arquiteturas MCP com STRIDE e MITRE ATLAS', completed: false },
       { text: 'Dominar tool poisoning, prompt injection em agentes, rug-pull attacks', completed: false },
@@ -695,6 +968,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'agent-design', 'mcp-tools', 'langgraph'],
     relatedResources: ['cert-cmcpse'],
     phase: 'L4',
+    skillsImprovement: [
+      { skillId: 'mcp-tools', delta: 2, rationale: 'Segurança de servidores MCP dominada formalmente' },
+      { skillId: 'mcp-integration', delta: 1, rationale: 'DevSecOps para IA agêntica em produção' },
+      { skillId: 'security', delta: 1, rationale: 'Tool poisoning, prompt injection e rug-pull attacks em MCP' },
+    ],
   },
   {
     id: 'cert-awssap',
@@ -703,8 +981,8 @@ export const milestones: Milestone[] = [
     description: 'Formalizar conhecimento em nível de arquitetura cloud. Sinergia direta com design de sistemas de IA seguros na AWS.',
     status: 'planned',
     progress: 0,
-    deadline: '2029-06-30',
-    notes: 'KPI L4: Certificação de arquitetura cloud avançada',
+    deadline: '2030-06-30',
+    notes: 'KPI L4: Certificação de arquitetura cloud avançada. Sinergia com uso diário de Glue, S3, Athena, EMR, Lambda, ECS no Itaú. Investimento: US$ 300.',
     objectives: [
       { text: 'Estudar design de soluções multi-conta e HA', completed: false },
       { text: 'Realizar 5+ simulados com 80%+ de aproveitamento', completed: false },
@@ -713,6 +991,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 'ecs'],
     relatedResources: ['cert-awssap'],
     phase: 'L4',
+    skillsImprovement: [
+      { skillId: 'aws', delta: 1, rationale: 'Arquitetura AWS em nível profissional formalizada' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Soluções organizacionais complexas multi-conta' },
+      { skillId: 'cost-optimization', delta: 1, rationale: 'Otimização de custo e performance em escala' },
+    ],
   },
 
   // ==========================================
@@ -725,8 +1008,9 @@ export const milestones: Milestone[] = [
     description: 'Certificação abrangente em segurança: 8 domínios incluindo NIST AI RMF, ISO 42001 e EU AI Act. Pré-requisito para AAISM.',
     status: 'planned',
     progress: 0,
-    deadline: '2030-06-30',
-    notes: 'ISC2 · 8 domínios CBK · Exige 5 anos de experiência',
+    deadline: '2031-06-30',
+    notes: 'ISC2 · 8 domínios CBK · Exige 5 anos de experiência comprovada. Validar elegibilidade com ISC2: experiência conta a partir de 2023. Investimento: US$ 749.',
+    horizon_type: 'aspirational',
     objectives: [
       { text: 'Estudar os 8 domínios do CBK (Security & Risk, Architecture, IAM, etc.)', completed: false },
       { text: 'Concluir curso preparatório oficial (100h+)', completed: false },
@@ -736,6 +1020,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
     relatedResources: ['cert-cissp'],
     phase: 'L5',
+    skillsImprovement: [
+      { skillId: 'security', delta: 1, rationale: '8 domínios CBK — visão holística de segurança corporativa' },
+      { skillId: 'sec-nist', delta: 1, rationale: 'NIST AI RMF integrado aos domínios do CISSP' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Gestão de risco e segurança em nível corporativo' },
+    ],
   },
   {
     id: 'architectural-influence',
@@ -744,8 +1033,9 @@ export const milestones: Milestone[] = [
     description: 'Definir framework/plataforma corporativa adotada por 5+ squads. Tornar-se referência de domínio em AI Security.',
     status: 'planned',
     progress: 0,
-    deadline: '2030-12-31',
+    deadline: '2031-12-31',
     notes: 'KPI L5: Framework corporativo + impacto -40%+ tempo de entrega',
+    horizon_type: 'aspirational',
     objectives: [
       { text: 'Projetar e implantar framework de AI Security adotado por 5+ squads', completed: false },
       { text: 'Propor 3+ padrões adotados por outras squads', completed: false },
@@ -755,6 +1045,11 @@ export const milestones: Milestone[] = [
     relatedSkills: ['influence', 'leadership', 'api-architecture', 'stakeholder-management'],
     relatedResources: [],
     phase: 'L5',
+    skillsImprovement: [
+      { skillId: 'influence', delta: 1, rationale: 'Framework adotado por 5+ squads — influência sem autoridade formal' },
+      { skillId: 'stakeholder-management', delta: 1, rationale: 'Gestão de expectativas em múltiplas squads e lideranças' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Visão de plataforma corporativa com impacto organizacional' },
+    ],
   },
 
   // ==========================================
@@ -767,8 +1062,9 @@ export const milestones: Milestone[] = [
     description: 'Tornar o framework tático de Red Teaming em IA o padrão corporativo oficial aprovado pela liderança executiva.',
     status: 'planned',
     progress: 0,
-    deadline: '2031-06-30',
+    deadline: '2032-06-30',
     notes: 'KPI L6: Impacto executivo e adoção por 10+ squads',
+    horizon_type: 'aspirational',
     objectives: [
       { text: 'Apresentar framework para C-level e obter aprovação estratégica', completed: false },
       { text: 'Adotar framework em 10+ squads', completed: false },
@@ -778,6 +1074,10 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
     relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
     phase: 'L6',
+    skillsImprovement: [
+      { skillId: 'influence', delta: 1, rationale: 'Padrão corporativo aprovado pela liderança executiva' },
+      { skillId: 'sec-atlas', delta: 1, rationale: 'Framework de referência para Red Teaming de IA' },
+    ],
   },
   {
     id: 'nist-ai-rmf-implementation',
@@ -786,8 +1086,9 @@ export const milestones: Milestone[] = [
     description: 'Liderar adequação arquitetural baseada no NIST AI RMF, transformando no padrão oficial de mitigação e compliance de IA.',
     status: 'planned',
     progress: 0,
-    deadline: '2032-06-30',
+    deadline: '2033-06-30',
     notes: 'KPI L6: Influência normativa e compliance',
+    horizon_type: 'aspirational',
     objectives: [
       { text: 'Liderar adequação arquitetural corporativa NIST AI RMF', completed: false },
       { text: 'Ditar diretrizes arquiteturais estratégicas adotadas', completed: false },
@@ -797,6 +1098,10 @@ export const milestones: Milestone[] = [
     relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
     phase: 'L6',
+    skillsImprovement: [
+      { skillId: 'sec-nist', delta: 1, rationale: 'Implementação do NIST AI RMF como padrão corporativo oficial' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Adequação arquitetural de longo prazo com visão normativa' },
+    ],
   },
   {
     id: 'advanced-governance',
@@ -805,25 +1110,32 @@ export const milestones: Milestone[] = [
     description: 'Estabelecer a governança corporativa de IA e o score de maturidade em segurança de IA utilizando as diretrizes avançadas e as políticas arquiteturais baseadas no NIST AI RMF.',
     status: 'planned',
     progress: 0,
-    deadline: '2032-12-31',
+    deadline: '2033-12-31',
     notes: 'KPI L6: Governança regulatória de alto nível no ecossistema do banco',
+    horizon_type: 'aspirational',
     objectives: [
       { text: 'Definir as políticas arquiteturais e diretrizes de IA corporativa.', completed: false },
       { text: 'Implementar a métrica de score de maturidade em segurança de IA para todos os squads.', completed: false }
     ],
-    relatedSkills: ['influence', 'governance', 'risk-management'],
+    relatedSkills: ['influence', 'strategic-vision'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
     phase: 'L6',
+    skillsImprovement: [
+      { skillId: 'sec-nist', delta: 1, rationale: 'Score de maturidade e governança corporativa de IA' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Políticas arquiteturais de longo prazo definidas' },
+    ],
   },
   {
     id: 'cert-iso42001',
     title: 'ISO/IEC 42001 Lead Implementer',
-    displayName: 'ISO 42001 (Governança IA)',
+    displayName: 'ISO 42001 (Governança IA) — Opcional',
     description: 'Obter certificação na 1ª norma internacional de sistemas de gestão de IA. Essencial para compliance em instituições financeiras.',
     status: 'planned',
     progress: 0,
-    deadline: '2031-12-31',
-    notes: 'PECB/InfosecTrain · Prova escrita',
+    deadline: '2032-06-30',
+    optional: true,
+    horizon_type: 'aspirational',
+    notes: 'OPCIONAL (alta relevância): Avaliar em 2030. Pode se tornar exigência regulatória para bancos — monitorar evolução do Banco Central. Investimento: US$ 1.500-2.000.',
     objectives: [
       { text: 'Compreender contexto organizacional e política de IA', completed: false },
       { text: 'Estudar estrutura do AIMS e ciclo de vida de sistemas de IA', completed: false },
@@ -832,16 +1144,23 @@ export const milestones: Milestone[] = [
     relatedSkills: ['security', 'strategic-vision'],
     relatedResources: ['cert-iso42001'],
     phase: 'L6',
+    skillsImprovement: [
+      { skillId: 'sec-nist', delta: 1, rationale: 'AI Management System alinhado a padrão internacional' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Visão de compliance e governança em nível de gestão' },
+    ],
   },
   {
     id: 'cert-cpsaa',
     title: 'iSAQB CPSA-A — Advanced Level',
-    displayName: 'iSAQB CPSA-A (Arquitetura)',
+    displayName: 'iSAQB CPSA-A (Arquitetura) — A Decidir',
     description: 'Certificação arquitetural avançada com módulos modulares em tecnologia, metodologia e comunicação.',
     status: 'planned',
     progress: 0,
-    deadline: '2032-12-31',
-    notes: 'iSAQB · 70 créditos em treinos modulares',
+    deadline: '2033-12-31',
+    optional: true,
+    decision_status: 'a_decidir',
+    horizon_type: 'aspirational',
+    notes: 'A DECIDIR: Custo elevado (€3.000-5.000 + 70 créditos em treinos modulares). Reavaliar em 2031 após CISSP. Verificar ROI real vs. experiência prática em arquitetura. Exige CPSA-F + 3 anos de experiência.',
     objectives: [
       { text: 'Acumular créditos nos módulos metodológicos', completed: false },
       { text: 'Acumular créditos nos módulos tecnológicos e de comunicação', completed: false },
@@ -850,10 +1169,14 @@ export const milestones: Milestone[] = [
     relatedSkills: ['api-architecture', 'influence', 'technical-docs'],
     relatedResources: ['cert-cpsaa'],
     phase: 'L6',
+    skillsImprovement: [
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Competências arquiteturais avançadas em metodologia e comunicação' },
+      { skillId: 'influence', delta: 1, rationale: 'Módulo comunicativo: apresentação e argumentação com stakeholders' },
+    ],
   },
 
   // ==========================================
-  // L7 (Distinguished / Specialist 3) — Líder de Indústria
+  // L7 (Distinguished / Specialist 3)
   // ==========================================
   {
     id: 'executive-presence',
@@ -864,6 +1187,7 @@ export const milestones: Milestone[] = [
     progress: 0,
     deadline: '2033-06-30',
     notes: 'KPI L7: Inovação e reconhecimento internacional',
+    horizon_type: 'aspirational',
     objectives: [
       { text: 'Realizar 3+ apresentações executivas/técnicas para C-level', completed: false },
       { text: 'Participar como autor em RFC, NIST guidance ou OWASP lead', completed: false },
@@ -873,6 +1197,10 @@ export const milestones: Milestone[] = [
     relatedSkills: ['presentation', 'influence', 'strategic-vision', 'storytelling'],
     relatedResources: [],
     phase: 'L7',
+    skillsImprovement: [
+      { skillId: 'influence', delta: 1, rationale: 'Influência em frameworks globais de mercado' },
+      { skillId: 'strategic-vision', delta: 1, rationale: 'Visão e impacto em nível executivo e de standards globais' },
+    ],
   },
   {
     id: 'cert-aaism',
@@ -881,8 +1209,9 @@ export const milestones: Milestone[] = [
     description: 'Credencial gated de elite para líderes de segurança em IA. Mapeia diretamente para NIST AI RMF, ISO 42001 e MITRE ATLAS.',
     status: 'planned',
     progress: 0,
-    deadline: '2033-12-31',
-    notes: 'ISACA · Pré-requisito: CISSP ativo · 90 questões',
+    deadline: '2034-06-30',
+    horizon_type: 'aspirational',
+    notes: 'ISACA · Pré-requisito: CISSP ativo · 90 questões. Disponível somente após CISSP (2031). Deadline ajustado para 2034. Investimento: US$ 760.',
     objectives: [
       { text: 'Estudar governança de programa de AI security corporativo', completed: false },
       { text: 'Compreender gestão de risco integrada de múltiplos frameworks', completed: false },
@@ -892,6 +1221,10 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-aaism'],
     phase: 'L7',
     blockedBy: 'CISSP (ISC2) — obter e manter certificação ativa como pré-requisito',
+    skillsImprovement: [
+      { skillId: 'sec-nist', delta: 1, rationale: 'Governança de AI Security em nível corporativo de elite' },
+      { skillId: 'security', delta: 1, rationale: 'Credencial gated — validação formal de expertise em AI Security Management' },
+    ],
   },
 
 ];

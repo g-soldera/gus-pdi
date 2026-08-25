@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "export_date": "2026-08-24T23:37:39.241Z",
+    "version": "2.0.0",
+    "purpose": "Validação completa do PDI para agente validador"
+  },
+  "personal_info": {
+    "name": "Gustavo Soldera",
+    "birth_date": "2002-05-30",
+    "company": "Itaú Unibanco",
+    "department": "Cyber Security",
+    "current_role": "Engenheiro de Analytics PL",
+    "target_role": "Engenheiro de Dados Sênior",
+    "current_level": "L2",
+    "target_level": "L3",
+    "timeline": {
+      "experience_start": "2023-06-07",
+      "bank_start": "2024-05-05",
+      "junior_start": "2025-05-05",
+      "pleno_target": "2026-06-07",
+      "senior_target": "2028-01-01"
+    }
+  },
+  "note": "Para dados completos de skills, milestones, projects e resources, consulte os arquivos TypeScript em src/data/"
+}

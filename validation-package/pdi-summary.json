@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "export_date": "2026-08-24T23:39:28.902Z",
+    "version": "2.0.0",
+    "purpose": "Sumário executivo do PDI para validação rápida"
+  },
+  "personal_info": {
+    "name": "Gustavo Soldera",
+    "birth_date": "2002-05-30",
+    "age": 24,
+    "company": "Itaú Unibanco",
+    "department": "Cyber Security",
+    "current_role": "Engenheiro de Analytics PL",
+    "target_role": "Engenheiro de Dados Sênior → AI Security Specialist",
+    "current_level": "L2 (Júnior)",
+    "target_level": "L3 (Pleno)",
+    "timeline": {
+      "experience_start": "2023-06-07",
+      "bank_start": "2024-05-05",
+      "junior_start": "2025-05-05",
+      "pleno_target": "2026-06-07",
+      "senior_target": "2028-01-01",
+      "specialist_target": "2031-2033"
+    }
+  },
+  "career_framework": {
+    "levels": [
+      {
+        "level": "L1",
+        "title": "Intern/Trainee",
+        "duration": "6-12 meses",
+        "status": "Concluído",
+        "key_achievements": [
+          "Certificação Analytics Engineer Professional",
+          "Certificação API Owner (3 níveis)",
+          "CompTIA Security+",
+          "AWS Cloud Practitioner"
+        ]
+      },
+      {
+        "level": "L2",
+        "title": "Júnior",
+        "duration": "12-18 meses",
+        "status": "Atual (desde 2025-05-05)",
+        "progress": "60%",
+        "key_milestones": [
+          "Fomento ao Consumo de IA (45% - in-progress)",
+          "Entrega Autônoma de Features (100% - completed)",
+          "Discussões Técnicas Estratégicas (20% - in-progress)",
+          "Estruturação PDI L1-L7 (75% - in-progress)"
+        ]
+      },
+      {
+        "level": "L3",
+        "title": "Pleno",
+        "duration": "18-24 meses",
+        "status": "Meta (2026-06-07)",
+        "target_certifications": [
+          "CRTP - Certified Red Team Professional",
+          "AWS Solutions Architect Associate (opcional)",
+          "OSCP - PEN-200 (OffSec)",
+          "iSAQB CPSA-F"
+        ]
+      },
+      {
+        "level": "L4",
+        "title": "Sênior",
+        "duration": "24-36 meses",
+        "status": "Planejado (2028-2030)",
+        "target_certifications": [
+          "OSCP",
+          "CAISP - Certified AI Security Professional",
+          "CMCPSE - Certified MCP Security Expert",
+          "AWS Solutions Architect Professional"
+        ]
+      },
+      {
+        "level": "L5",
+        "title": "Staff / Specialist 1",
+        "duration": "36-48 meses",
+        "status": "Planejado (2030-2032)",
+        "target_certifications": [
+          "CISSP (ISC2)",
+          "ISO/IEC 42001 Lead Implementer"
+        ]
+      },
+      {
+        "level": "L6",
+        "title": "Principal / Specialist 2",
+        "duration": "48+ meses",
+        "status": "Planejado (2032-2033)",
+        "target_certifications": [
+          "iSAQB CPSA-A Advanced"
+        ]
+      },
+      {
+        "level": "L7",
+        "title": "Distinguished / Specialist 3",
+        "status": "Visão de longo prazo",
+        "target_certifications": [
+          "ISACA AAISM (requer CISSP)"
+        ]
+      }
+    ]
+  },
+  "statistics": {
+    "milestones": {
+      "total": 37,
+      "completed": 9,
+      "in_progress": 3,
+      "planned": 25,
+      "completion_rate": "24%"
+    },
+    "skills": {
+      "total": 123,
+      "hard_skills": 100,
+      "soft_skills": 23,
+      "by_level": {
+        "expert_5": 20,
+        "advanced_4": 64,
+        "intermediate_3": 29,
+        "basic_2": 10
+      }
+    },
+    "certifications": {
+      "completed": 4,
+      "planned": 13,
+      "progression": "L1→L2→L3→L4→L5→L6→L7"
+    }
+  },
+  "key_domains": {
+    "technical": [
+      "Cloud & Data (AWS, S3, Glue, Lambda, Athena)",
+      "IA Generativa (LLM, RAG, Agent Design, Prompt Engineering)",
+      "APIs (OpenAPI, Design, Architecture, Contracts)",
+      "CI/CD & Testes (CodeBuild, GitHub Actions, SonarQube)",
+      "Data Quality (Glue DQ, Deequ, Observability)"
+    ],
+    "security": [
+      "Cyber Security (fundamentos)",
+      "NIST AI RMF (básico)",
+      "MITRE ATLAS (básico)",
+      "Active Directory (planejado - CRTP)",
+      "Penetration Testing (planejado - OSCP)",
+      "AI Security (planejado - CAISP)"
+    ],
+    "soft_skills": [
+      "Pensamento Crítico (nível 4)",
+      "Comunicação Assertiva (nível 4)",
+      "Liderança (nível 4)",
+      "Empatia (nível 5)",
+      "Proatividade (nível 5)"
+    ]
+  },
+  "strategic_projects": {
+    "completed": [
+      "Portal de Cyber (cyber.itau)",
+      "Padronização de Dashboards QuickSight",
+      "User Behavior (Comportamento Anômalo)",
+      "Agente Leila (Fluxo Sequencial)",
+      "Score de Cyber",
+      "Democratização de Dados"
+    ],
+    "in_progress": [
+      "Multi Agent System (Insight Guard)",
+      "Sistema de orquestração cross-account com MCP"
+    ]
+  },
+  "certifications_roadmap": {
+    "completed": [
+      "AWS Cloud Practitioner (L1)",
+      "CompTIA Security+ (L1)",
+      "Analytics Engineer Professional (L1)",
+      "API Owner Certification (L1)"
+    ],
+    "l2_l3": [
+      "CRTP - Active Directory (deadline: 2027-12-31)",
+      "AWS SA Associate - opcional (deadline: 2027-12-31)"
+    ],
+    "l3_l4": [
+      "OSCP - PEN-200 (deadline: 2028-06-30)",
+      "iSAQB CPSA-F (deadline: 2028-12-31)"
+    ],
+    "l4_l5": [
+      "CAISP - AI Security (deadline: 2029-12-31)",
+      "CMCPSE - MCP Security (deadline: 2029-12-31, opcional)",
+      "AWS SA Professional (deadline: 2029-06-30)"
+    ],
+    "l5_l6": [
+      "CISSP (ISC2) (deadline: 2030-06-30)",
+      "ISO/IEC 42001 Lead Implementer (deadline: 2031-12-31)"
+    ],
+    "l6_l7": [
+      "iSAQB CPSA-A Advanced (deadline: 2032-12-31)",
+      "ISACA AAISM (deadline: 2033-12-31, requer CISSP)"
+    ]
+  },
+  "validation_points": {
+    "strengths": [
+      "Progressão clara L1→L7 com KPIs mensuráveis",
+      "Certificações alinhadas aos níveis de carreira",
+      "Forte base em IA Generativa e Cloud (AWS)",
+      "Especialização em AI Security bem estruturada",
+      "Soft skills desenvolvidas (empatia, proatividade, liderança)",
+      "Projetos de impacto entregues (Portal Cyber, Insight Guard)"
+    ],
+    "areas_to_validate": [
+      "Timelines realistas para certificações (CRTP→OSCP→CAISP→CISSP)",
+      "Viabilidade de 13 certificações em 7 anos",
+      "Custos totais estimados (>US$ 15.000)",
+      "Dependências entre certificações (CISSP→AAISM)",
+      "Equilíbrio entre certificações e entregas práticas",
+      "Mentoria de juniores (bloqueado até ter estagiário alocado)"
+    ],
+    "gaps_identified": [
+      "Mentoria de estagiários ainda não iniciada (bloqueador externo)",
+      "Kafka e Redshift em nível básico (level 2)",
+      "Kubernetes em nível intermediário (level 3)",
+      "Liderança Situacional em nível básico (level 2)"
+    ]
+  },
+  "financial_summary": {
+    "certifications_cost_usd": {
+      "completed": "~2.400 (4 certs internas + Security+ + Cloud Practitioner)",
+      "planned_l2_l3": "~400 (CRTP 249 + AWS SAA 150)",
+      "planned_l3_l4": "~2.800 (OSCP 1.500+ + CPSA-F 2.000)",
+      "planned_l4_l5": "~2.300 (CAISP 999 + AWS SAP 300 + CMCPSE bundle)",
+      "planned_l5_l6": "~2.250 (CISSP 749 + ISO42001 1.500)",
+      "planned_l6_l7": "~4.000 (CPSA-A 3.500 + AAISM 760)",
+      "total_estimated": "~14.150"
+    },
+    "time_investment_hours": {
+      "per_certification_avg": "100-200h estudo + labs",
+      "total_estimated_l2_l7": "~2.000h ao longo de 7 anos"
+    }
+  },
+  "next_steps": {
+    "immediate_l2": [
+      "Finalizar milestone 'Fomento ao Consumo de IA' (45%→100%)",
+      "Concluir 'Estruturação PDI L1-L7' (75%→100%)",
+      "Validar PDI com gestão (Aline) em 1:1"
+    ],
+    "q4_2026_l2_l3": [
+      "Iniciar estudos CRTP (Active Directory)",
+      "Considerar AWS SA Associate como ponte para SAP",
+      "Preparar transição formal para L3 (jun/2027)"
+    ],
+    "2027_l3": [
+      "Obter CRTP (deadline 2027-12-31)",
+      "Iniciar labs OSCP (PEN-200)",
+      "Assumir ownership de 3+ projetos médios",
+      "Estruturar mentoria de juniores (se houver alocação)"
+    ]
+  },
+  "references": {
+    "files": [
+      "pdi-complete.json (dados completos)",
+      ".planning/career-levels-framework.md",
+      ".planning/ROADMAP.md",
+      "src/data/pdiData.ts",
+      "src/data/certifications.ts",
+      "src/data/careerLevels.ts"
+    ],
+    "web_app": "https://gus-pdi.vercel.app (ou localhost)",
+    "repository": "https://github.com/g-soldera/gus-pdi"
+  }
+}

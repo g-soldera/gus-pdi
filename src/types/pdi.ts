@@ -17,6 +17,12 @@ export interface MilestoneObjective {
   completionJustification?: string; // Comentário obrigatório para fechar o item
 }
 
+export interface SkillImprovement {
+  skillId: string;
+  delta: number; // 0 = reforço, 1 = +1 nível, 2 = +2 níveis
+  rationale: string;
+}
+
 export interface Milestone {
   id: string;
   title: string;
@@ -24,16 +30,20 @@ export interface Milestone {
   description: string;
   status: Status;
   progress: number;
-  deadline: string;
+  deadline: string | null;
   notes?: string;
   relatedSkills: string[];
   relatedResources: string[];
-  archived?: boolean; // Milestones com progresso < 50% podem ser marcados como despriorizados
+  archived?: boolean;
   objectives?: MilestoneObjective[];
-  startPosition?: number; // Posição de início na timeline em %
-  endPosition?: number; // Posição de fim na timeline em %
-  phase?: number | 'secmlops'; // Fase do roadmap associada
-  blockedBy?: string; // ID ou descrição da dependência que bloqueia este marco
+  startPosition?: number;
+  endPosition?: number;
+  phase?: number | 'secmlops' | CareerLevel;
+  blockedBy?: string;
+  optional?: boolean;
+  decision_status?: 'a_decidir';
+  horizon_type?: 'aspirational';
+  skillsImprovement?: SkillImprovement[];
 }
 
 export interface Project {
