@@ -3,6 +3,7 @@ import { Milestone, Skill, Resource } from '@/types/pdi';
 import { Modal } from './Modal';
 import { StatusBadge } from '../StatusBadge';
 import { ProgressBar } from '../ProgressBar';
+import { SkillImprovementPanel } from '../SkillImprovementPanel';
 import { calculateDaysRemaining, formatDate } from '@/app/utils/helpers';
 import { Calendar, Clock, Target, BookOpen, Code, FileText, CheckSquare, Square, MessageSquare } from 'lucide-react';
 
@@ -98,6 +99,16 @@ export function MilestoneModal({
               ))}
             </div>
           </div>
+        )}
+
+        {/* Skill Improvement Panel */}
+        {milestone.skillsImprovement && milestone.skillsImprovement.length > 0 && (
+          <SkillImprovementPanel
+            improvements={milestone.skillsImprovement}
+            allSkills={allSkills}
+            milestoneStatus={milestone.status}
+            onSkillClick={onSkillClick}
+          />
         )}
 
         {/* Deadline */}

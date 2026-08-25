@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock, HelpCircle } from 'lucide-react';
 import { Milestone, StudyTopic } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
@@ -34,20 +34,32 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
 
   const completedMilestones = filteredMilestones
     .filter(m => calculateDynamicProgress(m) === 100)
-    .sort((a, b) => new Date(b.deadline).getTime() - new Date(a.deadline).getTime());
+    .sort((a, b) => new Date(b.deadline ?? 0).getTime() - new Date(a.deadline ?? 0).getTime());
 
   const blockedMilestones = filteredMilestones
     .filter(m => !!m.blockedBy && calculateDynamicProgress(m) < 100);
 
+  const decidingMilestones = filteredMilestones
+    .filter(m => m.decision_status === 'a_decidir' && !m.blockedBy);
+
+  const aspirationalMilestones = filteredMilestones
+    .filter(m => m.horizon_type === 'aspirational' && m.decision_status !== 'a_decidir' && !m.blockedBy);
+
   const activeMilestones = filteredMilestones
-    .filter(m => !m.blockedBy && calculateDynamicProgress(m) < 100)
+    .filter(m => !m.blockedBy && !m.decision_status && !m.horizon_type && calculateDynamicProgress(m) < 100)
     .sort((a, b) => {
       const progDiff = calculateDynamicProgress(b) - calculateDynamicProgress(a);
       if (progDiff !== 0) return progDiff;
-      return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
+      return new Date(a.deadline ?? 0).getTime() - new Date(b.deadline ?? 0).getTime();
     });
 
-  const sortedMilestones = [...completedMilestones, ...activeMilestones, ...blockedMilestones];
+  const sortedMilestones = [
+    ...completedMilestones,
+    ...activeMilestones,
+    ...blockedMilestones,
+    ...decidingMilestones,
+    ...aspirationalMilestones,
+  ];
 
   return (
     <section id="milestones" className="py-16 bg-background">
@@ -114,7 +126,9 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
   const daysRemaining = calculateDaysRemaining(milestone.deadline);
   const isBlocked = !!milestone.blockedBy;
   const isCompleted = status === 'completed';
-  const isCollapsed = isCompleted || isBlocked;
+  const isDeciding = milestone.decision_status === 'a_decidir';
+  const isAspirational = milestone.horizon_type === 'aspirational';
+  const isCollapsed = isCompleted || isBlocked || isDeciding || isAspirational;
 
   return (
     <motion.div
@@ -125,31 +139,38 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       className="relative pl-20"
-      onClick={() => !isBlocked && onClick(milestone)}
+      onClick={() => !isBlocked && !isDeciding && !isAspirational && onClick(milestone)}
     >
       <div className="absolute left-8 top-6 w-6 h-6 -translate-x-1/2">
         <motion.div
           className={`w-full h-full rounded-full flex items-center justify-center ${
             isBlocked ? 'bg-muted'
+            : isDeciding ? 'bg-amber-400/70'
+            : isAspirational ? 'bg-purple-400/50'
             : isCompleted ? 'bg-[var(--completed)]'
             : status === 'in-progress' ? 'bg-[var(--in-progress)]'
             : 'bg-[var(--not-started)]'
           }`}
-          animate={status === 'in-progress' && !isBlocked ? { scale: [1, 1.1, 1] } : {}}
-          transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity } : {}}
+          animate={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { scale: [1, 1.1, 1] } : {}}
+          transition={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { duration: 2, repeat: Infinity } : {}}
         >
           <motion.div
-            animate={status === 'in-progress' && !isBlocked ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            animate={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { rotate: 360 } : {}}
+            transition={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { duration: 2, repeat: Infinity, linear: true } : {}}
           >
-            {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" /> : <StatusIcon className="w-4 h-4 text-white" />}
+            {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" />
+              : isDeciding ? <HelpCircle className="w-4 h-4 text-amber-700" />
+              : isAspirational ? <Telescope className="w-4 h-4 text-purple-700" />
+              : <StatusIcon className="w-4 h-4 text-white" />}
           </motion.div>
         </motion.div>
       </div>
 
       <motion.div
-        className={`w-full bg-card border rounded-xl px-6 py-4 shadow-sm transition-all text-left group ${
+        className={`w-full bg-card border rounded-xl px-6 py-4 shadow-sm transition-all text-left group relative ${
           isBlocked ? 'border-border opacity-60 cursor-not-allowed'
+          : isDeciding ? 'border-amber-300/50'
+          : isAspirational ? 'border-border'
           : isCompleted ? 'border-green-500/30 opacity-70 cursor-pointer hover:opacity-90'
           : 'border-border hover:shadow-md hover:border-primary cursor-pointer'
         }`}
@@ -160,6 +181,11 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <h3 className={`font-bold group-hover:text-primary transition-colors truncate ${isCollapsed ? 'text-base' : 'text-xl'}`}>{milestone.title}</h3>
             <StatusBadge status={isBlocked ? 'not-started' : status} />
+            {isDeciding && (
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 border border-amber-300/50 shrink-0">
+                A decidir
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-3 text-sm shrink-0">
             {isBlocked && (
@@ -173,6 +199,11 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
               <Calendar className="w-3.5 h-3.5" />
               <span>{formatDate(milestone.deadline)}</span>
             </div>
+            {isAspirational && (
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-300/50 shrink-0">
+                Aspiracional
+              </span>
+            )}
           </div>
         </div>
 
@@ -232,7 +263,9 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
   const daysRemaining = calculateDaysRemaining(milestone.deadline);
   const isBlocked = !!milestone.blockedBy;
   const isCompleted = status === 'completed';
-  const isCollapsed = isCompleted || isBlocked;
+  const isDeciding = milestone.decision_status === 'a_decidir';
+  const isAspirational = milestone.horizon_type === 'aspirational';
+  const isCollapsed = isCompleted || isBlocked || isDeciding || isAspirational;
 
   return (
     <motion.button
@@ -242,10 +275,12 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      onClick={() => !isBlocked && onClick(milestone)}
+      onClick={() => !isBlocked && !isDeciding && !isAspirational && onClick(milestone)}
       whileHover={isCollapsed ? {} : { y: -8 }}
-      className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col ${
+      className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col relative ${
         isBlocked ? 'opacity-60 cursor-not-allowed'
+        : isDeciding ? 'opacity-70 border-amber-300/50'
+        : isAspirational ? 'opacity-80 border-border'
         : isCompleted ? 'opacity-70 border-green-500/30 cursor-pointer hover:opacity-90'
         : 'hover:shadow-md hover:border-primary'
       }`}
@@ -254,19 +289,22 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
         <motion.div
           className={`p-1.5 rounded-lg shrink-0 ${
             isBlocked ? 'bg-muted'
+            : isDeciding ? 'bg-amber-100 dark:bg-amber-900/20'
+            : isAspirational ? 'bg-purple-100 dark:bg-purple-900/20'
             : isCompleted ? 'bg-green-100 dark:bg-green-900/30'
             : status === 'in-progress' ? 'bg-green-50 dark:bg-green-900/10'
             : 'bg-muted'
           }`}
-          animate={status === 'in-progress' && !isBlocked ? { scale: [1, 1.05, 1] } : {}}
-          transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity } : {}}
+          animate={status === 'in-progress' && !isBlocked && !isDeciding ? { scale: [1, 1.05, 1] } : {}}
+          transition={status === 'in-progress' && !isBlocked && !isDeciding ? { duration: 2, repeat: Infinity } : {}}
         >
           <motion.div
-            animate={status === 'in-progress' && !isBlocked ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' && !isBlocked ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            animate={status === 'in-progress' && !isBlocked && !isDeciding ? { rotate: 360 } : {}}
+            transition={status === 'in-progress' && !isBlocked && !isDeciding ? { duration: 2, repeat: Infinity, linear: true } : {}}
           >
-            {isBlocked
-              ? <Lock className="w-4 h-4 text-muted-foreground" />
+            {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" />
+              : isDeciding ? <HelpCircle className="w-4 h-4 text-amber-600" />
+              : isAspirational ? <Telescope className="w-4 h-4 text-purple-600" />
               : <StatusIcon className={`w-4 h-4 ${isCompleted ? 'text-green-600' : status === 'in-progress' ? 'text-green-500' : 'text-muted-foreground'}`} />
             }
           </motion.div>
@@ -274,6 +312,17 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
         <h3 className="font-bold text-sm group-hover:text-primary transition-colors line-clamp-1 flex-1">{milestone.title}</h3>
         <StatusBadge status={isBlocked ? 'not-started' : status} />
       </div>
+
+      {isDeciding && (
+        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 border border-amber-300/50 self-start mb-1">
+          A decidir
+        </span>
+      )}
+      {isAspirational && (
+        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-300/50 self-start mb-1">
+          Aspiracional
+        </span>
+      )}
 
       {isBlocked && (
         <div className="flex items-center gap-1.5 mt-1 text-xs text-muted-foreground">

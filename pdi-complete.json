@@ -1,0 +1,985 @@
+{
+  "metadata": {
+    "export_date": "2026-08-24T20:38:26.199319",
+    "version": "2.2.0",
+    "purpose": "Validação completa do PDI",
+    "source": "pdiData.ts",
+    "last_updated": "2026-08-24",
+    "changelog": "v2.1: Ajuste de deadlines, novos milestones, skillsImprovement, Kafka/Redshift level 3, CPSA-A 'a_decidir', opcionais marcadas, livros adicionados. v2.2: target_role unificado como AI Security Specialist, narrativa de carreira consolidada, OSCP marcado como 'a_decidir' com estimativa real (300-600h, US$1.500+), AWS SAA mantido opcional com risco documentado no SAP, L5-L7 convertidos para 'aspirational' com horizon_type, mentoring-interns desacoplado de headcount (critério = onboarding de qualquer novo membro), CRTP mantido na espinha dorsal."
+  },
+  "personal_info": {
+    "name": "Gustavo Soldera",
+    "birth_date": "2002-05-30",
+    "company": "Itaú Unibanco",
+    "department": "Cyber Security",
+    "current_role": "Engenheiro de Analytics PL",
+    "target_role": "AI Security Specialist",
+    "career_narrative": "Engenheiro de Analytics com foco em IA e dados que atua em Cyber Security. Dados e IA Generativa são o meio; segurança de sistemas de IA é o destino. Diferencial: intersecção rara entre engenharia de dados, IA agêntica e AI Security no setor financeiro.",
+    "current_level": "L2",
+    "target_level": "L3",
+    "timeline": {
+      "experience_start": "2023-06-07",
+      "bank_start": "2024-05-05",
+      "junior_start": "2025-05-05",
+      "pleno_target": "2027-06-07",
+      "senior_target": "2029-01-01"
+    }
+  },
+  "statistics": {
+    "total_milestones": 45,
+    "total_skills": 123,
+    "milestones_by_status": {
+      "completed": 9,
+      "in-progress": 3,
+      "planned": 33
+    },
+    "skills_by_category": {
+      "Analytics & BI": 3,
+      "APIs": 4,
+      "CI/CD & Testes": 8,
+      "Cloud & Data": 18,
+      "Comunicação Técnica": 6,
+      "Data Quality": 3,
+      "Design & UX": 3,
+      "Desenvolvimento": 11,
+      "DevOps": 4,
+      "FinOps": 2,
+      "Governança de Dados": 2,
+      "IA Generativa": 16,
+      "AI DLC": 6,
+      "Prompt Patterns": 7,
+      "Idiomas": 3,
+      "Segurança": 3,
+      "Cognitivas": 6,
+      "Comunicação": 8,
+      "Liderança": 4,
+      "Relacionais": 3,
+      "Autogestão": 3
+    },
+    "skills_by_level": {
+      "5": 20,
+      "4": 64,
+      "3": 31,
+      "2": 8
+    }
+  },
+  "learning_resources": {
+    "books": [
+      {
+        "id": "book-situational-leadership",
+        "title": "Leadership and the One Minute Manager",
+        "author": "Ken Blanchard, Patricia Zigarmi, Drea Zigarmi",
+        "focus": "Liderança Situacional — 4 estilos de liderança adaptados à maturidade do liderado",
+        "milestone_ref": "situational-leadership-development",
+        "phase": "L3"
+      },
+      {
+        "id": "book-mlops-designing",
+        "title": "Designing Machine Learning Systems",
+        "author": "Chip Huyen",
+        "focus": "MLOps, ciclo de vida de modelos, infraestrutura de ML em produção (cap. 10 especialmente)",
+        "milestone_ref": "model-supply-chain",
+        "phase": "L2"
+      },
+      {
+        "id": "book-ml-security",
+        "title": "Building Machine Learning Powered Applications",
+        "author": "Emmanuel Ameisen",
+        "focus": "Desenvolvimento de aplicações ML seguras e robustas",
+        "milestone_ref": "model-supply-chain",
+        "phase": "L2"
+      },
+      {
+        "id": "book-threat-modeling",
+        "title": "Threat Modeling: Designing for Security",
+        "author": "Adam Shostack",
+        "focus": "STRIDE, threat modeling aplicado a sistemas de software e IA",
+        "milestone_ref": "agentic-security-cyber",
+        "phase": "L3"
+      },
+      {
+        "id": "book-staff-engineer",
+        "title": "Staff Engineer: Leadership Beyond the Management Track",
+        "author": "Will Larson",
+        "focus": "Trajetória técnica Staff/Principal, como exercer influência sem autoridade formal",
+        "milestone_ref": "tech-leadership-critical",
+        "phase": "L4"
+      }
+    ]
+  },
+  "milestones": [
+    {
+      "id": "certification-pro",
+      "title": "Certificação Profissional",
+      "displayName": "Certificação Analytics Engineer",
+      "description": "Completar prova de engenheiro de analytics profissional",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-08-15",
+      "notes": "Aprovação em 11/09/2025 e aplicação nos fluxos do cyber.itau (arquitetura).",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "aws-glue", "delta": 1, "rationale": "Certificação validou domínio de ETL serverless" },
+        { "skillId": "data-modeling", "delta": 1, "rationale": "Certificação validou design de schemas dimensionais" },
+        { "skillId": "sql", "delta": 1, "rationale": "Certificação cobriu otimização avançada de queries" }
+      ]
+    },
+    {
+      "id": "soft-skills",
+      "title": "Desenvolvimento de Soft Skills",
+      "displayName": "Soft Skills - Comunicação e Colaboração",
+      "description": "Desenvolver habilidades de comunicação e colaboração",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-06-30",
+      "notes": "Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "empathy", "delta": 1, "rationale": "Feedback formal registrou evolução em empatia" },
+        { "skillId": "active-listening", "delta": 1, "rationale": "Feedback explícito de evolução em escuta ativa" },
+        { "skillId": "assertive-communication", "delta": 1, "rationale": "Comunicação empática validada por pares" }
+      ]
+    },
+    {
+      "id": "lead-projects",
+      "title": "Liderar Projetos de Impacto",
+      "displayName": "Liderança em Projetos Estratégicos",
+      "description": "Assumir liderança técnica em projetos estratégicos",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-09-30",
+      "notes": "Ponto focal técnico no Insight Guard (frontend), padronizações e implantação da Leila. ADRs de arquitetura frontend (Next.js webview), backend (DDD + Lambda microsserviços + API Gateway) e sistemas agênticos (MAS, MCP) foram lideradas e adotadas pela squad.",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "leadership", "delta": 1, "rationale": "Liderança técnica comprovada no Insight Guard e Leila" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Decisões arquiteturais impactaram roadmap do projeto" },
+        { "skillId": "influence", "delta": 1, "rationale": "Propostas técnicas adotadas pela squad" }
+      ]
+    },
+    {
+      "id": "cert-api-owner",
+      "title": "Certificação API Owner",
+      "displayName": "API Owner",
+      "description": "Concluir os três níveis da certificação API Owner",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-12-20",
+      "notes": "Concluí os três níveis da certificação API Owner, e apliquei padrões de contrato, versionamento e governança de APIs no planejamento do backend do Insight Guard.",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "openapi", "delta": 1, "rationale": "Certificação validou domínio de especificação e versionamento" },
+        { "skillId": "api-design", "delta": 1, "rationale": "Padrões de design aplicados no Insight Guard" },
+        { "skillId": "api-contracts", "delta": 1, "rationale": "Lifecycle de contratos e breaking changes dominados" }
+      ]
+    },
+    {
+      "id": "finops-consumer",
+      "title": "FinOps na Consumer",
+      "displayName": "Otimização de Custos (-30%)",
+      "description": "Implementar práticas de FinOps e reduzir custos operacionais",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-11-30",
+      "notes": "Alvo: -30% de custo por execução de glue jobs na consumer aplicando Flex Execution e tuning de recursos. Métrica de sucesso: redução percentual de custo por execução. Valor monetário exato não rastreado à época.",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "cost-optimization", "delta": 1, "rationale": "Implementação prática de FinOps com resultado mensurável" },
+        { "skillId": "aws-glue", "delta": 0, "rationale": "Conhecimento já em nível 5; otimização reforçou expertise" },
+        { "skillId": "finops", "delta": 1, "rationale": "Primeiro projeto prático end-to-end de FinOps em cloud" }
+      ]
+    },
+    {
+      "id": "cert-security",
+      "title": "Certificação Security+",
+      "displayName": "CompTIA Security+ Certification",
+      "description": "Obter certificação em segurança da informação",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2026-04-30",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "security", "delta": 1, "rationale": "Certificação validou fundamentos de segurança da informação" },
+        { "skillId": "critical-thinking", "delta": 1, "rationale": "Análise de ameaças e tomada de decisão em segurança" }
+      ]
+    },
+    {
+      "id": "mentor-colleagues",
+      "title": "Mentorar Colegas",
+      "displayName": "Mentoria Técnica",
+      "description": "Apoiar o desenvolvimento técnico de colegas de equipe",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2025-12-31",
+      "notes": "Mentoria ativa para 2 estagiários em SQL e Python.",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "mentoring", "delta": 1, "rationale": "Mentoria ativa com 2 estagiários documentada" },
+        { "skillId": "feedback", "delta": 1, "rationale": "Prática de feedback construtivo em contexto real" },
+        { "skillId": "collaboration", "delta": 1, "rationale": "Trabalho colaborativo em desenvolvimento de pessoas" }
+      ]
+    },
+    {
+      "id": "cert-aws-cloud",
+      "title": "Certificação AWS Cloud Practitioner",
+      "displayName": "AWS Cloud Practitioner",
+      "description": "Obter certificação AWS Cloud Practitioner",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2024-12-31",
+      "notes": "Certificação obtida em Dezembro/2024.",
+      "phase": "L1",
+      "skillsImprovement": [
+        { "skillId": "aws", "delta": 1, "rationale": "Certificação validou base de serviços e arquitetura AWS" },
+        { "skillId": "s3", "delta": 0, "rationale": "Já em nível 5; certificação reforçou conhecimento" },
+        { "skillId": "lambda", "delta": 1, "rationale": "Fundamentos de serverless formalizados" }
+      ]
+    },
+    {
+      "id": "ai-fomentation",
+      "title": "Fomento ao Consumo de IA",
+      "displayName": "Multiplicador de IA e Automação",
+      "description": "Fomentar o consumo de soluções de IA e compartilhamento de recursos técnicos com a comunidade.",
+      "status": "in-progress",
+      "progress": 85,
+      "deadline": "2026-09-30",
+      "notes": "KPI L2: Entrega autônoma e colaboração técnica. Em processo de conclusão final — Guilda de Práticas de GenAI em andamento, repositório cyber-prompts-and-skills com 10+ estrelas e 3+ contribuidores.",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "prompt-engineering", "delta": 1, "rationale": "Criação de 13+ skills e patterns de prompt documentados" },
+        { "skillId": "agent-design", "delta": 1, "rationale": "Compartilhamento de práticas de agentes em guilda" },
+        { "skillId": "influence", "delta": 1, "rationale": "Fomento técnico com adoção pela comunidade" }
+      ]
+    },
+    {
+      "id": "model-supply-chain",
+      "title": "Segurança na Cadeia de Suprimentos de Modelos (Model Supply Chain)",
+      "displayName": "SecMLOps: Model Supply Chain",
+      "description": "Implementar controles de segurança no ciclo de vida de modelos de IA, garantindo a integridade, proveniência e o versionamento seguro dos artefatos.",
+      "status": "in-progress",
+      "progress": 10,
+      "deadline": "2027-06-30",
+      "notes": "KPI L2→L3: Fundamentos de SecMLOps e segurança no CI/CD de modelos. Estudo em andamento. Trilha de aprendizado disponível em .planning/learning-paths/model-supply-chain-security.md",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "mlops", "delta": 2, "rationale": "Implementação completa de pipeline seguro com MLflow e verificação de integridade" },
+        { "skillId": "security", "delta": 1, "rationale": "Aplicação de controles de segurança em CI/CD de modelos" },
+        { "skillId": "sec-atlas", "delta": 1, "rationale": "Mapeamento de TTPs de supply chain no MITRE ATLAS" }
+      ]
+    },
+    {
+      "id": "autonomous-delivery",
+      "title": "Entrega Autônoma de Features Complexas",
+      "displayName": "Autonomous Delivery",
+      "description": "Entregar 10+ features/bugfixes de forma autônoma com taxa de retrabalho < 20% e aprovação formal de qualidade.",
+      "status": "completed",
+      "progress": 100,
+      "deadline": "2026-12-31",
+      "notes": "KPI L2: Demonstração de autonomia técnica baseada em entregas core no Portal de Cyber. ADRs lideradas: frontend (Next.js webview), backend DDD (Lambda microsserviços + API Gateway), sistemas agênticos (MAS, MCP). Volume de acessos ao Cyber.Itaú em coleta — KPI de adoção por superintendentes e diretores.",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "technical-docs", "delta": 1, "rationale": "Documentação de decisões técnicas e trade-offs em ADRs" },
+        { "skillId": "testing", "delta": 1, "rationale": "95%+ cobertura de testes nos projetos entregues" },
+        { "skillId": "critical-thinking", "delta": 1, "rationale": "Análise de trade-offs arquiteturais em múltiplos contextos" }
+      ]
+    },
+    {
+      "id": "technical-discussions",
+      "title": "Participação em Discussões Técnicas Estratégicas",
+      "displayName": "Strategic Technical Discussions",
+      "description": "Contribuir em 3+ discussões técnicas com propostas viáveis e impacto na tomada de decisão da squad. Inclui ADRs formais de arquitetura.",
+      "status": "in-progress",
+      "progress": 70,
+      "deadline": "2027-03-31",
+      "notes": "KPI L2: Influência técnica e proatividade. ADRs lideradas: Cyber.Itaú (frontend Next.js webview + backend DDD), Sistema de orquestração multi-agentes cross-account com orientação à intenção, construção de MCPs.",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Propostas técnicas com visão de longo prazo adotadas" },
+        { "skillId": "influence", "delta": 1, "rationale": "Decisões arquiteturais lideradas e adotadas pela squad" },
+        { "skillId": "stakeholder-management", "delta": 1, "rationale": "Engajamento de pares em decisões técnicas críticas" }
+      ]
+    },
+    {
+      "id": "mentoring-interns",
+      "title": "Liderança de Onboarding e Desenvolvimento Técnico",
+      "displayName": "Onboarding & Technical Mentoring",
+      "description": "Liderar o onboarding técnico e suportar o desenvolvimento de 1+ novo membro da squad (estagiário, analista ou engenheiro) com acompanhamento estruturado e feedback construtivo.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "KPI L2: Desenvolvimento de habilidades de mentoria e liderança situacional. Critério desacoplado de headcount: qualquer novo membro da squad conta (estagiário, analista, engenheiro júnior). Não depende de alocação específica.",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "mentoring", "delta": 1, "rationale": "Mentoria estruturada com PDI e feedback formal" },
+        { "skillId": "situational-leadership", "delta": 1, "rationale": "Adaptação do estilo de liderança ao nível do estagiário" },
+        { "skillId": "feedback", "delta": 1, "rationale": "Prática contínua de feedback construtivo em code reviews" }
+      ]
+    },
+    {
+      "id": "cert-crtp",
+      "title": "CRTP — Certified Red Team Professional",
+      "displayName": "CRTP (Active Directory)",
+      "description": "Obter certificação CRTP focada em Red Team para Active Directory. Fundação ofensiva para entender ataques antes de defesa.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "notes": "L2→L3: Fundação técnica de segurança ofensiva. Iniciar após validação formal de transição L2→L3 (jun/2027). Investimento: US$ 249.",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "security", "delta": 2, "rationale": "Certificação prática de segurança ofensiva (Active Directory)" },
+        { "skillId": "critical-thinking", "delta": 1, "rationale": "Mentalidade adversarial aplicada a defesa" },
+        { "skillId": "sec-atlas", "delta": 1, "rationale": "TTPs de AD mapeados no MITRE ATLAS" }
+      ]
+    },
+    {
+      "id": "pdi-structure-2026",
+      "title": "Estruturação do PDI por Níveis",
+      "displayName": "PDI L1-L7: Career Ladder",
+      "description": "Estruturar o planejamento completo com níveis técnicos L1-L7, KPIs mensuráveis e trilha de certificações",
+      "status": "in-progress",
+      "progress": 85,
+      "deadline": "2026-09-30",
+      "notes": "KPI L2: Visão estratégica e planejamento de carreira. v2.1 em andamento com ajuste de deadlines, novos milestones e skillsImprovement.",
+      "phase": "L2",
+      "skillsImprovement": [
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Planejamento de carreira L1→L7 com KPIs mensuráveis" },
+        { "skillId": "self-awareness", "delta": 1, "rationale": "Análise crítica de gaps, pontos fortes e fracos" }
+      ]
+    },
+    {
+      "id": "agentic-security-cyber",
+      "title": "Segurança do Ecossistema Agêntico do Cyber.Itaú",
+      "displayName": "Agentic Security: Threat Model & Guardrails",
+      "description": "Projetar e implementar segurança end-to-end no ecossistema de IA agêntica do Cyber.Itaú: threat model, guardrails, implementação em produção e coleta de métricas de segurança.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-06-30",
+      "notes": "KPI L3: Implementação prática de controles de segurança para o sistema multi-agente (Insight Guard + MCP servers) em produção. Métrica de sucesso: P95 de latência do Insight Guard < 5s; 100% dos outputs com guardrail ativo.",
+      "phase": "L3",
+      "objectives": [
+        { "text": "Elaborar threat model completo do ecossistema agêntico (STRIDE + MITRE ATLAS, mínimo 5 TTPs mapeados)", "completed": false },
+        { "text": "Implementar guardrails no runtime do Insight Guard (AWS Bedrock Guardrails: PII detection, prompt injection, grounding)", "completed": false },
+        { "text": "Aplicar controles de supply chain nos modelos consumidos pelos agentes (.safetensors + hash SHA256 no CI/CD)", "completed": false },
+        { "text": "Coletar métricas de segurança em produção: latência P95, taxa de bloqueio de guardrails, alertas de anomalia", "completed": false },
+        { "text": "Apresentar relatório de segurança para a squad e liderança com evidências e recomendações", "completed": false }
+      ],
+      "learningResources": ["book-threat-modeling"],
+      "skillsImprovement": [
+        { "skillId": "bedrock-guardrails", "delta": 1, "rationale": "Implementação prática de guardrails em produção" },
+        { "skillId": "mas", "delta": 2, "rationale": "Ownership técnico do ecossistema multi-agente" },
+        { "skillId": "sec-atlas", "delta": 2, "rationale": "Mapeamento completo de TTPs adversariais no ecossistema agêntico" },
+        { "skillId": "sec-nist", "delta": 1, "rationale": "Aplicação de controles alinhados ao NIST AI RMF" },
+        { "skillId": "mcp-tools", "delta": 2, "rationale": "Segurança end-to-end de servidores MCP implementada" }
+      ]
+    },
+    {
+      "id": "ai-defense-architecture",
+      "title": "Design de Arquitetura de Defesa em IA",
+      "displayName": "AI Defense Architecture Design",
+      "description": "Projetar e documentar arquitetura completa de defesa para sistemas de IA com guardrails, threat model e supply chain security.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "notes": "KPI L3→L4: Design técnico aprovado por sênior em feature complexa. Construído sobre as evidências práticas do milestone 'agentic-security-cyber'.",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "bedrock-guardrails", "delta": 1, "rationale": "Arquitetura formal de guardrails para LLMs (OWASP LLM Top 10)" },
+        { "skillId": "sec-nist", "delta": 2, "rationale": "Alinhamento da arquitetura ao NIST AI RMF" },
+        { "skillId": "sec-atlas", "delta": 1, "rationale": "Threat model com 5+ TTPs MITRE ATLAS mapeados" },
+        { "skillId": "technical-docs", "delta": 1, "rationale": "Documentação de arquitetura apresentada para squad e liderança" }
+      ]
+    },
+    {
+      "id": "governance-ai-pipelines",
+      "title": "Governança de IA em Pipelines Core",
+      "displayName": "AI Governance in Production",
+      "description": "Aplicar governança de IA em 2+ projetos core com relatórios de conformidade automatizados.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "notes": "KPI L3→L4: Ownership completo de projeto médio (>1 mês). Meta: 100% dos modelos em produção com proveniência registrada no MLflow.",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "mlops", "delta": 1, "rationale": "Governança de ML em produção com relatórios automatizados" },
+        { "skillId": "data-observability", "delta": 1, "rationale": "Monitoramento de conformidade e drift em pipelines" },
+        { "skillId": "sec-nist", "delta": 1, "rationale": "Conformidade com NIST AI RMF em 2+ projetos" }
+      ]
+    },
+    {
+      "id": "mentoring-juniors",
+      "title": "Mentoria Ativa de Juniores",
+      "displayName": "Junior Mentoring Program",
+      "description": "Mentorar 2+ juniores com PDI estruturado, code reviews construtivos e acompanhamento de evolução.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-06-30",
+      "notes": "KPI L3→L4: Mentoria ativa com PDI estruturado para 2+ juniores",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "mentoring", "delta": 1, "rationale": "PDI estruturado e acompanhamento formal de 2+ juniores" },
+        { "skillId": "situational-leadership", "delta": 2, "rationale": "Adaptação de estilo de liderança para diferentes perfis e maturidades" },
+        { "skillId": "feedback", "delta": 1, "rationale": "Code reviews construtivos e feedback de evolução documentados" }
+      ]
+    },
+    {
+      "id": "situational-leadership-development",
+      "title": "Desenvolvimento de Liderança Situacional",
+      "displayName": "Liderança Situacional: Teoria & Prática",
+      "description": "Desenvolver habilidade de adaptar o estilo de liderança ao contexto e maturidade do liderado, passando de liderança centrada em controle para liderança adaptativa.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "KPI L3: Gap identificado — Liderança level 4 mas Liderança Situacional level 2. Leitura + aplicação prática em code reviews e pair programming com juniores/estagiários.",
+      "phase": "L3",
+      "objectives": [
+        { "text": "Ler 'Leadership and the One Minute Manager' (Blanchard) e mapear os 4 estilos situacionais", "completed": false },
+        { "text": "Identificar o estilo dominante atual e os contextos onde ele falha", "completed": false },
+        { "text": "Praticar os 4 estilos em situações reais: pair programming (D1→S1), code review (D2→S2), delegação (D3→S3), autonomia (D4→S4)", "completed": false },
+        { "text": "Obter feedback de 2+ pares sobre flexibilidade de liderança em projetos multi-perfil", "completed": false }
+      ],
+      "learningResources": ["book-situational-leadership"],
+      "skillsImprovement": [
+        { "skillId": "situational-leadership", "delta": 2, "rationale": "Leitura + prática deliberada dos 4 estilos situacionais" },
+        { "skillId": "mentoring", "delta": 1, "rationale": "Adaptação do estilo de apoio ao nível de competência do liderado" },
+        { "skillId": "emotional-intelligence", "delta": 1, "rationale": "Reconhecimento de sinais de maturidade e ajuste de abordagem" }
+      ]
+    },
+    {
+      "id": "finops-continuous",
+      "title": "FinOps Contínuo e Cultura de Custo",
+      "displayName": "FinOps Contínuo: Tagueamento, Anomalias e Rightsizing",
+      "description": "Institucionalizar práticas de FinOps contínuo no projeto: tagueamento sistemático, detecção de anomalias de custo, análise mensal por recurso e propostas de rightsizing (inclusive com skills agênticas).",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2027-12-31",
+      "notes": "KPI L3: FinOps como cultura, não evento isolado. Já aplicado informalmente: tagueamento, revisão mensal de custos, análise por recurso e otimizações com agentes. Formalizar em processo documentado.",
+      "phase": "L3",
+      "objectives": [
+        { "text": "Documentar política de tagueamento de recursos AWS (cost center, squad, ambiente, projeto)", "completed": false },
+        { "text": "Configurar AWS Cost Anomaly Detection com alertas para a squad", "completed": false },
+        { "text": "Criar dashboard de FinOps no QuickSight ou CloudWatch: custo por recurso, tendências e alertas", "completed": false },
+        { "text": "Propor e implementar rightsizing automático para 2+ recursos (Lambda memory, Glue DPUs, ECS tasks)", "completed": false },
+        { "text": "Usar agente para análise automatizada de custos: identificar top 5 recursos mais caros mensalmente e sugerir otimizações", "completed": false }
+      ],
+      "skillsImprovement": [
+        { "skillId": "finops", "delta": 2, "rationale": "FinOps institucionalizado como processo contínuo com KPIs" },
+        { "skillId": "cost-optimization", "delta": 1, "rationale": "Rightsizing automático e dashboards de custo por recurso" },
+        { "skillId": "cloudwatch", "delta": 1, "rationale": "Dashboards de custo e anomaly detection configurados" },
+        { "skillId": "agent-design", "delta": 1, "rationale": "Agente para análise automatizada de custos implementado" }
+      ]
+    },
+    {
+      "id": "ai-defense-foundations",
+      "title": "Fundamentos de Defesa e Guardrails em IA",
+      "displayName": "SecMLOps: Defesa & Guardrails",
+      "description": "Implementar mitigação contra ameaças (OWASP LLM Top 10) no runtime utilizando guardrails (ex: AWS Bedrock Guardrails) e entender ataques adversários através do MITRE ATLAS.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "notes": "KPI L3: Implementação prática de controles de segurança para sistemas baseados em LLMs",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "bedrock-guardrails", "delta": 1, "rationale": "Implementação de guardrails em runtime contra OWASP LLM Top 10" },
+        { "skillId": "sec-atlas", "delta": 2, "rationale": "Domínio de ataques adversariais mapeados no MITRE ATLAS" },
+        { "skillId": "security", "delta": 1, "rationale": "Controles defensivos aplicados em sistemas de IA" }
+      ]
+    },
+    {
+      "id": "cert-oscp",
+      "title": "OSCP — PEN-200 (OffSec)",
+      "displayName": "OSCP (Pentest) — A Decidir",
+      "description": "Selo ofensivo mais reconhecido do mercado. Valida capacidade de encontrar e explorar vulnerabilidades de forma autônoma.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": null,
+      "optional": true,
+      "decision_status": "a_decidir",
+      "notes": "A DECIDIR após conclusão do CRTP. Estimativa real de esforço: 300-600h de lab prático (não 100-200h) para quem não tem base ofensiva prévia. Investimento: ~US$ 1.500+. Reavaliar em 2028: se o CRTP mostrar apetite real pela trilha ofensiva e o calendário L3 permitir, incluir; caso contrário, espinha dorsal é AI Security + governança e o OSCP fica como 'nice to have' de longo prazo.",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "security", "delta": 2, "rationale": "Certificação mais reconhecida do mercado em pentest" },
+        { "skillId": "critical-thinking", "delta": 1, "rationale": "Metodologia de enumeração e exploração sistemática" },
+        { "skillId": "resilience", "delta": 1, "rationale": "Try harder mindset — resiliência frente a bloqueios" }
+      ]
+    },
+    {
+      "id": "cert-awssaa",
+      "title": "AWS Solutions Architect — Associate",
+      "displayName": "AWS SA Associate (Opcional)",
+      "description": "Certificação intermediária de arquitetura AWS. Ponte entre fundacional (Cloud Practitioner) e avançado (SA Professional).",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-06-30",
+      "optional": true,
+      "notes": "OPCIONAL: Considerar somente se sentir necessidade de formalização antes do SAP. ATENÇÃO: sem o SAA consolidado, o preparo para o SAP exige esforço adicional significativo — a Amazon recomenda o Associate como base. Sem SAA, estudar conteúdo do Associate embutido no material do Professional. Investimento: US$ 150.",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "aws", "delta": 1, "rationale": "Arquitetura AWS formalizada em nível associate" },
+        { "skillId": "vpc", "delta": 1, "rationale": "Redes virtuais e security groups aprofundados" }
+      ]
+    },
+    {
+      "id": "cert-cpsaf",
+      "title": "iSAQB CPSA-F — Foundation Level",
+      "displayName": "iSAQB CPSA-F (Arquitetura)",
+      "description": "Certificação internacional de arquitetura de software. Fundamento para liderar decisões arquiteturais como Senior.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2029-06-30",
+      "notes": "KPI L3→L4: Base formal de arquitetura para liderança técnica. Investimento: €1.500-2.000.",
+      "phase": "L3",
+      "skillsImprovement": [
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Requisitos funcionais, não-funcionais e restrições arquiteturais formalizados" },
+        { "skillId": "technical-docs", "delta": 1, "rationale": "Documentação via views (UML, componentes, sequência)" },
+        { "skillId": "influence", "delta": 1, "rationale": "Comunicação e avaliação de arquiteturas com stakeholders" }
+      ]
+    },
+    {
+      "id": "community-networking-sp",
+      "title": "Comunidade Técnica e Networking em São Paulo",
+      "displayName": "Community: Talks & Networking (SP)",
+      "description": "Construir presença técnica externa através de participação em eventos de segurança e IA em São Paulo, publicação de artigos e networking com referências do mercado.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2028-12-31",
+      "notes": "KPI L3→L4: Reconhecimento técnico externo. Foco em eventos presenciais em SP (BSides SP, OWASP São Paulo Chapter, AWS Community Day SP). Publicação de 2+ artigos/ano sobre projetos reais a partir de 2027.",
+      "phase": "L3",
+      "objectives": [
+        { "text": "Participar de 2+ eventos técnicos em SP em 2027 (BSides SP, OWASP SP Chapter, AWS Community Day SP)", "completed": false },
+        { "text": "Submeter 1 talk em evento SP sobre 'Segurança em IA Agêntica no setor financeiro'", "completed": false },
+        { "text": "Publicar 2+ artigos técnicos (Medium/Dev.to) sobre projetos reais do Cyber.Itaú (Insight Guard, supply chain de modelos)", "completed": false },
+        { "text": "Conectar-se com 10+ profissionais de AI Security/MLSecOps via LinkedIn com interação técnica real", "completed": false }
+      ],
+      "skillsImprovement": [
+        { "skillId": "presentation", "delta": 1, "rationale": "Talk técnico para audiência externa — formato diferente do contexto corporativo" },
+        { "skillId": "storytelling", "delta": 1, "rationale": "Artigos técnicos que transformam experiência prática em narrativa útil" },
+        { "skillId": "influence", "delta": 1, "rationale": "Reconhecimento externo amplia influência além da squad" }
+      ]
+    },
+    {
+      "id": "corporate-architecture-design",
+      "title": "Arquitetura Corporativa de AI Security",
+      "displayName": "Corporate AI Security Architecture",
+      "description": "Projetar do zero arquitetura corporativa de validação de segurança/custos de IA, aprovada pela liderança e adotada cross-squad.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-06-30",
+      "notes": "KPI L4→L5: 2+ sistemas complexos em produção com adoção cross-squad",
+      "phase": "L4",
+      "skillsImprovement": [
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Arquitetura corporativa com visão de longo prazo adotada cross-squad" },
+        { "skillId": "stakeholder-management", "delta": 2, "rationale": "Aprovação pela liderança executiva requer gestão de stakeholders avançada" },
+        { "skillId": "sec-nist", "delta": 1, "rationale": "Arquitetura alinhada ao NIST AI RMF como padrão corporativo" }
+      ]
+    },
+    {
+      "id": "tech-leadership-critical",
+      "title": "Liderança Técnica de Projetos Críticos",
+      "displayName": "Tech Lead — Critical Projects",
+      "description": "Liderar tecnicamente 3+ projetos críticos end-to-end com 5+ pessoas, mentorando plenos e juniores durante a execução.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-12-31",
+      "notes": "KPI L4→L5: Liderança técnica + mentoria estratégica",
+      "phase": "L4",
+      "learningResources": ["book-staff-engineer"],
+      "skillsImprovement": [
+        { "skillId": "leadership", "delta": 1, "rationale": "Liderança técnica end-to-end de projetos com 5+ pessoas" },
+        { "skillId": "situational-leadership", "delta": 1, "rationale": "Diferentes estilos para plenos vs. juniores no mesmo projeto" },
+        { "skillId": "stakeholder-management", "delta": 1, "rationale": "Gestão de expectativas de múltiplos stakeholders em projetos críticos" }
+      ]
+    },
+    {
+      "id": "red-teaming-foundation",
+      "title": "Red Teaming Tático em IA",
+      "displayName": "Adversarial ML & Red Teaming",
+      "description": "Projetar framework tático de Red Teaming em IA (Adversarial ML, evasão, extração de modelo) adaptado ao Itaú.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-12-31",
+      "notes": "KPI L4→L5: Framework tático testado internamente",
+      "phase": "L4",
+      "skillsImprovement": [
+        { "skillId": "sec-atlas", "delta": 1, "rationale": "Framework de Red Teaming baseado em MITRE ATLAS" },
+        { "skillId": "security", "delta": 1, "rationale": "Adversarial ML: evasão, extração de modelo, poisoning" },
+        { "skillId": "mlops", "delta": 1, "rationale": "Integração do Red Teaming no pipeline de ML" }
+      ]
+    },
+    {
+      "id": "cert-caisp",
+      "title": "CAISP — Certified AI Security Professional",
+      "displayName": "CAISP (AI Security)",
+      "description": "Certificação mais rigorosa do mercado em AI Security. 40+ labs, exame prático 6h contra sistemas vulneráveis.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-06-30",
+      "notes": "KPI L4→L5: Especialização formal em AI Security. Pré-requisito recomendado: CRTP + experiência prática com guardrails. Investimento: US$ 999.",
+      "phase": "L4",
+      "skillsImprovement": [
+        { "skillId": "security", "delta": 2, "rationale": "40+ labs práticos — domínio de AI Security end-to-end" },
+        { "skillId": "sec-atlas", "delta": 1, "rationale": "MITRE ATLAS integrado ao currículo da certificação" },
+        { "skillId": "sec-nist", "delta": 2, "rationale": "NIST AI RMF, ISO 42001 e EU AI Act cobertos na certificação" }
+      ]
+    },
+    {
+      "id": "cert-cmcpse",
+      "title": "CMCPSE — Certified MCP Security Expert",
+      "displayName": "CMCPSE (MCP Security) — Opcional",
+      "description": "Única certificação do mercado focada em segurança de servidores MCP e IA agêntica.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-12-31",
+      "optional": true,
+      "notes": "OPCIONAL: Diferencial em segurança de agentes MCP. Avaliar disponibilidade do bundle com CAISP. Recomendado dado o contexto de atuação com MCP servers no Cyber.Itaú.",
+      "phase": "L4",
+      "skillsImprovement": [
+        { "skillId": "mcp-tools", "delta": 2, "rationale": "Segurança de servidores MCP dominada formalmente" },
+        { "skillId": "mcp-integration", "delta": 1, "rationale": "DevSecOps para IA agêntica em produção" },
+        { "skillId": "security", "delta": 1, "rationale": "Tool poisoning, prompt injection e rug-pull attacks em MCP" }
+      ]
+    },
+    {
+      "id": "cert-awssap",
+      "title": "AWS Solutions Architect — Professional",
+      "displayName": "AWS SA Pro",
+      "description": "Formalizar conhecimento em nível de arquitetura cloud. Sinergia direta com design de sistemas de IA seguros na AWS.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2030-06-30",
+      "notes": "KPI L4: Certificação de arquitetura cloud avançada. Sinergia com uso diário de Glue, S3, Athena, EMR, Lambda, ECS no Itaú. Investimento: US$ 300.",
+      "phase": "L4",
+      "skillsImprovement": [
+        { "skillId": "aws", "delta": 1, "rationale": "Arquitetura AWS em nível profissional formalizada" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Soluções organizacionais complexas multi-conta" },
+        { "skillId": "cost-optimization", "delta": 1, "rationale": "Otimização de custo e performance em escala" }
+      ]
+    },
+    {
+      "id": "cloud-security-certification",
+      "title": "CISSP — Certified Information Systems Security Professional",
+      "displayName": "CISSP (ISC2)",
+      "description": "Certificação abrangente em segurança: 8 domínios incluindo NIST AI RMF, ISO 42001 e EU AI Act. Pré-requisito para AAISM.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2031-06-30",
+      "notes": "ISC2 · 8 domínios CBK · Exige 5 anos de experiência comprovada. Validar elegibilidade com ISC2: experiência conta a partir de 2023 (estagiário). Em 2031 terá 8 anos de experiência. Investimento: US$ 749.",
+      "phase": "L5",
+      "horizon_type": "aspirational",
+      "horizon_note": "L5+ são direção estratégica, não compromisso. Datas funcionam como âncora de planejamento pessoal, não como promessa externa. Revisar a cada promoção com base no contexto real.",
+      "skillsImprovement": [
+        { "skillId": "security", "delta": 1, "rationale": "8 domínios CBK — visão holística de segurança corporativa" },
+        { "skillId": "sec-nist", "delta": 1, "rationale": "NIST AI RMF integrado aos domínios do CISSP" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Gestão de risco e segurança em nível corporativo" }
+      ]
+    },
+    {
+      "id": "architectural-influence",
+      "title": "Influência Arquitetural Multi-Squad",
+      "displayName": "Cross-Squad Architecture Influence",
+      "description": "Definir framework/plataforma corporativa adotada por 5+ squads. Tornar-se referência de domínio em AI Security.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2031-12-31",
+      "notes": "KPI L5: Framework corporativo + impacto -40%+ tempo de entrega",
+      "phase": "L5",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "influence", "delta": 1, "rationale": "Framework adotado por 5+ squads — influência sem autoridade formal" },
+        { "skillId": "stakeholder-management", "delta": 1, "rationale": "Gestão de expectativas em múltiplas squads e lideranças" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Visão de plataforma corporativa com impacto organizacional" }
+      ]
+    },
+    {
+      "id": "red-teaming-framework",
+      "title": "Red Teaming AI Framework Oficial",
+      "displayName": "Adversarial ML & Red Teaming (Corporate)",
+      "description": "Tornar o framework tático de Red Teaming em IA o padrão corporativo oficial aprovado pela liderança executiva.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2032-06-30",
+      "notes": "KPI L6: Impacto executivo e adoção por 10+ squads",
+      "phase": "L6",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "influence", "delta": 1, "rationale": "Padrão corporativo aprovado pela liderança executiva" },
+        { "skillId": "sec-atlas", "delta": 1, "rationale": "Framework de referência para Red Teaming de IA" }
+      ]
+    },
+    {
+      "id": "nist-ai-rmf-implementation",
+      "title": "NIST AI RMF Corporate Implementation",
+      "displayName": "NIST AI RMF Framework",
+      "description": "Liderar adequação arquitetural baseada no NIST AI RMF, transformando no padrão oficial de mitigação e compliance de IA.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2033-06-30",
+      "notes": "KPI L6: Influência normativa e compliance",
+      "phase": "L6",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "sec-nist", "delta": 1, "rationale": "Implementação do NIST AI RMF como padrão corporativo oficial" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Adequação arquitetural de longo prazo com visão normativa" }
+      ]
+    },
+    {
+      "id": "advanced-governance",
+      "title": "Governança Corporativa e Avançada de IA",
+      "displayName": "SecMLOps: Advanced Governance",
+      "description": "Estabelecer a governança corporativa de IA e o score de maturidade em segurança de IA utilizando as diretrizes avançadas e as políticas arquiteturais baseadas no NIST AI RMF.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2033-12-31",
+      "notes": "KPI L6: Governança regulatória de alto nível no ecossistema do banco",
+      "phase": "L6",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "sec-nist", "delta": 1, "rationale": "Score de maturidade e governança corporativa de IA" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Políticas arquiteturais de longo prazo definidas" }
+      ]
+    },
+    {
+      "id": "cert-iso42001",
+      "title": "ISO/IEC 42001 Lead Implementer",
+      "displayName": "ISO 42001 (Governança IA) — Opcional",
+      "description": "Obter certificação na 1ª norma internacional de sistemas de gestão de IA. Essencial para compliance em instituições financeiras.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2032-06-30",
+      "optional": true,
+      "notes": "OPCIONAL (alta relevância): Avaliar em 2030. Pode se tornar exigência regulatória para bancos — monitorar evolução do Banco Central em relação à ISO 42001. Investimento: US$ 1.500-2.000.",
+      "phase": "L6",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "sec-nist", "delta": 1, "rationale": "AI Management System alinhado a padrão internacional" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Visão de compliance e governança em nível de gestão" }
+      ]
+    },
+    {
+      "id": "cert-cpsaa",
+      "title": "iSAQB CPSA-A — Advanced Level",
+      "displayName": "iSAQB CPSA-A (Arquitetura) — A Decidir",
+      "description": "Certificação arquitetural avançada com módulos modulares em tecnologia, metodologia e comunicação.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2033-12-31",
+      "optional": true,
+      "decision_status": "a_decidir",
+      "notes": "A DECIDIR: Custo elevado (€3.000-5.000 + 70 créditos em treinos modulares). Reavaliar em 2031 após CISSP. Verificar ROI real vs. experiência prática em arquitetura adquirida até então. Exige CPSA-F + 3 anos de experiência pós-foundation.",
+      "phase": "L6",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Competências arquiteturais avançadas em metodologia e comunicação" },
+        { "skillId": "influence", "delta": 1, "rationale": "Módulo comunicativo: apresentação e argumentação com stakeholders" }
+      ]
+    },
+    {
+      "id": "executive-presence",
+      "title": "Impacto Executivo e Padrões Globais",
+      "displayName": "Executive Presence & Standards",
+      "description": "Consolidar reconhecimento como referência técnica global através de impacto executivo e influência em frameworks de mercado.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2033-06-30",
+      "notes": "KPI L7: Inovação e reconhecimento internacional",
+      "phase": "L7",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "influence", "delta": 1, "rationale": "Influência em frameworks globais de mercado" },
+        { "skillId": "strategic-vision", "delta": 1, "rationale": "Visão e impacto em nível executivo e de standards globais" }
+      ]
+    },
+    {
+      "id": "cert-aaism",
+      "title": "ISACA AAISM — Advanced in AI Security Management",
+      "displayName": "ISACA AAISM (Expert)",
+      "description": "Credencial gated de elite para líderes de segurança em IA. Mapeia diretamente para NIST AI RMF, ISO 42001 e MITRE ATLAS.",
+      "status": "planned",
+      "progress": 0,
+      "deadline": "2034-06-30",
+      "notes": "ISACA · Pré-requisito: CISSP ativo · 90 questões. Disponível somente após CISSP (2031). Deadline ajustado para 2034 para garantir 2+ anos de CISSP ativo. Investimento: US$ 760.",
+      "phase": "L7",
+      "horizon_type": "aspirational",
+      "skillsImprovement": [
+        { "skillId": "sec-nist", "delta": 1, "rationale": "Governança de AI Security em nível corporativo de elite" },
+        { "skillId": "security", "delta": 1, "rationale": "Credencial gated — validação formal de expertise em AI Security Management" }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "quicksight",
+      "name": "Amazon QuickSight",
+      "level": 5,
+      "description": "Criação de dashboards interativos e análises visuais",
+      "category": "Analytics & BI",
+      "type": "hard"
+    },
+    {
+      "id": "pyspark",
+      "name": "PySpark",
+      "level": 4,
+      "description": "Processamento distribuído de grandes volumes de dados",
+      "category": "Analytics & BI",
+      "type": "hard"
+    },
+    {
+      "id": "data-modeling",
+      "name": "Modelagem de Dados",
+      "level": 5,
+      "description": "Design de schemas dimensionais e otimização de queries",
+      "category": "Analytics & BI",
+      "type": "hard"
+    },
+    {
+      "id": "openapi",
+      "name": "OpenAPI",
+      "level": 4,
+      "description": "Especificação e versionamento de contratos REST",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "api-design",
+      "name": "Design de APIs",
+      "level": 4,
+      "description": "Padrões de design, consistência e governança",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "api-architecture",
+      "name": "Arquitetura de APIs",
+      "level": 4,
+      "description": "Topologias, gateways e observabilidade de interfaces",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "api-contracts",
+      "name": "Contratos de API",
+      "level": 4,
+      "description": "Lifecycle de contratos, breaking changes e testes",
+      "category": "APIs",
+      "type": "hard"
+    },
+    {
+      "id": "codebuild",
+      "name": "CodeBuild",
+      "level": 3,
+      "description": "Build e testes automatizados",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "codepipeline",
+      "name": "Codepipeline",
+      "level": 3,
+      "description": "Pipelines de CI/CD — conhecimento teórico sólido, uso prático limitado",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "level": 4,
+      "description": "Automação de workflows",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "sonarqube",
+      "name": "SonarQube",
+      "level": 3,
+      "description": "Análise de qualidade de código",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "testing",
+      "name": "Testes",
+      "level": 4,
+      "description": "Testes unitários, integração e end-to-end",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "linters",
+      "name": "Linters",
+      "level": 4,
+      "description": "Análise estática de código e padronização",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "testes-automatizados",
+      "name": "Testes Automatizados",
+      "level": 4,
+      "description": "Automação de testes end-to-end e integração",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "testes-unitarios",
+      "name": "Testes Unitários",
+      "level": 4,
+      "description": "Testes de componentes individuais",
+      "category": "CI/CD & Testes",
+      "type": "hard"
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "level": 4,
+      "description": "Arquitetura e serviços core da AWS",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "aws-glue",
+      "name": "AWS Glue",
+      "level": 5,
+      "description": "ETL serverless e catalogação de dados",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "s3",
+      "name": "S3",
+      "level": 5,
+      "description": "Armazenamento de dados em data lake",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "lambda",
+      "name": "Lambda",
+      "level": 4,
+      "description": "Funções serverless para processamento de eventos",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "api-gateway",
+      "name": "Amazon API Gateway",
+      "level": 4,
+      "description": "Gerenciamento e publicação de APIs em escala",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "kafka",
+      "name": "Kafka",
+      "level": 3,
+      "description": "Streaming de dados em tempo real — conhecimento teórico sólido, uso prático ainda limitado",
+      "category": "Cloud & Data",
+      "type": "hard"
+    },
+    {
+      "id": "redshift",
+      "name": "Redshift",
+      "level": 3,
+      "description": "Data warehouse para analytics em escala — conhecimento teórico sólido, uso prático ainda limitado",
+      "category": "Cloud & Data",
+      "type": "hard"
+    }
+  ]
+}
