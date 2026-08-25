@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock, HelpCircle, Telescope } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Circle, Loader, Archive, CheckSquare, Square, MessageSquare, Lock, HelpCircle } from 'lucide-react';
 import { Milestone, StudyTopic } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
@@ -58,7 +58,6 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
     ...activeMilestones,
     ...blockedMilestones,
     ...decidingMilestones,
-    ...aspirationalMilestones,
   ];
 
   return (
@@ -167,10 +166,10 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
       </div>
 
       <motion.div
-        className={`w-full bg-card border rounded-xl px-6 py-4 shadow-sm transition-all text-left group ${
+        className={`w-full bg-card border rounded-xl px-6 py-4 shadow-sm transition-all text-left group relative ${
           isBlocked ? 'border-border opacity-60 cursor-not-allowed'
-          : isDeciding ? 'border-amber-300/50 opacity-70 cursor-default'
-          : isAspirational ? 'border-purple-300/30 opacity-60 cursor-default'
+          : isDeciding ? 'border-amber-300/50'
+          : isAspirational ? 'border-border'
           : isCompleted ? 'border-green-500/30 opacity-70 cursor-pointer hover:opacity-90'
           : 'border-border hover:shadow-md hover:border-primary cursor-pointer'
         }`}
@@ -186,11 +185,6 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
                 A decidir
               </span>
             )}
-            {isAspirational && (
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-300/50 shrink-0">
-                Aspiracional
-              </span>
-            )}
           </div>
           <div className="flex items-center gap-3 text-sm shrink-0">
             {isBlocked && (
@@ -204,13 +198,13 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
               <Calendar className="w-3.5 h-3.5" />
               <span>{formatDate(milestone.deadline)}</span>
             </div>
+            {isAspirational && (
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-300/50 shrink-0">
+                Aspiracional
+              </span>
+            )}
           </div>
         </div>
-
-        {/* Description shown for a_decidir and aspirational */}
-        {(isDeciding || isAspirational) && (
-          <p className="text-muted-foreground text-sm mt-2 line-clamp-2">{milestone.description}</p>
-        )}
 
         {!isCollapsed && (
           <>
@@ -282,10 +276,10 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
       transition={{ delay: index * 0.1 }}
       onClick={() => !isBlocked && !isDeciding && !isAspirational && onClick(milestone)}
       whileHover={isCollapsed ? {} : { y: -8 }}
-      className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col ${
+      className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col relative ${
         isBlocked ? 'opacity-60 cursor-not-allowed'
-        : isDeciding ? 'opacity-70 border-amber-300/50 cursor-default'
-        : isAspirational ? 'opacity-50 border-purple-300/30 cursor-default'
+        : isDeciding ? 'opacity-70 border-amber-300/50'
+        : isAspirational ? 'opacity-80 border-border'
         : isCompleted ? 'opacity-70 border-green-500/30 cursor-pointer hover:opacity-90'
         : 'hover:shadow-md hover:border-primary'
       }`}
@@ -300,12 +294,12 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
             : status === 'in-progress' ? 'bg-green-50 dark:bg-green-900/10'
             : 'bg-muted'
           }`}
-          animate={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { scale: [1, 1.05, 1] } : {}}
-          transition={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { duration: 2, repeat: Infinity } : {}}
+          animate={status === 'in-progress' && !isBlocked && !isDeciding ? { scale: [1, 1.05, 1] } : {}}
+          transition={status === 'in-progress' && !isBlocked && !isDeciding ? { duration: 2, repeat: Infinity } : {}}
         >
           <motion.div
-            animate={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            animate={status === 'in-progress' && !isBlocked && !isDeciding ? { rotate: 360 } : {}}
+            transition={status === 'in-progress' && !isBlocked && !isDeciding ? { duration: 2, repeat: Infinity, linear: true } : {}}
           >
             {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" />
               : isDeciding ? <HelpCircle className="w-4 h-4 text-amber-600" />
@@ -334,10 +328,6 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
           <Lock className="w-3 h-3 shrink-0" />
           <span className="line-clamp-1">{milestone.blockedBy}</span>
         </div>
-      )}
-
-      {(isDeciding || isAspirational) && (
-        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{milestone.description}</p>
       )}
 
       {!isCollapsed && (
@@ -377,13 +367,6 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
             )}
           </div>
         </>
-      )}
-
-      {isCollapsed && !isBlocked && !isDeciding && !isAspirational && (
-        <div className="mt-2 text-xs text-muted-foreground flex items-center gap-1">
-          <Calendar className="w-3 h-3" />
-          <span>{formatDate(milestone.deadline)}</span>
-        </div>
       )}
     </motion.button>
   );
