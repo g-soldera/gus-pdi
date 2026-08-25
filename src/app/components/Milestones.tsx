@@ -58,6 +58,7 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
     ...activeMilestones,
     ...blockedMilestones,
     ...decidingMilestones,
+    ...aspirationalMilestones,
   ];
 
   return (
