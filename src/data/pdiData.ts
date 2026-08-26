@@ -1142,6 +1142,30 @@ export const milestones: Milestone[] = [
       { skillId: 'strategic-vision', delta: 1, rationale: 'Visão e impacto em nível executivo e de standards globais' },
     ],
   },
+  {
+    id: 'cert-aaism',
+    title: 'ISACA AAISM — Advanced in AI Security Management',
+    displayName: 'ISACA AAISM (Expert)',
+    description: 'Credencial gated de elite para líderes de segurança em IA. Mapeia diretamente para NIST AI RMF, ISO 42001 e MITRE ATLAS.',
+    status: 'planned',
+    progress: 0,
+    deadline: '2034-06-30',
+    horizon_type: 'aspirational',
+    notes: 'ISACA · Pré-requisito: CISSP ativo · 90 questões. Disponível somente após CISSP (2031). Investimento: US$ 760.',
+    objectives: [
+      { text: 'Estudar governança de programa de AI security corporativo', completed: false },
+      { text: 'Compreender gestão de risco integrada de múltiplos frameworks', completed: false },
+      { text: 'Aprovação no exame oficial', completed: false }
+    ],
+    relatedSkills: ['security', 'strategic-vision', 'leadership'],
+    relatedResources: ['cert-aaism'],
+    phase: 'L7',
+    blockedBy: 'CISSP (ISC2) — obter e manter certificação ativa como pré-requisito',
+    skillsImprovement: [
+      { skillId: 'sec-nist', delta: 1, rationale: 'Governança de AI Security em nível corporativo de elite' },
+      { skillId: 'security', delta: 1, rationale: 'Credencial gated — validação formal de expertise em AI Security Management' },
+    ],
+  },
 ];
 
 export const projects: Project[] = [
