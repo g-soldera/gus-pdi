@@ -275,7 +275,7 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      onClick={() => !isBlocked && !isDeciding && !isAspirational && onClick(milestone)}
+      onClick={() => !isBlocked && !isDeciding && onClick(milestone)}
       whileHover={isCollapsed ? {} : { y: -8 }}
       className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col relative ${
         isBlocked ? 'opacity-60 cursor-not-allowed'

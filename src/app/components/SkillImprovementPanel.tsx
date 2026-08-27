@@ -93,34 +93,32 @@ export function SkillImprovementPanel({
                           const totalFill = Math.min(Math.max(totalLevel - starStart, 0), 1);
                           const hasGainInStar = totalFill > obtainedFill;
 
-                          return (
-                            <div key={star} className="relative w-4 h-4 flex items-center justify-center">
-                              {/* Base Star (Muted Background) */}
-                              <Star className="w-4 h-4 fill-muted text-muted opacity-40" />
+                           return (
+                             <div key={star} className="relative w-4 h-4 flex items-center justify-center">
+                               {/* Base Star (Muted Background) */}
+                               <Star className="w-4 h-4 fill-muted text-muted opacity-40" />
 
-                              {/* Added Gain Overlay (Vibrant Emerald with Pulse/Fade) */}
-                              {totalFill > 0 && (
-                                <div
-                                  className={`absolute top-0 left-0 overflow-hidden h-full ${
-                                    hasGainInStar ? 'animate-pulse transition-all duration-700' : ''
-                                  }`}
-                                  style={{ width: `${totalFill * 100}%` }}
-                                >
-                                  <Star className="w-4 h-4 fill-emerald-400 text-emerald-400 drop-shadow-[0_0_4px_rgba(52,211,153,0.8)]" />
-                                </div>
-                              )}
+                               {/* Obtained Level Overlay (Solid Primary) - Darker, more solid */}
+                               {obtainedFill > 0 && (
+                                 <div
+                                   className="absolute top-0 left-0 overflow-hidden h-full"
+                                   style={{ width: `${obtainedFill * 100}%` }}
+                                 >
+                                   <Star className="w-4 h-4 fill-primary text-primary" />
+                                 </div>
+                               )}
 
-                              {/* Obtained Level Overlay (Solid Primary) */}
-                              {obtainedFill > 0 && (
-                                <div
-                                  className="absolute top-0 left-0 overflow-hidden h-full"
-                                  style={{ width: `${obtainedFill * 100}%` }}
-                                >
-                                  <Star className="w-4 h-4 fill-primary text-primary" />
-                                </div>
-                              )}
-                            </div>
-                          );
+                               {/* Added Gain Overlay (Vibrant Emerald with Pulse/Fade) - Lighter, more prominent */}
+                               {totalFill > obtainedFill && (
+                                 <div
+                                   className={`absolute top-0 left-0 overflow-hidden h-full animate-pulse transition-all duration-700`}
+                                   style={{ width: `${(totalFill - obtainedFill) * 100}%` }}
+                                 >
+                                   <Star className="w-4 h-4 fill-emerald-300 text-emerald-300 drop-shadow-[0_0_4px_rgba(52,211,153,0.8)]" />
+                                 </div>
+                               )}
+                             </div>
+                           );
                         })}
                       </div>
                     </div>
