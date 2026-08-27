@@ -3,7 +3,7 @@ import { Skill, Milestone, Resource, Project } from '@/types/pdi';
 import { Modal } from './Modal';
 import { SkillRating } from '../SkillRating';
 import { getProficiencyLabel } from '@/app/utils/helpers';
-import { Code, Heart, BookOpen, Target, Briefcase } from 'lucide-react';
+import { Code, Heart, BookOpen, Target, Briefcase, Award, CheckCircle2, Lock } from 'lucide-react';
 
 interface SkillModalProps {
   skill: Skill | null;
@@ -57,39 +57,62 @@ export function SkillModal({ skill, isOpen, onClose, allMilestones, allResources
           <span className="text-sm text-muted-foreground">{skill.category}</span>
         </div>
 
-        {/* Rating */}
-        <div>
-          <h3 className="text-sm text-muted-foreground mb-2">Nível de Proficiência</h3>
-          <div className="flex items-center gap-4 mb-3">
-            <SkillRating level={skill.level} size="lg" />
-            <span className="text-lg font-medium">{getProficiencyLabel(skill.level)}</span>
+        {/* Rating & Leveling */}
+        <div className="bg-gradient-to-r from-card to-muted/40 p-4 rounded-xl border border-border/60 shadow-xs space-y-3">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Maestria Calculada</h3>
+            <span className="px-2 py-0.5 bg-primary/10 text-primary text-xs font-bold rounded-md font-mono">
+              {(skill.requirements ? (skill.requirements.filter(r => true).length / skill.requirements.length) * 100 : 0).toFixed(0)}% Concluído
+            </span>
           </div>
-          <p className="text-sm text-muted-foreground">
-            {proficiencyDescriptions[skill.level]}
-          </p>
+          
+          <SkillRating 
+            level={skill.level} 
+            size="lg" 
+            requirementsCount={skill.requirements?.length}
+            unlockedCount={skill.requirements ? Math.round(((skill.level - 1) / 4) * skill.requirements.length) : 0}
+          />
         </div>
 
-        {/* Proficiency Scale */}
-        <div className="bg-muted/50 rounded-xl p-4">
-          <h3 className="text-sm font-medium mb-3">Régua de Proficiência</h3>
-          <div className="space-y-2">
-            {[1, 2, 3, 4, 5].map((level) => (
-              <div
-                key={level}
-                className={`flex items-center gap-3 p-2 rounded-lg transition-colors ${
-                  level === skill.level ? 'bg-primary/10 border border-primary' : ''
-                }`}
-              >
-                <SkillRating level={level as 1 | 2 | 3 | 4 | 5} size="sm" />
-                <span className={`text-sm ${
-                  level === skill.level ? 'font-medium text-primary' : 'text-muted-foreground'
-                }`}>
-                  {getProficiencyLabel(level as 1 | 2 | 3 | 4 | 5)}
-                </span>
-              </div>
-            ))}
+        {/* Micro-Skills / Badges Grid (Design Compacto Gamificado) */}
+        {skill.requirements && skill.requirements.length > 0 && (
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                <Award className="w-4 h-4 text-amber-500" />
+                Conquistas de Dominância
+              </h3>
+              <span className="text-xs text-muted-foreground font-mono">
+                {Math.round(((skill.level - 1) / 4) * skill.requirements.length)} / {skill.requirements.length} unlocked
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {skill.requirements.map((req, idx) => {
+                const unlockedCount = Math.round(((skill.level - 1) / 4) * skill.requirements!.length);
+                const isUnlocked = idx < unlockedCount;
+
+                return (
+                  <div
+                    key={req.id}
+                    className={`flex items-center gap-2.5 p-2.5 rounded-lg border text-xs transition-all ${
+                      isUnlocked
+                        ? 'bg-emerald-500/10 border-emerald-500/30 text-foreground font-medium shadow-2xs'
+                        : 'bg-muted/20 border-border/40 text-muted-foreground opacity-50 hover:opacity-75'
+                    }`}
+                  >
+                    {isUnlocked ? (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    ) : (
+                      <Lock className="w-4 h-4 text-muted-foreground shrink-0" />
+                    )}
+                    <span className="line-clamp-2">{req.text}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Description */}
         <div>

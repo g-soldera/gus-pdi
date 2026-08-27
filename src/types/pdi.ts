@@ -1,14 +1,20 @@
-export type SkillLevel = 1 | 2 | 3 | 4 | 5;
+export type SkillLevel = number; // Permite valores contínuos/decimais (ex: 1.83, 4.25)
 
 export type Status = 'completed' | 'in-progress' | 'not-started' | 'deprioritized' | 'planned';
+
+export interface SkillRequirement {
+  id: string;
+  text: string;
+}
 
 export interface Skill {
   id: string;
   name: string;
-  level: SkillLevel;
+  level: SkillLevel; // Calculado: 1 + 4 * (requisitos_atendidos / total_requisitos)
   description: string;
   category: string;
   type: 'hard' | 'soft';
+  requirements?: SkillRequirement[];
 }
 
 export interface MilestoneObjective {
@@ -21,6 +27,13 @@ export interface SkillImprovement {
   skillId: string;
   delta: number; // 0 = reforço, 1 = +1 nível, 2 = +2 níveis
   rationale: string;
+}
+
+export interface MilestoneRequirementUnlock {
+  skillId: string;
+  requirementId: string;
+  isNewUnlock: boolean; // true se é um micro-skill novo atingido por este milestone; false se é reforço
+  rationale?: string;
 }
 
 export interface Milestone {
@@ -44,6 +57,7 @@ export interface Milestone {
   decision_status?: 'a_decidir';
   horizon_type?: 'aspirational';
   skillsImprovement?: SkillImprovement[];
+  unlockedRequirements?: MilestoneRequirementUnlock[]; // Mapeamento explícito de micro-skills cobertos pelo milestone
 }
 
 export interface Project {

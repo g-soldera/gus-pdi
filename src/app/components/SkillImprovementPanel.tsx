@@ -1,163 +1,106 @@
 import React from 'react';
-import { TrendingUp, Zap, Star } from 'lucide-react';
-import { SkillImprovement, Skill } from '@/types/pdi';
+import { TrendingUp, Zap, Star, CheckCircle2, Info } from 'lucide-react';
+import { MilestoneRequirementUnlock, Skill } from '@/types/pdi';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/ui/tooltip';
 
 interface SkillImprovementPanelProps {
-  improvements: SkillImprovement[];
+  unlockedRequirements?: MilestoneRequirementUnlock[];
   allSkills: Skill[];
   milestoneStatus: 'completed' | 'in-progress' | 'planned' | string;
   onSkillClick?: (skill: Skill) => void;
 }
 
-const LEVEL_LABELS: Record<number, string> = {
-  1: 'Básico',
-  2: 'Elementar',
-  3: 'Intermediário',
-  4: 'Avançado',
-  5: 'Expert',
-};
-
-function StarRow({ level, size = 'sm' }: { level: number; size?: 'sm' | 'xs' }) {
-  const dim = size === 'xs' ? 'w-2.5 h-2.5' : 'w-3 h-3';
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((s) => (
-        <Star
-          key={s}
-          className={`${dim} ${s <= level ? 'fill-primary text-primary' : 'fill-muted text-muted'}`}
-        />
-      ))}
-    </div>
-  );
-}
-
 export function SkillImprovementPanel({
-  improvements,
+  unlockedRequirements = [],
   allSkills,
   milestoneStatus,
   onSkillClick,
 }: SkillImprovementPanelProps) {
-  const enriched = improvements
-    .map((imp) => {
-      const skill = allSkills.find((s) => s.id === imp.skillId);
-      return skill ? { ...imp, skill } : null;
-    })
-    .filter(Boolean) as Array<SkillImprovement & { skill: Skill }>;
+  if (!unlockedRequirements || unlockedRequirements.length === 0) return null;
 
-  if (enriched.length === 0) return null;
+  // Group unlocks by Skill ID
+  const groupedBySkill = unlockedRequirements.reduce((acc, unlock) => {
+    if (!acc[unlock.skillId]) {
+      acc[unlock.skillId] = [];
+    }
+    acc[unlock.skillId].push(unlock);
+    return acc;
+  }, {} as Record<string, MilestoneRequirementUnlock[]>);
 
   const isCompleted = milestoneStatus === 'completed';
-  const isInProgress = milestoneStatus === 'in-progress';
-
-  const containerClass = isCompleted
-    ? 'bg-green-50/60 dark:bg-green-950/20 border border-green-200 dark:border-green-800'
-    : isInProgress
-    ? 'bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800'
-    : 'bg-muted/30 border border-border/50';
-
-  const headerClass = isCompleted
-    ? 'text-green-700 dark:text-green-400'
-    : isInProgress
-    ? 'text-blue-700 dark:text-blue-400'
-    : 'text-muted-foreground';
-
-  const trophyLabel = isCompleted ? 'Skills conquistadas' : isInProgress ? 'Skills em progresso' : 'Skills que serão desbloqueadas';
 
   return (
-    <div className={`rounded-xl p-4 space-y-3 ${containerClass}`}>
-      <h3 className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${headerClass}`}>
-        {isCompleted ? (
-          <Zap className="w-3.5 h-3.5" />
-        ) : (
-          <TrendingUp className="w-3.5 h-3.5" />
-        )}
-        {trophyLabel}
-      </h3>
+    <TooltipProvider>
+      <div className="rounded-xl p-3 border border-border/60 bg-card/80 dark:bg-card/90 shadow-2xs space-y-2">
+        <div className="flex items-center justify-between">
+          <h3 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-foreground">
+            {isCompleted ? <Zap className="w-3.5 h-3.5 text-emerald-500" /> : <TrendingUp className="w-3.5 h-3.5 text-primary" />}
+            <span>Impacto em Skills</span>
+          </h3>
+          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+            +{unlockedRequirements.length} micro-skills
+          </span>
+        </div>
 
-      <div className="space-y-2">
-        {enriched.map((imp) => {
-          const currentLevel = imp.skill.level;
-          const newLevel = Math.min(5, currentLevel + imp.delta) as 1 | 2 | 3 | 4 | 5;
-          const hasGain = imp.delta > 0;
+        <div className="grid grid-cols-1 gap-1.5">
+          {Object.entries(groupedBySkill).map(([skillId, unlocks]) => {
+            const skill = allSkills.find((s) => s.id === skillId);
+            if (!skill || !skill.requirements) return null;
 
-          return (
-            <button
-              key={imp.skillId}
-              onClick={() => onSkillClick?.(imp.skill)}
-              className="w-full text-left group"
-              disabled={!onSkillClick}
-            >
-              <div className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
-                {/* Level badge */}
-                <div className="shrink-0 flex flex-col items-center gap-0.5 min-w-[40px]">
-                  {hasGain ? (
-                    <>
-                      <span className="text-[10px] font-bold text-green-600 dark:text-green-400 leading-none">
-                        +{imp.delta}
+            const totalReqs = skill.requirements.length;
+            const starGainPerReq = (4 / totalReqs);
+            const totalStarGain = unlocks.length * starGainPerReq;
+
+            return (
+              <Tooltip key={skillId}>
+                <TooltipTrigger asChild>
+                  <div
+                    onClick={() => onSkillClick?.(skill)}
+                    className="flex items-center justify-between p-2 rounded-lg bg-muted/40 hover:bg-muted border border-border/40 transition-all text-xs cursor-pointer group"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+                        {skill.name}
                       </span>
-                      <div className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none ${
-                        isCompleted
-                          ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
-                          : 'bg-primary/10 text-primary'
-                      }`}>
-                        {isCompleted ? `L${newLevel}` : `→L${newLevel}`}
-                      </div>
-                    </>
-                  ) : (
-                    <span className="text-[10px] text-muted-foreground font-medium px-1 py-0.5 bg-muted/50 rounded-full leading-none">
-                      Reforço
-                    </span>
-                  )}
-                </div>
+                      <span className="text-[10px] font-mono text-muted-foreground shrink-0">
+                        ({unlocks.length} reqs)
+                      </span>
+                    </div>
 
-                {/* Skill info */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-sm font-medium group-hover:text-primary transition-colors truncate">
-                      {imp.skill.name}
-                    </span>
-                    <span className="text-[10px] text-muted-foreground shrink-0">{imp.skill.category}</span>
+                    <div className="flex items-center gap-1 px-2 py-0.5 bg-primary/10 text-primary rounded-md font-mono font-bold shrink-0">
+                      <Star className="w-3 h-3 fill-primary text-primary" />
+                      <span>+{totalStarGain.toFixed(2)}</span>
+                    </div>
                   </div>
-
-                  {/* Star progression */}
-                  <div className="flex items-center gap-2 mt-1">
-                    <StarRow level={currentLevel} size="xs" />
-                    {hasGain && (
-                      <>
-                        <span className="text-[10px] text-muted-foreground">→</span>
-                        <div className="flex gap-0.5">
-                          {[1, 2, 3, 4, 5].map((s) => (
-                            <Star
-                              key={s}
-                              className={`w-2.5 h-2.5 ${
-                                s <= newLevel
-                                  ? s <= currentLevel
-                                    ? 'fill-primary text-primary'
-                                    : isCompleted
-                                    ? 'fill-green-500 text-green-500'
-                                    : 'fill-blue-400 text-blue-400 opacity-70'
-                                  : 'fill-muted text-muted'
-                              }`}
-                            />
-                          ))}
+                </TooltipTrigger>
+                <TooltipContent side="top" className="max-w-xs p-3 space-y-2 bg-popover text-popover-foreground border border-border shadow-md">
+                  <div className="font-bold text-xs border-b border-border/60 pb-1 text-primary">
+                    Requisitos Conquistados ({unlocks.length}):
+                  </div>
+                  <div className="space-y-1.5 text-[11px]">
+                    {unlocks.map((unl, idx) => {
+                      const reqObj = skill.requirements?.find((r) => r.id === unl.requirementId);
+                      return (
+                        <div key={idx} className="flex items-start gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                          <div>
+                            <span className="font-medium text-foreground">{reqObj?.text || unl.requirementId}</span>
+                            {unl.rationale && (
+                              <div className="text-muted-foreground italic text-[10px] mt-0.5">
+                                "{unl.rationale}"
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        <span className="text-[10px] text-muted-foreground">
-                          {LEVEL_LABELS[newLevel]}
-                        </span>
-                      </>
-                    )}
+                      );
+                    })}
                   </div>
-
-                  {/* Rationale */}
-                  <p className="text-[11px] text-muted-foreground mt-1 leading-snug italic">
-                    {imp.rationale}
-                  </p>
-                </div>
-              </div>
-            </button>
-          );
-        })}
+                </TooltipContent>
+              </Tooltip>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }
