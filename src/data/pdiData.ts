@@ -25,7 +25,7 @@ export const skills: Skill[] = [
   {
     id: 'agent-systems',
     name: 'Agent Systems & Autonomous Workflows',
-    level: 5.0,
+    level: 4.2,
     description: 'Arquitetura, orquestração e execução de agentes autônomos e sistemas multi-agente.',
     category: 'IA Generativa',
     type: 'hard',
@@ -47,7 +47,7 @@ export const skills: Skill[] = [
   {
     id: 'prompt-eng-sdd',
     name: 'Prompt Engineering & SDD Frameworks',
-    level: 5.0,
+    level: 4.5,
     description: 'Engenharia de prompts avançada e desenvolvimento orientado a especificações.',
     category: 'IA Generativa',
     type: 'hard',
@@ -145,7 +145,7 @@ export const skills: Skill[] = [
   {
     id: 'data-modeling',
     name: 'Modelagem de Dados & Schemas',
-    level: 5.0,
+    level: 4.2,
     description: 'Design de schemas dimensionais (Kimball), normalização, denormalização e contratos de dados.',
     category: 'Engenharia de Dados',
     type: 'hard',
@@ -163,7 +163,7 @@ export const skills: Skill[] = [
   {
     id: 'data-lakes-lakehouse',
     name: 'Data Lakes, Athena & QuickSight BI',
-    level: 5.0,
+    level: 4.3,
     description: 'Arquitetura Lakehouse em S3, consultas serverless em Athena e dashboards visuais.',
     category: 'Engenharia de Dados',
     type: 'hard',
@@ -289,7 +289,7 @@ export const skills: Skill[] = [
   {
     id: 'api-architecture-design',
     name: 'Arquitetura, Design & Contratos de APIs',
-    level: 5.0,
+    level: 4.2,
     description: 'Especificação, versionamento e governança de contratos REST e APIs.',
     category: 'Engenharia de Software',
     type: 'hard',
@@ -433,6 +433,208 @@ export const skills: Skill[] = [
       { id: 'soft-trust-building', text: 'Construção de Relações de Confiança Inter-Squads' },
       { id: 'soft-public-advocacy', text: 'Advocacy Técnico & Representação de Marca Empregadora' }
     ]
+  },
+
+  // ==========================================
+  // HORIZONTE DE APRENDIZADO: L3-L7 (Macro-Skills Futuras)
+  // ==========================================
+  {
+    id: 'enterprise-architecture-design',
+    name: 'Enterprise Architecture & System Design',
+    level: 1.5,
+    description: 'Arquitetura corporativa de larga escala, design de sistemas distribuídos e padrões enterprise.',
+    category: 'Arquitetura Corporativa',
+    type: 'hard',
+    requirements: [
+      { id: 'ent-arch-cqrs-eventsourcing', text: 'CQRS & Event Sourcing em Sistemas Distribuídos' },
+      { id: 'ent-arch-saga-patterns', text: 'Saga Pattern & Orquestração de Transações Distribuídas' },
+      { id: 'ent-arch-api-federation', text: 'API Federation & GraphQL Gateway Architecture' },
+      { id: 'ent-arch-service-mesh', text: 'Service Mesh (Istio / Linkerd) & Zero-Trust Networking' },
+      { id: 'ent-arch-ddd-bounded-context', text: 'Domain-Driven Design Avançado & Bounded Context Mapping' },
+      { id: 'ent-arch-cap-theorem', text: 'CAP Theorem & Tradeoffs de Consistência em Sistemas Distribuídos' },
+      { id: 'ent-arch-multi-region-failover', text: 'Multi-Region Active-Active & Global Load Balancing' },
+      { id: 'ent-arch-event-driven-choreography', text: 'Event-Driven Architecture & Choreography vs Orchestration' },
+      { id: 'ent-arch-strangler-fig', text: 'Strangler Fig Pattern & Legacy Modernization Strategy' },
+      { id: 'ent-arch-bulkhead-circuit', text: 'Bulkhead & Circuit Breaker Patterns para Resiliência' },
+      { id: 'ent-arch-distributed-tracing', text: 'Distributed Tracing (OpenTelemetry / Jaeger)' },
+      { id: 'ent-arch-chaos-engineering', text: 'Chaos Engineering & Fault Injection Testing (Netflix Chaos Monkey)' }
+    ]
+  },
+  {
+    id: 'cloud-native-platform-eng',
+    name: 'Cloud-Native Platform Engineering',
+    level: 1.2,
+    description: 'Plataformas cloud-native escaláveis, Kubernetes enterprise e estratégias multi-cloud.',
+    category: 'Arquitetura Corporativa',
+    type: 'hard',
+    requirements: [
+      { id: 'k8s-operator-patterns', text: 'Kubernetes Operator Pattern & Custom Resource Definitions (CRDs)' },
+      { id: 'k8s-multi-cluster-federation', text: 'Multi-Cluster Kubernetes & Cluster Federation (KubeFed)' },
+      { id: 'k8s-security-hardening', text: 'Kubernetes Security Hardening (Pod Security Policies / OPA Gatekeeper)' },
+      { id: 'k8s-autoscaling-hpa-vpa', text: 'Horizontal & Vertical Pod Autoscaling + Cluster Autoscaling' },
+      { id: 'k8s-service-mesh-advanced', text: 'Service Mesh Avançado: Traffic Shaping, Canary & A/B Testing' },
+      { id: 'serverless-lambda-cold-start', text: 'Serverless Optimization: Cold Start Mitigation & Provisioned Concurrency' },
+      { id: 'multi-cloud-abstraction', text: 'Multi-Cloud Abstraction Layer & Cloud Agnostic Architecture' },
+      { id: 'platform-idp-backstage', text: 'Internal Developer Platform (Backstage / Port / Humanitec)' },
+      { id: 'platform-golden-path', text: 'Golden Path Engineering & Self-Service Platform Design' },
+      { id: 'cost-attribution-chargeback', text: 'FinOps Avançado: Cost Attribution, Chargeback & Showback' },
+      { id: 'edge-computing-cdn', text: 'Edge Computing, CDN Programming & Cloudflare Workers' },
+      { id: 'infra-gitops-advanced', text: 'GitOps Avançado: Progressive Delivery & Flagger' }
+    ]
+  },
+  {
+    id: 'ai-ml-infrastructure',
+    name: 'AI/ML Infrastructure & MLOps at Scale',
+    level: 1.0,
+    description: 'Infraestrutura de ML em escala, feature stores distribuídos e serving de modelos em produção.',
+    category: 'AI/ML Engineering',
+    type: 'hard',
+    requirements: [
+      { id: 'ml-feature-store-arch', text: 'Feature Store Architecture (Feast / Tecton) & Real-Time Serving' },
+      { id: 'ml-model-serving-triton', text: 'Model Serving at Scale (Triton Inference Server / TorchServe)' },
+      { id: 'ml-distributed-training', text: 'Distributed Training (Horovod / DeepSpeed / Ray Train)' },
+      { id: 'ml-hyperparameter-tuning', text: 'Hyperparameter Tuning at Scale (Optuna / Ray Tune / Katib)' },
+      { id: 'ml-experiment-tracking-mlflow', text: 'Experiment Tracking & Model Registry (MLflow / Weights & Biases)' },
+      { id: 'ml-model-monitoring-drift', text: 'Model Monitoring: Data Drift, Concept Drift & Performance Degradation' },
+      { id: 'ml-ab-testing-models', text: 'A/B Testing de Modelos & Multi-Armed Bandit Strategies' },
+      { id: 'ml-feature-engineering-auto', text: 'Automated Feature Engineering (Featuretools / tsfresh)' },
+      { id: 'ml-pipeline-kubeflow', text: 'ML Pipelines (Kubeflow / Vertex AI Pipelines / SageMaker Pipelines)' },
+      { id: 'ml-gpu-optimization', text: 'GPU Optimization & Mixed Precision Training (FP16 / BF16)' },
+      { id: 'ml-model-compression', text: 'Model Compression: Quantization, Pruning & Knowledge Distillation' },
+      { id: 'ml-edge-deployment', text: 'Edge ML Deployment (TensorFlow Lite / ONNX Runtime / CoreML)' }
+    ]
+  },
+  {
+    id: 'advanced-ai-security',
+    name: 'Advanced AI Security & Zero-Trust ML',
+    level: 0.8,
+    description: 'Segurança avançada de IA, zero-trust ML, detecção de adversarial attacks e hardening de modelos.',
+    category: 'AI/ML Engineering',
+    type: 'hard',
+    requirements: [
+      { id: 'adv-ai-sec-adversarial-defense', text: 'Adversarial Defense: Adversarial Training & Certified Robustness' },
+      { id: 'adv-ai-sec-model-extraction', text: 'Model Extraction Attack Detection & Watermarking' },
+      { id: 'adv-ai-sec-membership-inference', text: 'Membership Inference Attack Mitigation & Differential Privacy' },
+      { id: 'adv-ai-sec-federated-learning', text: 'Federated Learning Security & Secure Aggregation' },
+      { id: 'adv-ai-sec-homomorphic-encryption', text: 'Homomorphic Encryption for ML (SEAL / HElib)' },
+      { id: 'adv-ai-sec-trusted-execution', text: 'Trusted Execution Environments (TEE) para ML (Intel SGX / AWS Nitro Enclaves)' },
+      { id: 'adv-ai-sec-backdoor-detection', text: 'Backdoor Detection & Neural Cleanse em Modelos Treinados' },
+      { id: 'adv-ai-sec-privacy-preserving', text: 'Privacy-Preserving ML (Differential Privacy / Secure Multi-Party Computation)' },
+      { id: 'adv-ai-sec-llm-jailbreak-advanced', text: 'Advanced LLM Jailbreak Detection & Multi-Layer Defense' },
+      { id: 'adv-ai-sec-prompt-firewall', text: 'Prompt Firewall Architecture & Real-Time Injection Detection' },
+      { id: 'adv-ai-sec-ai-red-team-ops', text: 'AI Red Team Operations & Continuous Adversarial Testing' },
+      { id: 'adv-ai-sec-supply-chain-audit', text: 'AI Supply Chain Audit & SBOM for ML Models (CycloneDX ML-BOM)' }
+    ]
+  },
+  {
+    id: 'data-platform-architecture',
+    name: 'Data Platform Architecture & Governance',
+    level: 1.3,
+    description: 'Plataformas de dados corporativas, data mesh, governança federada e democratização em escala.',
+    category: 'Data Engineering',
+    type: 'hard',
+    requirements: [
+      { id: 'data-mesh-federated-gov', text: 'Data Mesh: Federated Governance & Domain Ownership' },
+      { id: 'data-mesh-product-thinking', text: 'Data as a Product: SLA, Discoverability & Self-Serve Infrastructure' },
+      { id: 'data-catalog-discovery', text: 'Data Catalog & Discovery (DataHub / Amundsen / Collibra)' },
+      { id: 'data-quality-framework', text: 'Data Quality Framework (Great Expectations / Soda / Monte Carlo)' },
+      { id: 'data-lineage-end-to-end', text: 'End-to-End Data Lineage (OpenLineage / Marquez / Spline)' },
+      { id: 'data-contracts-enforcement', text: 'Data Contracts: Schema Evolution, Breaking Change Detection & CI/CD' },
+      { id: 'data-access-control-abac', text: 'Attribute-Based Access Control (ABAC) para Dados (AWS Lake Formation / Ranger)' },
+      { id: 'data-versioning-dvc', text: 'Data Versioning & Reproducibility (DVC / Pachyderm / lakeFS)' },
+      { id: 'stream-processing-flink', text: 'Stream Processing at Scale (Apache Flink / Kafka Streams)' },
+      { id: 'real-time-olap', text: 'Real-Time OLAP (Apache Druid / ClickHouse / Apache Pinot)' },
+      { id: 'data-lakehouse-unity-catalog', text: 'Lakehouse Governance (Delta Lake / Databricks Unity Catalog)' },
+      { id: 'metadata-driven-pipelines', text: 'Metadata-Driven ETL & Dynamic Pipeline Generation' }
+    ]
+  },
+  {
+    id: 'devsecops-platform-security',
+    name: 'DevSecOps & Platform Security at Scale',
+    level: 1.1,
+    description: 'Segurança em pipelines CI/CD, shift-left security, SAST/DAST e supply chain security.',
+    category: 'DevSecOps',
+    type: 'hard',
+    requirements: [
+      { id: 'devsecops-shift-left', text: 'Shift-Left Security: Pre-Commit Hooks & IDE Security Plugins' },
+      { id: 'devsecops-sast-sca', text: 'SAST & SCA Integration (SonarQube / Snyk / Checkmarx)' },
+      { id: 'devsecops-dast-iast', text: 'DAST & IAST: Runtime Security Testing (OWASP ZAP / Burp Suite Enterprise)' },
+      { id: 'devsecops-container-scanning', text: 'Container Image Scanning (Trivy / Grype / Clair)' },
+      { id: 'devsecops-sbom-generation', text: 'Software Bill of Materials (SBOM) Generation (Syft / CycloneDX)' },
+      { id: 'devsecops-secrets-management', text: 'Secrets Management at Scale (Vault / AWS Secrets Manager / External Secrets Operator)' },
+      { id: 'devsecops-policy-as-code', text: 'Policy as Code (OPA / Kyverno / Sentinel)' },
+      { id: 'devsecops-runtime-protection', text: 'Runtime Application Self-Protection (RASP) & Falco' },
+      { id: 'devsecops-vulnerability-mgmt', text: 'Vulnerability Management & Remediation Prioritization (CVSS / EPSS)' },
+      { id: 'devsecops-security-gates', text: 'Security Gates & Quality Gates Enforcement em CI/CD' },
+      { id: 'devsecops-compliance-automation', text: 'Compliance as Code (InSpec / Cloud Custodian / Prowler)' },
+      { id: 'devsecops-threat-modeling-cicd', text: 'Threat Modeling Automation & Integration com CI/CD (STRIDE / PASTA)' }
+    ]
+  },
+  {
+    id: 'performance-optimization-sre',
+    name: 'Performance Engineering & SRE Practices',
+    level: 1.0,
+    description: 'Engenharia de performance, SLO/SLI, capacity planning e incident management.',
+    category: 'SRE & Observability',
+    type: 'hard',
+    requirements: [
+      { id: 'sre-slo-sli-error-budget', text: 'SLO, SLI & Error Budget Management' },
+      { id: 'sre-capacity-planning', text: 'Capacity Planning & Forecasting (Prophet / Holt-Winters)' },
+      { id: 'sre-incident-management', text: 'Incident Management & On-Call Best Practices (PagerDuty / Opsgenie)' },
+      { id: 'sre-postmortem-culture', text: 'Blameless Postmortems & Continuous Improvement Culture' },
+      { id: 'sre-chaos-engineering-gameday', text: 'Chaos Engineering & Game Day Exercises' },
+      { id: 'perf-load-testing', text: 'Load Testing & Stress Testing (k6 / Gatling / Locust)' },
+      { id: 'perf-profiling-flamegraphs', text: 'Application Profiling & Flame Graphs (pprof / perf / async-profiler)' },
+      { id: 'perf-database-tuning', text: 'Database Performance Tuning & Query Optimization' },
+      { id: 'perf-caching-strategies', text: 'Caching Strategies: CDN, Redis, Application-Level Caching' },
+      { id: 'perf-distributed-tracing-analysis', text: 'Distributed Tracing Analysis & Performance Bottleneck Detection' },
+      { id: 'observability-opentelemetry', text: 'OpenTelemetry Implementation & Custom Instrumentation' },
+      { id: 'observability-logging-agg', text: 'Log Aggregation & Analysis (ELK / Loki / Splunk)' }
+    ]
+  },
+  {
+    id: 'executive-technical-leadership',
+    name: 'Executive Technical Leadership & Strategy',
+    level: 0.5,
+    description: 'Liderança técnica executiva, visão estratégica de tecnologia, gestão de portfólio e influência organizacional.',
+    category: 'Soft Skills',
+    type: 'soft',
+    requirements: [
+      { id: 'exec-tech-vision-roadmap', text: 'Technical Vision & Multi-Year Technology Roadmapping' },
+      { id: 'exec-portfolio-management', text: 'Portfolio Management & Resource Allocation Strategy' },
+      { id: 'exec-build-vs-buy', text: 'Build vs Buy vs Partner Decision Frameworks' },
+      { id: 'exec-vendor-management', text: 'Vendor Management & Strategic Partnership Negotiation' },
+      { id: 'exec-technical-due-diligence', text: 'Technical Due Diligence for M&A & Investment Decisions' },
+      { id: 'exec-engineering-culture', text: 'Building Engineering Culture & High-Performance Teams' },
+      { id: 'exec-hiring-bar-raising', text: 'Hiring Strategy & Bar Raising for Technical Talent' },
+      { id: 'exec-cross-functional-influence', text: 'Cross-Functional Influence: Product, Sales, Legal, Finance' },
+      { id: 'exec-board-communication', text: 'Board-Level Communication & Executive Reporting' },
+      { id: 'exec-risk-mitigation-strategy', text: 'Enterprise Risk Mitigation & Contingency Planning' },
+      { id: 'exec-tech-debt-portfolio', text: 'Technical Debt Portfolio Management & Strategic Refactoring' },
+      { id: 'exec-innovation-r-and-d', text: 'Innovation Programs & R&D Investment Strategy' }
+    ]
+  },
+  {
+    id: 'org-design-scaling',
+    name: 'Organizational Design & Scaling Teams',
+    level: 0.4,
+    description: 'Design organizacional, estruturas de equipe, processos de escala e transformação organizacional.',
+    category: 'Soft Skills',
+    type: 'soft',
+    requirements: [
+      { id: 'org-team-topologies', text: 'Team Topologies: Stream-Aligned, Platform, Enabling & Complicated-Subsystem Teams' },
+      { id: 'org-conways-law', text: 'Conway\'s Law & Organizational Architecture Alignment' },
+      { id: 'org-inverse-conway', text: 'Inverse Conway Maneuver & Intentional Architecture Through Org Design' },
+      { id: 'org-spotify-model', text: 'Squad/Tribe Model & Autonomous Team Structures (Spotify Model)' },
+      { id: 'org-platform-team-charter', text: 'Platform Team Charter & Product Management for Internal Platforms' },
+      { id: 'org-devex-metrics', text: 'Developer Experience (DevEx) Metrics & Measurement (DORA / SPACE)' },
+      { id: 'org-engineering-onboarding', text: 'Engineering Onboarding at Scale & Ramp-Up Programs' },
+      { id: 'org-career-ladders', text: 'Engineering Career Ladders & IC vs Management Tracks' },
+      { id: 'org-performance-calibration', text: 'Performance Management & Calibration at Scale' },
+      { id: 'org-change-management', text: 'Change Management & Organizational Transformation Leadership' },
+      { id: 'org-remote-distributed', text: 'Remote & Distributed Team Leadership Best Practices' },
+      { id: 'org-psychological-safety', text: 'Building Psychological Safety & Inclusive Engineering Culture' }
+    ]
   }
 ];
 
@@ -480,7 +682,7 @@ export const milestones: Milestone[] = [
     progress: 100,
     deadline: '2025-06-30',
     notes: 'Feedback formal de 3 colegas registrando evolução em escuta ativa e comunicação empática.',
-    relatedSkills: ['communication-storytelling', 'relational-influence-cnv'],
+    relatedSkills: ['relational-influence-cnv', 'communication-storytelling', 'adaptability-resilience'],
     relatedResources: ['books-comm-cnv'],
     phase: 'L1',
     archived: true,
@@ -572,7 +774,7 @@ export const milestones: Milestone[] = [
     progress: 100,
     deadline: '2025-12-31',
     notes: 'Mentoria ativa para 2 estagiários em SQL e Python.',
-    relatedSkills: ['leadership-mentorship', 'relational-influence-cnv', 'languages-tooling'],
+    relatedSkills: ['leadership-mentorship', 'relational-influence-cnv', 'languages-tooling', 'communication-storytelling'],
     relatedResources: ['mentoring'],
     phase: 'L1',
     archived: true,
@@ -622,7 +824,7 @@ export const milestones: Milestone[] = [
         completionJustification: 'Criei skills voltadas à democratização de dados em fluxo ponta a ponta, contendo 13 skills. Além disso, apoiei na criação de um módulo de 18 skills de documentação e outro com 15 de design.'
       }
     ],
-    relatedSkills: ['prompt-eng-sdd', 'agent-systems', 'comm-leadership'],
+    relatedSkills: ['prompt-eng-sdd', 'agent-systems', 'communication-storytelling', 'leadership-mentorship'],
     relatedResources: ['llm-course'],
     phase: 'L2',
     unlockedRequirements: [
@@ -669,7 +871,7 @@ export const milestones: Milestone[] = [
       { text: 'Obter aprovação de qualidade em 100% das entregas (SonarQube, linters, testes)', completed: true, completionJustification: 'Estabelecidas green build guarantees no ciclo de desenvolvimento assistido por IA e cobertura mínima de 95% de testes nos projetos.' },
       { text: 'Feedback positivo de sênior sobre autonomia técnica documentado in 1:1', completed: true, completionJustification: 'Feedbacks formais na plataforma de performance 2025, feedbacks estruturados de Odair e Henrique, além de alinhamentos positivos com gestão direta.' }
     ],
-    relatedSkills: ['web-frontend-arch', 'api-architecture-design', 'agent-systems'],
+    relatedSkills: ['web-frontend-arch', 'api-architecture-design', 'agent-systems', 'strategic-vision-career'],
     relatedResources: ['architecture-reviews'],
     phase: 'L2',
     unlockedRequirements: [
@@ -993,7 +1195,7 @@ export const milestones: Milestone[] = [
       { text: 'Realizar 3+ simulados com 70%+ de aproveitamento', completed: false },
       { text: 'Aprovação no exame prático de 24h + relatório', completed: false }
     ],
-    relatedSkills: ['security', 'critical-thinking', 'python', 'bash'],
+    relatedSkills: ['critical-thinking-problem-solving', 'offensive-sec-pentest', 'languages-tooling'],
     relatedResources: ['cert-oscp'],
     phase: 'L3',
     unlockedRequirements: [
@@ -1020,7 +1222,7 @@ export const milestones: Milestone[] = [
       { text: 'Realizar 3+ simulados com 75%+ de aproveitamento', completed: false },
       { text: 'Aprovação no exame', completed: false }
     ],
-    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 's3'],
+    relatedSkills: ['aws-cloud-arch', 'api-architecture-design', 'platform-devops-mlops'],
     relatedResources: ['cert-awssaa'],
     phase: 'L3',
     unlockedRequirements: [
@@ -1171,7 +1373,7 @@ export const milestones: Milestone[] = [
       { text: 'Realizar 5+ simulados com 80%+ de aproveitamento', completed: false },
       { text: 'Aprovação no exame', completed: false }
     ],
-    relatedSkills: ['aws', 'api-architecture', 'iam', 'vpc', 'lambda', 'ecs'],
+    relatedSkills: ['aws-cloud-arch', 'api-architecture-design', 'platform-devops-mlops', 'strategic-vision-career'],
     relatedResources: ['cert-awssap'],
     phase: 'L4',
     unlockedRequirements: [
@@ -1203,7 +1405,7 @@ export const milestones: Milestone[] = [
       { text: 'Realizar simulados com 85%+ de aproveitamento', completed: false },
       { text: 'Aprovação no exame CISSP', completed: false }
     ],
-    relatedSkills: ['security', 'aws', 'iam', 'vpc', 'critical-thinking'],
+    relatedSkills: ['offensive-sec-pentest', 'ai-governance-compliance', 'critical-thinking-problem-solving', 'strategic-vision-career'],
     relatedResources: ['cert-cissp'],
     phase: 'L5',
     unlockedRequirements: [
@@ -1231,7 +1433,7 @@ export const milestones: Milestone[] = [
       { text: 'Realizar 3+ palestras técnicas (BSides, H2HC, ROADSEC)', completed: false },
       { text: 'Impacto em 3+ diretorias documentado com métricas', completed: false }
     ],
-    relatedSkills: ['influence', 'leadership', 'api-architecture', 'stakeholder-management'],
+    relatedSkills: ['relational-influence-cnv', 'leadership-mentorship', 'api-architecture-design', 'strategic-vision-career'],
     relatedResources: [],
     phase: 'L5',
     unlockedRequirements: [
@@ -1260,7 +1462,7 @@ export const milestones: Milestone[] = [
       { text: 'Liderar comunidade técnica interna com 100+ membros ativos', completed: false },
       { text: 'Impacto organizacional amplo documentado para PRAD', completed: false }
     ],
-    relatedSkills: ['security', 'mlops', 'critical-thinking', 'strategic-vision'],
+    relatedSkills: ['ai-security-redteam', 'platform-devops-mlops', 'critical-thinking-problem-solving', 'strategic-vision-career'],
     relatedResources: ['books-sec-practical-llm-security', 'ref-mitre-atlas', 'course-adversarial-ml'],
     phase: 'L6',
     unlockedRequirements: [
@@ -1284,7 +1486,7 @@ export const milestones: Milestone[] = [
       { text: 'Participação ativa em grupos de trabalho (OWASP, NIST)', completed: false },
       { text: 'Impacto reconhecido pela diretoria executiva', completed: false }
     ],
-    relatedSkills: ['strategic-vision', 'influence', 'security', 'stakeholder-management'],
+    relatedSkills: ['strategic-vision-career', 'relational-influence-cnv', 'ai-governance-compliance', 'leadership-mentorship'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
     phase: 'L6',
     unlockedRequirements: [
@@ -1306,7 +1508,7 @@ export const milestones: Milestone[] = [
       { text: 'Definir as políticas arquiteturais e diretrizes de IA corporativa.', completed: false },
       { text: 'Implementar a métrica de score de maturidade em segurança de IA para todos os squads.', completed: false }
     ],
-    relatedSkills: ['influence', 'strategic-vision'],
+    relatedSkills: ['relational-influence-cnv', 'strategic-vision-career', 'ai-governance-compliance'],
     relatedResources: ['ref-nist-ai-rmf', 'books-sec-ai-risk'],
     phase: 'L6',
     unlockedRequirements: [
@@ -1330,7 +1532,7 @@ export const milestones: Milestone[] = [
       { text: 'Estudar estrutura do AIMS e ciclo de vida de sistemas de IA', completed: false },
       { text: 'Aprovação no exame oficial', completed: false }
     ],
-    relatedSkills: ['security', 'strategic-vision'],
+    relatedSkills: ['ai-governance-compliance', 'strategic-vision-career', 'offensive-sec-pentest'],
     relatedResources: ['cert-iso42001'],
     phase: 'L6',
     unlockedRequirements: [
@@ -1357,7 +1559,7 @@ export const milestones: Milestone[] = [
       { text: 'Acumular créditos nos módulos tecnológicos e de comunicação', completed: false },
       { text: 'Aprovação no trabalho final CPSA-A', completed: false }
     ],
-    relatedSkills: ['api-architecture', 'influence', 'technical-docs'],
+    relatedSkills: ['api-architecture-design', 'relational-influence-cnv', 'communication-storytelling', 'aws-cloud-arch'],
     relatedResources: ['cert-cpsaa'],
     phase: 'L6',
     unlockedRequirements: [
@@ -1387,7 +1589,7 @@ export const milestones: Milestone[] = [
       { text: 'Estabelecer presença externa (palestras em Black Hat, DEF CON)', completed: false },
       { text: 'Impacto corporativo transformador documentado no Itaú', completed: false }
     ],
-    relatedSkills: ['presentation', 'influence', 'strategic-vision', 'storytelling'],
+    relatedSkills: ['communication-storytelling', 'relational-influence-cnv', 'strategic-vision-career', 'leadership-mentorship'],
     relatedResources: [],
     phase: 'L7',
     unlockedRequirements: [
@@ -1410,7 +1612,7 @@ export const milestones: Milestone[] = [
       { text: 'Compreender gestão de risco integrada de múltiplos frameworks', completed: false },
       { text: 'Aprovação no exame oficial', completed: false }
     ],
-    relatedSkills: ['security', 'strategic-vision', 'leadership'],
+    relatedSkills: ['ai-governance-compliance', 'strategic-vision-career', 'leadership-mentorship', 'offensive-sec-pentest'],
     relatedResources: ['cert-aaism'],
     phase: 'L7',
     blockedBy: 'CISSP (ISC2) — obter e manter certificação ativa como pré-requisito',
@@ -1431,7 +1633,7 @@ export const projects: Project[] = [
     status: 'in-progress',
     impact: 'Centralização das jornadas de segurança da informação em um único portal disponível para todo o banco.',
     technologies: ['HTML/CSS', 'JavaScript', 'Sass', 'AWS', 'Terraform', 'Angular', 'CloudFront', 'Datadog', 'Microfrontends'],
-    relatedSkills: ['html-css', 'javascript', 'typescript', 'angular', 'cloudfront', 'microfrontends', 'terraform', 'data-observability', 'technical-docs', 'testes-automatizados', 'testes-unitarios', 'linters', 'sonarqube', 'sass', 'datadog', 'aws'],
+    relatedSkills: ['web-frontend-arch', 'aws-cloud-arch', 'platform-devops-mlops', 'data-quality-observability'],
     relatedMilestones: ['lead-projects', 'workshops-talks'],
     relatedResources: ['books-arch-peaa', 'cert-security'],
     url: 'https://cyber.itau',
@@ -1444,7 +1646,7 @@ export const projects: Project[] = [
     status: 'in-progress',
     impact: 'Navegação facilitada entre as jornadas do portal Cyber e auxílio na utilização das ferramentas disponíveis, de forma conversacional.',
     technologies: ['LLM', 'RAG', 'Agent Design', 'LangGraph', 'AWS', 'Terraform', 'Angular', 'Datadog', 'API Gateway', 'Lambda', 'S3'],
-    relatedSkills: ['llm', 'rag', 'agent-design', 'langgraph', 'aws', 'terraform', 'angular', 'datadog', 'api-gateway', 'lambda', 's3'],
+    relatedSkills: ['agent-systems', 'prompt-eng-sdd', 'aws-cloud-arch', 'api-architecture-design', 'platform-devops-mlops'],
     relatedMilestones: ['arch-system-design', 'ai-engineering'],
     relatedResources: ['books-arch-peaa', 'cert-security'],
     url: 'https://cyber.itau/insight-guard',
@@ -1457,7 +1659,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: 'Consistência visual em todos os dashboards da diretoria e redução de 40% no tempo de desenvolvimento de novas visões.',
     technologies: ['QuickSight', 'Figma', 'UX Design', 'Design Systems'],
-    relatedSkills: ['quicksight', 'figma', 'ux', 'design-systems'],
+    relatedSkills: ['web-frontend-arch', 'data-lakes-lakehouse', 'communication-storytelling'],
     relatedMilestones: ['promotion-pleno'],
     relatedResources: ['books-comm-storytelling'],
   },
@@ -1468,7 +1670,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: 'Identificação proativa de riscos de segurança.',
     technologies: ['AWS Lambda', 'Python', 'MLOps'],
-    relatedSkills: ['lambda', 'python', 'mlops'],
+    relatedSkills: ['platform-devops-mlops', 'languages-tooling', 'aws-cloud-arch'],
     relatedMilestones: ['ai-fomentation'],
     relatedResources: [],
   },
@@ -1479,7 +1681,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: 'Redução de 70% no tempo de análise de documentos normativos.',
     technologies: ['LLM', 'Python', 'Fluxo Sequencial'],
-    relatedSkills: ['llm', 'python', 'fluxo-sequencial'],
+    relatedSkills: ['agent-systems', 'prompt-eng-sdd', 'languages-tooling'],
     relatedMilestones: ['ai-fomentation'],
     relatedResources: [],
   },
@@ -1490,7 +1692,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: 'Visibilidade executiva dos principais indicadores de risco do banco e direcionamento estratégico de segurança.',
     technologies: ['QuickSight', 'SQL', 'Athena'],
-    relatedSkills: ['quicksight', 'sql', 'athena'],
+    relatedSkills: ['data-lakes-lakehouse', 'data-modeling', 'communication-storytelling'],
     relatedMilestones: ['promotion-pleno'],
     relatedResources: [],
     objectives: [
@@ -1504,7 +1706,7 @@ export const projects: Project[] = [
     status: 'completed',
     impact: 'Atuação na tabela de People, 2 tabelas do Kaizen e suporte técnico para diversas áreas.',
     technologies: ['SQL', 'Python', 'AWS Glue', 'Athena', 'Data Modeling'],
-    relatedSkills: ['sql', 'python', 'data-modeling', 'aws-glue', 'athena'],
+    relatedSkills: ['data-modeling', 'languages-tooling', 'pyspark-glue-etl', 'data-lakes-lakehouse'],
     relatedMilestones: [],
     relatedResources: [],
   },
@@ -1919,7 +2121,152 @@ export const resources: Resource[] = [
     parentCategory: 'Curso',
     category: 'AI Security',
     subCategory: 'Supply Chain',
-    relatedSkills: ['mlops', 'data-observability'],
+    relatedSkills: ['platform-devops-mlops', 'data-quality-observability'],
     relatedMilestones: ['model-supply-chain', 'governance-ai-pipelines'],
   },
+
+  // Referências - Arquitetura & System Design
+  {
+    id: 'ref-system-design-primer',
+    name: 'System Design Primer',
+    description: 'Guia open-source completo sobre design de sistemas distribuídos escaláveis',
+    status: 'not-started',
+    parentCategory: 'Referências',
+    category: 'System Design',
+    subCategory: 'Arquitetura',
+    relatedSkills: ['enterprise-architecture-design', 'cloud-native-platform-eng'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-ddia-kleppmann',
+    name: 'Designing Data-Intensive Applications',
+    description: 'Martin Kleppmann - A Bíblia do design de sistemas de dados',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Arquitetura',
+    subCategory: 'System Design',
+    relatedSkills: ['enterprise-architecture-design', 'data-platform-architecture'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-building-microservices',
+    name: 'Building Microservices (2nd Edition)',
+    description: 'Sam Newman - Design, deployment e evolução de arquiteturas de microsserviços',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Arquitetura',
+    subCategory: 'Microservices',
+    relatedSkills: ['enterprise-architecture-design', 'cloud-native-platform-eng'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-team-topologies',
+    name: 'Team Topologies',
+    description: 'Matthew Skelton & Manuel Pais - Organizing teams for fast flow',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Organizational Design',
+    subCategory: 'Team Structure',
+    relatedSkills: ['org-design-scaling', 'executive-technical-leadership'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-staff-engineer',
+    name: 'Staff Engineer: Leadership Beyond the Management Track',
+    description: 'Will Larson - Guia para liderança técnica sênior',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Leadership',
+    subCategory: 'Technical Leadership',
+    relatedSkills: ['executive-technical-leadership', 'org-design-scaling'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-sre-google',
+    name: 'Site Reliability Engineering (Google)',
+    description: 'Betsy Beyer et al. - Como o Google roda sistemas de produção',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'SRE',
+    subCategory: 'Reliability',
+    relatedSkills: ['performance-optimization-sre', 'cloud-native-platform-eng'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'course-system-design-interview',
+    name: 'System Design Interview Course',
+    description: 'Curso avançado de design de sistemas para entrevistas de Big Tech',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'System Design',
+    subCategory: 'Interview Prep',
+    relatedSkills: ['enterprise-architecture-design', 'data-platform-architecture'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'course-kubernetes-cka',
+    name: 'Certified Kubernetes Administrator (CKA)',
+    description: 'Certificação prática de administração Kubernetes',
+    status: 'not-started',
+    parentCategory: 'Certificação',
+    category: 'Kubernetes',
+    subCategory: 'Platform Engineering',
+    relatedSkills: ['cloud-native-platform-eng'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'course-mlops-production',
+    name: 'Machine Learning Engineering for Production (MLOps)',
+    description: 'DeepLearning.AI - Especialização completa em MLOps',
+    status: 'not-started',
+    parentCategory: 'Curso',
+    category: 'MLOps',
+    subCategory: 'ML Engineering',
+    relatedSkills: ['ai-ml-infrastructure', 'platform-devops-mlops'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'ref-owasp-top10',
+    name: 'OWASP Top 10 Web Application Security Risks',
+    description: 'Referência definitiva sobre vulnerabilidades web mais críticas',
+    status: 'not-started',
+    parentCategory: 'Referências',
+    category: 'Security',
+    subCategory: 'Web Security',
+    relatedSkills: ['devsecops-platform-security', 'offensive-sec-pentest'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'ref-cwe-top25',
+    name: 'CWE Top 25 Most Dangerous Software Weaknesses',
+    description: 'Lista das 25 fraquezas de software mais perigosas',
+    status: 'not-started',
+    parentCategory: 'Referências',
+    category: 'Security',
+    subCategory: 'Software Security',
+    relatedSkills: ['devsecops-platform-security', 'advanced-ai-security'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-accelerate',
+    name: 'Accelerate: The Science of Lean Software and DevOps',
+    description: 'Nicole Forsgren et al. - Pesquisa DORA sobre performance de entrega',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'DevOps',
+    subCategory: 'Metrics',
+    relatedSkills: ['org-design-scaling', 'performance-optimization-sre'],
+    relatedMilestones: [],
+  },
+  {
+    id: 'book-fundamentals-data-eng',
+    name: 'Fundamentals of Data Engineering',
+    description: 'Joe Reis & Matt Housley - O\'Reilly guide para engenharia de dados moderna',
+    status: 'not-started',
+    parentCategory: 'Livros',
+    category: 'Data Engineering',
+    subCategory: 'Foundations',
+    relatedSkills: ['data-platform-architecture', 'data-modeling'],
+    relatedMilestones: [],
+  }
 ];
