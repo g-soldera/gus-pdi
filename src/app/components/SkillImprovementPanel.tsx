@@ -111,10 +111,10 @@ export function SkillImprovementPanel({
                                {/* Added Gain Overlay (Vibrant Emerald with Pulse/Fade) - Lighter, more prominent */}
                                {totalFill > obtainedFill && (
                                  <div
-                                   className={`absolute top-0 left-0 overflow-hidden h-full animate-pulse transition-all duration-700`}
+                                   className={`absolute top-0 left-0 overflow-hidden h-full animate-pulse transition-all duration-700 opacity-20 hover:opacity-100`}
                                    style={{ width: `${(totalFill - obtainedFill) * 100}%` }}
                                  >
-                                   <Star className="w-4 h-4 fill-emerald-300 text-emerald-300 drop-shadow-[0_0_4px_rgba(52,211,153,0.8)]" />
+                                   <Star className="w-4 h-4 fill-emerald-300 text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
                                  </div>
                                )}
                              </div>
