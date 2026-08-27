@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Zap, Star, CheckCircle2, Info } from 'lucide-react';
+import { TrendingUp, Zap, Star, CheckCircle2 } from 'lucide-react';
 import { MilestoneRequirementUnlock, Skill } from '@/types/pdi';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/ui/tooltip';
 
@@ -37,19 +37,35 @@ export function SkillImprovementPanel({
             {isCompleted ? <Zap className="w-3.5 h-3.5 text-emerald-500" /> : <TrendingUp className="w-3.5 h-3.5 text-primary" />}
             <span>Impacto em Skills</span>
           </h3>
-          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-            +{unlockedRequirements.length} micro-skills
-          </span>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-medium">
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-primary inline-block" /> Atual
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" /> Ganho
+              </span>
+            </div>
+            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+              +{unlockedRequirements.length} micro-skills
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-1.5">
           {Object.entries(groupedBySkill).map(([skillId, unlocks]) => {
             const skill = allSkills.find((s) => s.id === skillId);
-            if (!skill || !skill.requirements) return null;
+            if (!skill || !skill.requirements || skill.requirements.length === 0) return null;
 
             const totalReqs = skill.requirements.length;
-            const starGainPerReq = (4 / totalReqs);
-            const totalStarGain = unlocks.length * starGainPerReq;
+            const gainLevel = unlocks.length * (4 / totalReqs);
+
+            const obtainedLevel = isCompleted
+              ? Math.max(1, skill.level - gainLevel)
+              : Math.min(5, skill.level);
+
+            const addedLevel = gainLevel;
+            const totalLevel = Math.min(5, obtainedLevel + addedLevel);
 
             return (
               <Tooltip key={skillId}>
@@ -58,7 +74,7 @@ export function SkillImprovementPanel({
                     onClick={() => onSkillClick?.(skill)}
                     className="flex items-center justify-between p-2 rounded-lg bg-muted/40 hover:bg-muted border border-border/40 transition-all text-xs cursor-pointer group"
                   >
-                    <div className="flex items-center gap-2 min-w-0">
+                    <div className="flex items-center gap-2 min-w-0 pr-2">
                       <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                         {skill.name}
                       </span>
@@ -67,9 +83,42 @@ export function SkillImprovementPanel({
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1 px-2 py-0.5 bg-primary/10 text-primary rounded-md font-mono font-bold shrink-0">
-                      <Star className="w-3 h-3 fill-primary text-primary" />
-                      <span>+{totalStarGain.toFixed(2)}</span>
+                    <div
+                      className="flex items-center gap-0.5 shrink-0"
+                      title={`Atual: ${obtainedLevel.toFixed(1)} | Ganho: +${addedLevel.toFixed(2)}`}
+                    >
+                      {[1, 2, 3, 4, 5].map((star) => {
+                        const starStart = star - 1;
+                        const obtainedFill = Math.min(Math.max(obtainedLevel - starStart, 0), 1);
+                        const totalFill = Math.min(Math.max(totalLevel - starStart, 0), 1);
+
+                        return (
+                          <div key={star} className="relative">
+                            {/* Base Star (Muted) */}
+                            <Star className="w-3.5 h-3.5 fill-muted text-muted" />
+
+                            {/* Added Gain Overlay (Emerald) */}
+                            {totalFill > 0 && (
+                              <div
+                                className="absolute top-0 left-0 overflow-hidden"
+                                style={{ width: `${totalFill * 100}%` }}
+                              >
+                                <Star className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400" />
+                              </div>
+                            )}
+
+                            {/* Obtained Level Overlay (Primary) */}
+                            {obtainedFill > 0 && (
+                              <div
+                                className="absolute top-0 left-0 overflow-hidden"
+                                style={{ width: `${obtainedFill * 100}%` }}
+                              >
+                                <Star className="w-3.5 h-3.5 fill-primary text-primary" />
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </TooltipTrigger>

@@ -37,7 +37,11 @@ export const skills: Skill[] = [
       { id: 'agent-mas', text: 'Multi-Agent Systems (MAS) Hierárquicos' },
       { id: 'agent-evals', text: 'Agent Evals, Benchmarking & Continuous Assessment' },
       { id: 'agent-memory', text: 'Long-Term Memory, Context Window & Vector RAG' },
-      { id: 'agent-tool-building', text: 'Custom Tool Building & Sandboxing (Hermes/Devin)' }
+      { id: 'agent-tool-building', text: 'Custom Tool Building & Sandboxing (Hermes/Devin)' },
+      { id: 'agent-human-in-loop', text: 'Human-in-the-Loop & Breakpoints Interativos' },
+      { id: 'agent-state-persistence', text: 'Persistência de Estado e Checkpointing de Agentes' },
+      { id: 'agent-streaming', text: 'Streaming de Pensamento e Token-by-Token Rendering' },
+      { id: 'agent-fallback-recovery', text: 'Fallback Strategy & Self-Healing de Erros de Execução' }
     ]
   },
   {
@@ -55,7 +59,11 @@ export const skills: Skill[] = [
       { id: 'prompt-skeleton', text: 'Skeleton-of-Thought para Documentos Extensos' },
       { id: 'sdd-specs', text: 'Specification-Driven Development (SDD / Spec-Kit)' },
       { id: 'gsd-framework', text: 'Get Shit Done (GSD) Agentic Framework' },
-      { id: 'bmad-method', text: 'BMAD Architecture & Requirements Elicitation' }
+      { id: 'bmad-method', text: 'BMAD Architecture & Requirements Elicitation' },
+      { id: 'prompt-json-schema', text: 'Structured Output & JSON Schema Constraint Enforcement' },
+      { id: 'prompt-metaprompting', text: 'Meta-Prompting & Geração Automatizada de Prompts' },
+      { id: 'prompt-compression', text: 'Context Window Compression & Prompt Distillation' },
+      { id: 'prompt-negation-boundary', text: 'Boundary Guarding & Anti-Hallucination Prompting' }
     ]
   },
 
@@ -76,7 +84,12 @@ export const skills: Skill[] = [
       { id: 'mitre-atlas', text: 'Modelagem de Ameaças ML via MITRE ATLAS (TTPs)' },
       { id: 'adversarial-redteam', text: 'Adversarial ML & Red Teaming em LLMs' },
       { id: 'mcp-security', text: 'MCP Security & Isolamento de Ferramentas (CMCPSE)' },
-      { id: 'agentic-threat-modeling', text: 'Agentic Security & Threat Modeling de Agentes' }
+      { id: 'agentic-threat-modeling', text: 'Agentic Security & Threat Modeling de Agentes' },
+      { id: 'caisp-practical-labs', text: 'Análise Avançada de Vulnerabilidades em IA (CAISP)' },
+      { id: 'mcp-tool-poisoning', text: 'Mitigação de Tool Poisoning & Rug-Pull em MCP (CMCPSE)' },
+      { id: 'data-poisoning-ml', text: 'Detecção de Data Poisoning & Model Inversion Attacks' },
+      { id: 'rag-poisoning-sec', text: 'Segurança em RAG: Vector Injection & Knowledge Base Tampering' },
+      { id: 'agent-sandbox-sec', text: 'Isolamento de Ambiente e Sandboxing para Execução de Agentes' }
     ]
   },
   {
@@ -91,7 +104,12 @@ export const skills: Skill[] = [
       { id: 'nist-ai-rmf', text: 'Conformidade & Governança via NIST AI RMF' },
       { id: 'iso-42001', text: 'Gestão da Governança de IA (ISO/IEC 42001)' },
       { id: 'ai-auditing-hallucination', text: 'Auditoria de Outputs & Detecção de Alucinações' },
-      { id: 'executive-ai-governance', text: 'Framework Corporativo de AI Governance em Produção' }
+      { id: 'executive-ai-governance', text: 'Framework Corporativo de AI Governance em Produção' },
+      { id: 'isaca-aaism-program', text: 'Programa Integrado de AI Security Management (ISACA AAISM)' },
+      { id: 'eu-ai-act-compliance', text: 'Classificação de Risco & Conformidade Regulatória (EU AI Act)' },
+      { id: 'model-explainability-xai', text: 'Explicabilidade de Modelos (XAI / SHAP / LIME)' },
+      { id: 'bias-fairness-audit', text: 'Auditoria Algorítmica de Viés e Imparcialidade (Fairness)' },
+      { id: 'ai-lifecycle-governance', text: 'Governança de Ciclo de Vida do Aprendizado de Máquina' }
     ]
   },
 
@@ -110,7 +128,14 @@ export const skills: Skill[] = [
       { id: 'crtp-ad-sec', text: 'Exploração & Defesa em Active Directory (CRTP)' },
       { id: 'oscp-pentest', text: 'Metodologias de Pentest & Exploração Prática (OSCP)' },
       { id: 'cloud-security-iam', text: 'Segurança de Infraestrutura Cloud (IAM / VPC Hardening)' },
-      { id: 'cissp-domains', text: 'Domínios de Segurança da Informação (CISSP)' }
+      { id: 'cissp-domains', text: 'Domínios de Segurança da Informação (CISSP)' },
+      { id: 'oscp-web-exploitation', text: 'Exploração Web Avançada & OWASP Top 10 (OSCP)' },
+      { id: 'oscp-privilege-escalation', text: 'Elevação de Privilégios Windows/Linux (OSCP)' },
+      { id: 'crtp-kerberos-attacks', text: 'Ataques Kerberos: Kerberoasting & AS-REP Roasting (CRTP)' },
+      { id: 'crtp-lateral-movement', text: 'Movimentação Lateral & Golden/Silver Tickets (CRTP)' },
+      { id: 'cissp-risk-mgmt', text: 'Gestão de Riscos & Governança da Segurança (CISSP)' },
+      { id: 'cissp-network-sec', text: 'Engenharia & Arquitetura de Redes Seguras (CISSP)' },
+      { id: 'cissp-identity-access', text: 'Gestão de Identidade & Controle de Acesso (CISSP)' }
     ]
   },
 
@@ -128,7 +153,11 @@ export const skills: Skill[] = [
       { id: 'de-kimball', text: 'Modelagem Dimensional (Kimball / Star Schema / Snowflake)' },
       { id: 'de-normalization', text: 'Normalização (3NF) & Denormalização Analítica' },
       { id: 'de-sql-advanced', text: 'SQL Avançado, CTEs, Window Functions & Tuning' },
-      { id: 'de-data-contracts-design', text: 'Design e Governança de Data Contracts' }
+      { id: 'de-data-contracts-design', text: 'Design e Governança de Data Contracts' },
+      { id: 'de-schema-evolution', text: 'Evolução de Schemas & Compatibilidade de Contratos' },
+      { id: 'de-slowly-changing-dims', text: 'Tratamento de Dimensoes Lentamente Alteradas (SCD Type 1/2/3)' },
+      { id: 'de-semantic-layer', text: 'Camada Semântica & Métricas Centralizadas' },
+      { id: 'de-partition-indexing', text: 'Estratégias de Particionamento e Indexação de Dados' }
     ]
   },
   {
@@ -142,7 +171,11 @@ export const skills: Skill[] = [
       { id: 'de-lakehouse-s3', text: 'Armazenamento & Particionamento de Data Lakes (S3/Parquet)' },
       { id: 'de-athena-queries', text: 'Consultas Ad-hoc & Otimização no AWS Athena' },
       { id: 'de-quicksight-dashboards', text: 'Dashboards Interativos & BI no Amazon QuickSight' },
-      { id: 'de-redshift-dw', text: 'Data Warehouse & Analytics em Escala no Redshift' }
+      { id: 'de-redshift-dw', text: 'Data Warehouse & Analytics em Escala no Redshift' },
+      { id: 'de-open-table-formats', text: 'Formatos de Tabela Abertos (Iceberg / Delta Lake)' },
+      { id: 'de-quicksight-spice', text: 'Otimização de Performance em SPICE no QuickSight' },
+      { id: 'de-lakehouse-governance', text: 'Governança de Acesso e Catalogação em Data Lakes' },
+      { id: 'de-compaction-vacuum', text: 'Manutenção de Lakehouse: Compacidade & Small Files' }
     ]
   },
   {
@@ -156,13 +189,17 @@ export const skills: Skill[] = [
       { id: 'pyspark-distributed', text: 'Transformação Distribuída em Escala via PySpark' },
       { id: 'aws-glue-jobs', text: 'Jobs Serverless, Crawlers & Data Catalog no AWS Glue' },
       { id: 'data-streaming-kafka', text: 'Streaming de Dados em Tempo Real (Apache Kafka)' },
-      { id: 'emr-spark-clusters', text: 'Orquestração de Clusters EMR para Big Data' }
+      { id: 'emr-spark-clusters', text: 'Orquestração de Clusters EMR para Big Data' },
+      { id: 'spark-memory-tuning', text: 'Tuning de Memória & Gerenciamento de Out-Of-Memory (OOM)' },
+      { id: 'glue-dynamic-frames', text: 'DynamicFrames & Transforms Customizadas no Glue' },
+      { id: 'structured-streaming-spark', text: 'Spark Structured Streaming & Event-Driven Pipelines' },
+      { id: 'pyspark-udf-vectorized', text: 'Otimização de UDFs Vetorizadas com PyArrow' }
     ]
   },
   {
     id: 'data-quality-observability',
     name: 'Data Quality & Lineage Observability',
-    level: 3.0, // 2 de 4 desbloqueados (Glue DQ, Data Observability & Alertas)
+    level: 3.0,
     description: 'Validação automatizada de regras de qualidade, observabilidade e linhagem de dados.',
     category: 'Engenharia de Dados',
     type: 'hard',
@@ -170,7 +207,11 @@ export const skills: Skill[] = [
       { id: 'de-glue-dq-rules', text: 'Regras de Qualidade Automatizadas (AWS Glue DQ)' },
       { id: 'de-observability-alerts', text: 'Data Observability & Alertas de Anomalias de Pipeline' },
       { id: 'de-lineage-tracing', text: 'Rastreabilidade de Linhagem (Data Lineage End-to-End)' },
-      { id: 'de-deequ-validation', text: 'Validação de Datasets em Escala com Deequ' }
+      { id: 'de-deequ-validation', text: 'Validação de Datasets em Escala com Deequ' },
+      { id: 'de-data-freshness-sla', text: 'Monitoramento de SLA de Dados e Data Freshness' },
+      { id: 'de-circuit-breaker', text: 'Data Circuit Breakers para Bloqueio de Dados Corrompidos' },
+      { id: 'de-reconciliation-pipeline', text: 'Pipelines de Reconciliação & Checagem de Consistência' },
+      { id: 'de-openlineage-metadata', text: 'Metadata Management & OpenLineage Integration' }
     ]
   },
 
@@ -191,7 +232,12 @@ export const skills: Skill[] = [
       { id: 'aws-cloudwatch', text: 'Monitoramento & Centralização de Logs (CloudWatch)' },
       { id: 'aws-cloudfront', text: 'Distribuição Global via CDN CloudFront' },
       { id: 'aws-bedrock-service', text: 'Modelos Gerenciados no AWS Bedrock' },
-      { id: 'aws-isaqb-arch', text: 'Arquitetura de Soluções Cloud (AWS SA Pro / iSAQB)' }
+      { id: 'aws-isaqb-arch', text: 'Arquitetura de Soluções Cloud (AWS SA Pro / iSAQB)' },
+      { id: 'aws-sap-multi-account', text: 'Arquitetura Multi-Conta AWS Organizations & Landing Zone (AWS SA Pro)' },
+      { id: 'aws-sap-disaster-recovery', text: 'Estratégias de Disaster Recovery & Alta Disponibilidade (AWS SA Pro)' },
+      { id: 'aws-sap-migration', text: 'Estratégias de Migração & Modernização de Cargas (AWS SA Pro)' },
+      { id: 'isaqb-cpsaa-methodology', text: 'Metodologia & Avaliação Arquitetural (iSAQB CPSA-A)' },
+      { id: 'isaqb-cpsaa-communication', text: 'Comunicação & Documentação de Arquitetura (iSAQB CPSA-A)' }
     ]
   },
   {
@@ -208,7 +254,12 @@ export const skills: Skill[] = [
       { id: 'mlops-lifecycle', text: 'MLOps: Deploy, Versionamento & Tracking de Modelos' },
       { id: 'finops-cost', text: 'FinOps Contínuo & Otimização de Custos Cloud' },
       { id: 'cicd-pipelines', text: 'Automação CI/CD (GitHub Actions / CodeBuild / CodePipeline)' },
-      { id: 'observability-datadog', text: 'Observabilidade & APM com Datadog' }
+      { id: 'observability-datadog', text: 'Observabilidade & APM com Datadog' },
+      { id: 'gitops-argo-flux', text: 'GitOps & Deploy Declarativo (ArgoCD / Flux)' },
+      { id: 'mlops-feature-store', text: 'Feature Store & Repositório de Features para ML' },
+      { id: 'mlops-drift-detection', text: 'Monitoramento de Concept Drift & Data Drift em Produção' },
+      { id: 'iac-security-scanning', text: 'Segurança em IaC (Checkov / TFSec / Static Analysis)' },
+      { id: 'blue-green-canary-deploy', text: 'Estratégias de Deploy Progressivo (Blue/Green & Canary)' }
     ]
   },
 
@@ -228,7 +279,11 @@ export const skills: Skill[] = [
       { id: 'web-microfrontends', text: 'Arquitetura Distribuída de Microfrontends' },
       { id: 'web-styling-design', text: 'Tailwind CSS, Sass & Design Systems' },
       { id: 'web-ux-figma', text: 'Prototipação em Figma & Princípios de UX' },
-      { id: 'web-testing-qa', text: 'Testes Automatizados (Unitários / E2E / Linters / SonarQube)' }
+      { id: 'web-testing-qa', text: 'Testes Automatizados (Unitários / E2E / Linters / SonarQube)' },
+      { id: 'web-state-management', text: 'Gerenciamento de Estado Complexo (Zustand / Redux / Context)' },
+      { id: 'web-performance-opt', text: 'Otimização de Web Vitals, Code Splitting & Lazy Loading' },
+      { id: 'web-accessibility-a11y', text: 'Acessibilidade Web (WCAG / WAI-ARIA)' },
+      { id: 'web-security-csp-xss', text: 'Segurança Frontend: CSP, Mitigação XSS & CSRF' }
     ]
   },
   {
@@ -242,7 +297,11 @@ export const skills: Skill[] = [
       { id: 'api-openapi', text: 'Especificação OpenAPI & Versionamento' },
       { id: 'api-design-patterns', text: 'RESTful API Design & Governança (API Owner)' },
       { id: 'api-gateway-mgmt', text: 'Gerenciamento & Rate Limiting em Gateways' },
-      { id: 'api-contracts-val', text: 'Testes de Contrato & Mitigação de Breaking Changes' }
+      { id: 'api-contracts-val', text: 'Testes de Contrato & Mitigação de Breaking Changes' },
+      { id: 'api-graphql-grpc', text: 'Protocolos de Comunicação Alternativos (GraphQL / gRPC)' },
+      { id: 'api-resilience-patterns', text: 'Padrões de Resiliência: Circuit Breaker & Retry' },
+      { id: 'api-authentication-oauth', text: 'Segurança de APIs: OAuth2, OIDC & Mutual TLS' },
+      { id: 'api-event-driven-async', text: 'APIs Assíncronas & Event-Driven Architecture (AsyncAPI)' }
     ]
   },
   {
@@ -257,7 +316,10 @@ export const skills: Skill[] = [
       { id: 'lang-bash', text: 'Shell Scripting & Automação Bash' },
       { id: 'tooling-git', text: 'Git Avançado & Fluxos de Trabalho Colaborativos' },
       { id: 'power-automate-lowcode', text: 'Automação Low-Code (Power Automate)' },
-      { id: 'copilots-productivity', text: 'Devin, GitHub Copilot & StackSpot AI' }
+      { id: 'copilots-productivity', text: 'Devin, GitHub Copilot & StackSpot AI' },
+      { id: 'lang-rust-go-basics', text: 'Fundamentos de Linguagens de Alta Performance (Go / Rust)' },
+      { id: 'tooling-cli-automation', text: 'Criação de CLIs Customizadas & Ferramental de DevEx' },
+      { id: 'advanced-git-workflows', text: 'Git Internals, Rebase Interativo & Trunk-Based Dev' }
     ]
   },
 
@@ -275,7 +337,11 @@ export const skills: Skill[] = [
       { id: 'soft-critical-analysis', text: 'Análise Crítica & Decomposição de Desafios' },
       { id: 'soft-complex-solving', text: 'Resolução de Problemas Multifacetados' },
       { id: 'soft-data-decisions', text: 'Tomada de Decisão Baseada em Dados e Evidências' },
-      { id: 'soft-tradeoff-analysis', text: 'Avaliação Crítica de Tradeoffs Técnicos' }
+      { id: 'soft-tradeoff-analysis', text: 'Avaliação Crítica de Tradeoffs Técnicos' },
+      { id: 'soft-root-cause-analysis', text: 'Análise de Causa Raiz (5 Whys / Ishikawa / Post-Mortems)' },
+      { id: 'soft-systems-thinking', text: 'Pensamento Sistêmico & Mapeamento de Efeitos Colaterais' },
+      { id: 'soft-hypothesis-testing', text: 'Formulação & Validação Científica de Hipóteses' },
+      { id: 'soft-decision-frameworks', text: 'Frameworks de Decisão Sob Incerteza (Matriz de Decisão)' }
     ]
   },
   {
@@ -289,7 +355,11 @@ export const skills: Skill[] = [
       { id: 'soft-strategic-alignment', text: 'Alinhamento das Entregas aos Objetivos Corporativos' },
       { id: 'soft-career-laddering', text: 'Estruturação de Plano de Carreira (PDI L1-L7)' },
       { id: 'soft-proactivity-autonomy', text: 'Autonomia, Proatividade & Gestão do Tempo' },
-      { id: 'soft-continuous-learning', text: 'Aprendizado Contínuo & Curiosidade Intelectual' }
+      { id: 'soft-continuous-learning', text: 'Aprendizado Contínuo & Curiosidade Intelectual' },
+      { id: 'soft-okr-kpi-alignment', text: 'Mapeamento de OKRs & KPIs de Impacto de Negócio' },
+      { id: 'soft-horizon-planning', text: 'Planejamento Estratégico de Curto, Médio e Longo Prazo' },
+      { id: 'soft-business-domain-knowledge', text: 'Compreensão Profunda do Domínio de Negócio e Finanças' },
+      { id: 'soft-prioritization-eisenhower', text: 'Matriz de Priorização & Foco em Atividades de Alto Valor' }
     ]
   },
   {
@@ -303,7 +373,11 @@ export const skills: Skill[] = [
       { id: 'soft-adaptability-change', text: 'Flexibilidade & Ajuste Rápido a Novas Prioridades' },
       { id: 'soft-emotional-self-awareness', text: 'Autoconsciência & Inteligência Emocional' },
       { id: 'soft-resilience-pressure', text: 'Resiliência & Tolerância a Ambientes de Pressão' },
-      { id: 'soft-feedback-reception', text: 'Recepção Aberta e Ação Sobre Feedbacks' }
+      { id: 'soft-feedback-reception', text: 'Recepção Aberta e Ação Sobre Feedbacks' },
+      { id: 'soft-stress-management', text: 'Gestão de Estresse & Manutenção de Foco em Crises' },
+      { id: 'soft-growth-mindset', text: 'Mentalidade de Crescimento (Growth Mindset)' },
+      { id: 'soft-ambiguity-comfort', text: 'Navegação Confortável em Cenários de Alta Ambiguidade' },
+      { id: 'soft-self-regulation', text: 'Autorregulação Emocional & Comunicação sob Pressão' }
     ]
   },
   {
@@ -317,7 +391,11 @@ export const skills: Skill[] = [
       { id: 'soft-data-storytelling', text: 'Storytelling de Dados para Narrativas Impactantes' },
       { id: 'soft-executive-presentation', text: 'Apresentações Técnicas e Executivas de Alto Nível' },
       { id: 'soft-assertive-verbal', text: 'Comunicação Verbal Clareza e Assertividade' },
-      { id: 'soft-active-listening', text: 'Escuta Ativa & Validação de Perspectivas' }
+      { id: 'soft-active-listening', text: 'Escuta Ativa & Validação de Perspectivas' },
+      { id: 'soft-technical-writing', text: 'Escrita Técnica Clara: RFCs, ADRs & Documentação' },
+      { id: 'soft-audience-adaptation', text: 'Adaptação de Linguagem para Audiências Técnicas e Não-Técnicas' },
+      { id: 'soft-pitch-persuasion', text: 'Pitch de Ideias & Persuasão Baseada em Evidências' },
+      { id: 'soft-async-communication', text: 'Comunicação Assíncrona Eficiente & Sintética' }
     ]
   },
   {
@@ -331,7 +409,11 @@ export const skills: Skill[] = [
       { id: 'soft-tech-mentoring', text: 'Mentoria Ativa & Acompanhamento de Desenvolvimento' },
       { id: 'soft-onboarding-lead', text: 'Liderança de Onboarding & Integração de Novos Pares' },
       { id: 'soft-situational-lead', text: 'Liderança Situacional Conforme Maturidade da Equipe' },
-      { id: 'soft-stakeholder-mgmt', text: 'Gestão de Expectativas de Stakeholders Críticos' }
+      { id: 'soft-stakeholder-mgmt', text: 'Gestão de Expectativas de Stakeholders Críticos' },
+      { id: 'soft-delegation-empowerment', text: 'Delegação Efetiva & Empoderamento Técnico do Time' },
+      { id: 'soft-technical-coaching', text: 'Coaching Técnico & Pair Programming Orientado' },
+      { id: 'soft-team-building-culture', text: 'Construção de Cultura de Excelência & Segurança Psicológica' },
+      { id: 'soft-conflict-resolution-lead', text: 'Mediação & Resolução de Desacordos Técnicos' }
     ]
   },
   {
@@ -345,7 +427,11 @@ export const skills: Skill[] = [
       { id: 'soft-nvc-communication', text: 'Comunicação Não-Violenta (CNV) para Resolução de Conflitos' },
       { id: 'soft-influence-without-auth', text: 'Influência Sem Autoridade & Convencimento Lógico' },
       { id: 'soft-constructive-feedback', text: 'Fornecimento de Feedback Construtivo e Empático' },
-      { id: 'soft-community-networking', text: 'Presença Executiva & Networking na Comunidade (SP)' }
+      { id: 'soft-community-networking', text: 'Presença Executiva & Networking na Comunidade (SP)' },
+      { id: 'soft-empathy-perspective', text: 'Empatia Organizacional & Leitura de Contexto Interpessoal' },
+      { id: 'soft-negotiation-win-win', text: 'Negociação Ganha-Ganha em Alocação de Recursos/Prioridades' },
+      { id: 'soft-trust-building', text: 'Construção de Relações de Confiança Inter-Squads' },
+      { id: 'soft-public-advocacy', text: 'Advocacy Técnico & Representação de Marca Empregadora' }
     ]
   }
 ];
@@ -659,6 +745,8 @@ export const milestones: Milestone[] = [
     phase: 'L2',
     unlockedRequirements: [
       { skillId: 'offensive-sec-pentest', requirementId: 'crtp-ad-sec', isNewUnlock: true, rationale: 'Certificação prática de segurança ofensiva em Active Directory' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'crtp-kerberos-attacks', isNewUnlock: true, rationale: 'Exploração prática de Kerberoasting & AS-REP Roasting em laboratório' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'crtp-lateral-movement', isNewUnlock: true, rationale: 'Execução de movimentação lateral e Golden/Silver Tickets' },
       { skillId: 'ai-security-redteam', requirementId: 'mitre-atlas', isNewUnlock: false, rationale: 'TTPs de movimentação lateral e elevação de privilégio mapeados' }
     ]
   },
@@ -910,6 +998,8 @@ export const milestones: Milestone[] = [
     phase: 'L3',
     unlockedRequirements: [
       { skillId: 'offensive-sec-pentest', requirementId: 'oscp-pentest', isNewUnlock: true, rationale: 'Certificação prática e metodologia completa de pentest OffSec' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'oscp-web-exploitation', isNewUnlock: true, rationale: 'Domínio de exploração web avançada e OWASP Top 10 nos labs PEN-200' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'oscp-privilege-escalation', isNewUnlock: true, rationale: 'Elevação de privilégios em sistemas Windows e Linux em exame de 24h' },
       { skillId: 'critical-thinking-problem-solving', requirementId: 'soft-complex-solving', isNewUnlock: true, rationale: 'Resolução de desafios complexos de exploração e privilégios' },
       { skillId: 'adaptability-resilience', requirementId: 'soft-resilience-pressure', isNewUnlock: true, rationale: 'Mentalidade try harder e resiliência em exame de 24 horas' }
     ]
@@ -1033,7 +1123,10 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-caisp'],
     phase: 'L4',
     unlockedRequirements: [
-      { skillId: 'ai-security-redteam', requirementId: 'adversarial-redteam', isNewUnlock: true, rationale: 'Domínio prático avançado em 40+ labs de AI Security' },
+      { skillId: 'ai-security-redteam', requirementId: 'caisp-practical-labs', isNewUnlock: true, rationale: 'Análise e exploração avançada em 40+ laboratórios práticos de AI Security' },
+      { skillId: 'ai-security-redteam', requirementId: 'adversarial-redteam', isNewUnlock: true, rationale: 'Domínio prático avançado de Red Teaming em modelos generativos' },
+      { skillId: 'ai-security-redteam', requirementId: 'data-poisoning-ml', isNewUnlock: true, rationale: 'Mitigação de ataques de contaminação de dados (data poisoning)' },
+      { skillId: 'ai-security-redteam', requirementId: 'rag-poisoning-sec', isNewUnlock: true, rationale: 'Proteção contra vector injection e manipulação em bases RAG' },
       { skillId: 'ai-security-redteam', requirementId: 'mitre-atlas', isNewUnlock: false, rationale: 'Exame prático validando mitigação de TTPs MITRE ATLAS' },
       { skillId: 'ai-governance-compliance', requirementId: 'nist-ai-rmf', isNewUnlock: true, rationale: 'Alinhamento completo aos frameworks internacionais NIST e ISO' }
     ]
@@ -1058,6 +1151,8 @@ export const milestones: Milestone[] = [
     phase: 'L4',
     unlockedRequirements: [
       { skillId: 'ai-security-redteam', requirementId: 'mcp-security', isNewUnlock: true, rationale: 'Certificação especialista em segurança de protocolo e ferramentas MCP' },
+      { skillId: 'ai-security-redteam', requirementId: 'mcp-tool-poisoning', isNewUnlock: true, rationale: 'Mitigação de tool poisoning e rug-pull em ecossistemas de agentes' },
+      { skillId: 'ai-security-redteam', requirementId: 'agent-sandbox-sec', isNewUnlock: true, rationale: 'Arquitetura de isolamento e sandboxing seguro para execução agêntica' },
       { skillId: 'ai-security-redteam', requirementId: 'agentic-threat-modeling', isNewUnlock: true, rationale: 'Threat modeling avançado contra tool poisoning e rug-pull attacks' },
       { skillId: 'agent-systems', requirementId: 'agent-mcp', isNewUnlock: false, rationale: 'Hardening de servidores e integrações MCP agênticas em produção' }
     ]
@@ -1080,7 +1175,10 @@ export const milestones: Milestone[] = [
     relatedResources: ['cert-awssap'],
     phase: 'L4',
     unlockedRequirements: [
-      { skillId: 'aws-cloud-arch', requirementId: 'aws-isaqb-arch', isNewUnlock: true, rationale: 'Certificação AWS SA Professional cobrindo arquiteturas multi-conta' },
+      { skillId: 'aws-cloud-arch', requirementId: 'aws-isaqb-arch', isNewUnlock: true, rationale: 'Certificação AWS SA Professional cobrindo arquiteturas complexas' },
+      { skillId: 'aws-cloud-arch', requirementId: 'aws-sap-multi-account', isNewUnlock: true, rationale: 'Design de Landing Zones e governança multi-conta corporativa' },
+      { skillId: 'aws-cloud-arch', requirementId: 'aws-sap-disaster-recovery', isNewUnlock: true, rationale: 'Desenvolvimento de estratégias de HA e Disaster Recovery resilientes' },
+      { skillId: 'aws-cloud-arch', requirementId: 'aws-sap-migration', isNewUnlock: true, rationale: 'Planejamento e execução de migração e modernização de aplicações' },
       { skillId: 'strategic-vision-career', requirementId: 'soft-strategic-alignment', isNewUnlock: false, rationale: 'Decisões arquiteturais de impacto organizacional e alta escala' },
       { skillId: 'platform-devops-mlops', requirementId: 'finops-cost', isNewUnlock: false, rationale: 'Otimização de custo e performance em infraestruturas cloud enterprise' }
     ]
@@ -1110,6 +1208,9 @@ export const milestones: Milestone[] = [
     phase: 'L5',
     unlockedRequirements: [
       { skillId: 'offensive-sec-pentest', requirementId: 'cissp-domains', isNewUnlock: true, rationale: 'Domínio formal dos 8 domínios de segurança da informação do CBK' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'cissp-risk-mgmt', isNewUnlock: true, rationale: 'Gestão de riscos corporativos e governança de segurança da informação' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'cissp-network-sec', isNewUnlock: true, rationale: 'Engenharia e arquitetura de redes enterprise altamente seguras' },
+      { skillId: 'offensive-sec-pentest', requirementId: 'cissp-identity-access', isNewUnlock: true, rationale: 'Controle de acesso, federação e gestão de identidades' },
       { skillId: 'ai-governance-compliance', requirementId: 'nist-ai-rmf', isNewUnlock: false, rationale: 'Gestão de risco corporativo integrando frameworks de segurança e IA' },
       { skillId: 'strategic-vision-career', requirementId: 'soft-strategic-alignment', isNewUnlock: false, rationale: 'Visão de segurança cibernética integrada à estratégia do negócio' }
     ]
@@ -1234,6 +1335,8 @@ export const milestones: Milestone[] = [
     phase: 'L6',
     unlockedRequirements: [
       { skillId: 'ai-governance-compliance', requirementId: 'iso-42001', isNewUnlock: true, rationale: 'Certificação Lead Implementer na norma ISO/IEC 42001 para AIMS' },
+      { skillId: 'ai-governance-compliance', requirementId: 'eu-ai-act-compliance', isNewUnlock: true, rationale: 'Implementação de sistemas de gestão alinhados à regulamentação do EU AI Act' },
+      { skillId: 'ai-governance-compliance', requirementId: 'ai-lifecycle-governance', isNewUnlock: true, rationale: 'Estabelecimento da governança de ciclo de vida completo em modelos de IA' },
       { skillId: 'strategic-vision-career', requirementId: 'soft-strategic-alignment', isNewUnlock: false, rationale: 'Conformidade internacional de gestão de inteligência artificial' }
     ]
   },
@@ -1259,6 +1362,8 @@ export const milestones: Milestone[] = [
     phase: 'L6',
     unlockedRequirements: [
       { skillId: 'aws-cloud-arch', requirementId: 'aws-isaqb-arch', isNewUnlock: true, rationale: 'Certificação arquitetural iSAQB CPSA-A em nível avançado' },
+      { skillId: 'aws-cloud-arch', requirementId: 'isaqb-cpsaa-methodology', isNewUnlock: true, rationale: 'Aplicação de metodologias e padrões avançados de avaliação arquitetural' },
+      { skillId: 'aws-cloud-arch', requirementId: 'isaqb-cpsaa-communication', isNewUnlock: true, rationale: 'Comunicação e documentação formal de arquiteturas para executivos' },
       { skillId: 'communication-storytelling', requirementId: 'soft-executive-presentation', isNewUnlock: false, rationale: 'Módulo de comunicação e argumentação técnica para executivos' }
     ]
   },
@@ -1310,7 +1415,9 @@ export const milestones: Milestone[] = [
     phase: 'L7',
     blockedBy: 'CISSP (ISC2) — obter e manter certificação ativa como pré-requisito',
     unlockedRequirements: [
+      { skillId: 'ai-governance-compliance', requirementId: 'isaca-aaism-program', isNewUnlock: true, rationale: 'Certificação de elite ISACA AAISM em gestão avançada de AI Security' },
       { skillId: 'ai-governance-compliance', requirementId: 'executive-ai-governance', isNewUnlock: true, rationale: 'Certificação de elite ISACA AAISM em governança e gestão de AI Security' },
+      { skillId: 'ai-governance-compliance', requirementId: 'bias-fairness-audit', isNewUnlock: true, rationale: 'Auditoria algorítmica executiva para imparcialidade e viés em produção' },
       { skillId: 'ai-security-redteam', requirementId: 'agentic-threat-modeling', isNewUnlock: false, rationale: 'Gestão integrada de riscos cobrindo múltiplos frameworks regulatórios' }
     ]
   },
