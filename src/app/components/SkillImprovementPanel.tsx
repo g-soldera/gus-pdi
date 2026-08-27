@@ -31,34 +31,35 @@ export function SkillImprovementPanel({
 
   return (
     <TooltipProvider>
-      <div className="rounded-xl p-3 border border-border/60 bg-card/80 dark:bg-card/90 shadow-2xs space-y-2">
-        <div className="flex items-center justify-between">
+      <div className="rounded-xl p-3.5 border border-border/60 bg-card/80 dark:bg-card/90 shadow-2xs space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-border/40">
           <h3 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-foreground">
-            {isCompleted ? <Zap className="w-3.5 h-3.5 text-emerald-500" /> : <TrendingUp className="w-3.5 h-3.5 text-primary" />}
+            {isCompleted ? <Zap className="w-4 h-4 text-emerald-500 animate-pulse" /> : <TrendingUp className="w-4 h-4 text-primary" />}
             <span>Impacto em Skills</span>
           </h3>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-medium">
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-primary inline-block" /> Atual
+                <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block" /> Nível Atual
               </span>
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" /> Ganho
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block ring-2 ring-emerald-400/30" /> Ganho (+Delta)
               </span>
             </div>
-            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
               +{unlockedRequirements.length} micro-skills
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-1.5">
+        <div className="grid grid-cols-1 gap-2">
           {Object.entries(groupedBySkill).map(([skillId, unlocks]) => {
             const skill = allSkills.find((s) => s.id === skillId);
             if (!skill || !skill.requirements || skill.requirements.length === 0) return null;
 
             const totalReqs = skill.requirements.length;
             const gainLevel = unlocks.length * (4 / totalReqs);
+            const pctGain = Math.round((unlocks.length / totalReqs) * 100);
 
             const obtainedLevel = isCompleted
               ? Math.max(1, skill.level - gainLevel)
@@ -72,53 +73,56 @@ export function SkillImprovementPanel({
                 <TooltipTrigger asChild>
                   <div
                     onClick={() => onSkillClick?.(skill)}
-                    className="flex items-center justify-between p-2 rounded-lg bg-muted/40 hover:bg-muted border border-border/40 transition-all text-xs cursor-pointer group"
+                    className="flex flex-row items-center justify-between p-2.5 rounded-lg bg-muted/40 hover:bg-muted/70 border border-border/50 hover:border-emerald-500/30 transition-all text-xs cursor-pointer group gap-2"
                   >
                     <div className="flex items-center gap-2 min-w-0 pr-2">
-                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+                      <span className="font-bold text-foreground group-hover:text-primary transition-colors truncate">
                         {skill.name}
-                      </span>
-                      <span className="text-[10px] font-mono text-muted-foreground shrink-0">
-                        ({unlocks.length} reqs)
                       </span>
                     </div>
 
-                    <div
-                      className="flex items-center gap-0.5 shrink-0"
-                      title={`Atual: ${obtainedLevel.toFixed(1)} | Ganho: +${addedLevel.toFixed(2)}`}
-                    >
-                      {[1, 2, 3, 4, 5].map((star) => {
-                        const starStart = star - 1;
-                        const obtainedFill = Math.min(Math.max(obtainedLevel - starStart, 0), 1);
-                        const totalFill = Math.min(Math.max(totalLevel - starStart, 0), 1);
+                    <div className="flex items-center shrink-0">
+                      {/* 5-Star Visual Row */}
+                      <div
+                        className="flex items-center gap-1 shrink-0 p-1 rounded-md bg-background/60 border border-border/40"
+                        title={`Atual: ${obtainedLevel.toFixed(1)} | Ganho: +${addedLevel.toFixed(2)} | Novo Nível: ${totalLevel.toFixed(1)}`}
+                      >
+                        {[1, 2, 3, 4, 5].map((star) => {
+                          const starStart = star - 1;
+                          const obtainedFill = Math.min(Math.max(obtainedLevel - starStart, 0), 1);
+                          const totalFill = Math.min(Math.max(totalLevel - starStart, 0), 1);
+                          const hasGainInStar = totalFill > obtainedFill;
 
-                        return (
-                          <div key={star} className="relative">
-                            {/* Base Star (Muted) */}
-                            <Star className="w-3.5 h-3.5 fill-muted text-muted" />
+                          return (
+                            <div key={star} className="relative w-4 h-4 flex items-center justify-center">
+                              {/* Base Star (Muted Background) */}
+                              <Star className="w-4 h-4 fill-muted text-muted opacity-40" />
 
-                            {/* Added Gain Overlay (Emerald) */}
-                            {totalFill > 0 && (
-                              <div
-                                className="absolute top-0 left-0 overflow-hidden"
-                                style={{ width: `${totalFill * 100}%` }}
-                              >
-                                <Star className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400" />
-                              </div>
-                            )}
+                              {/* Added Gain Overlay (Vibrant Emerald with Pulse/Fade) */}
+                              {totalFill > 0 && (
+                                <div
+                                  className={`absolute top-0 left-0 overflow-hidden h-full ${
+                                    hasGainInStar ? 'animate-pulse transition-all duration-700' : ''
+                                  }`}
+                                  style={{ width: `${totalFill * 100}%` }}
+                                >
+                                  <Star className="w-4 h-4 fill-emerald-400 text-emerald-400 drop-shadow-[0_0_4px_rgba(52,211,153,0.8)]" />
+                                </div>
+                              )}
 
-                            {/* Obtained Level Overlay (Primary) */}
-                            {obtainedFill > 0 && (
-                              <div
-                                className="absolute top-0 left-0 overflow-hidden"
-                                style={{ width: `${obtainedFill * 100}%` }}
-                              >
-                                <Star className="w-3.5 h-3.5 fill-primary text-primary" />
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
+                              {/* Obtained Level Overlay (Solid Primary) */}
+                              {obtainedFill > 0 && (
+                                <div
+                                  className="absolute top-0 left-0 overflow-hidden h-full"
+                                  style={{ width: `${obtainedFill * 100}%` }}
+                                >
+                                  <Star className="w-4 h-4 fill-primary text-primary" />
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </TooltipTrigger>
