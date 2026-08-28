@@ -170,7 +170,12 @@ export function Skills({ skills, projects, milestones, onSkillClick }: SkillsPro
                             <div className="font-medium mb-1 group-hover:text-primary transition-colors">
                               {skill.name}
                             </div>
-                            <SkillRating level={skill.level} size="sm" />
+                            <SkillRating 
+                              level={skill.level} 
+                              size="sm" 
+                              requirementsCount={skill.requirements?.length}
+                              unlockedCount={skill.requirements ? Math.round(((skill.level - 1) / 4) * skill.requirements.length) : undefined}
+                            />
                           </div>
                         </motion.button>
                       ))}

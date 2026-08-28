@@ -161,8 +161,8 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                     <div key={i} className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-medium">{gap.name}</span>
-                        <span className="text-[10px] font-bold text-orange-600 bg-orange-100 dark:bg-orange-900/30 px-2 py-0.5 rounded-full">
-                          Evoluir: {targetLevel - gap.level} pts
+                        <span className="text-[10px] font-bold text-orange-600 bg-orange-100 dark:bg-orange-900/30 px-2 py-0.5 rounded-full font-mono">
+                          Evoluir: {(targetLevel - gap.level).toFixed(1)} pts
                         </span>
                       </div>
                       <div className="h-1.5 bg-muted rounded-full overflow-hidden">
@@ -188,8 +188,8 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                     <div key={i} className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-medium">{gap.name}</span>
-                        <span className="text-[10px] font-bold text-purple-600 bg-purple-100 dark:bg-purple-900/30 px-2 py-0.5 rounded-full">
-                          Evoluir: {targetLevel - gap.level} pts
+                        <span className="text-[10px] font-bold text-purple-600 bg-purple-100 dark:bg-purple-900/30 px-2 py-0.5 rounded-full font-mono">
+                          Evoluir: {(targetLevel - gap.level).toFixed(1)} pts
                         </span>
                       </div>
                       <div className="h-1.5 bg-muted rounded-full overflow-hidden">

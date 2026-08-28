@@ -1,163 +1,157 @@
 import React from 'react';
-import { TrendingUp, Zap, Star } from 'lucide-react';
-import { SkillImprovement, Skill } from '@/types/pdi';
+import { TrendingUp, Zap, Star, CheckCircle2 } from 'lucide-react';
+import { MilestoneRequirementUnlock, Skill } from '@/types/pdi';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/ui/tooltip';
 
 interface SkillImprovementPanelProps {
-  improvements: SkillImprovement[];
+  unlockedRequirements?: MilestoneRequirementUnlock[];
   allSkills: Skill[];
   milestoneStatus: 'completed' | 'in-progress' | 'planned' | string;
   onSkillClick?: (skill: Skill) => void;
 }
 
-const LEVEL_LABELS: Record<number, string> = {
-  1: 'Básico',
-  2: 'Elementar',
-  3: 'Intermediário',
-  4: 'Avançado',
-  5: 'Expert',
-};
-
-function StarRow({ level, size = 'sm' }: { level: number; size?: 'sm' | 'xs' }) {
-  const dim = size === 'xs' ? 'w-2.5 h-2.5' : 'w-3 h-3';
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((s) => (
-        <Star
-          key={s}
-          className={`${dim} ${s <= level ? 'fill-primary text-primary' : 'fill-muted text-muted'}`}
-        />
-      ))}
-    </div>
-  );
-}
-
 export function SkillImprovementPanel({
-  improvements,
+  unlockedRequirements = [],
   allSkills,
   milestoneStatus,
   onSkillClick,
 }: SkillImprovementPanelProps) {
-  const enriched = improvements
-    .map((imp) => {
-      const skill = allSkills.find((s) => s.id === imp.skillId);
-      return skill ? { ...imp, skill } : null;
-    })
-    .filter(Boolean) as Array<SkillImprovement & { skill: Skill }>;
+  if (!unlockedRequirements || unlockedRequirements.length === 0) return null;
 
-  if (enriched.length === 0) return null;
+  // Group unlocks by Skill ID
+  const groupedBySkill = unlockedRequirements.reduce((acc, unlock) => {
+    if (!acc[unlock.skillId]) {
+      acc[unlock.skillId] = [];
+    }
+    acc[unlock.skillId].push(unlock);
+    return acc;
+  }, {} as Record<string, MilestoneRequirementUnlock[]>);
 
   const isCompleted = milestoneStatus === 'completed';
-  const isInProgress = milestoneStatus === 'in-progress';
-
-  const containerClass = isCompleted
-    ? 'bg-green-50/60 dark:bg-green-950/20 border border-green-200 dark:border-green-800'
-    : isInProgress
-    ? 'bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800'
-    : 'bg-muted/30 border border-border/50';
-
-  const headerClass = isCompleted
-    ? 'text-green-700 dark:text-green-400'
-    : isInProgress
-    ? 'text-blue-700 dark:text-blue-400'
-    : 'text-muted-foreground';
-
-  const trophyLabel = isCompleted ? 'Skills conquistadas' : isInProgress ? 'Skills em progresso' : 'Skills que serão desbloqueadas';
 
   return (
-    <div className={`rounded-xl p-4 space-y-3 ${containerClass}`}>
-      <h3 className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider ${headerClass}`}>
-        {isCompleted ? (
-          <Zap className="w-3.5 h-3.5" />
-        ) : (
-          <TrendingUp className="w-3.5 h-3.5" />
-        )}
-        {trophyLabel}
-      </h3>
+    <TooltipProvider>
+      <div className="rounded-xl p-3.5 border border-border/60 bg-card/80 dark:bg-card/90 shadow-2xs space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-border/40">
+          <h3 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-foreground">
+            {isCompleted ? <Zap className="w-4 h-4 text-emerald-500 animate-pulse" /> : <TrendingUp className="w-4 h-4 text-primary" />}
+            <span>Impacto em Skills</span>
+          </h3>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-medium">
+              <span className="flex items-center gap-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block" /> Nível Atual
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block ring-2 ring-emerald-400/30" /> Ganho (+Delta)
+              </span>
+            </div>
+            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              +{unlockedRequirements.length} micro-skills
+            </span>
+          </div>
+        </div>
 
-      <div className="space-y-2">
-        {enriched.map((imp) => {
-          const currentLevel = imp.skill.level;
-          const newLevel = Math.min(5, currentLevel + imp.delta) as 1 | 2 | 3 | 4 | 5;
-          const hasGain = imp.delta > 0;
+        <div className="grid grid-cols-1 gap-2">
+          {Object.entries(groupedBySkill).map(([skillId, unlocks]) => {
+            const skill = allSkills.find((s) => s.id === skillId);
+            if (!skill || !skill.requirements || skill.requirements.length === 0) return null;
 
-          return (
-            <button
-              key={imp.skillId}
-              onClick={() => onSkillClick?.(imp.skill)}
-              className="w-full text-left group"
-              disabled={!onSkillClick}
-            >
-              <div className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
-                {/* Level badge */}
-                <div className="shrink-0 flex flex-col items-center gap-0.5 min-w-[40px]">
-                  {hasGain ? (
-                    <>
-                      <span className="text-[10px] font-bold text-green-600 dark:text-green-400 leading-none">
-                        +{imp.delta}
+            const totalReqs = skill.requirements.length;
+            const gainLevel = unlocks.length * (4 / totalReqs);
+            const pctGain = Math.round((unlocks.length / totalReqs) * 100);
+
+            const obtainedLevel = isCompleted
+              ? Math.max(1, skill.level - gainLevel)
+              : Math.min(5, skill.level);
+
+            const addedLevel = gainLevel;
+            const totalLevel = Math.min(5, obtainedLevel + addedLevel);
+
+            return (
+              <Tooltip key={skillId}>
+                <TooltipTrigger asChild>
+                  <div
+                    onClick={() => onSkillClick?.(skill)}
+                    className="flex flex-row items-center justify-between p-2.5 rounded-lg bg-muted/40 hover:bg-muted/70 border border-border/50 hover:border-emerald-500/30 transition-all text-xs cursor-pointer group gap-2"
+                  >
+                    <div className="flex items-center gap-2 min-w-0 pr-2">
+                      <span className="font-bold text-foreground group-hover:text-primary transition-colors truncate">
+                        {skill.name}
                       </span>
-                      <div className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none ${
-                        isCompleted
-                          ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300'
-                          : 'bg-primary/10 text-primary'
-                      }`}>
-                        {isCompleted ? `L${newLevel}` : `→L${newLevel}`}
+                    </div>
+
+                    <div className="flex items-center shrink-0">
+                      {/* 5-Star Visual Row */}
+                      <div
+                        className="flex items-center gap-1 shrink-0 p-1 rounded-md bg-background/60 border border-border/40"
+                        title={`Atual: ${obtainedLevel.toFixed(1)} | Ganho: +${addedLevel.toFixed(2)} | Novo Nível: ${totalLevel.toFixed(1)}`}
+                      >
+                        {[1, 2, 3, 4, 5].map((star) => {
+                          const starStart = star - 1;
+                          const obtainedFill = Math.min(Math.max(obtainedLevel - starStart, 0), 1);
+                          const totalFill = Math.min(Math.max(totalLevel - starStart, 0), 1);
+                          const hasGainInStar = totalFill > obtainedFill;
+
+                           return (
+                             <div key={star} className="relative w-4 h-4 flex items-center justify-center">
+                               {/* Base Star (Muted Background) */}
+                               <Star className="w-4 h-4 fill-muted text-muted opacity-40" />
+
+                               {/* Obtained Level Overlay (Solid Primary) - Darker, more solid */}
+                               {obtainedFill > 0 && (
+                                 <div
+                                   className="absolute top-0 left-0 overflow-hidden h-full"
+                                   style={{ width: `${obtainedFill * 100}%` }}
+                                 >
+                                   <Star className="w-4 h-4 fill-primary text-primary" />
+                                 </div>
+                               )}
+
+                               {/* Added Gain Overlay (Vibrant Emerald with Pulse/Fade) - Lighter, more prominent */}
+                               {totalFill > obtainedFill && (
+                                 <div
+                                   className={`absolute top-0 left-0 overflow-hidden h-full animate-pulse transition-all duration-700 opacity-20 hover:opacity-100`}
+                                   style={{ width: `${(totalFill - obtainedFill) * 100}%` }}
+                                 >
+                                   <Star className="w-4 h-4 fill-emerald-300 text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                                 </div>
+                               )}
+                             </div>
+                           );
+                        })}
                       </div>
-                    </>
-                  ) : (
-                    <span className="text-[10px] text-muted-foreground font-medium px-1 py-0.5 bg-muted/50 rounded-full leading-none">
-                      Reforço
-                    </span>
-                  )}
-                </div>
-
-                {/* Skill info */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-sm font-medium group-hover:text-primary transition-colors truncate">
-                      {imp.skill.name}
-                    </span>
-                    <span className="text-[10px] text-muted-foreground shrink-0">{imp.skill.category}</span>
+                    </div>
                   </div>
-
-                  {/* Star progression */}
-                  <div className="flex items-center gap-2 mt-1">
-                    <StarRow level={currentLevel} size="xs" />
-                    {hasGain && (
-                      <>
-                        <span className="text-[10px] text-muted-foreground">→</span>
-                        <div className="flex gap-0.5">
-                          {[1, 2, 3, 4, 5].map((s) => (
-                            <Star
-                              key={s}
-                              className={`w-2.5 h-2.5 ${
-                                s <= newLevel
-                                  ? s <= currentLevel
-                                    ? 'fill-primary text-primary'
-                                    : isCompleted
-                                    ? 'fill-green-500 text-green-500'
-                                    : 'fill-blue-400 text-blue-400 opacity-70'
-                                  : 'fill-muted text-muted'
-                              }`}
-                            />
-                          ))}
+                </TooltipTrigger>
+                <TooltipContent side="top" className="max-w-xs p-3 space-y-2 bg-popover text-popover-foreground border border-border shadow-md">
+                  <div className="font-bold text-xs border-b border-border/60 pb-1 text-primary">
+                    Requisitos Conquistados ({unlocks.length}):
+                  </div>
+                  <div className="space-y-1.5 text-[11px]">
+                    {unlocks.map((unl, idx) => {
+                      const reqObj = skill.requirements?.find((r) => r.id === unl.requirementId);
+                      return (
+                        <div key={idx} className="flex items-start gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                          <div>
+                            <span className="font-medium text-foreground">{reqObj?.text || unl.requirementId}</span>
+                            {unl.rationale && (
+                              <div className="text-muted-foreground italic text-[10px] mt-0.5">
+                                "{unl.rationale}"
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        <span className="text-[10px] text-muted-foreground">
-                          {LEVEL_LABELS[newLevel]}
-                        </span>
-                      </>
-                    )}
+                      );
+                    })}
                   </div>
-
-                  {/* Rationale */}
-                  <p className="text-[11px] text-muted-foreground mt-1 leading-snug italic">
-                    {imp.rationale}
-                  </p>
-                </div>
-              </div>
-            </button>
-          );
-        })}
+                </TooltipContent>
+              </Tooltip>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }

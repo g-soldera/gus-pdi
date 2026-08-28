@@ -5,7 +5,7 @@ import { StatusBadge } from '../StatusBadge';
 import { ProgressBar } from '../ProgressBar';
 import { SkillImprovementPanel } from '../SkillImprovementPanel';
 import { calculateDaysRemaining, formatDate } from '@/app/utils/helpers';
-import { Calendar, Clock, Target, BookOpen, Code, FileText, CheckSquare, Square, MessageSquare } from 'lucide-react';
+import { Calendar, Clock, Target, BookOpen, Code, FileText, CheckSquare, Square, MessageSquare, Award, CheckCircle2 } from 'lucide-react';
 
 interface MilestoneModalProps {
   milestone: Milestone | null;
@@ -102,34 +102,12 @@ export function MilestoneModal({
         )}
 
         {/* Skill Improvement Panel */}
-        {milestone.skillsImprovement && milestone.skillsImprovement.length > 0 && (
-          <SkillImprovementPanel
-            improvements={milestone.skillsImprovement}
-            allSkills={allSkills}
-            milestoneStatus={milestone.status}
-            onSkillClick={onSkillClick}
-          />
-        )}
-
-        {/* Deadline */}
-        <div className="flex items-center gap-2 p-4 bg-muted/50 rounded-lg">
-          <Calendar className="w-5 h-5 text-primary" />
-          <div>
-            <div className="text-sm text-muted-foreground">Prazo</div>
-            <div className="font-medium">{formatDate(milestone.deadline)}</div>
-          </div>
-        </div>
-
-        {/* Notes (if completed) */}
-        {milestone.notes && (
-          <div className="p-4 bg-success-light/50 border border-[var(--completed)] rounded-lg">
-            <h3 className="flex items-center gap-2 text-sm font-medium text-[var(--completed)] mb-2">
-              <Target className="w-4 h-4" />
-              Reflexão pós-conclusão
-            </h3>
-            <p className="text-sm text-foreground">{milestone.notes}</p>
-          </div>
-        )}
+        <SkillImprovementPanel
+          unlockedRequirements={milestone.unlockedRequirements}
+          allSkills={allSkills}
+          milestoneStatus={milestone.status}
+          onSkillClick={onSkillClick}
+        />
 
         {/* Related Skills */}
         {relatedSkills.length > 0 && (

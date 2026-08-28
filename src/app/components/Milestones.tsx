@@ -138,8 +138,8 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="relative pl-20"
-      onClick={() => !isBlocked && !isDeciding && !isAspirational && onClick(milestone)}
+      className="relative pl-20 cursor-pointer"
+      onClick={() => !isBlocked && !isDeciding && onClick(milestone)}
     >
       <div className="absolute left-8 top-6 w-6 h-6 -translate-x-1/2">
         <motion.div
@@ -275,12 +275,11 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      onClick={() => !isBlocked && !isDeciding && !isAspirational && onClick(milestone)}
-      whileHover={isCollapsed ? {} : { y: -8 }}
+      onClick={() => !isBlocked && !isDeciding && onClick(milestone)}
       className={`bg-card border border-border rounded-xl p-4 shadow-sm transition-all text-left group flex flex-col relative ${
         isBlocked ? 'opacity-60 cursor-not-allowed'
         : isDeciding ? 'opacity-70 border-amber-300/50'
-        : isAspirational ? 'opacity-80 border-border'
+        : isAspirational ? 'opacity-80 border-purple-300/30 cursor-pointer'
         : isCompleted ? 'opacity-70 border-green-500/30 cursor-pointer hover:opacity-90'
         : 'hover:shadow-md hover:border-primary'
       }`}
