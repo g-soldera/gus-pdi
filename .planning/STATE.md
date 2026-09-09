@@ -1,23 +1,23 @@
 ---
 milestone: "v4.0"
 milestone_name: "Database Migration & CRUD Edition"
-status: planning
+status: in_progress
 ---
 gsd_state_version: 2.0
 milestone: v4.0
 milestone_name: database-migration-crud
-current_phase: 03
-current_phase_name: database-schema-data-migration
+current_phase: 04
+current_phase_name: authentication-crud-api
 status: ready_for_planning
-last_updated: "2026-09-09T13:36:41.265Z"
+last_updated: "2026-09-09T16:05:00.000Z"
 last_activity: 2026-09-09
-last_activity_desc: Roadmap created for v4.0 — 5 phases derived from 73 requirements
+last_activity_desc: Phase 03 completed. Replaced pdiData static mock with Supabase dynamic queries in production.
 progress:
   total_phases: 5
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  completed_phases: 1
+  total_plans: 3
+  completed_plans: 3
+  percent: 20
 ---
 # Project State
 
@@ -26,12 +26,12 @@ progress:
 
 ## Current Position
 
-Phase: 03 — Database Schema & Data Migration
+Phase: 04 — Authentication & CRUD API
 Plan: Not yet planned
-Status: Roadmap created, ready for phase planning
-Last activity: 2026-09-09 — Roadmap created with 5 phases
+Status: Phase 03 complete, ready for Phase 04 planning
+Last activity: 2026-09-09 — Phase 03 complete: Database schema & dynamic Supabase integration live in production
 
-Progress: [░░░░░░░░░░░░░░░░░░░░] 0% (0/5 phases complete)
+Progress: [████░░░░░░░░░░░░░░░░] 20% (1/5 phases complete)
 
 ## Accumulated Context
 - Modelo antigo baseado em "anos" descartado. Adotado modelo de Engineering Ladder (L1-L7).
@@ -39,7 +39,7 @@ Progress: [░░░░░░░░░░░░░░░░░░░░] 0% (0/5
 - Trilha de certificações AI Security (CRTP, OSCP, CAISP, CISSP, ISO 42001, AAISM) mapeada nos níveis L3 a L7.
 - Dados TypeScript refatorados para dar suporte a este modelo.
 - Phase 02 (v3.0): migração Vite→Next.js + formulário de feedback seguro + painel admin.
-- v4.0 roadmap: 5 phases for database migration (Phases 03-07), continuing from v3.0 numbering.
+- Phase 03 (v4.0): Supabase schema, RLS, storage bucket para imagens e migração dinâmica concluídos.
 
 ## Phases
 
@@ -49,8 +49,8 @@ Implementação da UI do dashboard PDI: timeline de carreira, milestones arquiva
 ### Phase 02 (v3.0) — COMPLETED
 Migração Vite→Next.js 15 + formulário de feedback seguro + painel admin.
 
-### Phase 03: Database Schema & Data Migration — PENDING
-Set up Supabase tables, RLS policies, migrate pdiData.ts. (10 requirements: DB-01 to DB-09, DI-01)
+### Phase 03: Database Schema & Data Migration — COMPLETED
+Set up Supabase tables, RLS policies, migrate pdiData.ts to Supabase dynamic queries. (10 requirements: DB-01 to DB-09, DI-01)
 
 ### Phase 04: Authentication & CRUD API — PENDING
 Build auth middleware and all CRUD endpoints with validation. (31 requirements: API-01 to API-22, AUTH-01 to AUTH-05, DI-03, DI-04)
@@ -65,4 +65,4 @@ Build interactive objective completion with modal + password auth. (10 requireme
 Create admin routes and forms for all entities. (13 requirements: ADMIN-01 to ADMIN-13)
 
 ## Session Continuity
-Next step: `/gsd-plan-phase 03` to decompose Phase 03 (Database Schema & Data Migration) into executable plans.
+Next step: `/gsd-plan-phase 04` to decompose Phase 04 (Authentication & CRUD API) into executable plans.
