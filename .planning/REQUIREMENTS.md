@@ -1,64 +1,135 @@
-# Requirements: PDI Baseado em Níveis Técnicos (L1-L7)
+# Requirements: Database Migration & CRUD Edition
 
-**Defined:** 2026-08-10  
-**Core Value:** Construir senioridade técnica real e mensurável através de um framework de níveis (L1-L7) com KPIs objetivos, progressão baseada em entrega, e trilha certificada de AI Security.
+**Defined:** 2026-09-09  
+**Milestone:** v4.0  
+**Core Value:** Migrar PDI de dados estáticos para backend com banco de dados, permitindo edição segura e persistente com autenticação.
 
 ---
 
-## v2 Requirements (Nova Estrutura)
+## v4.0 Requirements
 
-### L2 → L3 (Júnior → Pleno)
-- [ ] **L2-L3-AUTONOMY**: Entregar autonomamente 10+ features/bugfixes sem supervisão constante (taxa de retrabalho < 20%)
-- [ ] **L2-L3-DESIGN**: Ter design técnico aprovado por sênior em 2+ features complexas
-- [ ] **L2-L3-QUALITY**: Redução mensurável de débito técnico: -15%+ em métricas de qualidade (SonarQube, cobertura de testes)
-- [ ] **L2-L3-PRESENTATION**: Realizar 1+ apresentação técnica para 20+ pessoas (interna ou externa)
-- [ ] **L2-L3-MENTORING**: Mentoria ativa com PDI estruturado para 2+ juniores <details><summary>Dependência</summary>Bloqueado até termos estagiário próximo</details>
-- [ ] **L2-L3-MENTORSHIP-RECV**: Receber mentoria da Aline (nível spec II / gerente)
-- [ ] **L2-L3-CERT**: Obter CRTP ou AWS SA Associate
+### Database Schema & Migration (DB)
 
-### L3 → L4 (Pleno → Sênior)
-- [ ] **L3-L4-ARCHITECTURE**: Arquitetar 2+ sistemas complexos em produção com adoção cross-squad
-- [ ] **L3-L4-IMPACT**: Impacto mensurável: -30%+ custo OU +40%+ performance OU eliminação de classe de incidentes
-- [ ] **L3-L4-LEADERSHIP**: Liderança técnica de 3+ projetos críticos com 5+ pessoas envolvidas
-- [ ] **L3-L4-MENTORING**: Mentoria consolidada: 3+ plenos promovidos com acompanhamento documentado
-- [ ] **L3-L4-INFLUENCE**: Influência arquitetural: 5+ decisões técnicas adotadas por múltiplas squads
-- [ ] **L3-L4-PUBLIC**: Contribuição pública: 2+ palestras técnicas (BSides, H2HC) OU paper publicado
-- [ ] **L3-L4-CERT**: Obter OSCP, CISSP, AWS SA Pro, ou iSAQB CPSA-F
+- [ ] **DB-01**: Schema SQL para tabela `skills` (id, name, level, description, category, type, requirements JSONB)
+- [ ] **DB-02**: Schema SQL para tabela `milestones` (id, title, displayName, description, status, progress, deadline, notes, objectives JSONB, relatedSkills, relatedResources, phase, archived, unlockedRequirements JSONB)
+- [ ] **DB-03**: Schema SQL para tabela `projects` (id, title, description, tech, links, status)
+- [ ] **DB-04**: Schema SQL para tabela `resources` (id, category, title, description, url, completed)
+- [ ] **DB-05**: Schema SQL para tabela `personal_info` (singleton com campos do PersonalInfo)
+- [ ] **DB-06**: Script de migração de dados de `pdiData.ts` para Supabase (seed inicial)
+- [ ] **DB-07**: Row Level Security (RLS) policies: leitura pública, escrita autenticada
+- [ ] **DB-08**: Índices para performance (category, status, phase, archived)
+- [ ] **DB-09**: Constraints e foreign keys onde aplicável
 
-### L4 → L5 (Sênior → Specialist 1)
-- [ ] **L4-L5-FRAMEWORK**: Framework/plataforma corporativa projetada e adotada por 5+ squads
-- [ ] **L4-L5-IMPACT**: Impacto organizacional: -40%+ tempo de entrega OU mitigação de classe de risco crítico
-- [ ] **L4-L5-OWNERSHIP**: Ownership de domínio técnico estratégico (AI Security, Data Governance)
-- [ ] **L4-L5-LEADERSHIP**: Liderança de iniciativa técnica com impacto em 3+ diretorias
-- [ ] **L4-L5-RECOGNITION**: Reconhecimento externo: 3+ palestras em conferências nacionais OU projeto open source (500+ stars)
-- [ ] **L4-L5-CERT**: Obter CAISP, CMCPSE (opcional), ou CISSP
-- [ ] **L4-L5-PUBLICATION**: Publicação técnica com reconhecimento da comunidade
+### CRUD API Endpoints (API)
 
-### L5 → L6 (Specialist 1 → Specialist 2)
-- [ ] **L5-L6-CORPORATE-ARCH**: Arquitetura corporativa estratégica adotada como padrão oficial do banco
-- [ ] **L5-L6-EXECUTIVE**: Apresentação para C-level com decisão estratégica baseada em recomendação técnica
-- [ ] **L5-L6-GOVERNANCE**: Framework de governança adotado em 10+ squads
-- [ ] **L5-L6-COMMUNITY**: Liderança de comunidade técnica interna (100+ membros ativos)
-- [ ] **L5-L6-MARKET**: Reconhecimento de mercado: keynote OU projeto open source crítico (2.000+ stars) OU paper internacional
-- [ ] **L5-L6-STANDARDS**: Participação em grupos de trabalho de padrões (OWASP, NIST, etc.)
-- [ ] **L5-L6-CERT**: Obter ISO/IEC 42001 Lead Implementer, iSAQB CPSA-A, ou GIAC GOAA/GASAE
+- [ ] **API-01**: `GET /api/skills` — listar todas as skills
+- [ ] **API-02**: `POST /api/skills` — criar skill (auth required)
+- [ ] **API-03**: `PUT /api/skills/[id]` — atualizar skill (auth required)
+- [ ] **API-04**: `DELETE /api/skills/[id]` — deletar skill (auth required)
+- [ ] **API-05**: `GET /api/milestones` — listar todos os milestones
+- [ ] **API-06**: `POST /api/milestones` — criar milestone (auth required)
+- [ ] **API-07**: `PUT /api/milestones/[id]` — atualizar milestone (auth required)
+- [ ] **API-08**: `PATCH /api/milestones/[id]/objectives/[objId]` — marcar objective como completo com justificativa (auth required)
+- [ ] **API-09**: `DELETE /api/milestones/[id]` — deletar milestone (auth required)
+- [ ] **API-10**: `GET /api/projects` — listar todos os projetos
+- [ ] **API-11**: `POST /api/projects` — criar projeto (auth required)
+- [ ] **API-12**: `PUT /api/projects/[id]` — atualizar projeto (auth required)
+- [ ] **API-13**: `DELETE /api/projects/[id]` — deletar projeto (auth required)
+- [ ] **API-14**: `GET /api/resources` — listar todos os recursos
+- [ ] **API-15**: `POST /api/resources` — criar recurso (auth required)
+- [ ] **API-16**: `PUT /api/resources/[id]` — atualizar recurso (auth required)
+- [ ] **API-17**: `DELETE /api/resources/[id]` — deletar recurso (auth required)
+- [ ] **API-18**: `GET /api/personal-info` — obter informações pessoais
+- [ ] **API-19**: `PUT /api/personal-info` — atualizar informações pessoais (auth required)
+- [ ] **API-20**: Validação Zod em todos os endpoints de escrita
+- [ ] **API-21**: Rate limiting com Upstash Redis em endpoints de escrita
+- [ ] **API-22**: Error handling padronizado (400, 401, 403, 404, 500)
 
-### L6 → L7 (Specialist 2 → Specialist 3)
-- [ ] **L6-L7-TRANSFORMATION**: Impacto corporativo transformador: mudança fundamental na operação técnica do banco
-- [ ] **L6-L7-INNOVATION**: Liderança de inovação: patente OU framework adotado pelo mercado OU pesquisa com ROI comprovado
-- [ ] **L6-L7-INTERNATIONAL**: Reconhecimento internacional: prêmios de indústria OU keynotes Tier-1 (Black Hat, DEF CON, OWASP Global)
-- [ ] **L6-L7-STANDARDS**: Influência em padrões de mercado: autor RFC, NIST guidance, OWASP project lead
-- [ ] **L6-L7-CERT**: Obter ISACA AAISM
+### Authentication & Authorization (AUTH)
 
-## Out of Scope (Mantido)
+- [ ] **AUTH-01**: Middleware de autenticação por senha (variável de ambiente `ADMIN_PASSWORD`)
+- [ ] **AUTH-02**: Proteção de todas as rotas de escrita (POST/PUT/PATCH/DELETE) com auth middleware
+- [ ] **AUTH-03**: Session management via cookie HMAC (reutilizar implementação existente de `/admin`)
+- [ ] **AUTH-04**: Endpoint `POST /api/auth/verify` para validar senha sem criar sessão (para modals)
+- [ ] **AUTH-05**: Logout endpoint `POST /api/auth/logout` para invalidar sessão
+
+### Feature Flags & Gradual Migration (FF)
+
+- [ ] **FF-01**: Variável de ambiente `FEATURE_DB_SKILLS` para habilitar skills do DB
+- [ ] **FF-02**: Variável de ambiente `FEATURE_DB_MILESTONES` para habilitar milestones do DB
+- [ ] **FF-03**: Variável de ambiente `FEATURE_DB_PROJECTS` para habilitar projects do DB
+- [ ] **FF-04**: Variável de ambiente `FEATURE_DB_RESOURCES` para habilitar resources do DB
+- [ ] **FF-05**: Variável de ambiente `FEATURE_DB_PERSONAL_INFO` para habilitar personalInfo do DB
+- [ ] **FF-06**: Hook `usePDIData(entity)` que decide entre mock (pdiData.ts) e API conforme feature flag
+- [ ] **FF-07**: Fallback automático para mock se API falhar (com logging)
+- [ ] **FF-08**: Painel admin com toggle visual de feature flags (leitura + escrita protegida)
+- [ ] **FF-09**: Validação de consistência entre mock e DB durante transição (comparador)
+
+### Milestone Completion Flow (MCF)
+
+- [ ] **MCF-01**: Botão de checkbox em cada objetivo do milestone abre modal ao clicar
+- [ ] **MCF-02**: Modal com textarea para justificativa da conclusão
+- [ ] **MCF-03**: Input de senha no modal (validação inline sem criar sessão)
+- [ ] **MCF-04**: Botão "Save" chama `PATCH /api/milestones/[id]/objectives/[objId]` com justificativa
+- [ ] **MCF-05**: Loading state durante save
+- [ ] **MCF-06**: Success feedback (toast + checkbox marcado) após save
+- [ ] **MCF-07**: Error feedback se senha inválida ou falha de rede
+- [ ] **MCF-08**: Modal pode ser fechado sem salvar (cancel)
+- [ ] **MCF-09**: Edição inline de milestone title, description, deadline (com senha)
+- [ ] **MCF-10**: Adicionar novo objetivo a milestone existente (com senha)
+
+### Admin Panel Enhancement (ADMIN)
+
+- [ ] **ADMIN-01**: Rota `/admin/skills` com tabela de skills + CRUD UI
+- [ ] **ADMIN-02**: Formulário de criação/edição de skill (todos os campos + requirements array)
+- [ ] **ADMIN-03**: Rota `/admin/milestones` com tabela de milestones + CRUD UI
+- [ ] **ADMIN-04**: Formulário de criação/edição de milestone (todos os campos + objectives array)
+- [ ] **ADMIN-05**: Rota `/admin/projects` com tabela de projects + CRUD UI
+- [ ] **ADMIN-06**: Formulário de criação/edição de project
+- [ ] **ADMIN-07**: Rota `/admin/resources` com tabela de resources + CRUD UI
+- [ ] **ADMIN-08**: Formulário de criação/edição de resource
+- [ ] **ADMIN-09**: Rota `/admin/personal-info` com formulário de edição
+- [ ] **ADMIN-10**: Tabelas com busca, filtro, ordenação e paginação
+- [ ] **ADMIN-11**: Confirmação antes de delete (alert dialog)
+- [ ] **ADMIN-12**: Navegação entre seções do admin panel (sidebar ou tabs)
+- [ ] **ADMIN-13**: Reutilizar autenticação existente do `/admin` (sem duplicar lógica)
+
+### Data Integrity & Safety (DI)
+
+- [ ] **DI-01**: Backup automático de pdiData.ts antes da primeira migração
+- [ ] **DI-02**: Script de export de DB → pdiData.ts (rollback manual se necessário)
+- [ ] **DI-03**: Validação de schema TypeScript nos dados retornados da API
+- [ ] **DI-04**: Logs de todas as operações de escrita (audit trail)
+- [ ] **DI-05**: Testes de integridade: comparar mock vs DB durante fase de feature flags
+
+---
+
+## Future Requirements (Deferred)
+
+- [ ] **FUTURE-01**: Histórico de edições (audit log UI)
+- [ ] **FUTURE-02**: Autenticação multi-usuário (OAuth / Supabase Auth)
+- [ ] **FUTURE-03**: API pública read-only (rate limited)
+- [ ] **FUTURE-04**: Versionamento de milestones (snapshots)
+- [ ] **FUTURE-05**: Sincronização offline (service worker)
+
+---
+
+## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Transição pura para AppSec | Abordagem web clássica (WAF/SQLi) afasta do background valioso de MLOps |
-| Busca por "título vazio" | PDI baseado na métrica da senioridade real através de entregas mensuráveis |
+| Real-time collaboration | Projeto pessoal, single-user suficiente para v4.0 |
+| GraphQL API | REST é suficiente para este caso de uso |
+| Multi-tenancy | Não há necessidade de múltiplos PDIs isolados |
 
 ---
 
-**Defined:** 2026-08-10  
-**Last updated:** 2026-08-10  
-**Status:** L2 (Júnior) → L3 (Pleno) em progresso
+## Traceability
+
+(Preenchido pelo roadmapper após criação das fases)
+
+---
+
+**Defined:** 2026-09-09  
+**Last updated:** 2026-09-09  
+**Status:** v4.0 scoping complete
