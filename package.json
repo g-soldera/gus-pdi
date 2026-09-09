@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -75,7 +77,9 @@
     "@types/node": "22.15.29",
     "@types/react": "18.3.23",
     "@types/react-dom": "18.3.7",
+    "@vitest/ui": "^4.1.11",
     "tailwindcss": "4.1.12",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vitest": "^4.1.11"
   }
 }
