@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { skills, milestones, projects, resources, personalInfo } from '@/data/pdiData';
+import * as fs from 'fs';
+import * as path from 'path';
+import { skills, milestones, projects, resources, personalInfo } from '../src/data/pdiData';
 
 /**
  * Backup utility for pdiData.ts
