@@ -109,7 +109,7 @@ export async function fetchMilestones(options?: {
       relatedResources: row.related_resources || [],
       archived: row.archived,
       objectives: assertJson<MilestoneObjective[]>(row.objectives),
-      phase: row.phase || undefined,
+      phase: row.phase ? (isNaN(Number(row.phase)) ? row.phase : Number(row.phase)) as any : undefined,
       unlockedRequirements: assertJson<MilestoneRequirementUnlock[]>(row.unlocked_requirements)
     }))
 

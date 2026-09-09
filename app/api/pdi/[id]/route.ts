@@ -9,12 +9,12 @@ import { ratelimit } from '@/lib/ratelimit'
  */
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { searchParams } = new URL(req.url)
     const table = searchParams.get('table')
-    const { id } = params
+    const { id } = await params
 
     if (!table) {
       return NextResponse.json(
@@ -55,7 +55,8 @@ export async function GET(
 
     return NextResponse.json({ data })
   } catch (err) {
-    console.error(`[GET /api/pdi/${params.id}] Unexpected error:`, err)
+    const { id } = await params
+    console.error(`[GET /api/pdi/${id}] Unexpected error:`, err)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -70,11 +71,11 @@ export async function GET(
  */
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Apply rate limiting (T-CRUD-02: Apply rate limiting using lib/ratelimit.ts on write operations)
-    const ip = req.ip || req.headers.get('x-forwarded-for') || 'anonymous'
+    const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'anonymous'
     const { success, remaining, limit, reset } = await ratelimit.limit(ip)
 
     if (!success) {
@@ -99,7 +100,7 @@ export async function PUT(
     }
 
     const { table, data } = body
-    const { id } = params
+    const { id } = await params
 
     // Validate table name
     const validTables = ['skills', 'milestones', 'projects', 'resources', 'personal_info']
@@ -124,8 +125,10 @@ export async function PUT(
 
     // Update in Supabase
     const supabase = createPublicClient()
-    const { data: updatedData, error } = await supabase
-      .from(table as any)
+    
+    // Dynamic table access with type assertion for flexible CRUD
+    const query = supabase.from(table as any) as any
+    const { data: updatedData, error } = await query
       .update(parsed.data)
       .eq('id', id)
       .select()
@@ -149,7 +152,8 @@ export async function PUT(
       { data: updatedData, message: 'Entity updated successfully' }
     )
   } catch (err) {
-    console.error(`[PUT /api/pdi/${params.id}] Unexpected error:`, err)
+    const { id } = await params
+    console.error(`[PUT /api/pdi/${id}] Unexpected error:`, err)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -164,11 +168,11 @@ export async function PUT(
  */
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Apply rate limiting (T-CRUD-02: Apply rate limiting using lib/ratelimit.ts on write operations)
-    const ip = req.ip || req.headers.get('x-forwarded-for') || 'anonymous'
+    const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'anonymous'
     const { success, remaining, limit, reset } = await ratelimit.limit(ip)
 
     if (!success) {
@@ -185,7 +189,7 @@ export async function DELETE(
 
     const { searchParams } = new URL(req.url)
     const table = searchParams.get('table')
-    const { id } = params
+    const { id } = await params
 
     if (!table) {
       return NextResponse.json(
@@ -222,7 +226,8 @@ export async function DELETE(
       { message: 'Entity deleted successfully' }
     )
   } catch (err) {
-    console.error(`[DELETE /api/pdi/${params.id}] Unexpected error:`, err)
+    const { id } = await params
+    console.error(`[DELETE /api/pdi/${id}] Unexpected error:`, err)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

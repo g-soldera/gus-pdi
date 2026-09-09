@@ -60,7 +60,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     // Apply rate limiting (T-CRUD-02: Apply rate limiting using lib/ratelimit.ts on write operations)
-    const ip = req.ip || req.headers.get('x-forwarded-for') || 'anonymous'
+    const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'anonymous'
     const { success, remaining, limit, reset } = await ratelimit.limit(ip)
 
     if (!success) {
@@ -109,8 +109,10 @@ export async function POST(req: NextRequest) {
 
     // Insert into Supabase
     const supabase = createPublicClient()
-    const { data: insertedData, error } = await supabase
-      .from(table as any)
+    
+    // Dynamic table access with type assertion for flexible CRUD
+    const query = supabase.from(table as any) as any
+    const { data: insertedData, error } = await query
       .insert(parsed.data)
       .select()
       .single()
