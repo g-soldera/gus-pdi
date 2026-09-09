@@ -65,6 +65,19 @@ Construir senioridade técnica real e mensurável através de:
 | Certificações mapeadas por nível | Garantir que cada certificação valide competências do nível | ✓ Good |
 | Progressão baseada em KPIs | Não basear em tempo de cadeira, mas em entrega real | ✓ Good |
 
+## Current Milestone: v4.0 — Database Migration & CRUD Edition
+
+**Goal:** Migrar PDI de dados estáticos (TypeScript) para backend com banco de dados, permitindo edição segura com autenticação por senha.
+
+**Target features:**
+- Migrar pdiData.ts (skills, milestones, projects, resources) para Supabase
+- CRUD API endpoints para todas as entidades PDI
+- Autenticação por senha (variável de ambiente)
+- Fluxo de conclusão de milestones: checkbox → modal de justificativa → entrada de senha → persistência
+- Painel admin para gerenciar conteúdo do PDI
+
+**Infraestrutura existente:** Admin panel com senha em env var, acesso CLI a Vercel/Supabase/Upstash (respeitar).
+
 ## Evolution
 
 This document evolves at level transitions and milestone boundaries.
@@ -76,4 +89,4 @@ This document evolves at level transitions and milestone boundaries.
 4. "What This Is" still accurate? → Update if drifted
 
 ---
-*Last updated: 2026-08-10 after Level-based PDI restructure*
+*Last updated: 2026-09-09 after milestone v4.0 start (Database Migration & CRUD)*

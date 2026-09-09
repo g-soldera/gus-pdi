@@ -21,7 +21,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="section-content">
           <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm">
@@ -68,7 +68,7 @@ export default function HomePage() {
             <div className="hidden lg:block">
               <div className="w-48 h-48 rounded-xl overflow-hidden border-2 border-primary/20 flex-shrink-0">
                 <img
-                  src="https://github.com/g-soldera.png?size=256"
+                  src="https://avatars.githubusercontent.com/u/133945929?v=4"
                   alt={personalInfo.name}
                   className="w-full h-full object-cover"
                 />
@@ -80,7 +80,7 @@ export default function HomePage() {
 
       {/* About Section */}
       <section className="py-16 md:py-24 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="section-content">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Sobre</h2>
           
           <div className="grid sm:grid-cols-3 gap-6 mb-12">
@@ -130,7 +130,7 @@ export default function HomePage() {
 
       {/* Skills Section */}
       <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="section-content">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Competências</h2>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -163,7 +163,7 @@ export default function HomePage() {
 
       {/* Projects Section */}
       <section className="py-16 md:py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="section-content">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Projetos</h2>
           
           <div className="grid md:grid-cols-3 gap-6">
@@ -211,7 +211,7 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-16 md:py-24">
-        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center space-y-6">
+        <div className="section-content max-w-3xl text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">
             Vamos conversar sobre AI Security?
           </h2>
