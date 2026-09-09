@@ -13,7 +13,7 @@ export const personalInfo: PersonalInfo = {
   seniorTargetDate: '2029-01-01', // Desejo estar como Sênior
   experienceStartDate: '2023-06-07', // Início como Estagiário
   bankStartDate: '2024-05-05', // Entro no Itaú
-  profileImage: '/assets/img/profile.jpg',
+  profileImage: '/assets/img/profile.png',
   currentLevel: 'L2',
   targetLevel: 'L3',
 };

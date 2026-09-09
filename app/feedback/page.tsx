@@ -9,7 +9,7 @@ export default function FeedbackPage() {
             Feedback
           </h1>
           <p className="text-muted-foreground">
-            Compartilhe suas impressões, sugestões ou críticas sobre o PDI
+            Compartilhe suas impressões, sugestões ou críticas sobre mim
           </p>
         </div>
 
