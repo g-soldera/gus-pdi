@@ -1,13 +1,21 @@
+import FeedbackForm from './FeedbackForm'
+
 export default function FeedbackPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background">
-      <div className="max-w-2xl mx-auto px-4 text-center">
-        <h1 className="text-3xl font-bold text-foreground mb-4">
-          Feedback
-        </h1>
-        <p className="text-muted-foreground">
-          Formulário em breve.
-        </p>
+    <main className="min-h-screen py-12 px-4 bg-background">
+      <div className="max-w-2xl mx-auto">
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            Feedback
+          </h1>
+          <p className="text-muted-foreground">
+            Compartilhe suas impressões, sugestões ou críticas sobre o PDI
+          </p>
+        </div>
+
+        <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
+          <FeedbackForm />
+        </div>
       </div>
     </main>
   )
