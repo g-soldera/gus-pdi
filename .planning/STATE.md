@@ -6,14 +6,14 @@ status: planning
 gsd_state_version: 2.0
 milestone: v4.0
 milestone_name: database-migration-crud
-current_phase: 00
-current_phase_name: defining-requirements
-status: planning
-last_updated: "2026-09-09T13:31:00.000Z"
+current_phase: 03
+current_phase_name: database-schema-data-migration
+status: ready_for_planning
+last_updated: "2026-09-09T13:36:41.265Z"
 last_activity: 2026-09-09
-last_activity_desc: Milestone v4.0 started — Database Migration & CRUD Edition
+last_activity_desc: Roadmap created for v4.0 — 5 phases derived from 73 requirements
 progress:
-  total_phases: 0
+  total_phases: 5
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -26,35 +26,43 @@ progress:
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements for v4.0
-Last activity: 2026-09-09 — Milestone v4.0 started
+Phase: 03 — Database Schema & Data Migration
+Plan: Not yet planned
+Status: Roadmap created, ready for phase planning
+Last activity: 2026-09-09 — Roadmap created with 5 phases
 
-Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
+Progress: [░░░░░░░░░░░░░░░░░░░░] 0% (0/5 phases complete)
 
 ## Accumulated Context
 - Modelo antigo baseado em "anos" descartado. Adotado modelo de Engineering Ladder (L1-L7).
 - KPIs quantificáveis criados para cada nível (entrega, impacto, arquitetura, liderança).
 - Trilha de certificações AI Security (CRTP, OSCP, CAISP, CISSP, ISO 42001, AAISM) mapeada nos níveis L3 a L7.
 - Dados TypeScript refatorados para dar suporte a este modelo.
-- Phase 02 planejada: migração Vite→Next.js + formulário de feedback seguro + painel admin.
+- Phase 02 (v3.0): migração Vite→Next.js + formulário de feedback seguro + painel admin.
+- v4.0 roadmap: 5 phases for database migration (Phases 03-07), continuing from v3.0 numbering.
 
 ## Phases
 
-### Phase 01 (pleno-ano-1-2026-2027) — CONCLUÍDA
-Implementação da UI do dashboard PDI: timeline de carreira, milestones arquivados, StudyPath SecMLOps, Resources. Todos os componentes entregues.
+### Phase 01 (v3.0) — COMPLETED
+Implementação da UI do dashboard PDI: timeline de carreira, milestones arquivados, StudyPath SecMLOps, Resources.
 
-### Phase 02 (feedback-e-migracao-nextjs) — EM PLANEJAMENTO
-Três waves sequenciais planejadas:
-- **Wave 1** (`02-01-PLAN.md`): Migração Vite→Next.js 15 App Router. Rotas: `/` (landing), `/pdi` (dashboard), `/feedback` (placeholder). Security headers.
-- **Wave 2** (`02-02-PLAN.md`): Backend de feedback — schema SQL Supabase + RLS, Zod schema, rate limiting Upstash, route handler `POST /api/feedback` com hash de IP.
-- **Wave 3** (`02-03-PLAN.md`): UI do formulário `/feedback` (honeypot, toggle anônimo/identificado, aviso LGPD) + painel `/admin` protegido por senha simples (cookie HMAC, middleware Edge).
+### Phase 02 (v3.0) — COMPLETED
+Migração Vite→Next.js 15 + formulário de feedback seguro + painel admin.
 
-Pré-requisitos de usuário para Wave 2:
-- Conta Upstash Redis criada (UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN)
-- Projeto Supabase criado e schema SQL executado
-- .env.local com IP_HASH_SECRET, ADMIN_SECRET, ADMIN_PASSWORD
+### Phase 03: Database Schema & Data Migration — PENDING
+Set up Supabase tables, RLS policies, migrate pdiData.ts. (10 requirements: DB-01 to DB-09, DI-01)
+
+### Phase 04: Authentication & CRUD API — PENDING
+Build auth middleware and all CRUD endpoints with validation. (31 requirements: API-01 to API-22, AUTH-01 to AUTH-05, DI-03, DI-04)
+
+### Phase 05: Feature Flags & Gradual Rollout — PENDING
+Implement feature flag system with fallback logic. (12 requirements: FF-01 to FF-09, DI-02, DI-05)
+
+### Phase 06: Milestone Completion Flow — PENDING
+Build interactive objective completion with modal + password auth. (10 requirements: MCF-01 to MCF-10)
+
+### Phase 07: Admin Panel CRUD UI — PENDING
+Create admin routes and forms for all entities. (13 requirements: ADMIN-01 to ADMIN-13)
 
 ## Session Continuity
-Próximo passo: executar Wave 1 (`02-01-PLAN.md`) — migração Vite→Next.js. Após checkpoint aprovado, prosseguir para Wave 2.
+Next step: `/gsd-plan-phase 03` to decompose Phase 03 (Database Schema & Data Migration) into executable plans.
