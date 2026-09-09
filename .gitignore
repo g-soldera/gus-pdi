@@ -12,6 +12,10 @@ node_modules/
 /dist
 /build
 
+# Next.js
+.next/
+out/
+
 # Misc
 .DS_Store
 .env

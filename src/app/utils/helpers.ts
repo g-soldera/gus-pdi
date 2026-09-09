@@ -56,32 +56,35 @@ export function formatDate(dateStr: string | null): string {
   });
 }
 
-export function getStatusColor(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized'): string {
+export function getStatusColor(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized' | 'planned'): string {
   const colors = {
     'completed': 'text-[var(--completed)]',
     'in-progress': 'text-[var(--in-progress)]',
     'not-started': 'text-[var(--not-started)]',
     'deprioritized': 'text-muted-foreground',
+    'planned': 'text-muted-foreground',
   };
   return colors[status];
 }
 
-export function getStatusBgColor(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized'): string {
+export function getStatusBgColor(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized' | 'planned'): string {
   const colors = {
     'completed': 'bg-success-light text-success',
     'in-progress': 'bg-info-light text-info',
     'not-started': 'bg-muted text-muted-foreground',
     'deprioritized': 'bg-muted/50 text-muted-foreground',
+    'planned': 'bg-muted text-muted-foreground',
   };
   return colors[status];
 }
 
-export function getStatusLabel(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized'): string {
+export function getStatusLabel(status: 'completed' | 'in-progress' | 'not-started' | 'deprioritized' | 'planned'): string {
   const labels = {
     'completed': 'Concluído',
     'in-progress': 'Em progresso',
     'not-started': 'Não iniciado',
     'deprioritized': 'Despriorizado',
+    'planned': 'Planejado',
   };
   return labels[status];
 }

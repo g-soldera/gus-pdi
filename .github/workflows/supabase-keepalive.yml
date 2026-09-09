@@ -1,0 +1,28 @@
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    # Roda todo dia às 3h UTC (meia-noite Brasil) — ajuste conforme necessário
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase project to prevent pausing
+        run: |
+          echo "=== Supabase Keep-Alive Ping ==="
+          
+          # Faz uma query simples para manter o projeto ativo
+          # Requer SUPABASE_URL e SUPABASE_ANON_KEY nos secrets do repositório
+          
+          curl -f -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            || echo "::warning::Ping failed — check Supabase URL and key"
+          
+          echo "Ping completed at $(date -u +"%Y-%m-%dT%H:%M:%SZ")"

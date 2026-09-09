@@ -156,7 +156,7 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
         >
           <motion.div
             animate={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            transition={status === 'in-progress' && !isBlocked && !isDeciding && !isAspirational ? { duration: 2, repeat: Infinity, ease: "linear" } : {}}
           >
             {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" />
               : isDeciding ? <HelpCircle className="w-4 h-4 text-amber-700" />
@@ -299,7 +299,7 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
         >
           <motion.div
             animate={status === 'in-progress' && !isBlocked && !isDeciding ? { rotate: 360 } : {}}
-            transition={status === 'in-progress' && !isBlocked && !isDeciding ? { duration: 2, repeat: Infinity, linear: true } : {}}
+            transition={status === 'in-progress' && !isBlocked && !isDeciding ? { duration: 2, repeat: Infinity, ease: "linear" } : {}}
           >
             {isBlocked ? <Lock className="w-4 h-4 text-muted-foreground" />
               : isDeciding ? <HelpCircle className="w-4 h-4 text-amber-600" />
