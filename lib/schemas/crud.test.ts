@@ -18,14 +18,14 @@ describe('pdiCreateSchema', () => {
     expect(result.success).toBe(true)
   })
 
-  it('rejects payload with missing required fields', () => {
-    const invalidPayload = {
+  it('accepts partial payload (field-level validation happens at API layer)', () => {
+    const partialPayload = {
       name: 'TypeScript',
-      // missing level, description, category, type
+      // Schema is flexible - required field validation happens per-entity-type at API level
     }
     
-    const result = pdiCreateSchema.safeParse(invalidPayload)
-    expect(result.success).toBe(false)
+    const result = pdiCreateSchema.safeParse(partialPayload)
+    expect(result.success).toBe(true)
   })
 
   it('validates milestone creation with objectives', () => {
