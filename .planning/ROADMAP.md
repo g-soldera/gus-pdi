@@ -11,4 +11,4 @@
 
 **Plans:**
 - [x] 04-01-PLAN.md — Implement Auth Schemas, Login, and Logout Endpoints (completed 2026-09-09)
-- [ ] 04-02-PLAN.md — Implement CRUD Schemas, PDI REST Endpoints, and Rate Limiting
+- [x] 04-02-PLAN.md — Implement CRUD Schemas, PDI REST Endpoints, and Rate Limiting (completed 2026-09-09)
