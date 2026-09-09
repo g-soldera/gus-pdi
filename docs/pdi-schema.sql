@@ -35,7 +35,7 @@ CREATE TYPE skill_type_enum AS ENUM (
 -- =====================================================
 
 CREATE TABLE skills (
-  id          UUID        DEFAULT gen_random_uuid() PRIMARY KEY,
+  id          TEXT        PRIMARY KEY,
   name        TEXT        NOT NULL,
   level       NUMERIC(3,2) NOT NULL CHECK (level >= 0 AND level <= 5),
   description TEXT        NOT NULL,
@@ -55,7 +55,7 @@ CREATE INDEX idx_skills_type ON skills(type);
 -- =====================================================
 
 CREATE TABLE milestones (
-  id                    UUID         DEFAULT gen_random_uuid() PRIMARY KEY,
+  id                    TEXT         PRIMARY KEY,
   title                 TEXT         NOT NULL,
   display_name          TEXT,
   description           TEXT         NOT NULL,
@@ -66,8 +66,8 @@ CREATE TABLE milestones (
   phase                 TEXT,        -- Can be numeric, 'secmlops', or career level (L1-L7)
   archived              BOOLEAN      DEFAULT FALSE NOT NULL,
   objectives            JSONB        DEFAULT '[]'::jsonb, -- Array of {text, completed, completionJustification}
-  related_skills        UUID[],      -- Foreign key array
-  related_resources     UUID[],      -- Foreign key array
+  related_skills        TEXT[],      -- Foreign key array
+  related_resources     TEXT[],      -- Foreign key array
   unlocked_requirements JSONB        DEFAULT '[]'::jsonb, -- Array of {skillId, requirementId, isNewUnlock, rationale}
   created_at            TIMESTAMPTZ  DEFAULT now() NOT NULL,
   updated_at            TIMESTAMPTZ  DEFAULT now() NOT NULL
@@ -83,15 +83,15 @@ CREATE INDEX idx_milestones_archived ON milestones(archived);
 -- =====================================================
 
 CREATE TABLE projects (
-  id                  UUID        DEFAULT gen_random_uuid() PRIMARY KEY,
+  id                  TEXT        PRIMARY KEY,
   title               TEXT        NOT NULL,
   description         TEXT        NOT NULL,
   status              status_enum NOT NULL DEFAULT 'not-started',
   impact              TEXT        NOT NULL,
   technologies        TEXT[]      DEFAULT ARRAY[]::TEXT[],
-  related_skills      UUID[],     -- Foreign key array
-  related_milestones  UUID[],     -- Foreign key array
-  related_resources   UUID[],     -- Foreign key array
+  related_skills      TEXT[],     -- Foreign key array
+  related_milestones  TEXT[],     -- Foreign key array
+  related_resources   TEXT[],     -- Foreign key array
   url                 TEXT,
   created_at          TIMESTAMPTZ DEFAULT now() NOT NULL,
   updated_at          TIMESTAMPTZ DEFAULT now() NOT NULL
@@ -105,7 +105,7 @@ CREATE INDEX idx_projects_status ON projects(status);
 -- =====================================================
 
 CREATE TABLE resources (
-  id                  UUID        DEFAULT gen_random_uuid() PRIMARY KEY,
+  id                  TEXT        PRIMARY KEY,
   name                TEXT        NOT NULL,
   description         TEXT        NOT NULL,
   status              status_enum NOT NULL DEFAULT 'not-started',
@@ -114,8 +114,8 @@ CREATE TABLE resources (
   sub_category        TEXT,
   image               TEXT,
   is_specialization   BOOLEAN     DEFAULT FALSE NOT NULL,
-  related_skills      UUID[],     -- Foreign key array
-  related_milestones  UUID[],     -- Foreign key array
+  related_skills      TEXT[],     -- Foreign key array
+  related_milestones  TEXT[],     -- Foreign key array
   created_at          TIMESTAMPTZ DEFAULT now() NOT NULL,
   updated_at          TIMESTAMPTZ DEFAULT now() NOT NULL
 );
@@ -137,8 +137,8 @@ CREATE TABLE personal_info (
   bank_start_date         DATE,
   company                 TEXT        NOT NULL,
   department              TEXT        NOT NULL,
-  current_role            TEXT        NOT NULL,
-  target_role             TEXT        NOT NULL,
+  "current_role"          TEXT        NOT NULL,
+  "target_role"           TEXT        NOT NULL,
   target_timeline_months  INTEGER     NOT NULL,
   profile_image           TEXT,
   timeline_target         DATE,
@@ -146,10 +146,7 @@ CREATE TABLE personal_info (
   current_level           TEXT,
   target_level            TEXT,
   created_at              TIMESTAMPTZ DEFAULT now() NOT NULL,
-  updated_at              TIMESTAMPTZ DEFAULT now() NOT NULL,
-  
-  -- Singleton constraint: only one row allowed
-  CONSTRAINT singleton_personal_info CHECK (id = gen_random_uuid())
+  updated_at              TIMESTAMPTZ DEFAULT now() NOT NULL
 );
 
 -- Note: To enforce true singleton, insert with a fixed UUID or use trigger
