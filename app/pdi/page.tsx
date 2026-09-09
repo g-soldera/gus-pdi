@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/app/components/ThemeToggle'
 import { Navigation } from '@/app/components/Navigation'
 import { ScrollToTop } from '@/app/components/ScrollToTop'
@@ -13,12 +13,19 @@ import { Resources } from '@/app/components/Resources'
 import { SkillModal } from '@/app/components/modals/SkillModal'
 import { MilestoneModal } from '@/app/components/modals/MilestoneModal'
 import { ResourceModal } from '@/app/components/modals/ResourceModal'
-import { personalInfo, skills, milestones, projects, resources } from '@/data/pdiData'
+import { getPersonalInfo, getSkills, getMilestones, getProjects, getResources } from '@/data/pdiData'
 import { secmlopsPath } from '@/data/secmlopsPath'
-import { Skill, Milestone, Resource } from '@/types/pdi'
+import { Skill, Milestone, Resource, Project, PersonalInfo } from '@/types/pdi'
 import FeedbacksList from './FeedbacksList'
 
 export default function PDIPage() {
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null)
+  const [skills, setSkills] = useState<Skill[]>([])
+  const [milestones, setMilestones] = useState<Milestone[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
+  const [resources, setResources] = useState<Resource[]>([])
+  const [loading, setLoading] = useState(true)
+
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
   const [selectedMilestone, setSelectedMilestone] = useState<Milestone | null>(null)
   const [selectedResourceCategory, setSelectedResourceCategory] = useState<{
@@ -32,6 +39,36 @@ export default function PDIPage() {
     selectedResourceId?: string
   } | null>(null)
   const [suspendedMilestone, setSuspendedMilestone] = useState<Milestone | null>(null)
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const [info, sData, mData, pData, rData] = await Promise.all([
+          getPersonalInfo(),
+          getSkills(),
+          getMilestones(),
+          getProjects(),
+          getResources()
+        ])
+        setPersonalInfo(info)
+        setSkills(sData)
+        setMilestones(mData)
+        setProjects(pData)
+        setResources(rData)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadData()
+  }, [])
+
+  if (loading || !personalInfo) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
 
   const handleSkillClick = (skill: Skill) => {
     if (selectedResourceCategory) {

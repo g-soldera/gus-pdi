@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { ThemeToggle } from './components/ThemeToggle';
 import { Navigation } from './components/Navigation';
@@ -13,11 +13,18 @@ import { SkillModal } from './components/modals/SkillModal';
 import { MilestoneModal } from './components/modals/MilestoneModal';
 import { ResourceModal } from './components/modals/ResourceModal';
 import { StudyPath } from './components/StudyPath';
-import { personalInfo, skills, milestones, projects, resources } from '@/data/pdiData';
+import { getPersonalInfo, getSkills, getMilestones, getProjects, getResources } from '@/data/pdiData';
 import { secmlopsPath } from '@/data/secmlopsPath';
-import { Skill, Milestone, Resource } from '@/types/pdi';
+import { Skill, Milestone, Resource, Project, PersonalInfo } from '@/types/pdi';
 
 function AppContent() {
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [milestones, setMilestones] = useState<Milestone[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [selectedMilestone, setSelectedMilestone] = useState<Milestone | null>(null);
   const [selectedResourceCategory, setSelectedResourceCategory] = useState<{
@@ -31,6 +38,30 @@ function AppContent() {
     selectedResourceId?: string;
   } | null>(null);
   const [suspendedMilestone, setSuspendedMilestone] = useState<Milestone | null>(null);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const [infoData, skillsData, milestonesData, projectsData, resourcesData] = await Promise.all([
+          getPersonalInfo(),
+          getSkills(),
+          getMilestones(),
+          getProjects(),
+          getResources()
+        ]);
+        setPersonalInfo(infoData);
+        setSkills(skillsData);
+        setMilestones(milestonesData);
+        setProjects(projectsData);
+        setResources(resourcesData);
+      } catch (err) {
+        console.error('Failed to load PDI data:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
 
   const handleSkillClick = (skill: Skill) => {
     if (selectedResourceCategory) {
@@ -62,6 +93,17 @@ function AppContent() {
       setSuspendedResourceCategory(null);
     }
   };
+
+  if (loading || !personalInfo) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center space-y-4">
+          <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-muted-foreground font-medium">Carregando dados do Supabase...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">

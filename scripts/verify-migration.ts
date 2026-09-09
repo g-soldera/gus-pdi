@@ -6,7 +6,7 @@
  * Usage: npx tsx scripts/verify-migration.ts
  */
 
-import { skills, milestones, projects, resources, personalInfo } from '@/data/pdiData'
+import { getSkills, getMilestones, getProjects, getResources, getPersonalInfo } from '@/data/pdiData'
 import { 
   fetchSkills, 
   fetchMilestones, 
@@ -84,11 +84,11 @@ async function main() {
   
   // 1. Load source data
   console.log('[verify] Loading source data from pdiData.ts...')
-  const sourceSkills: Skill[] = skills
-  const sourceMilestones: Milestone[] = milestones
-  const sourceProjects: Project[] = projects
-  const sourceResources: Resource[] = resources
-  const sourcePersonalInfo: PersonalInfo = personalInfo
+  const sourceSkills: Skill[] = await getSkills()
+  const sourceMilestones: Milestone[] = await getMilestones()
+  const sourceProjects: Project[] = await getProjects()
+  const sourceResources: Resource[] = await getResources()
+  const sourcePersonalInfo: PersonalInfo | null = await getPersonalInfo()
   
   console.log(`[verify] Source counts: skills=${sourceSkills.length}, milestones=${sourceMilestones.length}, projects=${sourceProjects.length}, resources=${sourceResources.length}, personal_info=1`)
   

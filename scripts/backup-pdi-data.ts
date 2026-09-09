@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { skills, milestones, projects, resources, personalInfo } from '../src/data/pdiData';
+import { getSkills, getMilestones, getProjects, getResources, getPersonalInfo } from '../src/data/pdiData';
 
 /**
  * Backup utility for pdiData.ts
@@ -14,6 +14,12 @@ import { skills, milestones, projects, resources, personalInfo } from '../src/da
 export async function backupPdiData(): Promise<string> {
   try {
     console.log('[backup] Starting PDI data backup...');
+
+    const skills = await getSkills();
+    const milestones = await getMilestones();
+    const projects = await getProjects();
+    const resources = await getResources();
+    const personalInfo = await getPersonalInfo();
 
     // Verify source data exists
     const sourcePath = path.resolve(__dirname, '../src/data/pdiData.ts');

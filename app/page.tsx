@@ -1,13 +1,46 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Mail, Linkedin, Github, ArrowRight } from 'lucide-react'
-import { personalInfo, skills, projects } from '@/data/pdiData'
+import { getPersonalInfo, getSkills, getProjects } from '@/data/pdiData'
 import { Badge } from '@/app/components/ui/badge'
 import { Button } from '@/app/components/ui/button'
+import type { PersonalInfo, Skill, Project } from '@/types/pdi'
 
 export default function HomePage() {
-  const topSkills = skills
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null)
+  const [skills, setSkills] = useState<Skill[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const [info, sData, pData] = await Promise.all([
+          getPersonalInfo(),
+          getSkills(),
+          getProjects()
+        ])
+        setPersonalInfo(info)
+        setSkills(sData)
+        setProjects(pData)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadData()
+  }, [])
+
+  if (loading || !personalInfo) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
+
+  const topSkills = [...skills]
     .sort((a, b) => b.level - a.level)
     .slice(0, 6)
   

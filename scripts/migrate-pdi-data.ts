@@ -1,6 +1,6 @@
 import { backupPdiData } from './backup-pdi-data';
 import { seedSkills, seedMilestones, seedProjects, seedResources, seedPersonalInfo } from '../lib/supabase/seeder';
-import { skills, milestones, projects, resources, personalInfo } from '../src/data/pdiData';
+import { getSkills, getMilestones, getProjects, getResources, getPersonalInfo } from '../src/data/pdiData';
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from '../lib/supabase/types';
 
@@ -76,6 +76,12 @@ async function migrate(): Promise<void> {
     // Step 2: Load source data
     console.log('\n[migrate] Step 2: Load Source Data');
     console.log('[migrate] ----------------------------------------');
+    const skills = await getSkills();
+    const milestones = await getMilestones();
+    const projects = await getProjects();
+    const resources = await getResources();
+    const personalInfo = await getPersonalInfo();
+
     console.log(`[migrate] Skills: ${skills.length}`);
     console.log(`[migrate] Milestones: ${milestones.length}`);
     console.log(`[migrate] Projects: ${projects.length}`);
@@ -134,14 +140,16 @@ async function migrate(): Promise<void> {
 
     // PersonalInfo
     console.log('[migrate] Migrating personalInfo...');
-    const personalInfoResult = await seedPersonalInfo(personalInfo);
-    results.push({
-      entity: 'personal_info',
-      sourceCount: 1,
-      targetCount: await getTableCount('personal_info'),
-      insertedCount: personalInfoResult.count,
-      errors: personalInfoResult.errors
-    });
+    if (personalInfo) {
+      const personalInfoResult = await seedPersonalInfo(personalInfo);
+      results.push({
+        entity: 'personal_info',
+        sourceCount: 1,
+        targetCount: await getTableCount('personal_info'),
+        insertedCount: personalInfoResult.count,
+        errors: personalInfoResult.errors
+      });
+    }
 
     // Step 4: Verification
     console.log('\n[migrate] Step 4: Verification');
