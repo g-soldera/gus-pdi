@@ -77,13 +77,13 @@ export default function FeedbackForm() {
         </p>
       </div>
 
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-3">
         <Switch
           id="anonymous"
           checked={isAnonymous}
           onCheckedChange={setIsAnonymous}
         />
-        <Label htmlFor="anonymous" className="cursor-pointer">
+        <Label htmlFor="anonymous" className="cursor-pointer font-medium">
           Enviar anonimamente
         </Label>
       </div>

@@ -16,6 +16,7 @@ import { ResourceModal } from '@/app/components/modals/ResourceModal'
 import { personalInfo, skills, milestones, projects, resources } from '@/data/pdiData'
 import { secmlopsPath } from '@/data/secmlopsPath'
 import { Skill, Milestone, Resource } from '@/types/pdi'
+import FeedbacksList from './FeedbacksList'
 
 export default function PDIPage() {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
@@ -92,6 +93,14 @@ export default function PDIPage() {
         />
         <Resources resources={resources} onResourceClick={handleResourceClick} />
       </main>
+
+      {/* Feedbacks Section */}
+      <section className="py-16 px-4 sm:px-6 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-foreground mb-8">Feedbacks Recebidos</h2>
+          <FeedbacksList />
+        </div>
+      </section>
 
       <footer className="py-8 border-t border-border bg-card">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
