@@ -60,7 +60,7 @@ export default function HomePage() {
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="https://linkedin.com/in/g-soldera" target="_blank" rel="noopener noreferrer" className="gap-2">
+                  <a href="https://linkedin.com/in/soldera" target="_blank" rel="noopener noreferrer" className="gap-2">
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
                   </a>
