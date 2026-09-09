@@ -60,3 +60,6 @@ old/
 *.tmp
 .temp/
 .dev-server.pid
+
+.vercel
+.env*
