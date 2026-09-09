@@ -1,23 +1,23 @@
 ---
-milestone: "v3.0"
-milestone_name: "PDI Baseado em Níveis (L1-L7)"
+milestone: "v4.0"
+milestone_name: "Database Migration & CRUD Edition"
 status: planning
 ---
 gsd_state_version: 2.0
-milestone: v3.0
-milestone_name: pdi-levels
-current_phase: 02
-current_phase_name: feedback-e-migracao-nextjs
+milestone: v4.0
+milestone_name: database-migration-crud
+current_phase: 00
+current_phase_name: defining-requirements
 status: planning
-last_updated: "2026-09-08T00:00:00.000Z"
-last_activity: 2026-09-08
-last_activity_desc: Planejamento do milestone de feedback seguro + migração Vite→Next.js
+last_updated: "2026-09-09T13:31:00.000Z"
+last_activity: 2026-09-09
+last_activity_desc: Milestone v4.0 started — Database Migration & CRUD Edition
 progress:
-  total_phases: 7
-  completed_phases: 2
-  total_plans: 3
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
   completed_plans: 0
-  percent: 28
+  percent: 0
 ---
 # Project State
 
@@ -26,11 +26,12 @@ progress:
 
 ## Current Position
 
-Phase: 02 (feedback-e-migracao-nextjs) — PLANNING CONCLUÍDO, pronto para execução
-Status: Plans criados, aguardando execução wave a wave
-Last activity: 2026-09-08 — Planejamento da feature de feedback seguro + migração Next.js
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements for v4.0
+Last activity: 2026-09-09 — Milestone v4.0 started
 
-Progress: [██████░░░░░░░░░░░░░░] 28% (L1, L2 concluídos/em andamento)
+Progress: [░░░░░░░░░░░░░░░░░░░░] 0%
 
 ## Accumulated Context
 - Modelo antigo baseado em "anos" descartado. Adotado modelo de Engineering Ladder (L1-L7).
