@@ -126,7 +126,81 @@
 
 ## Traceability
 
-(Preenchido pelo roadmapper após criação das fases)
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| DB-01 | Phase 03 | Pending |
+| DB-02 | Phase 03 | Pending |
+| DB-03 | Phase 03 | Pending |
+| DB-04 | Phase 03 | Pending |
+| DB-05 | Phase 03 | Pending |
+| DB-06 | Phase 03 | Pending |
+| DB-07 | Phase 03 | Pending |
+| DB-08 | Phase 03 | Pending |
+| DB-09 | Phase 03 | Pending |
+| API-01 | Phase 04 | Pending |
+| API-02 | Phase 04 | Pending |
+| API-03 | Phase 04 | Pending |
+| API-04 | Phase 04 | Pending |
+| API-05 | Phase 04 | Pending |
+| API-06 | Phase 04 | Pending |
+| API-07 | Phase 04 | Pending |
+| API-08 | Phase 04 | Pending |
+| API-09 | Phase 04 | Pending |
+| API-10 | Phase 04 | Pending |
+| API-11 | Phase 04 | Pending |
+| API-12 | Phase 04 | Pending |
+| API-13 | Phase 04 | Pending |
+| API-14 | Phase 04 | Pending |
+| API-15 | Phase 04 | Pending |
+| API-16 | Phase 04 | Pending |
+| API-17 | Phase 04 | Pending |
+| API-18 | Phase 04 | Pending |
+| API-19 | Phase 04 | Pending |
+| API-20 | Phase 04 | Pending |
+| API-21 | Phase 04 | Pending |
+| API-22 | Phase 04 | Pending |
+| AUTH-01 | Phase 04 | Pending |
+| AUTH-02 | Phase 04 | Pending |
+| AUTH-03 | Phase 04 | Pending |
+| AUTH-04 | Phase 04 | Pending |
+| AUTH-05 | Phase 04 | Pending |
+| FF-01 | Phase 05 | Pending |
+| FF-02 | Phase 05 | Pending |
+| FF-03 | Phase 05 | Pending |
+| FF-04 | Phase 05 | Pending |
+| FF-05 | Phase 05 | Pending |
+| FF-06 | Phase 05 | Pending |
+| FF-07 | Phase 05 | Pending |
+| FF-08 | Phase 05 | Pending |
+| FF-09 | Phase 05 | Pending |
+| MCF-01 | Phase 06 | Pending |
+| MCF-02 | Phase 06 | Pending |
+| MCF-03 | Phase 06 | Pending |
+| MCF-04 | Phase 06 | Pending |
+| MCF-05 | Phase 06 | Pending |
+| MCF-06 | Phase 06 | Pending |
+| MCF-07 | Phase 06 | Pending |
+| MCF-08 | Phase 06 | Pending |
+| MCF-09 | Phase 06 | Pending |
+| MCF-10 | Phase 06 | Pending |
+| ADMIN-01 | Phase 07 | Pending |
+| ADMIN-02 | Phase 07 | Pending |
+| ADMIN-03 | Phase 07 | Pending |
+| ADMIN-04 | Phase 07 | Pending |
+| ADMIN-05 | Phase 07 | Pending |
+| ADMIN-06 | Phase 07 | Pending |
+| ADMIN-07 | Phase 07 | Pending |
+| ADMIN-08 | Phase 07 | Pending |
+| ADMIN-09 | Phase 07 | Pending |
+| ADMIN-10 | Phase 07 | Pending |
+| ADMIN-11 | Phase 07 | Pending |
+| ADMIN-12 | Phase 07 | Pending |
+| ADMIN-13 | Phase 07 | Pending |
+| DI-01 | Phase 03 | Pending |
+| DI-02 | Phase 05 | Pending |
+| DI-03 | Phase 04 | Pending |
+| DI-04 | Phase 04 | Pending |
+| DI-05 | Phase 05 | Pending |
 
 ---
 

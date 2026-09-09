@@ -1,225 +1,157 @@
-# ROADMAP DO PDI: Níveis Técnicos (L1-L7) → AI Security Specialist
+# ROADMAP: Database Migration & CRUD Edition
 
-**Created:** 2026-08-10  
-**Milestone:** v3.0  
-**Model:** Engineering Ladder L1-L7  
-**Granularity:** Baseado em KPIs, não em tempo  
-**Coverage:** Todos os níveis mapeados ✓
-
-## Níveis
-
-- [x] **L1: Estagiário** — Fundação técnica básica [Concluído em 2024]
-- [x] **L2: Júnior** — Autonomia em tarefas definidas [Desde 2025-05-05]
-- [ ] **L3: Pleno** — Ownership de projetos médios e influência na squad
-- [ ] **L4: Sênior** — Arquitetura cross-squad e liderança técnica
-- [ ] **L5: Specialist 1** — Framework corporativo e domínio de AI Security
-- [ ] **L6: Specialist 2** — Arquitetura corporativa oficial e impacto executivo
-- [ ] **L7: Specialist 3** — Referência de indústria e padrões de mercado
-
-## Detalhes por Nível
-
-### L1: Estagiário ✓
-**Goal**: Fundação técnica básica  
-**Status:** Concluído (2023-2024)  
-**KPIs Atingidos:**
-- Tarefas supervisionadas entregues
-- Ferramentas básicas dominadas
-- Certificações iniciais
+**Created:** 2026-09-09  
+**Milestone:** v4.0  
+**Granularity:** Standard (5-8 phases)  
+**Coverage:** 73/73 requirements mapped ✓
 
 ---
 
-### L2: Júnior (ATUAL) — Em progresso
-**Goal**: Demonstrar autonomia em tarefas bem definidas e entregar consistentemente.  
-**Status:** Em progresso (desde 2025-05-05)
+## Phases
 
-**KPIs Mensuráveis:**
-| KPI | Meta | Status |
-|-----|------|--------|
-| Features/bugfixes autônomos | 10+ | Em progresso |
-| Taxa de retrabalho em PRs | < 20% | Em progresso |
-| Discussões técnicas com propostas | 5+ | Em progresso |
-| Melhorias de processo implementadas | 2+ | Em progresso |
-| Estagiários mentorados | 1+ | Em progresso |
-
-**Certificações concluídas:**
-- [x] AWS Cloud Practitioner (Dez/2024)
-- [x] Analytics Engineer Interno (Set/2025)
-- [x] API Owner Interno (Dez/2025)
-- [x] CompTIA Security+ (Abr/2026)
-
-**Entrega de saída:** Trabalha de forma autônoma em tarefas bem definidas; entende o domínio do negócio.
+- [ ] **Phase 03: Database Schema & Data Migration** - Set up Supabase tables, RLS policies, and migrate pdiData.ts
+- [ ] **Phase 04: Authentication & CRUD API** - Build auth middleware and all CRUD endpoints with validation
+- [ ] **Phase 05: Feature Flags & Gradual Rollout** - Implement feature flag system with fallback logic
+- [ ] **Phase 06: Milestone Completion Flow** - Build interactive objective completion with modal + password auth
+- [ ] **Phase 07: Admin Panel CRUD UI** - Create admin routes and forms for all entities
 
 ---
 
-### L3: Pleno
-**Goal**: Liderar tecnicamente features complexas; influenciar decisões da squad.  
-**Status:** Atuando como Pleno desde 07/06/2026 (promoção formal pendente)
+## Phase Details
 
-**KPIs Mensuráveis:**
-| KPI | Meta | Status |
-|-----|------|--------|
-| Ownership completo de projetos médios | 3+ projetos (>1 mês cada) | Pendente |
-| Design técnico aprovado por sênior | 2+ features complexas | Pendente |
-| Redução de débito técnico | -15%+ em métricas | Pendente |
-| Apresentação técnica para audiência | 1+ (20+ pessoas) | Pendente |
-| Mentoria ativa com PDI estruturado | 2+ juniores<details><summary>Dependência: Termos estagiário/júnior próximo</summary>Bloqueado até que haja a alocação de pessoa júnior/estagiário para mentoria.</details> | Pendente |
-| Certificação técnica | CRTP ou AWS SA Associate | Pendente |
+### Phase 03: Database Schema & Data Migration
+**Goal**: PDI data persists in Supabase with proper schema, security policies, and initial seed data migrated from TypeScript.
 
-**Entrega de saída:** Lidera tecnicamente features complexas; influencia decisões da squad.
+**Depends on**: Nothing (first phase of v4.0)
 
-**Marcos Concretos:**
-- [ ] Cyber.itau: ownership completo de 2+ módulos críticos end-to-end
-- [ ] Insight Guard: design de arquitetura aprovado pela liderança
-- [ ] Apresentação técnica em All Hands ou evento interno (20+ pessoas)
-- [ ] Mentoria com a Aline (nível spec II / gerente)
-- [ ] 2 juniores/estagiários com PDI estruturado (Bloqueado: depende de termos estagiário próximo)
-- [ ] CRTP concluído ou AWS SA Associate obtida
+**Requirements**: DB-01, DB-02, DB-03, DB-04, DB-05, DB-06, DB-07, DB-08, DB-09, DI-01
+
+**Success Criteria** (what must be TRUE):
+1. User can view public PDI data fetched from Supabase (skills, milestones, projects, resources, personal info)
+2. Database schema includes all TypeScript fields (JSONB for requirements, objectives, unlockedRequirements)
+3. RLS policies allow public reads but block unauthenticated writes
+4. Indexes exist for performance-critical queries (category, status, phase, archived)
+5. Backup of original pdiData.ts exists before migration runs
+
+**Plans**: TBD
+
+**UI hint**: no
 
 ---
 
-### L4: Sênior
-**Goal**: Autoridade técnica reconhecida; molda a direção técnica de múltiplas squads.
+### Phase 04: Authentication & CRUD API
+**Goal**: Authenticated users can create, read, update, and delete all PDI entities via REST API endpoints.
 
-**KPIs Mensuráveis:**
-| KPI | Meta | Status |
-|-----|------|--------|
-| Sistemas complexos em produção (cross-squad) | 2+ | Não iniciado |
-| Impacto mensurável | -30%+ custo OU +40%+ perf | Não iniciado |
-| Liderança técnica de projetos críticos | 3+ projetos (5+ pessoas) | Não iniciado |
-| Mentoria consolidada (plenos promovidos) | 3+ plenos | Não iniciado |
-| Influência arquitetural cross-squad | 5+ decisões adotadas | Não iniciado |
-| Contribuição pública | 2+ palestras OU paper | Não iniciado |
-| Certificação avançada | OSCP, AWS SA Pro, iSAQB CPSA-F | Não iniciado |
+**Depends on**: Phase 03
 
-**Entrega de saída:** Autoridade técnica reconhecida; molda a direção técnica de múltiplas squads.
+**Requirements**: API-01, API-02, API-03, API-04, API-05, API-06, API-07, API-08, API-09, API-10, API-11, API-12, API-13, API-14, API-15, API-16, API-17, API-18, API-19, API-20, API-21, API-22, AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, DI-03, DI-04
 
-**Marcos Concretos:**
-- [ ] Arquitetura de AI Defense (guardrails) adotada por 2+ squads
-- [ ] Liderança técnica de 3+ projetos de impacto
-- [ ] OSCP concluído
-- [ ] iSAQB CPSA-F obtida
-- [ ] Palestra em BSides BR ou H2HC
+**Success Criteria** (what must be TRUE):
+1. Unauthenticated user can GET all entities but receives 401 on write attempts
+2. User with correct password can create, update, and delete any PDI entity via API
+3. All write endpoints validate input with Zod and return 400 for invalid data
+4. All write endpoints are rate-limited via Upstash Redis (429 response when exceeded)
+5. API logs all write operations with timestamp, entity type, and operation type
+
+**Plans**: TBD
+
+**UI hint**: no
 
 ---
 
-### L5: Specialist 1
-**Goal**: Define padrões técnicos corporativos; referência em domínio específico.
+### Phase 05: Feature Flags & Gradual Rollout
+**Goal**: PDI application can dynamically switch between static data (pdiData.ts) and database backend per entity type, with automatic fallback on errors.
 
-**KPIs Mensuráveis:**
-| KPI | Meta | Status |
-|-----|------|--------|
-| Framework/plataforma corporativa | 5+ squads adotando | Não iniciado |
-| Impacto organizacional | -40%+ tempo de entrega | Não iniciado |
-| Ownership de domínio estratégico | AI Security, Data Gov. | Não iniciado |
-| Liderança de iniciativa multi-diretoria | 3+ diretorias | Não iniciado |
-| Reconhecimento externo | 3+ palestras nacionais OU 500+ stars | Não iniciado |
-| Certificação especialização | CAISP, CISSP | Não iniciado |
-| Publicação técnica | Artigo citado/reconhecido | Não iniciado |
+**Depends on**: Phase 04
 
-**Entrega de saída:** Define padrões técnicos corporativos; referência em domínio específico.
+**Requirements**: FF-01, FF-02, FF-03, FF-04, FF-05, FF-06, FF-07, FF-08, FF-09, DI-02, DI-05
 
-**Marcos Concretos:**
-- [ ] AI Security Framework corporativo adotado por 5+ squads
-- [ ] CAISP obtida
-- [ ] CISSP obtida
-- [ ] Contribuição ao OWASP GenAI Security Project
-- [ ] Palestra em conferência nacional (ROADSEC, H2HC)
-- [ ] CMCPSE (opcional, diferencial para agentes)
+**Success Criteria** (what must be TRUE):
+1. Admin can toggle feature flags via environment variables (FEATURE_DB_SKILLS, etc.)
+2. Frontend fetches data from API when flag is enabled, from pdiData.ts when disabled
+3. If API fails, application automatically falls back to pdiData.ts and logs the error
+4. Admin panel displays current feature flag states with visual indicators
+5. Validation script can compare mock data vs database data and report discrepancies
+
+**Plans**: TBD
+
+**UI hint**: yes
 
 ---
 
-### L6: Specialist 2
-**Goal**: Molda estratégia técnica corporativa; reconhecido nacionalmente/internacionalmente.
+### Phase 06: Milestone Completion Flow
+**Goal**: Users can mark milestone objectives as complete with justification and password verification directly from the PDI dashboard.
 
-**KPIs Mensuráveis:**
-| KPI | Meta | Status |
-|-----|------|--------|
-| Arquitetura corporativa padrão oficial | Banco inteiro | Não iniciado |
-| Impacto executivo | C-level com decisão estratégica | Não iniciado |
-| Governança técnica ampla | 10+ squads | Não iniciado |
-| Comunidade técnica interna | 100+ membros | Não iniciado |
-| Reconhecimento de mercado | Keynote OU 2.000+ stars | Não iniciado |
-| Influência normativa | OWASP, NIST, etc. | Não iniciado |
-| Certificações de governança | ISO/IEC 42001, iSAQB CPSA-A | Não iniciado |
+**Depends on**: Phase 04
 
-**Entrega de saída:** Molda estratégia técnica corporativa; reconhecido nacionalmente/internacionalmente.
+**Requirements**: MCF-01, MCF-02, MCF-03, MCF-04, MCF-05, MCF-06, MCF-07, MCF-08, MCF-09, MCF-10
 
-**Marcos Concretos:**
-- [ ] NIST AI RMF implementado como padrão oficial do Itaú
-- [ ] ISO/IEC 42001 Lead Implementer obtida
-- [ ] Red Teaming AI Framework aprovado pela liderança executiva
-- [ ] Keynote em conferência nacional OU contribuição open source reconhecida
-- [ ] Participação em grupo de trabalho OWASP ou NIST
+**Success Criteria** (what must be TRUE):
+1. User can click checkbox next to milestone objective and see modal with textarea for justification
+2. User must enter valid password in modal to save completion
+3. Invalid password shows inline error without closing modal
+4. Valid save shows success toast and checkbox becomes checked
+5. User can edit milestone title, description, deadline, or add new objectives inline with password verification
+
+**Plans**: TBD
+
+**UI hint**: yes
 
 ---
 
-### L7: Specialist 3
-**Goal**: Líder técnico global; referência de indústria.
+### Phase 07: Admin Panel CRUD UI
+**Goal**: Admin can manage all PDI content (skills, milestones, projects, resources, personal info) through a dedicated admin interface with search, filtering, and CRUD operations.
 
-**KPIs Mensuráveis:**
-| KPI | Meta | Status |
-|-----|------|--------|
-| Impacto corporativo transformador | Mudança fundamental | Não iniciado |
-| Liderança de inovação | Patente OU framework mercado | Não iniciado |
-| Reconhecimento internacional | Prêmios OU keynote Tier-1 | Não iniciado |
-| Influência em padrões de mercado | RFC, NIST guidance, OWASP lead | Não iniciado |
-| ISACA AAISM <details><summary>Dependência: CISSP</summary>Bloqueado até que a certificação CISSP seja obtida.</details> | Pré-req: CISSP ativo | Não iniciado |
+**Depends on**: Phase 04
 
-**Entrega de saída:** Líder técnico global; referência de indústria.
+**Requirements**: ADMIN-01, ADMIN-02, ADMIN-03, ADMIN-04, ADMIN-05, ADMIN-06, ADMIN-07, ADMIN-08, ADMIN-09, ADMIN-10, ADMIN-11, ADMIN-12, ADMIN-13
 
-**Marcos Concretos:**
-- [ ] ISACA AAISM obtida
-- [ ] Keynote em Black Hat, DEF CON, ou OWASP Global
-- [ ] Participação como autor em framework de mercado
-- [ ] Legado técnico duradouro (paper, framework, projeto reconhecido)
+**Success Criteria** (what must be TRUE):
+1. Admin can view all skills in a table with search, filter, sort, and pagination
+2. Admin can create new skill with form including requirements array input
+3. Admin can edit existing skill and delete with confirmation dialog
+4. Admin can manage milestones with full objectives array editing (add/remove/reorder)
+5. Admin can manage projects, resources, and personal info with dedicated forms
+6. All admin routes reuse existing /admin authentication (no duplicate login logic)
+
+**Plans**: TBD
+
+**UI hint**: yes
 
 ---
-
-## Trilha de Certificações
-
-```
-L1-L2 ──► Cloud Practitioner ✓ · Security+ ✓ · Analytics Eng ✓ · API Owner ✓
-L3    ──► CRTP · AWS SA Associate
-L4    ──► OSCP · iSAQB CPSA-F · AWS SA Pro
-L5    ──► CAISP · CISSP · CMCPSE (opcional)
-L6    ──► ISO/IEC 42001 · iSAQB CPSA-A · GIAC GOAA/GASAE (opcional)
-L7    ──► ISACA AAISM (depende: CISSP)
-```
 
 ## Progress
 
-| Nível | Título | Status | KPIs Atingidos |
-|-------|--------|--------|----------------|
-| L1 | Estagiário | ✓ Completo | 4/4 |
-| L2 | Júnior | Em progresso | 2/5 |
-| L3 | Pleno | Atuando (promoção pendente) | 0/6 |
-| L4 | Sênior | Não iniciado | 0/7 |
-| L5 | Specialist 1 | Não iniciado | 0/7 |
-| L6 | Specialist 2 | Não iniciado | 0/6 |
-| L7 | Specialist 3 | Não iniciado | 0/4 |
-
-## Traceability
-
-| Requirement | Level | Status |
-|-------------|-------|--------|
-| L2-L3-AUTONOMY | L2 → L3 | Em progresso |
-| L2-L3-DESIGN | L2 → L3 | Pendente |
-| L2-L3-QUALITY | L2 → L3 | Pendente |
-| L2-L3-PRESENTATION | L2 → L3 | Pendente |
-| L2-L3-MENTORING | L2 → L3 | Pendente |
-| L2-L3-CERT | L2 → L3 | Pendente |
-| L3-L4-ARCHITECTURE | L3 → L4 | Não iniciado |
-| L3-L4-IMPACT | L3 → L4 | Não iniciado |
-| L3-L4-LEADERSHIP | L3 → L4 | Não iniciado |
-| L3-L4-CERT | L3 → L4 | Não iniciado |
-| L4-L5-FRAMEWORK | L4 → L5 | Não iniciado |
-| L4-L5-CERT | L4 → L5 | Não iniciado |
-| L5-L6-CORPORATE-ARCH | L5 → L6 | Não iniciado |
-| L5-L6-CERT | L5 → L6 | Não iniciado |
-| L6-L7-TRANSFORMATION | L6 → L7 | Não iniciado |
-| L6-L7-CERT | L6 → L7 | Não iniciado |
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 03. Database Schema & Data Migration | 0/0 | Not started | - |
+| 04. Authentication & CRUD API | 0/0 | Not started | - |
+| 05. Feature Flags & Gradual Rollout | 0/0 | Not started | - |
+| 06. Milestone Completion Flow | 0/0 | Not started | - |
+| 07. Admin Panel CRUD UI | 0/0 | Not started | - |
 
 ---
-*Roadmap criado: 2026-08-10*  
-*Milestone: v3.0*  
-*Estrutura: Framework L1-L7 baseado em KPIs mensuráveis*
+
+## Coverage Map
+
+**Phase 03** (10 requirements):
+DB-01, DB-02, DB-03, DB-04, DB-05, DB-06, DB-07, DB-08, DB-09, DI-01
+
+**Phase 04** (31 requirements):
+API-01, API-02, API-03, API-04, API-05, API-06, API-07, API-08, API-09, API-10, API-11, API-12, API-13, API-14, API-15, API-16, API-17, API-18, API-19, API-20, API-21, API-22, AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, DI-03, DI-04
+
+**Phase 05** (12 requirements):
+FF-01, FF-02, FF-03, FF-04, FF-05, FF-06, FF-07, FF-08, FF-09, DI-02, DI-05
+
+**Phase 06** (10 requirements):
+MCF-01, MCF-02, MCF-03, MCF-04, MCF-05, MCF-06, MCF-07, MCF-08, MCF-09, MCF-10
+
+**Phase 07** (13 requirements):
+ADMIN-01, ADMIN-02, ADMIN-03, ADMIN-04, ADMIN-05, ADMIN-06, ADMIN-07, ADMIN-08, ADMIN-09, ADMIN-10, ADMIN-11, ADMIN-12, ADMIN-13
+
+**Total:** 73/73 requirements mapped ✓
+
+---
+
+*Roadmap created: 2026-09-09*  
+*Milestone: v4.0 — Database Migration & CRUD Edition*

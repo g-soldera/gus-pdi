@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Linkedin, Github, ArrowRight, Code2, Shield, Zap } from 'lucide-react'
+import { Mail, Linkedin, Github, ArrowRight } from 'lucide-react'
 import { personalInfo, skills, projects } from '@/data/pdiData'
 import { Badge } from '@/app/components/ui/badge'
 import { Button } from '@/app/components/ui/button'
@@ -18,109 +18,111 @@ export default function HomePage() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 border-b border-border">
-        <div className="section-content">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="font-medium text-primary">Analytics Engineer • Pleno</span>
-              </div>
-              
-              <div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                  {personalInfo.name}
-                </h1>
-                <p className="text-xl text-muted-foreground font-medium mt-2">
-                  Aspirante a AI Security Specialist
-                </p>
-              </div>
-
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Especialista em Agent Systems, Prompt Engineering e SecMLOps. 
-                Construindo soluções de IA segura no Itaú Unibanco.
+      <section style={{ padding: '4rem 2rem', borderBottom: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr auto', gap: '3rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', borderRadius: '9999px', backgroundColor: 'rgba(var(--primary), 0.1)', border: '1px solid rgba(var(--primary), 0.2)', width: 'fit-content' }}>
+              <span style={{ width: '0.5rem', height: '0.5rem', borderRadius: '9999px', backgroundColor: 'rgba(var(--primary), 1)' }} />
+              <span style={{ fontSize: '0.875rem', fontWeight: '500', color: 'rgba(var(--primary), 1)' }}>Analytics Engineer • Pleno</span>
+            </div>
+            
+            <div>
+              <h1 style={{ fontSize: '2.25rem', fontWeight: '700', lineHeight: '1.2', marginBottom: '0.5rem' }}>
+                {personalInfo.name}
+              </h1>
+              <p style={{ fontSize: '1.25rem', fontWeight: '500', color: 'rgba(var(--muted-foreground), 1)' }}>
+                Aspirante a AI Security Specialist
               </p>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link href="/feedback">
-                  <Button size="lg" className="gap-2">
-                    <Mail className="w-4 h-4" />
-                    Feedback
-                  </Button>
-                </Link>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://github.com/g-soldera" target="_blank" rel="noopener noreferrer" className="gap-2">
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://linkedin.com/in/soldera" target="_blank" rel="noopener noreferrer" className="gap-2">
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                </Button>
-              </div>
             </div>
 
-            <div className="hidden lg:block">
-              <div className="w-48 h-48 rounded-xl overflow-hidden border-2 border-primary/20 flex-shrink-0">
-                <img
-                  src="https://avatars.githubusercontent.com/u/133945929?v=4"
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <p style={{ fontSize: '1rem', color: 'rgba(var(--muted-foreground), 1)', lineHeight: '1.625' }}>
+              Especialista em Agent Systems, Prompt Engineering e SecMLOps. 
+              Construindo soluções de IA segura no Itaú Unibanco.
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '0.5rem' }}>
+              <Link href="/feedback">
+                <Button size="lg" style={{ gap: '0.5rem' }}>
+                  <Mail style={{ width: '1rem', height: '1rem' }} />
+                  Feedback
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" style={{ gap: '0.5rem' }} asChild>
+                <a href="https://github.com/g-soldera" target="_blank" rel="noopener noreferrer" style={{ gap: '0.5rem' }}>
+                  <Github style={{ width: '1rem', height: '1rem' }} />
+                  GitHub
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" style={{ gap: '0.5rem' }} asChild>
+                <a href="https://linkedin.com/in/soldera" target="_blank" rel="noopener noreferrer" style={{ gap: '0.5rem' }}>
+                  <Linkedin style={{ width: '1rem', height: '1rem' }} />
+                  LinkedIn
+                </a>
+              </Button>
             </div>
+          </div>
+
+          <div style={{ display: 'none', maxWidth: '12rem', height: '12rem', overflow: 'hidden', border: '2px solid rgba(var(--primary), 0.2)', borderRadius: '0.75rem', flexShrink: 0 }}>
+            <img
+              src="https://avatars.githubusercontent.com/u/133945929?v=4"
+              alt={personalInfo.name}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="section-content">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Sobre</h2>
+      <section style={{ padding: '4rem 2rem', backgroundColor: 'rgba(var(--muted), 0.3)' }}>
+        <div style={{ maxWidth: '56rem', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2.25rem', fontWeight: '700', marginBottom: '2rem' }}>Sobre</h2>
           
-          <div className="grid sm:grid-cols-3 gap-6 mb-12">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-primary" />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'rgba(var(--primary), 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg style={{ width: '1.25rem', height: '1.25rem', color: 'rgba(var(--primary), 1)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
               </div>
-              <h3 className="font-semibold">Agent Systems</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 style={{ fontWeight: '600' }}>Agent Systems</h3>
+              <p style={{ fontSize: '0.875rem', color: 'rgba(var(--muted-foreground), 1)' }}>
                 Arquitetura e orquestração de agentes autônomos
               </p>
             </div>
             
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Shield className="w-5 h-5 text-primary" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'rgba(var(--primary), 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg style={{ width: '1.25rem', height: '1.25rem', color: 'rgba(var(--primary), 1)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
               </div>
-              <h3 className="font-semibold">AI Security</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 style={{ fontWeight: '600' }}>AI Security</h3>
+              <p style={{ fontSize: '0.875rem', color: 'rgba(var(--muted-foreground), 1)' }}>
                 Segurança ofensiva e defensiva em IA
               </p>
             </div>
             
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '0.5rem', backgroundColor: 'rgba(var(--primary), 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg style={{ width: '1.25rem', height: '1.25rem', color: 'rgba(var(--primary), 1)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
-              <h3 className="font-semibold">Cloud & MLOps</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 style={{ fontWeight: '600' }}>Cloud & MLOps</h3>
+              <p style={{ fontSize: '0.875rem', color: 'rgba(var(--muted-foreground), 1)' }}>
                 Arquitetura AWS e pipelines SecMLOps
               </p>
             </div>
           </div>
 
-          <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
-            <p>
-              Engenheiro de Analytics atuando em nível <strong className="text-foreground">Pleno</strong> na área de Cyber Security do <strong className="text-foreground">Itaú Unibanco</strong>, 
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <p style={{ fontSize: '1rem', color: 'rgba(var(--muted-foreground), 1)', lineHeight: '1.625' }}>
+              Engenheiro de Analytics atuando em nível <strong style={{ color: 'rgba(var(--foreground), 1)' }}>Pleno</strong> na área de Cyber Security do <strong style={{ color: 'rgba(var(--foreground), 1)' }}>Itaú Unibanco</strong>, 
               com foco em AI Security, Agent Systems e Specification-Driven Development.
             </p>
-            <p>
+            <p style={{ fontSize: '1rem', color: 'rgba(var(--muted-foreground), 1)', lineHeight: '1.625' }}>
               Experiência prática em desenvolvimento de sistemas multi-agente, engenharia de prompts avançada, 
               arquitetura de soluções cloud (AWS) e SecMLOps.
             </p>
@@ -129,30 +131,35 @@ export default function HomePage() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 md:py-24">
-        <div className="section-content">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10">Competências</h2>
+      <section style={{ padding: '4rem 2rem' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2.25rem', fontWeight: '700', marginBottom: '2.5rem' }}>Competências</h2>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
             {topSkills.map((skill) => (
               <div 
                 key={skill.id} 
-                className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors"
+                style={{
+                  backgroundColor: 'rgba(var(--card), 1)',
+                  border: '1px solid rgba(var(--border), 1)',
+                  borderRadius: '0.5rem',
+                  padding: '1.25rem',
+                }}
               >
-                <div className="flex justify-between items-start gap-3 mb-2">
-                  <h3 className="font-semibold text-sm leading-snug flex-1">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                  <h3 style={{ fontWeight: '600', fontSize: '0.875rem', lineHeight: '1.375', flex: '1 1 0%' }}>
                     {skill.name}
                   </h3>
-                  <div className="text-right flex-shrink-0">
-                    <div className="text-lg font-bold text-primary">
+                  <div style={{ textAlign: 'right', flexShrink: '0' }}>
+                    <div style={{ fontSize: '1.125rem', fontWeight: '700', color: 'rgba(var(--primary), 1)' }}>
                       {skill.level.toFixed(1)}
                     </div>
                   </div>
                 </div>
-                <Badge variant="secondary" className="text-xs mb-2">
+                <Badge variant="secondary" style={{ fontSize: '0.75rem', marginBottom: '0.5rem' }}>
                   {skill.category}
                 </Badge>
-                <p className="text-sm text-muted-foreground leading-snug">
+                <p style={{ fontSize: '0.875rem', color: 'rgba(var(--muted-foreground), 1)', lineHeight: '1.375' }}>
                   {skill.description}
                 </p>
               </div>
@@ -162,42 +169,47 @@ export default function HomePage() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="section-content">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10">Projetos</h2>
+      <section style={{ padding: '4rem 2rem', backgroundColor: 'rgba(var(--muted), 0.3)' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2.25rem', fontWeight: '700', marginBottom: '2.5rem' }}>Projetos</h2>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
             {featuredProjects.map((project) => (
               <div 
                 key={project.id} 
-                className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                style={{
+                  backgroundColor: 'rgba(var(--card), 1)',
+                  border: '1px solid rgba(var(--border), 1)',
+                  borderRadius: '0.5rem',
+                  padding: '1.5rem',
+                }}
               >
-                <div className="flex justify-between items-start gap-3 mb-4">
-                  <h3 className="font-semibold flex-1">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <h3 style={{ fontWeight: '600', flex: '1 1 0%' }}>
                     {project.title}
                   </h3>
                   <Badge 
                     variant={project.status === 'completed' ? 'default' : 'secondary'}
-                    className="text-xs flex-shrink-0"
+                    style={{ fontSize: '0.75rem', flexShrink: '0' }}
                   >
                     {project.status === 'completed' ? 'Concluído' : 'Andamento'}
                   </Badge>
                 </div>
                 
-                <p className="text-sm text-muted-foreground mb-4">
+                <p style={{ fontSize: '0.875rem', color: 'rgba(var(--muted-foreground), 1)', marginBottom: '1rem' }}>
                   {project.description}
                 </p>
                 
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold text-foreground">Stack:</p>
-                  <div className="flex flex-wrap gap-1">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <p style={{ fontSize: '0.75rem', fontWeight: '600', color: 'rgba(var(--foreground), 1)' }}>Stack:</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem' }}>
                     {project.technologies.slice(0, 4).map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
+                      <Badge key={tech} variant="outline" style={{ fontSize: '0.75rem' }}>
                         {tech}
                       </Badge>
                     ))}
                     {project.technologies.length > 4 && (
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" style={{ fontSize: '0.75rem' }}>
                         +{project.technologies.length - 4}
                       </Badge>
                     )}
@@ -210,17 +222,17 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24">
-        <div className="section-content max-w-3xl text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">
+      <section style={{ padding: '4rem 2rem' }}>
+        <div style={{ maxWidth: '48rem', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <h2 style={{ fontSize: '2.25rem', fontWeight: '700' }}>
             Vamos conversar sobre AI Security?
           </h2>
-          <p className="text-base text-muted-foreground">
+          <p style={{ fontSize: '1rem', color: 'rgba(var(--muted-foreground), 1)' }}>
             Envie feedback, ideias ou sugestões
           </p>
-          <Link href="/feedback" className="inline-block">
-            <Button size="lg" className="gap-2">
-              <Mail className="w-4 h-4" />
+          <Link href="/feedback" style={{ display: 'inline-block' }}>
+            <Button size="lg" style={{ gap: '0.5rem' }}>
+              <Mail style={{ width: '1rem', height: '1rem' }} />
               Deixar Feedback
             </Button>
           </Link>
@@ -228,7 +240,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-6 px-4 md:px-6 lg:px-8 border-t border-border bg-card/50 text-center text-xs text-muted-foreground">
+      <footer style={{ padding: '1.5rem 2rem', borderTop: '1px solid rgba(var(--border), 1)', backgroundColor: 'rgba(var(--card), 0.5)', textAlign: 'center', fontSize: '0.75rem', color: 'rgba(var(--muted-foreground), 1)' }}>
         <p>© {currentYear} {personalInfo.name}</p>
       </footer>
     </div>
