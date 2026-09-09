@@ -22,6 +22,7 @@ export function Navigation() {
     { icon: Target, label: 'Marcos', href: '#milestones' },
     { icon: Briefcase, label: 'Portfolio', href: '#portfolio' },
     { icon: BookOpen, label: 'Recursos', href: '#resources' },
+    { icon: Menu, label: 'Feedbacks', href: '#feedbacks' },
   ];
 
   const handleNavClick = (href: string) => {

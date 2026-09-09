@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Badge } from '@/app/components/ui/badge'
-import { MessageSquare } from 'lucide-react'
+import { MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface Feedback {
   id: string
@@ -13,10 +13,13 @@ interface Feedback {
   created_at: string
 }
 
+const ITEMS_PER_PAGE = 5
+
 export default function FeedbacksList() {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
@@ -37,6 +40,10 @@ export default function FeedbacksList() {
 
     fetchFeedbacks()
   }, [])
+
+  const totalPages = Math.ceil(feedbacks.length / ITEMS_PER_PAGE)
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const currentFeedbacks = feedbacks.slice(startIndex, startIndex + ITEMS_PER_PAGE)
 
   if (isLoading) {
     return (
@@ -65,7 +72,7 @@ export default function FeedbacksList() {
 
   return (
     <div className="space-y-4">
-      {feedbacks.map((feedback) => (
+      {currentFeedbacks.map((feedback) => (
         <div
           key={feedback.id}
           className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
@@ -99,6 +106,30 @@ export default function FeedbacksList() {
           </p>
         </div>
       ))}
+
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <button
+            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+            disabled={currentPage === 1}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Anterior
+          </button>
+          <span className="text-sm text-muted-foreground">
+            Página {currentPage} de {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+            disabled={currentPage === totalPages}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            Próxima
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      )}
     </div>
   )
 }

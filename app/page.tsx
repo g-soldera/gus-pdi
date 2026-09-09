@@ -21,7 +21,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
       {/* Hero Section */}
       <section style={{ padding: '4rem 2rem', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr auto', gap: '3rem', alignItems: 'center' }}>
+        <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '3rem', alignItems: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', borderRadius: '9999px', backgroundColor: 'rgba(var(--primary), 0.1)', border: '1px solid rgba(var(--primary), 0.2)', width: 'fit-content' }}>
               <span style={{ width: '0.5rem', height: '0.5rem', borderRadius: '9999px', backgroundColor: 'rgba(var(--primary), 1)' }} />
