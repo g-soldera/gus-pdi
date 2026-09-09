@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "export-db": "tsx scripts/export-db.ts"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -81,6 +82,7 @@
     "@vitest/ui": "^4.1.11",
     "jsdom": "^29.1.1",
     "tailwindcss": "4.1.12",
+    "tsx": "^4.23.13",
     "typescript": "5.8.3",
     "vitest": "^4.1.11"
   }
