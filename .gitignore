@@ -59,3 +59,4 @@ old/
 # Temporary files
 *.tmp
 .temp/
+.dev-server.pid

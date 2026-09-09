@@ -18,7 +18,7 @@ function isValidToken(token: string | undefined, secret: string): boolean {
   return sig === expected
 }
 
-export function middleware(req: NextRequest) {
+export default function proxy(req: NextRequest) {
   if (!req.nextUrl.pathname.startsWith('/admin')) {
     return NextResponse.next()
   }
