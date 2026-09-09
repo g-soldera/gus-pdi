@@ -10,5 +10,5 @@
 - RATE-01: Rate limiting on sensitive endpoints
 
 **Plans:**
-- [ ] 04-01-PLAN.md — Implement Auth Schemas, Login, and Logout Endpoints
+- [x] 04-01-PLAN.md — Implement Auth Schemas, Login, and Logout Endpoints (completed 2026-09-09)
 - [ ] 04-02-PLAN.md — Implement CRUD Schemas, PDI REST Endpoints, and Rate Limiting
