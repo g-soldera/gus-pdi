@@ -36,8 +36,8 @@
 **Plans**: 3 plans in 2 waves
 
 Plans:
-- [ ] 03-01-PLAN.md — Database schema with RLS policies and indexes (Wave 1)
-- [ ] 03-02-PLAN.md — Data migration scripts with backup (Wave 1)
+- [x] 03-01-PLAN.md — Database schema with RLS policies and indexes (Wave 1)
+- [x] 03-02-PLAN.md — Data migration scripts with backup (Wave 1)
 - [ ] 03-03-PLAN.md — Verification and test page (Wave 2)
 
 **UI hint**: no
@@ -129,7 +129,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 03. Database Schema & Data Migration | 0/3 | Planned | - |
+| 03. Database Schema & Data Migration | 2/3 | In Progress | - |
 | 04. Authentication & CRUD API | 0/0 | Not started | - |
 | 05. Feature Flags & Gradual Rollout | 0/0 | Not started | - |
 | 06. Milestone Completion Flow | 0/0 | Not started | - |
