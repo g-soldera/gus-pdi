@@ -66,7 +66,7 @@ export default function HomePage() {
 
           <div style={{ display: 'none', maxWidth: '12rem', height: '12rem', overflow: 'hidden', border: '2px solid rgba(var(--primary), 0.2)', borderRadius: '0.75rem', flexShrink: 0 }}>
             <img
-              src="https://avatars.githubusercontent.com/u/133945929?v=4"
+              src="/assets/img/profile.png"
               alt={personalInfo.name}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
