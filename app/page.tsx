@@ -64,7 +64,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div style={{ display: 'none', maxWidth: '12rem', height: '12rem', overflow: 'hidden', border: '2px solid rgba(var(--primary), 0.2)', borderRadius: '0.75rem', flexShrink: 0 }}>
+          <div style={{ maxWidth: '12rem', height: '12rem', overflow: 'hidden', border: '2px solid rgba(var(--primary), 0.2)', borderRadius: '0.75rem', flexShrink: 0 }}>
             <img
               src="/assets/img/profile.png"
               alt={personalInfo.name}
