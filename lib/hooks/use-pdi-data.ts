@@ -16,6 +16,7 @@ import {
   getResources, 
   getPersonalInfo 
 } from '@/src/data/pdiData'
+import { validateResponse } from '@/lib/schemas/responses'
 import type { Skill, Milestone, Project, Resource, PersonalInfo } from '@/types/pdi'
 
 type EntityData = Skill[] | Milestone[] | Project[] | Resource[] | PersonalInfo | null
@@ -93,7 +94,22 @@ export function usePDIData<T extends EntityData>(
           return
         }
 
-        // API success
+        // Validate API response against Zod schema (T-05-02 mitigation)
+        const validation = validateResponse(entity, apiResult.data)
+        if (!validation.valid) {
+          console.warn(
+            `[usePDIData] API response validation failed for ${entity}: ${validation.error}. Falling back to mock data.`
+          )
+          const mockData = await fetchMockData(entity)
+          if (isMounted) {
+            setData(mockData as T)
+            setSource('fallback')
+            setLoading(false)
+          }
+          return
+        }
+
+        // API success and validated
         if (isMounted) {
           setData(apiResult.data as T)
           setSource('api')
