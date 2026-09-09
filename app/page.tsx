@@ -20,37 +20,34 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 border-b border-border">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-16 md:py-24 border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
-            {/* Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="font-medium text-primary">Analytics Engineer • Pleno</span>
-                </div>
-                
-                <div>
-                  <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-2">
-                    {personalInfo.name}
-                  </h1>
-                  <p className="text-xl text-muted-foreground font-medium">
-                    Aspirante a AI Security Specialist
-                  </p>
-                </div>
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-sm">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="font-medium text-primary">Analytics Engineer • Pleno</span>
+              </div>
+              
+              <div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                  {personalInfo.name}
+                </h1>
+                <p className="text-xl text-muted-foreground font-medium mt-2">
+                  Aspirante a AI Security Specialist
+                </p>
               </div>
 
-              <p className="text-base text-muted-foreground leading-relaxed max-w-md">
-                Especialista em Agent Systems, Prompt Engineering e SecMLOps. Construindo soluções de IA segura no Itaú Unibanco.
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                Especialista em Agent Systems, Prompt Engineering e SecMLOps. 
+                Construindo soluções de IA segura no Itaú Unibanco.
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/feedback">
                   <Button size="lg" className="gap-2">
                     <Mail className="w-4 h-4" />
                     Feedback
-                    <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
                 <Button size="lg" variant="outline" asChild>
@@ -68,7 +65,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Avatar */}
             <div className="hidden lg:block">
               <div className="w-48 h-48 rounded-xl overflow-hidden border-2 border-primary/20 flex-shrink-0">
                 <img
@@ -83,9 +79,9 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8">Sobre</h2>
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Sobre</h2>
           
           <div className="grid sm:grid-cols-3 gap-6 mb-12">
             <div className="space-y-3">
@@ -119,7 +115,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+          <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
             <p>
               Engenheiro de Analytics atuando em nível <strong className="text-foreground">Pleno</strong> na área de Cyber Security do <strong className="text-foreground">Itaú Unibanco</strong>, 
               com foco em AI Security, Agent Systems e Specification-Driven Development.
@@ -133,15 +129,15 @@ export default function HomePage() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8">Competências</h2>
+      <section className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10">Competências</h2>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {topSkills.map((skill) => (
               <div 
                 key={skill.id} 
-                className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors"
+                className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors"
               >
                 <div className="flex justify-between items-start gap-3 mb-2">
                   <h3 className="font-semibold text-sm leading-snug flex-1">
@@ -156,7 +152,7 @@ export default function HomePage() {
                 <Badge variant="secondary" className="text-xs mb-2">
                   {skill.category}
                 </Badge>
-                <p className="text-xs text-muted-foreground leading-snug">
+                <p className="text-sm text-muted-foreground leading-snug">
                   {skill.description}
                 </p>
               </div>
@@ -166,9 +162,9 @@ export default function HomePage() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8">Projetos</h2>
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10">Projetos</h2>
           
           <div className="grid md:grid-cols-3 gap-6">
             {featuredProjects.map((project) => (
@@ -176,7 +172,7 @@ export default function HomePage() {
                 key={project.id} 
                 className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
               >
-                <div className="flex justify-between items-start gap-3 mb-3">
+                <div className="flex justify-between items-start gap-3 mb-4">
                   <h3 className="font-semibold flex-1">
                     {project.title}
                   </h3>
@@ -214,9 +210,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold">
+      <section className="py-16 md:py-24">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Vamos conversar sobre AI Security?
           </h2>
           <p className="text-base text-muted-foreground">
@@ -226,14 +222,13 @@ export default function HomePage() {
             <Button size="lg" className="gap-2">
               <Mail className="w-4 h-4" />
               Deixar Feedback
-              <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-6 px-4 sm:px-6 lg:px-8 border-t border-border bg-card/50 text-center text-xs text-muted-foreground">
+      <footer className="py-6 px-4 md:px-6 lg:px-8 border-t border-border bg-card/50 text-center text-xs text-muted-foreground">
         <p>© {currentYear} {personalInfo.name}</p>
       </footer>
     </div>
