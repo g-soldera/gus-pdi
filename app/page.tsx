@@ -71,7 +71,7 @@ export default function HomePage() {
             </div>
 
             <p style={{ fontSize: '1rem', color: 'rgba(var(--muted-foreground), 1)', lineHeight: '1.625' }}>
-              Estudos focados em Agent Systems, Prompt Engineering e SecMLOps. \n
+              Estudos focados em Agent Systems, Prompt Engineering e SecMLOps. <br/>
               Construindo soluções de IA segura no Itaú Unibanco.
             </p>
 
