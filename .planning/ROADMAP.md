@@ -9,7 +9,7 @@
 
 | Phase | Goal | Requirements | Status |
 |-------|------|--------------|--------|
-| 06 | Code Quality & Architecture Review | CQ-01 to CQ-06 (6 reqs) | Pending |
+| 06 | Code Quality & Architecture Review | CQ-01 to CQ-06 (6 reqs) | Planned |
 | 07 | Type Safety & Security Hardening | TS-01 to TS-06, SEC-01 to SEC-07 (13 reqs) | Pending |
 | 08 | Comprehensive Documentation | DOC-01 to DOC-07 (7 reqs) | Pending |
 | 09 | Testing & Performance Optimization | TEST-01 to TEST-06, PERF-01 to PERF-06 (12 reqs) | Pending |
@@ -36,7 +36,16 @@
 4. API routes follow unified error handling pattern
 5. Code review checklist passes 100%
 
-**Status:** Pending
+**Plans:** 5 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — API utilities extraction (responses, validation, rate limiting)
+- [ ] 06-02-PLAN.md — Logging & naming standardization
+- [ ] 06-03-PLAN.md — DRY refactoring application to all routes
+- [ ] 06-04-PLAN.md — Type safety improvements & field mapping
+- [ ] 06-05-PLAN.md — Documentation, error boundaries, quality verification
+
+**Status:** Planned
 
 ---
 
