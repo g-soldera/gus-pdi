@@ -1,8 +1,18 @@
 ---
-milestone: "v4.0"
-milestone_name: "Database Migration & CRUD Edition"
+gsd_state_version: 1.0
+milestone: v4.0
+milestone_name: milestone
 status: completed
+last_updated: "2026-09-09T23:47:42.187Z"
+last_activity: 2026-09-09 -- Phase 05 execution started
+progress:
+  total_phases: 6
+  completed_phases: 2
+  total_plans: 15
+  completed_plans: 7
+  percent: 47
 ---
+
 gsd_state_version: 2.0
 milestone: v4.0
 milestone_name: database-migration-crud
@@ -22,18 +32,20 @@ progress:
 # Project State
 
 ## Project Reference
+
 **Core Value:** Construir senioridade técnica real e mensurável através de um framework de níveis (L1-L7) com KPIs objetivos, progressão baseada em entrega, e trilha certificada de AI Security.
 
 ## Current Position
 
-Phase: 05 — Unified Deployment & Polish
-Plan: 00 (Pending planning)
-Status: Phases 01-04 completed. Remaining work consolidated into Phase 05.
-Last activity: 2026-09-09 — Merged phases 5, 6, and 7 into Phase 05.
+Phase: 05 (Unified Deployment & Polish) — IN PROGRESS
+Plan: 2 of 3
+Status: Completed Plan 05-01 (Feature Flags & Gradual Migration)
+Last activity: 2026-09-10 -- Completed 05-01: Feature flags, usePDIData hook, integrity checker, DB export script
 
-Progress: [████████████████████] 80% (4/5 phases complete)
+Progress: [████████████████████] 83% (4/5 phases complete, 1/3 plans in phase 05)
 
 ## Accumulated Context
+
 - Modelo antigo baseado em "anos" descartado. Adotado modelo de Engineering Ladder (L1-L7).
 - KPIs quantificáveis criados para cada nível (entrega, impacto, arquitetura, liderança).
 - Trilha de certificações AI Security (CRTP, OSCP, CAISP, CISSP, ISO 42001, AAISM) mapeada nos níveis L3 a L7.
@@ -41,23 +53,40 @@ Progress: [████████████████████] 80% (4/
 - Phase 02 (v3.0): migração Vite→Next.js + formulário de feedback seguro + painel admin.
 - Phase 03 (v4.0): Supabase schema, RLS, storage bucket para imagens e migração dinâmica concluídos.
 - Phase 04 (v4.0): Authentication, Zod validation, rate limiting, and CRUD API endpoints completed.
+- Phase 05 Plan 01 (v4.0): Feature flags system with per-entity toggles, hybrid usePDIData hook with automatic fallback, Zod response validation, integrity checker, and database export utility completed.
 
 ## Phases
 
 ### Phase 01 (v3.0) — COMPLETED
+
 Implementação da UI do dashboard PDI: timeline de carreira, milestones arquivados, StudyPath SecMLOps, Resources.
 
 ### Phase 02 (v3.0) — COMPLETED
+
 Migração Vite→Next.js 15 + formulário de feedback seguro + painel admin.
 
 ### Phase 03: Database Schema & Data Migration — COMPLETED
+
 Set up Supabase tables, RLS policies, migrate pdiData.ts to Supabase dynamic queries. (10 requirements: DB-01 to DB-09, DI-01)
 
 ### Phase 04: Optimization, Auth & CRUD API — COMPLETED
+
 Performance optimization, auth middleware, and REST CRUD endpoints completed. (Per requirements API-01..22, AUTH-01..05)
 
-### Phase 05: Unified Deployment & Polish — PENDING
+### Phase 05: Unified Deployment & Polish — IN PROGRESS
+
 Implement feature flags, interactive milestone completion flows, admin panel CRUD UI, and data integrity safeguards. (34 requirements: FF-01..09, MCF-01..10, ADMIN-01..13, DI-02, DI-05)
 
+**Completed Plans:**
+- Plan 01: Feature flags, hybrid data hook with automatic fallback, integrity checker, and database export script (Requirements: FF-01 to FF-09, DI-02, DI-05)
+
+## Decisions
+
+- Per-entity feature flag environment variables for granular migration control (05-01)
+- Automatic fallback to mock data on API failure for zero-downtime migration (05-01)
+- Zod validation on all API responses before rendering to prevent tampering (05-01)
+- Database export script generates TypeScript format for easy rollback (05-01)
+
 ## Session Continuity
-Next step: `/gsd-plan-phase 05` to decompose Phase 05 (Unified Deployment & Polish) into executable plans.
+
+Next step: Execute Plan 05-02 (Interactive Milestone Completion Flow) or Plan 05-03 (Admin Panel CRUD UI).

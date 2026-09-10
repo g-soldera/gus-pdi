@@ -55,15 +55,15 @@
 
 ### Feature Flags & Gradual Migration (FF)
 
-- [ ] **FF-01**: Variável de ambiente `FEATURE_DB_SKILLS` para habilitar skills do DB
-- [ ] **FF-02**: Variável de ambiente `FEATURE_DB_MILESTONES` para habilitar milestones do DB
-- [ ] **FF-03**: Variável de ambiente `FEATURE_DB_PROJECTS` para habilitar projects do DB
-- [ ] **FF-04**: Variável de ambiente `FEATURE_DB_RESOURCES` para habilitar resources do DB
-- [ ] **FF-05**: Variável de ambiente `FEATURE_DB_PERSONAL_INFO` para habilitar personalInfo do DB
-- [ ] **FF-06**: Hook `usePDIData(entity)` que decide entre mock (pdiData.ts) e API conforme feature flag
-- [ ] **FF-07**: Fallback automático para mock se API falhar (com logging)
+- [x] **FF-01**: Variável de ambiente `FEATURE_DB_SKILLS` para habilitar skills do DB
+- [x] **FF-02**: Variável de ambiente `FEATURE_DB_MILESTONES` para habilitar milestones do DB
+- [x] **FF-03**: Variável de ambiente `FEATURE_DB_PROJECTS` para habilitar projects do DB
+- [x] **FF-04**: Variável de ambiente `FEATURE_DB_RESOURCES` para habilitar resources do DB
+- [x] **FF-05**: Variável de ambiente `FEATURE_DB_PERSONAL_INFO` para habilitar personalInfo do DB
+- [x] **FF-06**: Hook `usePDIData(entity)` que decide entre mock (pdiData.ts) e API conforme feature flag
+- [x] **FF-07**: Fallback automático para mock se API falhar (com logging)
 - [ ] **FF-08**: Painel admin com toggle visual de feature flags (leitura + escrita protegida)
-- [ ] **FF-09**: Validação de consistência entre mock e DB durante transição (comparador)
+- [x] **FF-09**: Validação de consistência entre mock e DB durante transição (comparador)
 
 ### Milestone Completion Flow (MCF)
 
@@ -97,10 +97,10 @@
 ### Data Integrity & Safety (DI)
 
 - [ ] **DI-01**: Backup automático de pdiData.ts antes da primeira migração
-- [ ] **DI-02**: Script de export de DB → pdiData.ts (rollback manual se necessário)
+- [x] **DI-02**: Script de export de DB → pdiData.ts (rollback manual se necessário)
 - [ ] **DI-03**: Validação de schema TypeScript nos dados retornados da API
 - [ ] **DI-04**: Logs de todas as operações de escrita (audit trail)
-- [ ] **DI-05**: Testes de integridade: comparar mock vs DB durante fase de feature flags
+- [x] **DI-05**: Testes de integridade: comparar mock vs DB durante fase de feature flags
 
 ---
 

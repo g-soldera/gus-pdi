@@ -35,7 +35,7 @@
 - **Requirements**: FF-01 to FF-09, MCF-01 to MCF-10, ADMIN-01 to ADMIN-13, DI-02, DI-05
 - **Status**: In progress
 - **Plans**:
-  - [ ] 05-01-PLAN.md — Feature flags, hybrid hooks, mock vs DB integrity tests, and DB export script
+  - [x] 05-01-PLAN.md — Feature flags, hybrid hooks, mock vs DB integrity tests, and DB export script
   - [ ] 05-02-PLAN.md — Interactive milestone completion flow, objective modal, and password-protected update API
   - [ ] 05-03-PLAN.md — Comprehensive admin CRUD panel for all entities with search, pagination, and unified auth
 
@@ -47,4 +47,4 @@
 | 02. Migração Vite→Next.js | - | Completed | - |
 | 03. Database Schema & Migration | - | Completed | - |
 | 04. Optimization, Auth & CRUD API | 3/3 | Completed | 2026-09-09 |
-| 05. Unified Deployment & Polish | 0/3 | In progress | - |
+| 05. Unified Deployment & Polish | 1/3 | In progress | - |
