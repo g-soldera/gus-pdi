@@ -65,18 +65,21 @@ Construir senioridade técnica real e mensurável através de:
 | Certificações mapeadas por nível | Garantir que cada certificação valide competências do nível | ✓ Good |
 | Progressão baseada em KPIs | Não basear em tempo de cadeira, mas em entrega real | ✓ Good |
 
-## Current Milestone: v4.0 — Database Migration & CRUD Edition
+## Current Milestone: v5.0 — Repository Review & GitHub Portfolio Preparation
 
-**Goal:** Migrar PDI de dados estáticos (TypeScript) para backend com banco de dados, permitindo edição segura com autenticação por senha.
+**Goal:** Comprehensive codebase review, pattern refinement, documentation enhancement, and professional GitHub portfolio preparation with full GSD artifact traceability.
 
 **Target features:**
-- Migrar pdiData.ts (skills, milestones, projects, resources) para Supabase
-- CRUD API endpoints para todas as entidades PDI
-- Autenticação por senha (variável de ambiente)
-- Fluxo de conclusão de milestones: checkbox → modal de justificativa → entrada de senha → persistência
-- Painel admin para gerenciar conteúdo do PDI
+- Code quality & patterns review (architecture, naming conventions, DRY principles)
+- Documentation & comments (README, API docs, inline comments, architecture diagrams)
+- Type safety & error handling improvements (TypeScript strictness, error boundaries, validation)
+- Security review (auth flows, RLS policies, input validation, secret management)
+- Performance optimization (bundle size, lazy loading, caching, query efficiency)
+- Testing coverage (unit, integration, E2E tests for critical paths)
+- GitHub portfolio polish (badges, screenshots, demo links, clean history)
+- GSD artifact organization (planning docs, summaries, roadmaps properly tracked)
 
-**Infraestrutura existente:** Admin panel com senha em env var, acesso CLI a Vercel/Supabase/Upstash (respeitar).
+**Context:** Project evolved from TypeScript mock data to full Supabase backend (v4.0 complete). Ready for public showcase as professional portfolio demonstrating AI Security career progression tracking.
 
 ## Evolution
 
@@ -89,4 +92,4 @@ This document evolves at level transitions and milestone boundaries.
 4. "What This Is" still accurate? → Update if drifted
 
 ---
-*Last updated: 2026-09-09 after milestone v4.0 start (Database Migration & CRUD)*
+*Last updated: 2026-09-10 after milestone v5.0 start (Repository Review & GitHub Portfolio Preparation)*
