@@ -30,8 +30,8 @@ export interface IntegrityMismatch {
   type: 'missing_in_db' | 'missing_in_mock' | 'field_mismatch'
   id: string
   field?: string
-  mockValue?: any
-  dbValue?: any
+  mockValue?: unknown
+  dbValue?: unknown
   details?: string
 }
 
@@ -98,30 +98,30 @@ export async function compareIntegrity(
 
     // Check for records in mock but not in DB
     for (const mockItem of mockArray) {
-      const dbItem = dbArray.find((db: any) => db.id === mockItem.id)
+      const dbItem = dbArray.find((db) => (db as Record<string, unknown>).id === (mockItem as Record<string, unknown>).id)
       
       if (!dbItem) {
         mismatches.push({
           type: 'missing_in_db',
-          id: mockItem.id,
+          id: (mockItem as Record<string, unknown>).id as string,
           details: `Record exists in mock but not in database`
         })
         continue
       }
 
       // Check for field mismatches
-      const fieldMismatches = compareFields(mockItem, dbItem)
+      const fieldMismatches = compareFields(mockItem as Record<string, unknown>, dbItem as Record<string, unknown>)
       mismatches.push(...fieldMismatches)
     }
 
     // Check for records in DB but not in mock
     for (const dbItem of dbArray) {
-      const mockItem = mockArray.find((mock: any) => mock.id === dbItem.id)
+      const mockItem = mockArray.find((mock) => (mock as Record<string, unknown>).id === (dbItem as Record<string, unknown>).id)
       
       if (!mockItem) {
         mismatches.push({
           type: 'missing_in_mock',
-          id: dbItem.id,
+          id: (dbItem as Record<string, unknown>).id as string,
           details: `Record exists in database but not in mock`
         })
       }
@@ -171,7 +171,7 @@ export async function compareAllEntities(): Promise<IntegrityReport[]> {
 /**
  * Helper: Fetch mock data for a specific entity
  */
-async function fetchMockDataForEntity(entity: EntityType): Promise<any> {
+async function fetchMockDataForEntity(entity: EntityType): Promise<unknown> {
   switch (entity) {
     case 'skills':
       return await getSkills()
@@ -193,7 +193,7 @@ async function fetchMockDataForEntity(entity: EntityType): Promise<any> {
  */
 async function fetchDBDataForEntity(
   entity: EntityType
-): Promise<{ data: any; error: string | null }> {
+): Promise<{ data: unknown; error: string | null }> {
   switch (entity) {
     case 'skills':
       return await fetchSkills()
@@ -213,7 +213,7 @@ async function fetchDBDataForEntity(
 /**
  * Helper: Compare two objects field by field
  */
-function compareFields(mockItem: any, dbItem: any): IntegrityMismatch[] {
+function compareFields(mockItem: Record<string, unknown>, dbItem: Record<string, unknown>): IntegrityMismatch[] {
   const mismatches: IntegrityMismatch[] = []
   const allKeys = new Set([...Object.keys(mockItem), ...Object.keys(dbItem)])
 
@@ -230,7 +230,7 @@ function compareFields(mockItem: any, dbItem: any): IntegrityMismatch[] {
     if (JSON.stringify(mockValue) !== JSON.stringify(dbValue)) {
       mismatches.push({
         type: 'field_mismatch',
-        id: mockItem.id,
+        id: mockItem.id as string,
         field: key,
         mockValue,
         dbValue,
@@ -246,8 +246,8 @@ function compareFields(mockItem: any, dbItem: any): IntegrityMismatch[] {
  * Helper: Compare personal info singleton
  */
 function comparePersonalInfo(
-  mockData: any,
-  dbData: any,
+  mockData: unknown,
+  dbData: unknown,
   timestamp: string
 ): IntegrityReport {
   const mismatches: IntegrityMismatch[] = []
@@ -280,7 +280,7 @@ function comparePersonalInfo(
   }
 
   if (mockData && dbData) {
-    const fieldMismatches = compareFields(mockData, dbData)
+    const fieldMismatches = compareFields(mockData as Record<string, unknown>, dbData as Record<string, unknown>)
     mismatches.push(...fieldMismatches)
   }
 

@@ -124,8 +124,13 @@ export const resourcesArraySchema = z.array(resourceSchema)
 /**
  * Validate API response based on entity type
  */
-export function validateResponse(entity: string, data: any): { valid: boolean; error?: string } {
+export function validateResponse(entity: string, data: unknown): { valid: boolean; error?: string } {
   try {
+    // Type guard: ensure data is defined
+    if (data === null || data === undefined) {
+      return { valid: false, error: 'Data is null or undefined' }
+    }
+
     switch (entity) {
       case 'skills':
         skillsArraySchema.parse(data)

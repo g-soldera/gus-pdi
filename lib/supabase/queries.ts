@@ -2,11 +2,7 @@ import { createPublicClient } from './client'
 import type { Database } from './types'
 import type { Skill, Milestone, Project, Resource, PersonalInfo, Status, SkillRequirement, MilestoneObjective, MilestoneRequirementUnlock } from '@/types/pdi'
 import { logger } from '@/lib/logging'
-
-// Type assertion helper for JSONB fields
-function assertJson<T>(value: any): T | undefined {
-  return value !== undefined && value !== null ? (value as T) : undefined
-}
+import { assertJson } from './mappers'
 
 /**
  * Read-only query functions for PDI entities using Supabase public client.
