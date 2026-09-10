@@ -1,209 +1,109 @@
-# Requirements: Database Migration & CRUD Edition
+# Requirements: PDI Repository Review & GitHub Portfolio
 
-**Defined:** 2026-09-09  
-**Milestone:** v4.0  
-**Core Value:** Migrar PDI de dados estáticos para backend com banco de dados, permitindo edição segura e persistente com autenticação.
+**Defined:** 2026-09-10
+**Core Value:** Construir senioridade técnica real e mensurável através de um framework de níveis (L1-L7) com KPIs objetivos, progressão baseada em entrega, e trilha certificada de AI Security.
 
----
+## v5.0 Requirements
 
-## v4.0 Requirements
+Requirements for milestone v5.0: Repository Review & GitHub Portfolio Preparation.
 
-### Database Schema & Migration (DB)
+### Code Quality & Patterns
 
-- [ ] **DB-01**: Schema SQL para tabela `skills` (id, name, level, description, category, type, requirements JSONB)
-- [ ] **DB-02**: Schema SQL para tabela `milestones` (id, title, displayName, description, status, progress, deadline, notes, objectives JSONB, relatedSkills, relatedResources, phase, archived, unlockedRequirements JSONB)
-- [ ] **DB-03**: Schema SQL para tabela `projects` (id, title, description, tech, links, status)
-- [ ] **DB-04**: Schema SQL para tabela `resources` (id, category, title, description, url, completed)
-- [ ] **DB-05**: Schema SQL para tabela `personal_info` (singleton com campos do PersonalInfo)
-- [ ] **DB-06**: Script de migração de dados de `pdiData.ts` para Supabase (seed inicial)
-- [ ] **DB-07**: Row Level Security (RLS) policies: leitura pública, escrita autenticada
-- [ ] **DB-08**: Índices para performance (category, status, phase, archived)
-- [ ] **DB-09**: Constraints e foreign keys onde aplicável
+- [ ] **CQ-01**: Codebase follows consistent naming conventions across all files and functions
+- [ ] **CQ-02**: No duplicate logic - DRY violations identified and refactored
+- [ ] **CQ-03**: Component architecture follows established Next.js 15 patterns
+- [ ] **CQ-04**: Shared utilities extracted into reusable lib/ functions
+- [ ] **CQ-05**: API routes follow consistent structure and error handling patterns
+- [ ] **CQ-06**: Database queries use consistent patterns with proper error handling
 
-### CRUD API Endpoints (API)
+### Documentation & Comments
 
-- [ ] **API-01**: `GET /api/skills` — listar todas as skills
-- [ ] **API-02**: `POST /api/skills` — criar skill (auth required)
-- [ ] **API-03**: `PUT /api/skills/[id]` — atualizar skill (auth required)
-- [ ] **API-04**: `DELETE /api/skills/[id]` — deletar skill (auth required)
-- [ ] **API-05**: `GET /api/milestones` — listar todos os milestones
-- [ ] **API-06**: `POST /api/milestones` — criar milestone (auth required)
-- [ ] **API-07**: `PUT /api/milestones/[id]` — atualizar milestone (auth required)
-- [ ] **API-08**: `PATCH /api/milestones/[id]/objectives/[objId]` — marcar objective como completo com justificativa (auth required)
-- [ ] **API-09**: `DELETE /api/milestones/[id]` — deletar milestone (auth required)
-- [ ] **API-10**: `GET /api/projects` — listar todos os projetos
-- [ ] **API-11**: `POST /api/projects` — criar projeto (auth required)
-- [ ] **API-12**: `PUT /api/projects/[id]` — atualizar projeto (auth required)
-- [ ] **API-13**: `DELETE /api/projects/[id]` — deletar projeto (auth required)
-- [ ] **API-14**: `GET /api/resources` — listar todos os recursos
-- [ ] **API-15**: `POST /api/resources` — criar recurso (auth required)
-- [ ] **API-16**: `PUT /api/resources/[id]` — atualizar recurso (auth required)
-- [ ] **API-17**: `DELETE /api/resources/[id]` — deletar recurso (auth required)
-- [ ] **API-18**: `GET /api/personal-info` — obter informações pessoais
-- [ ] **API-19**: `PUT /api/personal-info` — atualizar informações pessoais (auth required)
-- [ ] **API-20**: Validação Zod em todos os endpoints de escrita
-- [ ] **API-21**: Rate limiting com Upstash Redis em endpoints de escrita
-- [ ] **API-22**: Error handling padronizado (400, 401, 403, 404, 500)
+- [ ] **DOC-01**: README.md includes project overview, setup instructions, and tech stack
+- [ ] **DOC-02**: README includes environment variable documentation
+- [ ] **DOC-03**: API endpoints documented with request/response examples
+- [ ] **DOC-04**: Complex functions have inline comments explaining business logic
+- [ ] **DOC-05**: Architecture diagram shows system components and data flow
+- [ ] **DOC-06**: Database schema documented with table relationships
+- [ ] **DOC-07**: Deployment guide included for Vercel and Supabase setup
 
-### Authentication & Authorization (AUTH)
+### Type Safety & Error Handling
 
-- [ ] **AUTH-01**: Middleware de autenticação por senha (variável de ambiente `ADMIN_PASSWORD`)
-- [ ] **AUTH-02**: Proteção de todas as rotas de escrita (POST/PUT/PATCH/DELETE) com auth middleware
-- [ ] **AUTH-03**: Session management via cookie HMAC (reutilizar implementação existente de `/admin`)
-- [ ] **AUTH-04**: Endpoint `POST /api/auth/verify` para validar senha sem criar sessão (para modals)
-- [ ] **AUTH-05**: Logout endpoint `POST /api/auth/logout` para invalidar sessão
+- [ ] **TS-01**: TypeScript strict mode enabled with no 'any' types in critical paths
+- [ ] **TS-02**: All API responses have TypeScript interfaces
+- [ ] **TS-03**: Zod schemas cover all user inputs and API payloads
+- [ ] **TS-04**: Error boundaries implemented for React components
+- [ ] **TS-05**: API routes return consistent error response format
+- [ ] **TS-06**: Client-side error handling with user-friendly messages
 
-### Feature Flags & Gradual Migration (FF)
+### Security Review
 
-- [x] **FF-01**: Variável de ambiente `FEATURE_DB_SKILLS` para habilitar skills do DB
-- [x] **FF-02**: Variável de ambiente `FEATURE_DB_MILESTONES` para habilitar milestones do DB
-- [x] **FF-03**: Variável de ambiente `FEATURE_DB_PROJECTS` para habilitar projects do DB
-- [x] **FF-04**: Variável de ambiente `FEATURE_DB_RESOURCES` para habilitar resources do DB
-- [x] **FF-05**: Variável de ambiente `FEATURE_DB_PERSONAL_INFO` para habilitar personalInfo do DB
-- [x] **FF-06**: Hook `usePDIData(entity)` que decide entre mock (pdiData.ts) e API conforme feature flag
-- [x] **FF-07**: Fallback automático para mock se API falhar (com logging)
-- [ ] **FF-08**: Painel admin com toggle visual de feature flags (leitura + escrita protegida)
-- [x] **FF-09**: Validação de consistência entre mock e DB durante transição (comparador)
+- [ ] **SEC-01**: All admin routes protected by authentication middleware
+- [ ] **SEC-02**: Supabase RLS policies verified and tested
+- [ ] **SEC-03**: No secrets or API keys committed to repository
+- [ ] **SEC-04**: Input validation on all write operations (Zod + server-side)
+- [ ] **SEC-05**: Rate limiting configured on all mutation endpoints
+- [ ] **SEC-06**: CORS and CSP headers properly configured
+- [ ] **SEC-07**: Session management uses httpOnly cookies with proper expiration
 
-### Milestone Completion Flow (MCF)
+### Performance Optimization
 
-- [ ] **MCF-01**: Botão de checkbox em cada objetivo do milestone abre modal ao clicar
-- [ ] **MCF-02**: Modal com textarea para justificativa da conclusão
-- [ ] **MCF-03**: Input de senha no modal (validação inline sem criar sessão)
-- [ ] **MCF-04**: Botão "Save" chama `PATCH /api/milestones/[id]/objectives/[objId]` com justificativa
-- [ ] **MCF-05**: Loading state durante save
-- [ ] **MCF-06**: Success feedback (toast + checkbox marcado) após save
-- [ ] **MCF-07**: Error feedback se senha inválida ou falha de rede
-- [ ] **MCF-08**: Modal pode ser fechado sem salvar (cancel)
-- [ ] **MCF-09**: Edição inline de milestone title, description, deadline (com senha)
-- [ ] **MCF-10**: Adicionar novo objetivo a milestone existente (com senha)
+- [ ] **PERF-01**: Bundle size analyzed and optimized (< 200KB initial JS)
+- [ ] **PERF-02**: Images optimized with Next.js Image component
+- [ ] **PERF-03**: Code splitting implemented for admin routes
+- [ ] **PERF-04**: Database queries use indexes on frequently queried fields
+- [ ] **PERF-05**: API responses cached where appropriate
+- [ ] **PERF-06**: Lighthouse score > 90 for performance, accessibility, SEO
 
-### Admin Panel Enhancement (ADMIN)
+### Testing Coverage
 
-- [ ] **ADMIN-01**: Rota `/admin/skills` com tabela de skills + CRUD UI
-- [ ] **ADMIN-02**: Formulário de criação/edição de skill (todos os campos + requirements array)
-- [ ] **ADMIN-03**: Rota `/admin/milestones` com tabela de milestones + CRUD UI
-- [ ] **ADMIN-04**: Formulário de criação/edição de milestone (todos os campos + objectives array)
-- [ ] **ADMIN-05**: Rota `/admin/projects` com tabela de projects + CRUD UI
-- [ ] **ADMIN-06**: Formulário de criação/edição de project
-- [ ] **ADMIN-07**: Rota `/admin/resources` com tabela de resources + CRUD UI
-- [ ] **ADMIN-08**: Formulário de criação/edição de resource
-- [ ] **ADMIN-09**: Rota `/admin/personal-info` com formulário de edição
-- [ ] **ADMIN-10**: Tabelas com busca, filtro, ordenação e paginação
-- [ ] **ADMIN-11**: Confirmação antes de delete (alert dialog)
-- [ ] **ADMIN-12**: Navegação entre seções do admin panel (sidebar ou tabs)
-- [ ] **ADMIN-13**: Reutilizar autenticação existente do `/admin` (sem duplicar lógica)
+- [ ] **TEST-01**: Unit tests for critical utility functions
+- [ ] **TEST-02**: Integration tests for API CRUD endpoints
+- [ ] **TEST-03**: E2E tests for milestone completion flow
+- [ ] **TEST-04**: E2E tests for admin panel CRUD operations
+- [ ] **TEST-05**: Test coverage report generated and tracked
+- [ ] **TEST-06**: CI/CD pipeline runs tests on every commit
 
-### Data Integrity & Safety (DI)
+### GitHub Portfolio Polish
 
-- [ ] **DI-01**: Backup automático de pdiData.ts antes da primeira migração
-- [x] **DI-02**: Script de export de DB → pdiData.ts (rollback manual se necessário)
-- [ ] **DI-03**: Validação de schema TypeScript nos dados retornados da API
-- [ ] **DI-04**: Logs de todas as operações de escrita (audit trail)
-- [x] **DI-05**: Testes de integridade: comparar mock vs DB durante fase de feature flags
+- [ ] **PORT-01**: README includes demo link and screenshots
+- [ ] **PORT-02**: Repository includes badges (build status, license, tech stack)
+- [ ] **PORT-03**: Clean commit history with conventional commit messages
+- [ ] **PORT-04**: Repository topics/tags added for discoverability
+- [ ] **PORT-05**: LICENSE file added (MIT or appropriate)
+- [ ] **PORT-06**: .gitignore excludes all sensitive and generated files
+- [ ] **PORT-07**: Social preview image configured for GitHub
 
----
+### GSD Artifact Organization
 
-## Future Requirements (Deferred)
-
-- [ ] **FUTURE-01**: Histórico de edições (audit log UI)
-- [ ] **FUTURE-02**: Autenticação multi-usuário (OAuth / Supabase Auth)
-- [ ] **FUTURE-03**: API pública read-only (rate limited)
-- [ ] **FUTURE-04**: Versionamento de milestones (snapshots)
-- [ ] **FUTURE-05**: Sincronização offline (service worker)
-
----
+- [ ] **ART-01**: All phase summaries properly committed in .planning/phases/
+- [ ] **ART-02**: ROADMAP.md reflects all completed phases and milestones
+- [ ] **ART-03**: STATE.md accurately tracks current position
+- [ ] **ART-04**: PROJECT.md includes all validated requirements from v1-v4
+- [ ] **ART-05**: Decision log in PROJECT.md includes key technical choices
+- [ ] **ART-06**: .planning/ directory structure documented in README
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Real-time collaboration | Projeto pessoal, single-user suficiente para v4.0 |
-| GraphQL API | REST é suficiente para este caso de uso |
-| Multi-tenancy | Não há necessidade de múltiplos PDIs isolados |
-
----
+| Mobile native app | Web-first approach sufficient for portfolio demonstration |
+| Real-time collaboration | Single-user PDI system, not needed |
+| Payment integration | Not applicable to this project type |
+| Advanced analytics dashboard | Focus on core PDI tracking functionality |
 
 ## Traceability
 
+Which phases cover which requirements. Updated during roadmap creation.
+
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DB-01 | Phase 03 | Pending |
-| DB-02 | Phase 03 | Pending |
-| DB-03 | Phase 03 | Pending |
-| DB-04 | Phase 03 | Pending |
-| DB-05 | Phase 03 | Pending |
-| DB-06 | Phase 03 | Pending |
-| DB-07 | Phase 03 | Pending |
-| DB-08 | Phase 03 | Pending |
-| DB-09 | Phase 03 | Pending |
-| API-01 | Phase 04 | Pending |
-| API-02 | Phase 04 | Pending |
-| API-03 | Phase 04 | Pending |
-| API-04 | Phase 04 | Pending |
-| API-05 | Phase 04 | Pending |
-| API-06 | Phase 04 | Pending |
-| API-07 | Phase 04 | Pending |
-| API-08 | Phase 04 | Pending |
-| API-09 | Phase 04 | Pending |
-| API-10 | Phase 04 | Pending |
-| API-11 | Phase 04 | Pending |
-| API-12 | Phase 04 | Pending |
-| API-13 | Phase 04 | Pending |
-| API-14 | Phase 04 | Pending |
-| API-15 | Phase 04 | Pending |
-| API-16 | Phase 04 | Pending |
-| API-17 | Phase 04 | Pending |
-| API-18 | Phase 04 | Pending |
-| API-19 | Phase 04 | Pending |
-| API-20 | Phase 04 | Pending |
-| API-21 | Phase 04 | Pending |
-| API-22 | Phase 04 | Pending |
-| AUTH-01 | Phase 04 | Pending |
-| AUTH-02 | Phase 04 | Pending |
-| AUTH-03 | Phase 04 | Pending |
-| AUTH-04 | Phase 04 | Pending |
-| AUTH-05 | Phase 04 | Pending |
-| FF-01 | Phase 05 | Pending |
-| FF-02 | Phase 05 | Pending |
-| FF-03 | Phase 05 | Pending |
-| FF-04 | Phase 05 | Pending |
-| FF-05 | Phase 05 | Pending |
-| FF-06 | Phase 05 | Pending |
-| FF-07 | Phase 05 | Pending |
-| FF-08 | Phase 05 | Pending |
-| FF-09 | Phase 05 | Pending |
-| MCF-01 | Phase 05 | Pending |
-| MCF-02 | Phase 05 | Pending |
-| MCF-03 | Phase 05 | Pending |
-| MCF-04 | Phase 05 | Pending |
-| MCF-05 | Phase 05 | Pending |
-| MCF-06 | Phase 05 | Pending |
-| MCF-07 | Phase 05 | Pending |
-| MCF-08 | Phase 05 | Pending |
-| MCF-09 | Phase 05 | Pending |
-| MCF-10 | Phase 05 | Pending |
-| ADMIN-01 | Phase 05 | Pending |
-| ADMIN-02 | Phase 05 | Pending |
-| ADMIN-03 | Phase 05 | Pending |
-| ADMIN-04 | Phase 05 | Pending |
-| ADMIN-05 | Phase 05 | Pending |
-| ADMIN-06 | Phase 05 | Pending |
-| ADMIN-07 | Phase 05 | Pending |
-| ADMIN-08 | Phase 05 | Pending |
-| ADMIN-09 | Phase 05 | Pending |
-| ADMIN-10 | Phase 05 | Pending |
-| ADMIN-11 | Phase 05 | Pending |
-| ADMIN-12 | Phase 05 | Pending |
-| ADMIN-13 | Phase 05 | Pending |
-| DI-01 | Phase 03 | Pending |
-| DI-02 | Phase 05 | Pending |
-| DI-03 | Phase 04 | Pending |
-| DI-04 | Phase 04 | Pending |
-| DI-05 | Phase 05 | Pending |
+| (To be filled by roadmapper) | | |
+
+**Coverage:**
+- v5.0 requirements: 45 total
+- Mapped to phases: 0 (pending roadmap)
+- Unmapped: 45 ⚠️
 
 ---
-
-**Defined:** 2026-09-09  
-**Last updated:** 2026-09-09  
-**Status:** v4.0 scoping complete
+*Requirements defined: 2026-09-10*
+*Last updated: 2026-09-10 after initial definition*
