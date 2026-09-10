@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { apiSuccess, apiError } from '@/lib/api/responses'
+import { logger } from '@/lib/logging'
 
 const COOKIE_NAME = 'pdi-session'
 
 export async function POST(req: NextRequest) {
   try {
     // Clear the session cookie
-    const res = NextResponse.json({ success: true, message: 'Logout successful.' })
+    const res = apiSuccess({ success: true, message: 'Logout realizado com sucesso' })
     res.cookies.set(COOKIE_NAME, '', {
       httpOnly: true,
       sameSite: 'lax',
@@ -16,11 +18,11 @@ export async function POST(req: NextRequest) {
 
     return res
   } catch (err) {
-    console.error('[auth/logout] Unexpected error:', err)
-    return NextResponse.json({ error: 'Internal server error.' }, { status: 500 })
+    logger.error('api/auth/logout', 'Unexpected error in POST handler', err)
+    return apiError('Erro interno', 500)
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ error: 'Method not allowed.' }, { status: 405 })
+  return apiError('Método não permitido', 405)
 }
