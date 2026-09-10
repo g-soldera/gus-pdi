@@ -5,6 +5,7 @@ import { Milestone, StudyTopic } from '@/types/pdi';
 import { StatusBadge } from './StatusBadge';
 import { ProgressBar } from './ProgressBar';
 import { ArchivedMilestonesModal } from './modals/ArchivedMilestonesModal';
+import { MilestoneObjectiveModal } from './modals/MilestoneObjectiveModal';
 import { StudyPath } from './StudyPath';
 import { calculateDaysRemaining, formatDate } from '@/app/utils/helpers';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/ui/tooltip';
@@ -29,6 +30,38 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
   const [view, setView] = useState<'timeline' | 'cards'>('timeline');
   const [showArchivedModal, setShowArchivedModal] = useState(false);
   const [selectedPhase, setSelectedPhase] = useState<string>('L2');
+  const [objectiveModal, setObjectiveModal] = useState<{
+    isOpen: boolean;
+    milestoneId: string;
+    milestoneTitle: string;
+    objectiveIndex: number;
+    objectiveText: string;
+    currentCompleted: boolean;
+  } | null>(null);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  const handleObjectiveClick = (
+    e: React.MouseEvent,
+    milestone: Milestone,
+    objectiveIndex: number,
+    objective: { text: string; completed: boolean }
+  ) => {
+    e.stopPropagation();
+    setObjectiveModal({
+      isOpen: true,
+      milestoneId: milestone.id,
+      milestoneTitle: milestone.title,
+      objectiveIndex,
+      objectiveText: objective.text,
+      currentCompleted: objective.completed,
+    });
+  };
+
+  const handleObjectiveSuccess = () => {
+    setRefreshTrigger(prev => prev + 1);
+    // Force parent to refetch milestones data
+    window.location.reload();
+  };
 
   const filteredMilestones = milestones.filter(m => !m.archived && m.phase === selectedPhase);
 
@@ -107,19 +140,33 @@ export function Milestones({ milestones, studyPath, onMilestoneClick }: Mileston
           {view === 'timeline' ? (
             <div className="relative">
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
-              <div className="space-y-8">{sortedMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
+              <div className="space-y-8">{sortedMilestones.map((m, i) => <MilestoneItem key={m.id} milestone={m} index={i} onClick={onMilestoneClick} onObjectiveClick={handleObjectiveClick} />)}</div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{sortedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} />)}</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{sortedMilestones.map((m, i) => <MilestoneCard key={m.id} milestone={m} index={i} onClick={onMilestoneClick} onObjectiveClick={handleObjectiveClick} />)}</div>
           )}
           {filteredMilestones.length === 0 && <p className="text-center py-12 text-muted-foreground">Nenhum marco nesta fase.</p>}
         </TooltipProvider>
       </div>
+
+      {/* Objective Completion Modal */}
+      {objectiveModal && (
+        <MilestoneObjectiveModal
+          isOpen={objectiveModal.isOpen}
+          onClose={() => setObjectiveModal(null)}
+          milestoneId={objectiveModal.milestoneId}
+          milestoneTitle={objectiveModal.milestoneTitle}
+          objectiveIndex={objectiveModal.objectiveIndex}
+          objectiveText={objectiveModal.objectiveText}
+          currentCompleted={objectiveModal.currentCompleted}
+          onSuccess={handleObjectiveSuccess}
+        />
+      )}
     </section>
   );
 }
 
-function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, index: number, onClick: any }) {
+function MilestoneItem({ milestone, index, onClick, onObjectiveClick }: { milestone: Milestone, index: number, onClick: any, onObjectiveClick: any }) {
   const progress = calculateDynamicProgress(milestone);
   const status = getDynamicStatus(milestone);
   const StatusIcon = getStatusIcon(status);
@@ -223,11 +270,16 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
                   {milestone.objectives.map((obj, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-sm">
-                      {obj.completed ? (
-                        <CheckSquare className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
-                      ) : (
-                        <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                      )}
+                      <button
+                        onClick={(e) => onObjectiveClick(e, milestone, idx, obj)}
+                        className="shrink-0 mt-0.5 hover:scale-110 transition-transform"
+                      >
+                        {obj.completed ? (
+                          <CheckSquare className="w-4 h-4 text-green-600" />
+                        ) : (
+                          <Square className="w-4 h-4 text-muted-foreground hover:text-primary" />
+                        )}
+                      </button>
                       <div className="flex-1 flex items-center gap-2">
                         <span className={obj.completed ? 'text-foreground font-semibold' : 'text-muted-foreground'}>{obj.text}</span>
                         {obj.completed && obj.completionJustification && (
@@ -256,7 +308,7 @@ function MilestoneItem({ milestone, index, onClick }: { milestone: Milestone, in
   );
 }
 
-function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, index: number, onClick: any }) {
+function MilestoneCard({ milestone, index, onClick, onObjectiveClick }: { milestone: Milestone, index: number, onClick: any, onObjectiveClick: any }) {
   const progress = calculateDynamicProgress(milestone);
   const status = getDynamicStatus(milestone);
   const StatusIcon = getStatusIcon(status);
@@ -345,7 +397,19 @@ function MilestoneCard({ milestone, index, onClick }: { milestone: Milestone, in
                 <div className="space-y-1.5">
                   {milestone.objectives.slice(0, 3).map((obj, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-[11px]">
-                      {obj.completed ? <CheckSquare className="w-3 h-3 text-green-600 shrink-0 mt-0.5" /> : <Square className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onObjectiveClick(e, milestone, idx, obj);
+                        }}
+                        className="shrink-0 mt-0.5 hover:scale-110 transition-transform"
+                      >
+                        {obj.completed ? (
+                          <CheckSquare className="w-3 h-3 text-green-600" />
+                        ) : (
+                          <Square className="w-3 h-3 text-muted-foreground hover:text-primary" />
+                        )}
+                      </button>
                       <div className="flex-1 flex items-center gap-1.5 min-w-0">
                         <span className={obj.completed ? 'text-foreground font-semibold line-clamp-1' : 'text-muted-foreground line-clamp-1'}>{obj.text}</span>
                         {obj.completed && obj.completionJustification && (
