@@ -24,6 +24,7 @@ import {
   getResources,
   getPersonalInfo
 } from '@/src/data/pdiData'
+import { logger } from '@/lib/logging'
 
 export interface IntegrityMismatch {
   type: 'missing_in_db' | 'missing_in_mock' | 'field_mismatch'
@@ -136,6 +137,7 @@ export async function compareIntegrity(
     }
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : 'Unknown error'
+    logger.error('integrity', 'Error comparing mock and DB data', err)
     return {
       entity,
       mockCount: 0,

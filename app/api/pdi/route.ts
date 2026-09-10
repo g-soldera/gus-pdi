@@ -3,6 +3,7 @@ import { createPublicClient } from '@/lib/supabase/client'
 import { pdiCreateSchema } from '@/lib/schemas/crud'
 import { withRateLimit } from '@/lib/api/middleware'
 import { apiSuccess, apiError, apiValidationError } from '@/lib/api/responses'
+import { logger } from '@/lib/logging'
 
 /**
  * GET /api/pdi - Fetch all PDI entities by table name
@@ -30,13 +31,13 @@ export async function GET(req: NextRequest) {
       .order('created_at', { ascending: false })
 
     if (error) {
-      console.error(`[GET /api/pdi] Supabase error for table ${table}:`, error)
+      logger.error('api/pdi', `Supabase query failed for table: ${table}`, error)
       return apiError('Falha na consulta ao banco', 500, error.message)
     }
 
     return apiSuccess({ data, count: data?.length || 0 })
   } catch (err) {
-    console.error('[GET /api/pdi] Unexpected error:', err)
+    logger.error('api/pdi', 'Unexpected error in GET handler', err)
     return apiError('Erro interno', 500)
   }
 }
@@ -80,13 +81,13 @@ export async function POST(req: NextRequest) {
         .single()
 
       if (error) {
-        console.error(`[POST /api/pdi] Supabase insert error for table ${table}:`, error)
+        logger.error('api/pdi', `Supabase insert failed for table: ${table}`, error)
         return apiError('Falha ao criar entidade', 500, error.message)
       }
 
       return apiSuccess({ data: insertedData, message: 'Entidade criada com sucesso' }, 201)
     } catch (err) {
-      console.error('[POST /api/pdi] Unexpected error:', err)
+      logger.error('api/pdi', 'Unexpected error in POST handler', err)
       return apiError('Erro interno', 500)
     }
   })

@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/server'
 import { withRateLimit, getIP } from '@/lib/api/middleware'
 import { validateRequest } from '@/lib/api/validation'
 import { apiSuccess, apiError } from '@/lib/api/responses'
+import { logger } from '@/lib/logging'
 
 export async function POST(req: NextRequest) {
   return withRateLimit(req, async (req) => {
@@ -32,13 +33,13 @@ export async function POST(req: NextRequest) {
       })
 
       if (dbError) {
-        console.error('[feedback] db error:', dbError.message)
+        logger.error('api/feedback', 'Database insert failed', dbError)
         return apiError('Erro ao salvar.', 500)
       }
 
       return apiSuccess({ success: true }, 201)
     } catch (err) {
-      console.error('[feedback] unexpected:', err)
+      logger.error('api/feedback', 'Unexpected error in POST handler', err)
       return apiError('Erro interno.', 500)
     }
   })

@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { logger } from '@/lib/logging'
+import { apiSuccess, apiError } from '@/lib/api/responses'
 
 export async function GET() {
   try {
@@ -12,13 +14,13 @@ export async function GET() {
       .limit(10)
 
     if (error) {
-      console.error('[feedbacks] db error:', error.message)
-      return NextResponse.json({ error: 'Erro ao buscar feedbacks.' }, { status: 500 })
+      logger.error('api/admin/feedbacks', 'Database query failed', error)
+      return apiError('Erro ao buscar feedbacks.', 500)
     }
 
-    return NextResponse.json(feedbacks)
+    return apiSuccess(feedbacks)
   } catch (err) {
-    console.error('[feedbacks] unexpected:', err)
-    return NextResponse.json({ error: 'Erro interno.' }, { status: 500 })
+    logger.error('api/admin/feedbacks', 'Unexpected error in GET handler', err)
+    return apiError('Erro interno.', 500)
   }
 }

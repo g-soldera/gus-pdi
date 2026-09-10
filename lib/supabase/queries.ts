@@ -1,6 +1,7 @@
 import { createPublicClient } from './client'
 import type { Database } from './types'
 import type { Skill, Milestone, Project, Resource, PersonalInfo, Status, SkillRequirement, MilestoneObjective, MilestoneRequirementUnlock } from '@/types/pdi'
+import { logger } from '@/lib/logging'
 
 // Type assertion helper for JSONB fields
 function assertJson<T>(value: any): T | undefined {
@@ -41,7 +42,7 @@ export async function fetchSkills(options?: {
     const { data, error } = await query
 
     if (error) {
-      console.error('[fetchSkills] Supabase error:', error)
+      logger.error('fetchSkills', 'Supabase query failed', error)
       return { data: [], error: error.message }
     }
 
@@ -59,7 +60,7 @@ export async function fetchSkills(options?: {
     return { data: skills, error: null }
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error'
-    console.error('[fetchSkills] Unexpected error:', message)
+    logger.error('fetchSkills', 'Unexpected error in query', err)
     return { data: [], error: message }
   }
 }
@@ -91,7 +92,7 @@ export async function fetchMilestones(options?: {
     const { data, error } = await query
 
     if (error) {
-      console.error('[fetchMilestones] Supabase error:', error)
+      logger.error('fetchMilestones', 'Supabase query failed', error)
       return { data: [], error: error.message }
     }
 
@@ -116,7 +117,7 @@ export async function fetchMilestones(options?: {
     return { data: milestones, error: null }
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error'
-    console.error('[fetchMilestones] Unexpected error:', message)
+    logger.error('fetchMilestones', 'Unexpected error in query', err)
     return { data: [], error: message }
   }
 }
@@ -140,7 +141,7 @@ export async function fetchProjects(options?: {
     const { data, error } = await query
 
     if (error) {
-      console.error('[fetchProjects] Supabase error:', error)
+      logger.error('fetchProjects', 'Supabase query failed', error)
       return { data: [], error: error.message }
     }
 
@@ -161,7 +162,7 @@ export async function fetchProjects(options?: {
     return { data: projects, error: null }
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error'
-    console.error('[fetchProjects] Unexpected error:', message)
+    logger.error('fetchProjects', 'Unexpected error in query', err)
     return { data: [], error: message }
   }
 }
@@ -189,7 +190,7 @@ export async function fetchResources(options?: {
     const { data, error } = await query
 
     if (error) {
-      console.error('[fetchResources] Supabase error:', error)
+      logger.error('fetchResources', 'Supabase query failed', error)
       return { data: [], error: error.message }
     }
 
@@ -210,7 +211,7 @@ export async function fetchResources(options?: {
     return { data: resources, error: null }
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error'
-    console.error('[fetchResources] Unexpected error:', message)
+    logger.error('fetchResources', 'Unexpected error in query', err)
     return { data: [], error: message }
   }
 }
@@ -225,7 +226,7 @@ export async function fetchPersonalInfo(): Promise<{ data: PersonalInfo | null, 
     const { data, error } = await supabase.from('personal_info').select('*').single()
 
     if (error) {
-      console.error('[fetchPersonalInfo] Supabase error:', error)
+      logger.error('fetchPersonalInfo', 'Supabase query failed', error)
       return { data: null, error: error.message }
     }
 
@@ -258,7 +259,7 @@ export async function fetchPersonalInfo(): Promise<{ data: PersonalInfo | null, 
     return { data: personalInfo, error: null }
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error'
-    console.error('[fetchPersonalInfo] Unexpected error:', message)
+    logger.error('fetchPersonalInfo', 'Unexpected error in query', err)
     return { data: null, error: message }
   }
 }
