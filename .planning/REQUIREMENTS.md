@@ -93,16 +93,23 @@ Requirements for milestone v5.0: Repository Review & GitHub Portfolio Preparatio
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be filled by roadmapper) | | |
+| CQ-01 to CQ-06 | Phase 06 | Pending |
+| TS-01 to TS-06 | Phase 07 | Pending |
+| SEC-01 to SEC-07 | Phase 07 | Pending |
+| DOC-01 to DOC-07 | Phase 08 | Pending |
+| TEST-01 to TEST-06 | Phase 09 | Pending |
+| PERF-01 to PERF-06 | Phase 09 | Pending |
+| PORT-01 to PORT-07 | Phase 10 | Pending |
+| ART-01 to ART-06 | Phase 10 | Pending |
 
 **Coverage:**
 - v5.0 requirements: 45 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 45 ⚠️
+- Mapped to phases: 45
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-09-10*
