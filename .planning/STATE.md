@@ -1,33 +1,16 @@
 ---
-gsd_state_version: 1.0
-milestone: v4.0
-milestone_name: milestone
-status: completed
-last_updated: "2026-09-09T23:47:42.187Z"
-last_activity: 2026-09-09 -- Phase 05 execution started
-progress:
-  total_phases: 6
-  completed_phases: 2
-  total_plans: 15
-  completed_plans: 7
-  percent: 47
----
-
 gsd_state_version: 2.0
-milestone: v4.0
-milestone_name: database-migration-crud
-current_phase: 04
-current_phase_name: authentication-crud-api
-status: completed
-last_updated: "2026-09-09T18:30:00.000Z"
-last_activity: 2026-09-09
-last_activity_desc: Phase 04 complete (Authentication & CRUD API).
+milestone: v5.0
+milestone_name: repository-review-github-portfolio
+status: planning
+last_updated: "2026-09-10T01:04:01.627Z"
+last_activity: 2026-09-10 -- Milestone v5.0 started
 progress:
-  total_phases: 5
-  completed_phases: 4
-  total_plans: 3
-  completed_plans: 3
-  percent: 80
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 # Project State
 
@@ -37,65 +20,32 @@ progress:
 
 ## Current Position
 
-Phase: 05 (Unified Deployment & Polish) — COMPLETED
-Plan: 3 of 3
-Status: Phase 05 complete
-Last activity: 2026-09-10 -- Completed 05-03: Admin CRUD panel for all entities with search, pagination, modals
-
-Progress: [████████████████████] 100% (5/5 phases complete)
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-09-10 — Milestone v5.0 started
 
 ## Accumulated Context
 
-- Modelo antigo baseado em "anos" descartado. Adotado modelo de Engineering Ladder (L1-L7).
-- KPIs quantificáveis criados para cada nível (entrega, impacto, arquitetura, liderança).
-- Trilha de certificações AI Security (CRTP, OSCP, CAISP, CISSP, ISO 42001, AAISM) mapeada nos níveis L3 a L7.
-- Dados TypeScript refatorados para dar suporte a este modelo.
-- Phase 02 (v3.0): migração Vite→Next.js + formulário de feedback seguro + painel admin.
-- Phase 03 (v4.0): Supabase schema, RLS, storage bucket para imagens e migração dinâmica concluídos.
-- Phase 04 (v4.0): Authentication, Zod validation, rate limiting, and CRUD API endpoints completed.
-- Phase 05 Plan 01 (v4.0): Feature flags system with per-entity toggles, hybrid usePDIData hook with automatic fallback, Zod response validation, integrity checker, and database export utility completed.
-- Phase 05 Plan 02 (v4.0): Interactive milestone objective completion modal with justification capture, inline password verification, and audit trail persistence completed.
-- Phase 05 Plan 03 (v4.0): Admin CRUD panel for all five PDI entities with unified sidebar navigation, search filtering, modal forms, and deletion confirmations completed.
+### Milestone v4.0 (Completed 2026-09-10)
+- Migrated from TypeScript mock data to Supabase backend with full CRUD functionality
+- Implemented feature flags system for gradual migration (05-01)
+- Built interactive milestone objective completion modal with justification audit trail (05-02)
+- Created comprehensive admin CRUD panel for all five PDI entities (05-03)
+
+### Previous Milestones
+- v1.0-v3.0: Engineering Ladder (L1-L7) model, Next.js migration, feedback system, admin authentication
+- AI Security certification roadmap mapped to career levels (CRTP, OSCP, CAISP, CISSP, ISO 42001, AAISM)
 
 ## Phases
 
-### Phase 01 (v3.0) — COMPLETED
-
-Implementação da UI do dashboard PDI: timeline de carreira, milestones arquivados, StudyPath SecMLOps, Resources.
-
-### Phase 02 (v3.0) — COMPLETED
-
-Migração Vite→Next.js 15 + formulário de feedback seguro + painel admin.
-
-### Phase 03: Database Schema & Data Migration — COMPLETED
-
-Set up Supabase tables, RLS policies, migrate pdiData.ts to Supabase dynamic queries. (10 requirements: DB-01 to DB-09, DI-01)
-
-### Phase 04: Optimization, Auth & CRUD API — COMPLETED
-
-Performance optimization, auth middleware, and REST CRUD endpoints completed. (Per requirements API-01..22, AUTH-01..05)
-
-### Phase 05: Unified Deployment & Polish — IN PROGRESS
-
-Implement feature flags, interactive milestone completion flows, admin panel CRUD UI, and data integrity safeguards. (34 requirements: FF-01..09, MCF-01..10, ADMIN-01..13, DI-02, DI-05)
-
-**Completed Plans:**
-- Plan 01: Feature flags, hybrid data hook with automatic fallback, integrity checker, and database export script (Requirements: FF-01 to FF-09, DI-02, DI-05)
-- Plan 02: Interactive milestone completion modal with justification workflow and password-protected objective update API (Requirements: MCF-01 to MCF-10)
-- Plan 03: Admin CRUD panel for skills, milestones, projects, resources, and personal info with search, modals, and unified navigation (Requirements: ADMIN-01 to ADMIN-13)
+No phases defined yet. Requirements and roadmap creation in progress.
 - Plan 02: Interactive milestone completion modal with justification workflow and password-protected objective update API (Requirements: MCF-01 to MCF-10)
 
 ## Decisions
 
-- Per-entity feature flag environment variables for granular migration control (05-01)
-- Automatic fallback to mock data on API failure for zero-downtime migration (05-01)
-- Zod validation on all API responses before rendering to prevent tampering (05-01)
-- Database export script generates TypeScript format for easy rollback (05-01)
-- Modal-based objective completion with inline password verification for clear UX (05-02)
-- Justification audit trail stored in JSONB field for traceability (05-02)
-- Unified admin sidebar for seamless navigation across all entity management pages (05-03)
-- Client-side filtering and search for instant response on admin data tables (05-03)
+(No decisions yet for v5.0)
 
 ## Session Continuity
 
-Next step: Milestone v4.0 is complete. Ready to start new milestone for repository review and GitHub portfolio preparation.
+Next step: Define requirements for milestone v5.0 (Repository Review & GitHub Portfolio Preparation)
