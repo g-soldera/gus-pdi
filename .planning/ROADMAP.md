@@ -47,4 +47,4 @@
 | 02. Migração Vite→Next.js | - | Completed | - |
 | 03. Database Schema & Migration | - | Completed | - |
 | 04. Optimization, Auth & CRUD API | 3/3 | Completed | 2026-09-09 |
-| 05. Unified Deployment & Polish | 1/3 | In progress | - |
+| 05. Unified Deployment & Polish | 1/3 | In Progress|  |
