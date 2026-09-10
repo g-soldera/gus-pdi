@@ -14,13 +14,13 @@ describe('Mock vs DB Integrity Checker', () => {
   it('compares mock arrays with DB arrays and reports structural parity', async () => {
     // Arrange
     const mockSkills = [
-      { id: 'skill-1', name: 'TypeScript', level: 'L2', description: 'Type-safe JS', category: 'Languages', type: 'hard' as const },
-      { id: 'skill-2', name: 'React', level: 'L2', description: 'UI library', category: 'Frontend', type: 'hard' as const }
+      { id: 'skill-1', name: 'TypeScript', level: 2, description: 'Type-safe JS', category: 'Languages', type: 'hard' as const },
+      { id: 'skill-2', name: 'React', level: 2, description: 'UI library', category: 'Frontend', type: 'hard' as const }
     ]
     
     const dbSkills = [
-      { id: 'skill-1', name: 'TypeScript', level: 'L2', description: 'Type-safe JS', category: 'Languages', type: 'hard' as const },
-      { id: 'skill-2', name: 'React', level: 'L2', description: 'UI library', category: 'Frontend', type: 'hard' as const }
+      { id: 'skill-1', name: 'TypeScript', level: 2, description: 'Type-safe JS', category: 'Languages', type: 'hard' as const },
+      { id: 'skill-2', name: 'React', level: 2, description: 'UI library', category: 'Frontend', type: 'hard' as const }
     ]
     
     vi.mocked(pdiData.getSkills).mockResolvedValue(mockSkills)

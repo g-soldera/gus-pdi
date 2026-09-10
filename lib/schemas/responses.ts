@@ -33,7 +33,7 @@ const milestoneRequirementUnlockSchema = z.object({
 export const skillSchema = z.object({
   id: z.string(),
   name: z.string(),
-  level: z.string(),
+  level: z.number(),
   description: z.string(),
   category: z.string(),
   type: skillTypeEnum,
@@ -150,7 +150,7 @@ export function validateResponse(entity: string, data: any): { valid: boolean; e
     return { valid: true }
   } catch (err) {
     if (err instanceof z.ZodError) {
-      return { valid: false, error: err.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', ') }
+      return { valid: false, error: err.issues.map((e: z.ZodIssue) => `${e.path.join('.')}: ${e.message}`).join(', ') }
     }
     return { valid: false, error: err instanceof Error ? err.message : 'Unknown validation error' }
   }

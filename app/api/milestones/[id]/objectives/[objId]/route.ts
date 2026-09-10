@@ -68,13 +68,13 @@ export async function PATCH(
 
     // Fetch milestone from database
     const supabase = createPublicClient()
-    const { data: milestone, error: fetchError } = await supabase
+    const { data, error: fetchError } = await supabase
       .from('milestones')
       .select('objectives')
       .eq('id', milestoneId)
       .single()
 
-    if (fetchError || !milestone) {
+    if (fetchError || !data) {
       console.error('[PATCH /api/milestones/objectives] Milestone not found:', fetchError)
       return NextResponse.json(
         { error: 'Milestone not found' },
@@ -82,12 +82,15 @@ export async function PATCH(
       )
     }
 
-    // Parse objectives array
-    const objectives = milestone.objectives as Array<{
+    // Parse objectives array with explicit type assertion
+    type Objective = {
       text: string
       completed: boolean
       completionJustification?: string
-    }> || []
+    }
+    
+    const milestoneData = data as { objectives: Objective[] }
+    const objectives = milestoneData.objectives || []
 
     // Find objective by index (objId is 0-based index)
     const objIndex = parseInt(objId, 10)
@@ -108,6 +111,7 @@ export async function PATCH(
     // Update milestone in database
     const { data: updatedMilestone, error: updateError } = await supabase
       .from('milestones')
+      // @ts-ignore Supabase type generation doesn't handle JSONB columns well
       .update({ objectives })
       .eq('id', milestoneId)
       .select()

@@ -19,7 +19,7 @@ describe('usePDIData', () => {
     vi.mocked(featureFlags.isFeatureEnabled).mockReturnValue(false)
     
     const mockSkills = [
-      { id: 'mock-1', name: 'Mock Skill', level: 'L2', description: 'Test', category: 'Test', type: 'hard' as const }
+      { id: 'mock-1', name: 'Mock Skill', level: 2, description: 'Test', category: 'Test', type: 'hard' as const }
     ]
     
     vi.mocked(pdiData.getSkills).mockResolvedValue(mockSkills)
@@ -43,7 +43,7 @@ describe('usePDIData', () => {
     vi.mocked(featureFlags.isFeatureEnabled).mockReturnValue(true)
     
     const apiSkills = [
-      { id: 'api-1', name: 'API Skill', level: 'L3', description: 'From DB', category: 'Backend', type: 'hard' as const }
+      { id: 'api-1', name: 'API Skill', level: 3, description: 'From DB', category: 'Backend', type: 'hard' as const }
     ]
     
     vi.mocked(queries.fetchSkills).mockResolvedValue({
