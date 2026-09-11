@@ -1,0 +1,122 @@
+{
+  "timestamp": "2026-09-11T01:37:48.312Z",
+  "updates": [
+    {
+      "id": "agent-systems",
+      "oldCategory": "IA Generativa",
+      "newCategory": "AI Engineering"
+    },
+    {
+      "id": "prompt-eng-sdd",
+      "oldCategory": "IA Generativa",
+      "newCategory": "AI Engineering"
+    },
+    {
+      "id": "ai-security-redteam",
+      "oldCategory": "Segurança & SecMLOps",
+      "newCategory": "AI Security & SecMLOps"
+    },
+    {
+      "id": "offensive-sec-pentest",
+      "oldCategory": "Segurança & SecMLOps",
+      "newCategory": "AI Security & SecMLOps"
+    },
+    {
+      "id": "aws-cloud-arch",
+      "oldCategory": "Cloud & Infraestrutura",
+      "newCategory": "Cloud & Platform"
+    },
+    {
+      "id": "platform-devops-mlops",
+      "oldCategory": "Cloud & Infraestrutura",
+      "newCategory": "Cloud & Platform"
+    },
+    {
+      "id": "critical-thinking-problem-solving",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "strategic-vision-career",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "adaptability-resilience",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "communication-storytelling",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "leadership-mentorship",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "relational-influence-cnv",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "enterprise-architecture-design",
+      "oldCategory": "Arquitetura Corporativa",
+      "newCategory": "Arquitetura & APIs"
+    },
+    {
+      "id": "cloud-native-platform-eng",
+      "oldCategory": "Arquitetura Corporativa",
+      "newCategory": "Arquitetura & APIs"
+    },
+    {
+      "id": "ai-ml-infrastructure",
+      "oldCategory": "AI/ML Engineering",
+      "newCategory": "AI Engineering"
+    },
+    {
+      "id": "advanced-ai-security",
+      "oldCategory": "AI/ML Engineering",
+      "newCategory": "AI Engineering"
+    },
+    {
+      "id": "data-platform-architecture",
+      "oldCategory": "Data Engineering",
+      "newCategory": "Engenharia de Dados"
+    },
+    {
+      "id": "devsecops-platform-security",
+      "oldCategory": "DevSecOps",
+      "newCategory": "Segurança & Red Team"
+    },
+    {
+      "id": "performance-optimization-sre",
+      "oldCategory": "SRE & Observability",
+      "newCategory": "Cloud & Platform"
+    },
+    {
+      "id": "executive-technical-leadership",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    },
+    {
+      "id": "org-design-scaling",
+      "oldCategory": "Soft Skills",
+      "newCategory": "Liderança & Soft Skills"
+    }
+  ],
+  "total_updated": 21,
+  "final_categories": {
+    "Engenharia de Dados": 15,
+    "AI Engineering": 13,
+    "AI Security & SecMLOps": 10,
+    "Engenharia de Software": 8,
+    "Cloud & Platform": 18,
+    "Liderança & Soft Skills": 26,
+    "Arquitetura & APIs": 8,
+    "Linguagens & Paradigmas": 9,
+    "Segurança & Red Team": 8
+  }
+}

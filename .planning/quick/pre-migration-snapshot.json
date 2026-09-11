@@ -1,0 +1,435 @@
+{
+  "timestamp": "2026-09-11T01:29:58.354Z",
+  "skills_in_db": [
+    {
+      "id": "agent-systems",
+      "name": "Agent Systems & Autonomous Workflows",
+      "category": "IA Generativa"
+    },
+    {
+      "id": "prompt-eng-sdd",
+      "name": "Prompt Engineering & SDD Frameworks",
+      "category": "IA Generativa"
+    },
+    {
+      "id": "ai-security-redteam",
+      "name": "AI Security & Adversarial Red Teaming",
+      "category": "Segurança & SecMLOps"
+    },
+    {
+      "id": "offensive-sec-pentest",
+      "name": "Segurança Ofensiva & Red Teaming",
+      "category": "Segurança & SecMLOps"
+    },
+    {
+      "id": "data-modeling",
+      "name": "Modelagem de Dados & Schemas",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "data-lakes-s3-athena",
+      "name": "Data Lakes em S3 & Athena",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "data-quality-expectations",
+      "name": "Data Quality & Validação",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "data-lakes-lakehouse",
+      "name": "Data Lakes, Athena & QuickSight BI",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "pyspark-glue-etl",
+      "name": "PySpark, Glue & Event Streaming",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "data-quality-observability",
+      "name": "Data Quality & Lineage Observability",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "aws-cloud-arch",
+      "name": "AWS Cloud & Serverless Services",
+      "category": "Cloud & Infraestrutura"
+    },
+    {
+      "id": "platform-devops-mlops",
+      "name": "Platform, DevOps & MLOps Lifecycle",
+      "category": "Cloud & Infraestrutura"
+    },
+    {
+      "id": "web-frontend-arch",
+      "name": "Engenharia Frontend & Microfrontends",
+      "category": "Engenharia de Software"
+    },
+    {
+      "id": "api-architecture-design",
+      "name": "Arquitetura, Design & Contratos de APIs",
+      "category": "Engenharia de Software"
+    },
+    {
+      "id": "languages-tooling",
+      "name": "Linguagens, Scripting & Automação",
+      "category": "Engenharia de Software"
+    },
+    {
+      "id": "critical-thinking-problem-solving",
+      "name": "Pensamento Crítico & Resolução de Problemas",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "strategic-vision-career",
+      "name": "Visão Estratégica & Planejamento de Carreira",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "adaptability-resilience",
+      "name": "Adaptabilidade, Resiliência & Autoconsciência",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "communication-storytelling",
+      "name": "Comunicação Assertiva & Storytelling de Dados",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "leadership-mentorship",
+      "name": "Liderança Técnica & Mentoria de Talentos",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "relational-influence-cnv",
+      "name": "Relacionamento, CNV & Influência Sem Autoridade",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "streaming-kafka",
+      "name": "Event Streaming & Kafka",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "prompt-eng-advanced",
+      "name": "Prompt Engineering Avançado",
+      "category": "AI Engineering"
+    },
+    {
+      "id": "rag-vector-db",
+      "name": "RAG & Vector Databases",
+      "category": "AI Engineering"
+    },
+    {
+      "id": "langgraph-orchestration",
+      "name": "LangGraph & Multi-Agent Workflows",
+      "category": "AI Engineering"
+    },
+    {
+      "id": "enterprise-architecture-design",
+      "name": "Enterprise Architecture & System Design",
+      "category": "Arquitetura Corporativa"
+    },
+    {
+      "id": "cloud-native-platform-eng",
+      "name": "Cloud-Native Platform Engineering",
+      "category": "Arquitetura Corporativa"
+    },
+    {
+      "id": "ai-ml-infrastructure",
+      "name": "AI/ML Infrastructure & MLOps at Scale",
+      "category": "AI/ML Engineering"
+    },
+    {
+      "id": "advanced-ai-security",
+      "name": "Advanced AI Security & Zero-Trust ML",
+      "category": "AI/ML Engineering"
+    },
+    {
+      "id": "data-platform-architecture",
+      "name": "Data Platform Architecture & Governance",
+      "category": "Data Engineering"
+    },
+    {
+      "id": "devsecops-platform-security",
+      "name": "DevSecOps & Platform Security at Scale",
+      "category": "DevSecOps"
+    },
+    {
+      "id": "performance-optimization-sre",
+      "name": "Performance Engineering & SRE Practices",
+      "category": "SRE & Observability"
+    },
+    {
+      "id": "executive-technical-leadership",
+      "name": "Executive Technical Leadership & Strategy",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "org-design-scaling",
+      "name": "Organizational Design & Scaling Teams",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "python-core",
+      "name": "Python Core & Avançado",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "python-async",
+      "name": "Concorrência & AsyncIO em Python",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "typescript-modern",
+      "name": "TypeScript & JavaScript Moderno",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "java-jvm",
+      "name": "Java & Ecosistema JVM",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "oop-principles",
+      "name": "Orientação a Objetos & SOLID",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "functional-paradigms",
+      "name": "Programação Funcional",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "clean-code-sdd",
+      "name": "Clean Code & Spec-Driven Development",
+      "category": "Linguagens & Paradigmas"
+    },
+    {
+      "id": "data-modeling-dim",
+      "name": "Modelagem Dimensional",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "pyspark-distributed",
+      "name": "PySpark & Processamento Distribuído",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "aws-glue-etl",
+      "name": "AWS Glue & Serverless ETL",
+      "category": "Engenharia de Dados"
+    },
+    {
+      "id": "mcp-server-dev",
+      "name": "Model Context Protocol (MCP)",
+      "category": "AI Engineering"
+    },
+    {
+      "id": "owasp-llm-security",
+      "name": "OWASP Top 10 for LLMs",
+      "category": "AI Security & SecMLOps"
+    },
+    {
+      "id": "mitre-atlas-redteam",
+      "name": "MITRE ATLAS & Adversarial ML",
+      "category": "AI Security & SecMLOps"
+    },
+    {
+      "id": "ai-governance-compliance",
+      "name": "Governança & Compliance de IA",
+      "category": "AI Security & SecMLOps"
+    },
+    {
+      "id": "model-supply-chain",
+      "name": "Segurança da Supply Chain de ML",
+      "category": "AI Security & SecMLOps"
+    },
+    {
+      "id": "runtime-guardrails",
+      "name": "Runtime Guardrails & LLM Firewalls",
+      "category": "AI Security & SecMLOps"
+    },
+    {
+      "id": "aws-core-serverless",
+      "name": "AWS Core & Serverless Architecture",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "aws-cost-finops",
+      "name": "FinOps & Cloud Cost Optimization",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "docker-containers",
+      "name": "Docker & Containerization",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "kubernetes-cka",
+      "name": "Kubernetes & Cluster Management",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "github-actions-cicd",
+      "name": "CI/CD Automation (GitHub Actions)",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "terraform-iac",
+      "name": "Infrastructure as Code (Terraform)",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "observability-sre",
+      "name": "SRE & Observabilidade",
+      "category": "Cloud & Platform"
+    },
+    {
+      "id": "network-protocols-sec",
+      "name": "Fundamentos de Redes & Protocolos",
+      "category": "Segurança & Red Team"
+    },
+    {
+      "id": "pentest-oscp-methodology",
+      "name": "Metodologia de Pentest (OSCP)",
+      "category": "Segurança & Red Team"
+    },
+    {
+      "id": "active-directory-redteam",
+      "name": "Active Directory Attacks & Red Team (CRTP)",
+      "category": "Segurança & Red Team"
+    },
+    {
+      "id": "identity-access-management",
+      "name": "IAM Avançado, OIDC & OAuth2",
+      "category": "Segurança & Red Team"
+    },
+    {
+      "id": "cryptography-pki",
+      "name": "Criptografia Aplicada & PKI",
+      "category": "Segurança & Red Team"
+    },
+    {
+      "id": "enterprise-risk-cissp",
+      "name": "Governança & Gestão de Riscos (CISSP)",
+      "category": "Segurança & Red Team"
+    },
+    {
+      "id": "rest-api-design",
+      "name": "RESTful API Design",
+      "category": "Arquitetura & APIs"
+    },
+    {
+      "id": "openapi-contracts",
+      "name": "OpenAPI / Swagger Specifications",
+      "category": "Arquitetura & APIs"
+    },
+    {
+      "id": "grpc-protobuf",
+      "name": "gRPC & Protocol Buffers",
+      "category": "Arquitetura & APIs"
+    },
+    {
+      "id": "domain-driven-design",
+      "name": "Domain-Driven Design (DDD)",
+      "category": "Arquitetura & APIs"
+    },
+    {
+      "id": "system-design-distributed",
+      "name": "System Design Distribuído",
+      "category": "Arquitetura & APIs"
+    },
+    {
+      "id": "technical-mentoring",
+      "name": "Mentoria Técnica & Onboarding",
+      "category": "Liderança & Soft Skills"
+    },
+    {
+      "id": "staff-engineering",
+      "name": "Staff Engineering & Influência",
+      "category": "Liderança & Soft Skills"
+    },
+    {
+      "id": "executive-communication",
+      "name": "Comunicação Executiva & Storytelling",
+      "category": "Liderança & Soft Skills"
+    },
+    {
+      "id": "cnv-negotiation",
+      "name": "Comunicação Não-Violenta & Negociação",
+      "category": "Liderança & Soft Skills"
+    },
+    {
+      "id": "strategic-roadmapping",
+      "name": "Visão Estratégica & Roadmapping",
+      "category": "Liderança & Soft Skills"
+    }
+  ],
+  "orphan_skills": [
+    "pyspark",
+    "mentoring",
+    "feedback",
+    "leadership",
+    "collaboration",
+    "strategic-vision",
+    "time-management",
+    "self-awareness",
+    "technical-docs",
+    "bedrock-guardrails",
+    "security",
+    "llm",
+    "mas",
+    "mcp-tools",
+    "sec-atlas",
+    "sec-nist",
+    "situational-leadership",
+    "emotional-intelligence",
+    "finops",
+    "cost-optimization",
+    "cloudwatch",
+    "agent-design",
+    "stakeholder-management",
+    "presentation",
+    "storytelling",
+    "influence",
+    "aws-bedrock",
+    "api-architecture",
+    "mlops",
+    "critical-thinking",
+    "prompt-engineering",
+    "langgraph",
+    "python",
+    "bash",
+    "aws",
+    "iam",
+    "vpc",
+    "lambda",
+    "s3",
+    "ecs",
+    "aws-glue",
+    "sql",
+    "openapi",
+    "api-design",
+    "api-contracts",
+    "verbal-communication",
+    "kafka",
+    "testing",
+    "linters",
+    "javascript",
+    "typescript",
+    "ux",
+    "figma",
+    "nvc",
+    "active-listening",
+    "empathy",
+    "data-contracts",
+    "data-lineage",
+    "git"
+  ],
+  "wrong_parent_category": [],
+  "milestones_count": 40,
+  "projects_count": 7,
+  "resources_count": 48
+}
