@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-11T02:01:49.513Z",
+  "fixes_applied": 2,
+  "errors": [],
+  "final_distribution": {
+    "Segurança & Red Team": 4,
+    "Engenharia de Dados": 6,
+    "Engenharia de Software": 3,
+    "AI Engineering": 5,
+    "Liderança & Soft Skills": 9,
+    "Cloud & Platform": 7,
+    "Linguagens & Paradigmas": 5,
+    "AI Security & SecMLOps": 5,
+    "Arquitetura & APIs": 4
+  }
+}
