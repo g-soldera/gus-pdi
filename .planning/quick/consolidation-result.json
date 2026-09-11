@@ -1,8 +1,11 @@
 {
-  "timestamp": "2026-09-11T01:57:33.613Z",
-  "total_skills": 48,
-  "orphan_skills": [],
-  "categories": {
+  "timestamp": "2026-09-11T01:55:15.459Z",
+  "skills_before": 115,
+  "skills_after": 48,
+  "deleted_count": 67,
+  "terraform_updated": true,
+  "errors": [],
+  "final_distribution": {
     "Engenharia de Dados": 6,
     "AI Security & SecMLOps": 6,
     "Engenharia de Software": 3,
@@ -12,12 +15,5 @@
     "Cloud & Platform": 6,
     "Segurança & Red Team": 3,
     "Arquitetura & APIs": 4
-  },
-  "validation_passed": true,
-  "details": {
-    "skills_in_milestones": 27,
-    "skills_in_projects": 11,
-    "skills_in_resources": 33,
-    "total_unique_referenced": 37
   }
 }
