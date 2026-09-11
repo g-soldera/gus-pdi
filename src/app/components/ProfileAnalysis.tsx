@@ -77,22 +77,38 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   }, 0);
   const progressPercent = totalRequirements > 0 ? ((completedRequirements / totalRequirements) * 100).toFixed(0) : '0';
 
-  // Roadmap oficial com AAISM como objetivo final (L7)
-  const officialRoadmap = [
-    { phase: 'L3 (Fase 1)', title: 'Red Team Foundation', desc: 'CRTP — Fundação ofensiva em Active Directory.' },
-    { phase: 'L4 (Fase 2)', title: 'AI Security Specialist', desc: 'OSCP → CAISP — Especialização em segurança de IA.' },
-    { phase: 'L5 (Fase 3)', title: 'Security Architecture', desc: 'CISSP + ISO 42001 — Arquitetura e governança corporativa.' },
-    { phase: 'L6 (Fase 4)', title: 'AI Security Management', desc: 'ISACA AAISM — Liderança em programas de AI security.' }
-  ];
-
-  // Certificações como milestones no roadmap (não lista separada)
-  const certMilestones = [
-    { name: 'CRTP', phase: 'L3', desc: 'Fundação ofensiva em AD' },
-    { name: 'OSCP', phase: 'L3-L4', desc: 'Metodologia de pentest completa' },
-    { name: 'CAISP', phase: 'L4', desc: 'AI Security Professional (OWASP/ATLAS)' },
-    { name: 'CISSP', phase: 'L5', desc: 'Security Professional (pré-requisito AAISM)' },
-    { name: 'ISO 42001', phase: 'L5', desc: 'AI Management System' },
-    { name: 'AAISM', phase: 'L6', desc: 'Advanced in AI Security Management (OBJETIVO FINAL)' }
+  // Milestones reais do banco - agrupados por nível (L3-L7 para progressão atual)
+  const milestonePhases = [
+    {
+      level: 'L3',
+      title: 'Red Team Foundation',
+      desc: 'CRTP + OSCP + Fundamentos em Active Directory',
+      milestones: milestones.filter(m => m.phase === 'L3' || m.phase === 3)
+    },
+    {
+      level: 'L4',
+      title: 'AI Security Specialist',
+      desc: 'CAISP + AWS SA Pro + Governance de IA',
+      milestones: milestones.filter(m => m.phase === 'L4' || m.phase === 4)
+    },
+    {
+      level: 'L5',
+      title: 'Security Specialist 1',
+      desc: 'CISSP + Arquitetura Corporativa',
+      milestones: milestones.filter(m => m.phase === 'L5' || m.phase === 5)
+    },
+    {
+      level: 'L6',
+      title: 'AI Security Management',
+      desc: 'AAISM + Frameworks Corporativos (NIST, ISO 42001)',
+      milestones: milestones.filter(m => m.phase === 'L6' || m.phase === 6)
+    },
+    {
+      level: 'L7',
+      title: 'AI Security Expert',
+      desc: 'Impacto Global + Reconhecimento',
+      milestones: milestones.filter(m => m.phase === 'L7' || m.phase === 7)
+    }
   ];
 
   return (
@@ -171,45 +187,39 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
           </div>
         </div>
 
-        {/* COLUNA DIREITA: Roadmap com AAISM como objetivo final */}
+        {/* COLUNA DIREITA: Roadmap com Milestones Reais */}
         <div className="space-y-6">
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Target className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold">Roadmap: L1 → L7</h3>
+              <h3 className="text-lg font-bold">Roadmap: L3 → L7 (Milestones Reais)</h3>
             </div>
-            <p className="text-xs text-muted-foreground mb-4">
-              <span className="font-bold text-primary">Objetivo final: AAISM (L6)</span> — Liderança em programas de AI Security
-            </p>
-            <div className="space-y-3">
-              {officialRoadmap.map((item, i) => (
-                <div key={i} className="relative pl-5 border-l-2 border-border pb-2 last:pb-0">
+            
+            <div className="space-y-4">
+              {milestonePhases.map((phase, i) => (
+                <div key={i} className="relative pl-5 border-l-2 border-border pb-4 last:pb-0">
                   <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-primary rounded-full" />
-                  <div className="flex justify-between items-center mb-0.5">
-                    <span className="text-xs font-bold text-primary">{item.phase}</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary px-1.5 py-0.5 rounded">{item.title}</span>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-xs font-bold text-primary">Nível {phase.level}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary px-1.5 py-0.5 rounded">{phase.title}</span>
                   </div>
-                  <p className="text-[11px] text-muted-foreground">{item.desc}</p>
+                  <p className="text-[11px] text-muted-foreground mb-2">{phase.desc}</p>
+                  <div className="pl-1 space-y-1">
+                    {phase.milestones.map((m, mi) => (
+                      <div key={mi} className="flex items-center gap-2 text-xs">
+                        <div className={`w-1.5 h-1.5 rounded-full ${
+                          m.status === 'completed' ? 'bg-green-500' :
+                          m.status === 'in-progress' ? 'bg-yellow-500' :
+                          'bg-gray-300'
+                        }`} />
+                        <span className={m.status === 'completed' ? 'line-through opacity-60' : ''}>
+                          {m.title}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
-            </div>
-            <div className="mt-6 p-4 bg-primary/5 border border-primary/10 rounded-xl">
-              <div className="flex items-center gap-2 mb-2 text-primary">
-                <Zap className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Trilha Certificações</span>
-              </div>
-              <div className="space-y-2">
-                {certMilestones.map((cert, i) => (
-                  <div key={i} className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <span className="font-bold">{cert.name}</span>
-                      <span className="text-muted-foreground">({cert.phase})</span>
-                    </div>
-                    <span className="text-muted-foreground">{cert.desc}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
