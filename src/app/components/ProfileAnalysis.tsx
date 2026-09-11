@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp, Target, Zap, AlertCircle, Brain, Rocket, CheckCircle, Clock } from 'lucide-react';
+import { TrendingUp, Target, Zap, AlertCircle, Brain, Rocket } from 'lucide-react';
 import { Skill, Project, Milestone } from '@/types/pdi';
 
 interface ProfileAnalysisProps {
@@ -8,6 +8,30 @@ interface ProfileAnalysisProps {
   projects: Project[];
   milestones: Milestone[];
 }
+
+const affinities = [
+  {
+    title: 'AI Engineering & Sistemas Agênticos',
+    description: 'Orquestração de LLMs, RAG avançado e agentes autônomos.',
+    icon: Brain,
+    color: 'text-purple-500',
+    bgColor: 'bg-purple-50 dark:bg-purple-900/20'
+  },
+  {
+    title: 'Engenharia de Dados & Analytics',
+    description: 'Modelagem dimensional e pipelines em larga escala.',
+    icon: Rocket,
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-50 dark:bg-blue-900/20'
+  },
+  {
+    title: 'Cloud Architecture & Serverless',
+    description: 'Arquitetura AWS cloud-native e FinOps.',
+    icon: Zap,
+    color: 'text-yellow-500',
+    bgColor: 'bg-yellow-50 dark:bg-yellow-900/20'
+  }
+];
 
 export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysisProps) {
   // Cálculo de Strengths (Categorias com média > 4)
@@ -30,7 +54,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   const hardStrengths = strengths.filter(s => s.type === 'hard').slice(0, 3);
   const softStrengths = strengths.filter(s => s.type === 'soft').slice(0, 3);
 
-  // Gaps de Evolução Dinâmicos (Hard e Soft)
+  // Gaps de Evolução Dinâmicos
   const targetLevel = 4;
   const priorityDomains = ['AI Security & SecMLOps', 'Segurança & Red Team', 'AI Engineering'];
   
@@ -39,11 +63,6 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
       priorityDomains.includes(s.category))
     .sort((a, b) => a.level - b.level)
     .slice(0, 4);
-
-  const softGaps = skills
-    .filter(s => s.type === 'soft' && s.level < targetLevel)
-    .sort((a, b) => a.level - b.level)
-    .slice(0, 2);
 
   // Estatísticas do Perfil
   const totalSkills = skills.length;
@@ -62,43 +81,12 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   }, 0);
   const progressPercent = totalRequirements > 0 ? ((completedRequirements / totalRequirements) * 100).toFixed(0) : '0';
 
-  // Roadmap T1-T4 status
-  const roadmapStatus = {
-    T1: { label: 'Set-Dez/2026', title: 'FOUNDATIONS', desc: 'CRTP + OWASP LLM + Supply Chain' },
-    T2: { label: 'Jan-Mar/2027', title: 'ADVANCEMENT', desc: 'OSCP + ISO 42001' },
-    T3: { label: 'Abr-Jun/2027', title: 'OFFENSIVE', desc: 'OSCP + NIST AI RMF' },
-    T4: { label: 'Jul-Dez/2027', title: 'MASTERY', desc: 'CAISP + CMCPSE + Validation' }
-  };
-
-  const certTrack = [
-    { name: 'CRTP', desc: 'Red Team - Active Directory', color: 'bg-gray-400' },
-    { name: 'OSCP', desc: 'Pentest Avançado', color: 'bg-gray-400' },
-    { name: 'CAISP', desc: 'AI Security Professional', color: 'bg-gray-400' },
-    { name: 'CMCPSE', desc: 'MCP Security Expert', color: 'bg-gray-400' }
-  ];
-
-  const affinities = [
-    {
-      title: 'AI Engineering & Sistemas Agênticos',
-      description: 'Orquestração de LLMs, RAG avançado e agentes autônomos.',
-      icon: Brain,
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-50 dark:bg-purple-900/20'
-    },
-    {
-      title: 'Engenharia de Dados & Analytics',
-      description: 'Modelagem dimensional e pipelines em larga escala.',
-      icon: Rocket,
-      color: 'text-blue-500',
-      bgColor: 'bg-blue-50 dark:bg-blue-900/20'
-    },
-    {
-      title: 'Cloud Architecture & Serverless',
-      description: 'Arquitetura AWS cloud-native e FinOps.',
-      icon: Zap,
-      color: 'text-yellow-500',
-      bgColor: 'bg-yellow-50 dark:bg-yellow-900/20'
-    }
+  // Roadmap Oficial do PDI
+  const officialRoadmap = [
+    { phase: 'Fase 1 (L3-L4)', title: 'Fundação Ofensiva', desc: 'CRTP, OSCP — Foco em Active Directory e Pentest prático.' },
+    { phase: 'Fase 2 (L4-L5)', title: 'Especialização em AI Security', desc: 'CAISP (OWASP LLM Top 10, MITRE ATLAS), ISO 42001.' },
+    { phase: 'Fase 3 (L5-L6)', title: 'Arquitetura & Governança', desc: 'CISSP, iSAQB CPSA-F/A, AWS Solutions Architect Professional.' },
+    { phase: 'Fase 4 (L6-L7)', title: 'Liderança & Expert', desc: 'ISACA AAISM (Advanced in AI Security Management).' }
   ];
 
   return (
@@ -129,7 +117,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
       {/* Layout Balanceado em 2 Colunas Simétricas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        {/* COLUNA ESQUERDA: Afinidades, Especialidades & Gaps */}
+        {/* COLUNA ESQUERDA: Afinidades & Gaps */}
         <div className="space-y-6">
           {/* Principais Afinidades */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
@@ -188,55 +176,84 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
           </div>
         </div>
 
-        {/* COLUNA DIREITA: Roadmap T1-T4 & Certificações */}
+        {/* COLUNA DIREITA: Roadmap Oficial */}
         <div className="space-y-6">
-          {/* Roadmap de Progressão L3→L4 */}
+          {/* Roadmap Oficial do PDI */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Target className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold">Roadmap L3→L4 (12 Meses)</h3>
+              <h3 className="text-lg font-bold">Roadmap Oficial (L1-L7)</h3>
             </div>
             
             <div className="space-y-3">
-              {Object.entries(roadmapStatus).map(([quarter, data]) => (
-                <div key={quarter} className="relative pl-5 border-l-2 border-border pb-2 last:pb-0">
+              {officialRoadmap.map((item, i) => (
+                <div key={i} className="relative pl-5 border-l-2 border-border pb-2 last:pb-0">
                   <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-primary rounded-full" />
                   <div className="flex justify-between items-center mb-0.5">
-                    <span className="text-xs font-bold text-primary">{quarter} ({data.label})</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary px-1.5 py-0.5 rounded">{data.title}</span>
+                    <span className="text-xs font-bold text-primary">{item.phase}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary px-1.5 py-0.5 rounded">{item.title}</span>
                   </div>
-                  <p className="text-[11px] text-muted-foreground">{data.desc}</p>
+                  <p className="text-[11px] text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
             </div>
+
+            <div className="mt-6 p-4 bg-primary/5 border border-primary/10 rounded-xl">
+              <div className="flex items-center gap-2 mb-2 text-primary">
+                <Zap className="w-4 h-4" />
+                <span className="text-xs font-bold uppercase tracking-wider">Certificações Chave</span>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                <span className="font-bold text-foreground">Obrigatórias:</span> CRTP (L3) → OSCP → CAISP (L4) → CISSP (L5)
+              </p>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">
+                <span className="font-bold text-foreground">Opcionais:</span> AWS SAA (ponte), CPSA-F/A (arquitetura), CMCPSE (IA agêntica)
+              </p>
+            </div>
           </div>
 
-          {/* Trilha de Certificações */}
+          {/* Trilha de Certificações Oficiais */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Rocket className="w-5 h-5 text-purple-500" />
               <h3 className="text-lg font-bold">Trilha de Certificações</h3>
             </div>
-            <div className="grid grid-cols-2 gap-2.5">
-              {certTrack.map((cert, i) => (
-                <div key={i} className="p-2.5 rounded-lg border bg-muted/30 dark:bg-muted/20 border-border flex items-center gap-2.5">
-                  <div className={`w-2 h-2 rounded-full ${cert.color}`} />
-                  <div className="min-w-0">
-                    <div className="text-xs font-bold">{cert.name}</div>
-                    <div className="text-[9px] text-muted-foreground truncate">{cert.desc}</div>
-                  </div>
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
+                <div className="min-w-0">
+                  <div className="text-xs font-bold">CRTP</div>
+                  <div className="text-[10px] text-muted-foreground">Red Team - Active Directory</div>
                 </div>
-              ))}
-            </div>
-
-            <div className="mt-4 p-3 bg-primary/5 border border-primary/10 rounded-xl">
-              <div className="flex items-center gap-1.5 mb-1 text-primary">
-                <Zap className="w-3.5 h-3.5" />
-                <span className="text-[10px] font-bold uppercase tracking-wider">Foco Estratégico</span>
+                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 1</span>
               </div>
-              <p className="text-[11px] text-muted-foreground leading-relaxed">
-                Progressão focada em <span className="font-bold text-foreground">AI Security (OWASP, ATLAS)</span> e <span className="font-bold text-foreground">Red Team (CRTP/OSCP)</span> até Dez/2027.
-              </p>
+              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
+                <div className="min-w-0">
+                  <div className="text-xs font-bold">OSCP</div>
+                  <div className="text-[10px] text-muted-foreground">Pentest Avançado</div>
+                </div>
+                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 1</span>
+              </div>
+              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
+                <div className="min-w-0">
+                  <div className="text-xs font-bold">CAISP</div>
+                  <div className="text-[10px] text-muted-foreground">AI Security Professional</div>
+                </div>
+                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 2</span>
+              </div>
+              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
+                <div className="min-w-0">
+                  <div className="text-xs font-bold">CISSP</div>
+                  <div className="text-[10px] text-muted-foreground">Security Professional</div>
+                </div>
+                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 3</span>
+              </div>
+              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
+                <div className="min-w-0">
+                  <div className="text-xs font-bold">ISO 42001</div>
+                  <div className="text-[10px] text-muted-foreground">AI Management</div>
+                </div>
+                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 3</span>
+              </div>
             </div>
           </div>
         </div>
