@@ -36,36 +36,37 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
 
   const affinities = [
     {
-      title: 'Data Visualization & Design',
-      description: 'Alta afinidade em transformar dados brutos em insights executivos com padrão visual Itaú.',
-      icon: Zap,
-      color: 'text-yellow-500',
-      bgColor: 'bg-yellow-50 dark:bg-yellow-900/20'
-    },
-    {
-      title: 'IA Generativa & Agentes',
-      description: 'Domínio em orquestração de LLMs e automação de processos complexos com foco em produtividade.',
+      title: 'AI Engineering & Sistemas Agênticos',
+      description: 'Domínio em orquestração de LLMs, RAG avançado e arquitetura de agentes autônomos com LangGraph.',
       icon: Brain,
       color: 'text-purple-500',
       bgColor: 'bg-purple-50 dark:bg-purple-900/20'
     },
     {
-      title: 'Engenharia de Analytics',
-      description: 'Sólida base em SQL e Python para construção de pipelines resilientes e democratização de dados.',
+      title: 'Engenharia de Dados & Analytics',
+      description: 'Expertise em modelagem dimensional, SQL avançado e pipelines de dados em larga escala (AWS Glue, Athena).',
       icon: Rocket,
       color: 'text-blue-500',
       bgColor: 'bg-blue-50 dark:bg-blue-900/20'
+    },
+    {
+      title: 'Cloud Architecture & Serverless',
+      description: 'Arquitetura cloud-native na AWS (Lambda, S3, DynamoDB) e otimização de custos (FinOps).',
+      icon: Zap,
+      color: 'text-yellow-500',
+      bgColor: 'bg-yellow-50 dark:bg-yellow-900/20'
     }
   ];
 
   // Gaps de Evolução Dinâmicos (Hard e Soft)
-  // Alvo: Nível 5 para Sênior/Tech Lead
-  const targetLevel = 5;
+  // Alvo: AI Security Specialist L3→L4 (foco em AI Security & SecMLOps + Segurança Ofensiva)
+  const targetLevel = 4;
   
   const hardGaps = skills
-    .filter(s => s.type === 'hard' && s.level < targetLevel && ['Cloud & Data', 'DevOps', 'APIs', 'Governança de Dados', 'IA Generativa'].includes(s.category))
+    .filter(s => s.type === 'hard' && s.level < targetLevel && 
+      ['AI Security & SecMLOps', 'Segurança & Red Team', 'AI Engineering'].includes(s.category))
     .sort((a, b) => a.level - b.level)
-    .slice(0, 3);
+    .slice(0, 5);
 
   const softGaps = skills
     .filter(s => s.type === 'soft' && s.level < targetLevel)
@@ -146,7 +147,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
             </div>
             
             <p className="text-sm text-muted-foreground mb-6">
-              Prioridades de desenvolvimento calculadas para o patamar de <span className="font-bold text-foreground">Sênior / Tech Lead</span>.
+              Prioridades de desenvolvimento para <span className="font-bold text-foreground">AI Security Specialist (L3→L4)</span> com foco em Red Team e SecMLOps.
             </p>
 
             <div className="space-y-8">
@@ -208,10 +209,10 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
             <div className="mt-8 p-4 bg-primary/5 border border-primary/10 rounded-xl">
               <div className="flex items-center gap-2 mb-3 text-primary">
                 <Target className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Foco Estratégico Atual</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Trilha: AI Security Specialist (L3→L4)</span>
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Para atingir o nível de Sênior, o foco deve ser na redução dos gaps de <span className="font-bold text-foreground">Liderança Situacional</span> e <span className="font-bold text-foreground">Arquitetura de Sistemas</span>, movendo-se de executor para orquestrador de soluções.
+                Progressão L3→L4 requer domínio em <span className="font-bold text-foreground">AI Security (OWASP LLM, MITRE ATLAS)</span>, <span className="font-bold text-foreground">Red Team (CRTP/OSCP)</span> e <span className="font-bold text-foreground">SecMLOps (Runtime Guardrails, Model Supply Chain)</span>. Foco em certificações CRTP e CAISP até Dez/2027.
               </p>
             </div>
           </div>
