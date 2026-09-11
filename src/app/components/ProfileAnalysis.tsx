@@ -34,7 +34,6 @@ const affinities = [
 ];
 
 export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysisProps) {
-  // Cálculo de Strengths (Categorias com média > 4)
   const categories = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) acc[skill.category] = { sum: 0, count: 0 };
     acc[skill.category].sum += skill.level;
@@ -54,7 +53,6 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   const hardStrengths = strengths.filter(s => s.type === 'hard').slice(0, 3);
   const softStrengths = strengths.filter(s => s.type === 'soft').slice(0, 3);
 
-  // Gaps de Evolução Dinâmicos
   const targetLevel = 4;
   const priorityDomains = ['AI Security & SecMLOps', 'Segurança & Red Team', 'AI Engineering'];
   
@@ -64,14 +62,12 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
     .sort((a, b) => a.level - b.level)
     .slice(0, 4);
 
-  // Estatísticas do Perfil
   const totalSkills = skills.length;
   const prioritySkills = skills.filter(s => priorityDomains.includes(s.category));
   const avgPriority = prioritySkills.reduce((sum, s) => sum + s.level, 0) / prioritySkills.length;
   
   const skillsInL5 = skills.filter(s => s.level === 5).length;
 
-  // Microskills progress
   const totalRequirements = skills.reduce((sum, s) => sum + (s.requirements?.length || 0), 0);
   const completedRequirements = skills.reduce((sum, s) => {
     const reqs = s.requirements?.length || 0;
@@ -81,12 +77,22 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   }, 0);
   const progressPercent = totalRequirements > 0 ? ((completedRequirements / totalRequirements) * 100).toFixed(0) : '0';
 
-  // Roadmap Oficial do PDI
+  // Roadmap oficial com AAISM como objetivo final (L7)
   const officialRoadmap = [
-    { phase: 'Fase 1 (L3-L4)', title: 'Fundação Ofensiva', desc: 'CRTP, OSCP — Foco em Active Directory e Pentest prático.' },
-    { phase: 'Fase 2 (L4-L5)', title: 'Especialização em AI Security', desc: 'CAISP (OWASP LLM Top 10, MITRE ATLAS), ISO 42001.' },
-    { phase: 'Fase 3 (L5-L6)', title: 'Arquitetura & Governança', desc: 'CISSP, iSAQB CPSA-F/A, AWS Solutions Architect Professional.' },
-    { phase: 'Fase 4 (L6-L7)', title: 'Liderança & Expert', desc: 'ISACA AAISM (Advanced in AI Security Management).' }
+    { phase: 'L3 (Fase 1)', title: 'Red Team Foundation', desc: 'CRTP — Fundação ofensiva em Active Directory.' },
+    { phase: 'L4 (Fase 2)', title: 'AI Security Specialist', desc: 'OSCP → CAISP — Especialização em segurança de IA.' },
+    { phase: 'L5 (Fase 3)', title: 'Security Architecture', desc: 'CISSP + ISO 42001 — Arquitetura e governança corporativa.' },
+    { phase: 'L6 (Fase 4)', title: 'AI Security Management', desc: 'ISACA AAISM — Liderança em programas de AI security.' }
+  ];
+
+  // Certificações como milestones no roadmap (não lista separada)
+  const certMilestones = [
+    { name: 'CRTP', phase: 'L3', desc: 'Fundação ofensiva em AD' },
+    { name: 'OSCP', phase: 'L3-L4', desc: 'Metodologia de pentest completa' },
+    { name: 'CAISP', phase: 'L4', desc: 'AI Security Professional (OWASP/ATLAS)' },
+    { name: 'CISSP', phase: 'L5', desc: 'Security Professional (pré-requisito AAISM)' },
+    { name: 'ISO 42001', phase: 'L5', desc: 'AI Management System' },
+    { name: 'AAISM', phase: 'L6', desc: 'Advanced in AI Security Management (OBJETIVO FINAL)' }
   ];
 
   return (
@@ -119,7 +125,6 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
         
         {/* COLUNA ESQUERDA: Afinidades & Gaps */}
         <div className="space-y-6">
-          {/* Principais Afinidades */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="w-5 h-5 text-green-600" />
@@ -127,10 +132,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
             </div>
             <div className="space-y-3">
               {affinities.map((affinity, i) => (
-                <div 
-                  key={i}
-                  className="flex items-center gap-3 p-3 rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
-                >
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl border border-border/50 hover:border-primary/30 transition-colors">
                   <div className={`p-2 rounded-lg shrink-0 flex items-center justify-center ${affinity.bgColor}`}>
                     <affinity.icon className={`w-4 h-4 ${affinity.color}`} />
                   </div>
@@ -143,17 +145,14 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
             </div>
           </div>
 
-          {/* Gaps para L3→L4 */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <AlertCircle className="w-5 h-5 text-orange-500" />
               <h3 className="text-lg font-bold text-orange-600 dark:text-orange-400">Gaps para L3→L4</h3>
             </div>
-            
             <p className="text-xs text-muted-foreground mb-4">
               Prioridades para <span className="font-bold text-foreground">AI Security Specialist</span>
             </p>
-
             <div className="space-y-3">
               {hardGaps.map((gap, i) => (
                 <div key={i} className="space-y-1.5 bg-orange-50/50 dark:bg-orange-900/10 p-3 rounded-lg border border-orange-200/20 dark:border-orange-900/20">
@@ -164,11 +163,7 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                     </span>
                   </div>
                   <div className="h-1 bg-muted rounded-full overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: `${(gap.level / 5) * 100}%` }}
-                      className="h-full bg-orange-500"
-                    />
+                    <motion.div initial={{ width: 0 }} animate={{ width: `${(gap.level / 5) * 100}%` }} className="h-full bg-orange-500" />
                   </div>
                 </div>
               ))}
@@ -176,15 +171,16 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
           </div>
         </div>
 
-        {/* COLUNA DIREITA: Roadmap Oficial */}
+        {/* COLUNA DIREITA: Roadmap com AAISM como objetivo final */}
         <div className="space-y-6">
-          {/* Roadmap Oficial do PDI */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Target className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-bold">Roadmap Oficial (L1-L7)</h3>
+              <h3 className="text-lg font-bold">Roadmap: L1 → L7</h3>
             </div>
-            
+            <p className="text-xs text-muted-foreground mb-4">
+              <span className="font-bold text-primary">Objetivo final: AAISM (L6)</span> — Liderança em programas de AI Security
+            </p>
             <div className="space-y-3">
               {officialRoadmap.map((item, i) => (
                 <div key={i} className="relative pl-5 border-l-2 border-border pb-2 last:pb-0">
@@ -197,67 +193,26 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
                 </div>
               ))}
             </div>
-
             <div className="mt-6 p-4 bg-primary/5 border border-primary/10 rounded-xl">
               <div className="flex items-center gap-2 mb-2 text-primary">
                 <Zap className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Certificações Chave</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Trilha Certificações</span>
               </div>
-              <p className="text-[11px] text-muted-foreground leading-relaxed">
-                <span className="font-bold text-foreground">Obrigatórias:</span> CRTP (L3) → OSCP → CAISP (L4) → CISSP (L5)
-              </p>
-              <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">
-                <span className="font-bold text-foreground">Opcionais:</span> AWS SAA (ponte), CPSA-F/A (arquitetura), CMCPSE (IA agêntica)
-              </p>
-            </div>
-          </div>
-
-          {/* Trilha de Certificações Oficiais */}
-          <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <Rocket className="w-5 h-5 text-purple-500" />
-              <h3 className="text-lg font-bold">Trilha de Certificações</h3>
-            </div>
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">CRTP</div>
-                  <div className="text-[10px] text-muted-foreground">Red Team - Active Directory</div>
-                </div>
-                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 1</span>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">OSCP</div>
-                  <div className="text-[10px] text-muted-foreground">Pentest Avançado</div>
-                </div>
-                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 1</span>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">CAISP</div>
-                  <div className="text-[10px] text-muted-foreground">AI Security Professional</div>
-                </div>
-                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 2</span>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">CISSP</div>
-                  <div className="text-[10px] text-muted-foreground">Security Professional</div>
-                </div>
-                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 3</span>
-              </div>
-              <div className="flex items-center justify-between p-3 rounded-lg border bg-purple-50/50 dark:bg-purple-900/10 border-purple-200/20 dark:border-purple-900/20">
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">ISO 42001</div>
-                  <div className="text-[10px] text-muted-foreground">AI Management</div>
-                </div>
-                <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-1.5 py-0.5 rounded">Fase 3</span>
+              <div className="space-y-2">
+                {certMilestones.map((cert, i) => (
+                  <div key={i} className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="font-bold">{cert.name}</span>
+                      <span className="text-muted-foreground">({cert.phase})</span>
+                    </div>
+                    <span className="text-muted-foreground">{cert.desc}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
