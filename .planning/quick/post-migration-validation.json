@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-09-11T01:38:00.871Z",
+  "timestamp": "2026-09-11T01:47:08.821Z",
   "total_skills": 115,
   "orphan_skills": [],
   "categories": {
-    "Engenharia de Dados": 15,
-    "AI Engineering": 13,
-    "AI Security & SecMLOps": 10,
-    "Engenharia de Software": 8,
-    "Cloud & Platform": 18,
     "Liderança & Soft Skills": 26,
+    "AI Engineering": 13,
+    "Engenharia de Dados": 15,
+    "AI Security & SecMLOps": 10,
+    "Cloud & Platform": 18,
+    "Engenharia de Software": 8,
     "Arquitetura & APIs": 8,
     "Linguagens & Paradigmas": 9,
     "Segurança & Red Team": 8
