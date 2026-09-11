@@ -31,21 +31,19 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   const softStrengths = strengths.filter(s => s.type === 'soft').slice(0, 3);
 
   // Gaps de Evolução Dinâmicos (Hard e Soft)
-  // Alvo: AI Security Specialist L3→L4 (foco em AI Security & SecMLOps + Segurança Ofensiva)
   const targetLevel = 4;
-  
   const priorityDomains = ['AI Security & SecMLOps', 'Segurança & Red Team', 'AI Engineering'];
   
   const hardGaps = skills
     .filter(s => s.type === 'hard' && s.level < targetLevel && 
       priorityDomains.includes(s.category))
     .sort((a, b) => a.level - b.level)
-    .slice(0, 6);
+    .slice(0, 4);
 
   const softGaps = skills
     .filter(s => s.type === 'soft' && s.level < targetLevel)
     .sort((a, b) => a.level - b.level)
-    .slice(0, 3);
+    .slice(0, 2);
 
   // Estatísticas do Perfil
   const totalSkills = skills.length;
@@ -53,10 +51,8 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
   const avgPriority = prioritySkills.reduce((sum, s) => sum + s.level, 0) / prioritySkills.length;
   
   const skillsInL5 = skills.filter(s => s.level === 5).length;
-  const skillsBelowL4 = skills.filter(s => s.level < 4).length;
 
-  // Microskills progress - Calcula completude com base no nível da skill
-  // nível L4.3 → ~85% completude (usando fórmula inversa: completed/total = (level-1)/4)
+  // Microskills progress
   const totalRequirements = skills.reduce((sum, s) => sum + (s.requirements?.length || 0), 0);
   const completedRequirements = skills.reduce((sum, s) => {
     const reqs = s.requirements?.length || 0;
@@ -68,38 +64,37 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
 
   // Roadmap T1-T4 status
   const roadmapStatus = {
-    T1: { label: 'Set-Dez/2026', title: 'FOUNDATIONS', desc: 'CRTP + OWASP LLM + Supply Chain', completed: 0, total: 3 },
-    T2: { label: 'Jan-Mar/2027', title: 'ADVANCEMENT', desc: 'OSCP + ISO 42001', completed: 0, total: 2 },
-    T3: { label: 'Abr-Jun/2027', title: 'OFFENSIVE', desc: 'OSCP + NIST AI RMF', completed: 0, total: 2 },
-    T4: { label: 'Jul-Dez/2027', title: 'MASTERY', desc: 'CAISP + CMCPSE + Validation', completed: 0, total: 3 }
+    T1: { label: 'Set-Dez/2026', title: 'FOUNDATIONS', desc: 'CRTP + OWASP LLM + Supply Chain' },
+    T2: { label: 'Jan-Mar/2027', title: 'ADVANCEMENT', desc: 'OSCP + ISO 42001' },
+    T3: { label: 'Abr-Jun/2027', title: 'OFFENSIVE', desc: 'OSCP + NIST AI RMF' },
+    T4: { label: 'Jul-Dez/2027', title: 'MASTERY', desc: 'CAISP + CMCPSE + Validation' }
   };
 
-  // Trilha de certificações
   const certTrack = [
-    { name: 'CRTP', desc: 'Red Team - Active Directory', status: 'pending', color: 'bg-gray-400', target: 'Dez/2026' },
-    { name: 'OSCP', desc: 'Pentest - Metodologia completa', status: 'pending', color: 'bg-gray-400', target: 'Jun/2027' },
-    { name: 'CAISP', desc: 'AI Security Professional', status: 'pending', color: 'bg-gray-400', target: 'Dez/2027' },
-    { name: 'CMCPSE', desc: 'MCP Security Expert', status: 'pending', color: 'bg-gray-400', target: 'Dez/2027' }
+    { name: 'CRTP', desc: 'Red Team - Active Directory', color: 'bg-gray-400' },
+    { name: 'OSCP', desc: 'Pentest Avançado', color: 'bg-gray-400' },
+    { name: 'CAISP', desc: 'AI Security Professional', color: 'bg-gray-400' },
+    { name: 'CMCPSE', desc: 'MCP Security Expert', color: 'bg-gray-400' }
   ];
 
   const affinities = [
     {
       title: 'AI Engineering & Sistemas Agênticos',
-      description: 'Domínio em orquestração de LLMs, RAG avançado e arquitetura de agentes autônomos com LangGraph.',
+      description: 'Orquestração de LLMs, RAG avançado e agentes autônomos.',
       icon: Brain,
       color: 'text-purple-500',
       bgColor: 'bg-purple-50 dark:bg-purple-900/20'
     },
     {
       title: 'Engenharia de Dados & Analytics',
-      description: 'Expertise em modelagem dimensional, SQL avançado e pipelines de dados em larga escala (AWS Glue, Athena).',
+      description: 'Modelagem dimensional e pipelines em larga escala.',
       icon: Rocket,
       color: 'text-blue-500',
       bgColor: 'bg-blue-50 dark:bg-blue-900/20'
     },
     {
       title: 'Cloud Architecture & Serverless',
-      description: 'Arquitetura cloud-native na AWS (Lambda, S3, DynamoDB) e otimização de custos (FinOps).',
+      description: 'Arquitetura AWS cloud-native e FinOps.',
       icon: Zap,
       color: 'text-yellow-500',
       bgColor: 'bg-yellow-50 dark:bg-yellow-900/20'
@@ -131,218 +126,121 @@ export function ProfileAnalysis({ skills, projects, milestones }: ProfileAnalysi
         </div>
       </div>
 
+      {/* Layout Balanceado em 2 Colunas Simétricas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Coluna 1: Pontos Fortes & Afinidades */}
+        
+        {/* COLUNA ESQUERDA: Afinidades, Especialidades & Gaps */}
         <div className="space-y-6">
+          {/* Principais Afinidades */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="w-5 h-5 text-green-600" />
-              <h3 className="text-xl font-bold">Principais Afinidades</h3>
+              <h3 className="text-lg font-bold">Principais Afinidades</h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {affinities.map((affinity, i) => (
-                <motion.div 
+                <div 
                   key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
                 >
-                  <div className={`p-3 rounded-lg shrink-0 flex items-center justify-center ${affinity.bgColor}`}>
-                    <affinity.icon className={`w-5 h-5 ${affinity.color}`} />
+                  <div className={`p-2 rounded-lg shrink-0 flex items-center justify-center ${affinity.bgColor}`}>
+                    <affinity.icon className={`w-4 h-4 ${affinity.color}`} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm mb-1">{affinity.title}</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{affinity.description}</p>
+                    <h4 className="font-bold text-xs mb-0.5">{affinity.title}</h4>
+                    <p className="text-[11px] text-muted-foreground leading-snug">{affinity.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
 
+          {/* Gaps para L3→L4 */}
           <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-6">
-              <Brain className="w-5 h-5 text-primary" />
-              <h3 className="text-xl font-bold">Domínios de Especialidade</h3>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Hard Skills (Pontos Fortes)</h4>
-                <div className="flex flex-wrap gap-2">
-                  {hardStrengths.map((s, i) => (
-                    <div key={i} className="px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full flex items-center gap-2">
-                      <span className="text-xs font-bold text-primary">{s.name}</span>
-                      <span className="text-[10px] bg-primary text-white px-1.5 py-0.5 rounded-full">{s.avg.toFixed(1)}</span>
-                    </div>
-                  ))}
-                  {hardStrengths.length === 0 && (
-                    <span className="text-xs text-muted-foreground">Sem skills ≥ L4.0</span>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Soft Skills (Pontos Fortes)</h4>
-                <div className="flex flex-wrap gap-2">
-                  {softStrengths.map((s, i) => (
-                    <div key={i} className="px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full flex items-center gap-2">
-                      <span className="text-xs font-bold text-green-700 dark:text-green-400">{s.name}</span>
-                      <span className="text-[10px] bg-green-600 text-white px-1.5 py-0.5 rounded-full">{s.avg.toFixed(1)}</span>
-                    </div>
-                  ))}
-                  {softStrengths.length === 0 && (
-                    <span className="text-xs text-muted-foreground">Sem skills ≥ L4.0</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Coluna 2: Gap Analysis & Plano de Ação */}
-        <div className="space-y-6">
-          <div className="bg-card border border-border rounded-2xl p-6 shadow-sm h-full">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-4">
               <AlertCircle className="w-5 h-5 text-orange-500" />
-              <h3 className="text-xl font-bold text-orange-600 dark:text-orange-400">Gaps para L3→L4</h3>
+              <h3 className="text-lg font-bold text-orange-600 dark:text-orange-400">Gaps para L3→L4</h3>
             </div>
             
-            <p className="text-sm text-muted-foreground mb-4">
-              Prioridades de desenvolvimento para <span className="font-bold text-foreground">AI Security Specialist (L3→L4)</span>
+            <p className="text-xs text-muted-foreground mb-4">
+              Prioridades para <span className="font-bold text-foreground">AI Security Specialist</span>
             </p>
 
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Progresso Microskills</div>
-              </div>
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progressPercent}%` }}
-                  className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-1000"
-                />
-              </div>
-              <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                <span>0%</span>
-                <span>{progressPercent}% concluídos</span>
-                <span>100%</span>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              {/* Hard Gaps */}
-              <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                  Gaps Técnicos Prioritários
-                </h4>
-                <div className="space-y-3">
-                  {hardGaps.map((gap, i) => (
-                    <div key={i} className="space-y-2 bg-orange-50/50 dark:bg-orange-900/10 p-3 rounded-lg border border-orange-200/20 dark:border-orange-900/20">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">{gap.name}</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold text-orange-600 bg-orange-100 dark:bg-orange-900/30 px-2 py-0.5 rounded-full font-mono">
-                            L{gap.level.toFixed(1)} → L4
-                          </span>
-                          <span className="text-[10px] text-orange-500/60">
-                            {Math.round((gap.requirements?.length || 0) * ((gap.level - 1) / 4))}/{gap.requirements?.length || 0} reqs
-                          </span>
-                        </div>
-                      </div>
-                      <div className="h-1 bg-muted rounded-full overflow-hidden">
-                        <motion.div 
-                          initial={{ width: 0 }}
-                          animate={{ width: `${(gap.level / 5) * 100}%` }}
-                          className="h-full bg-orange-500"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                  {hardGaps.length === 0 && (
-                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center text-green-600 dark:text-green-400 text-sm">
-                      <CheckCircle className="w-4 h-4 mx-auto mb-1" />
-                      Sem gaps críticos na prioridade!
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Soft Gaps */}
-              <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                  Desenvolvimento Comportamental
-                </h4>
-                <div className="space-y-3">
-                  {softGaps.map((gap, i) => (
-                    <div key={i} className="space-y-2 bg-purple-50/50 dark:bg-purple-900/10 p-3 rounded-lg border border-purple-200/20 dark:border-purple-900/20">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">{gap.name}</span>
-                        <span className="text-[10px] font-bold text-purple-600 bg-purple-100 dark:bg-purple-900/30 px-2 py-0.5 rounded-full font-mono">
-                          L{gap.level.toFixed(1)} → L4
-                        </span>
-                      </div>
-                      <div className="h-1 bg-muted rounded-full overflow-hidden">
-                        <motion.div 
-                          initial={{ width: 0 }}
-                          animate={{ width: `${(gap.level / 5) * 100}%` }}
-                          className="h-full bg-purple-500"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Roadmap T1-T4 */}
-            <div className="mt-6 pt-6 border-t border-border">
-              <div className="flex items-center gap-2 mb-4">
-                <Target className="w-4 h-4 text-primary" />
-                <span className="text-xs font-bold uppercase tracking-wider">Roadmap de Progressão L3→L4</span>
-              </div>
-              
-              <div className="space-y-4">
-                {Object.entries(roadmapStatus).map(([quarter, data], i) => (
-                  <div key={quarter} className="relative pl-6 border-l-2 border-border">
-                    <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-primary rounded-full" />
-                    <div className="flex justify-between items-start mb-1">
-                      <span className="text-xs font-bold text-primary">{data.label}</span>
-                      <span className="text-[10px] font-bold uppercase tracking-wider">{data.title}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground">{data.desc}</p>
-                    <div className="flex items-center gap-2 mt-2">
-                      <Clock className="w-3 h-3 text-muted-foreground" />
-                      <span className="text-[10px] text-muted-foreground/70">Alvo: {quarter === 'T1' ? 'Dez/2026' : quarter === 'T2' ? 'Mar/2027' : quarter === 'T3' ? 'Jun/2027' : 'Dez/2027'}</span>
-                    </div>
+            <div className="space-y-3">
+              {hardGaps.map((gap, i) => (
+                <div key={i} className="space-y-1.5 bg-orange-50/50 dark:bg-orange-900/10 p-3 rounded-lg border border-orange-200/20 dark:border-orange-900/20">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-medium">{gap.name}</span>
+                    <span className="text-[10px] font-bold text-orange-600 bg-orange-100 dark:bg-orange-900/30 px-2 py-0.5 rounded-full font-mono">
+                      L{gap.level.toFixed(1)} → L4
+                    </span>
                   </div>
-                ))}
-              </div>
-
-              {/* Certifications Track */}
-              <div className="mt-6 pt-6 border-t border-border">
-                <h4 className="text-xs font-black uppercase tracking-wider text-muted-foreground mb-3">Trilha de Certificações</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  {certTrack.map((cert, i) => (
-                    <div key={i} className={`p-3 rounded-lg border flex items-center gap-3 ${
-                      cert.status === 'completed' 
-                        ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-900/30' 
-                        : 'bg-muted/30 dark:bg-muted/20 border-border'
-                    }`}>
-                      <div className={`w-2 h-2 rounded-full ${cert.color}`} />
-                      <div>
-                        <div className="text-xs font-bold">{cert.name}</div>
-                        <div className="text-[10px] text-muted-foreground truncate">{cert.desc}</div>
-                      </div>
-                    </div>
-                  ))}
+                  <div className="h-1 bg-muted rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(gap.level / 5) * 100}%` }}
+                      className="h-full bg-orange-500"
+                    />
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* COLUNA DIREITA: Roadmap T1-T4 & Certificações */}
+        <div className="space-y-6">
+          {/* Roadmap de Progressão L3→L4 */}
+          <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <Target className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-bold">Roadmap L3→L4 (12 Meses)</h3>
+            </div>
+            
+            <div className="space-y-3">
+              {Object.entries(roadmapStatus).map(([quarter, data]) => (
+                <div key={quarter} className="relative pl-5 border-l-2 border-border pb-2 last:pb-0">
+                  <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-primary rounded-full" />
+                  <div className="flex justify-between items-center mb-0.5">
+                    <span className="text-xs font-bold text-primary">{quarter} ({data.label})</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary px-1.5 py-0.5 rounded">{data.title}</span>
+                  </div>
+                  <p className="text-[11px] text-muted-foreground">{data.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Trilha de Certificações */}
+          <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <Rocket className="w-5 h-5 text-purple-500" />
+              <h3 className="text-lg font-bold">Trilha de Certificações</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-2.5">
+              {certTrack.map((cert, i) => (
+                <div key={i} className="p-2.5 rounded-lg border bg-muted/30 dark:bg-muted/20 border-border flex items-center gap-2.5">
+                  <div className={`w-2 h-2 rounded-full ${cert.color}`} />
+                  <div className="min-w-0">
+                    <div className="text-xs font-bold">{cert.name}</div>
+                    <div className="text-[9px] text-muted-foreground truncate">{cert.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 p-3 bg-primary/5 border border-primary/10 rounded-xl">
+              <div className="flex items-center gap-1.5 mb-1 text-primary">
+                <Zap className="w-3.5 h-3.5" />
+                <span className="text-[10px] font-bold uppercase tracking-wider">Foco Estratégico</span>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                Progressão focada em <span className="font-bold text-foreground">AI Security (OWASP, ATLAS)</span> e <span className="font-bold text-foreground">Red Team (CRTP/OSCP)</span> até Dez/2027.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
